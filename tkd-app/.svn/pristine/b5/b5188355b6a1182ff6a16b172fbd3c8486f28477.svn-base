@@ -1,0 +1,11 @@
+#data base
+#oa.jdbc.url=jdbc:mysql://ball.db:3306/oa?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8
+
+#jdbc.driver=com.mysql.jdbc.Driver
+#oa.jdbc.url=jdbc:mysql://ball.db:3306/oa?zeroDateTimeBehavior=convertToNull&useUnicode=true
+#oa.jdbc.username=app
+#oa.jdbc.password=qiuyouZone
+jdbc.driver=${jdbc.driver}
+oa.jdbc.url=${jdbc.url}
+oa.jdbc.username=${jdbc.username}
+oa.jdbc.password=${jdbc.password}

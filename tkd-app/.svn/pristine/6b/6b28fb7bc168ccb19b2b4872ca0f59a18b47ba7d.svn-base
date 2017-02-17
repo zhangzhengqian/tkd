@@ -1,0 +1,835 @@
+package com.lc.zy.ball.app.service.statium;
+
+import com.lc.zy.ball.app.common.AbstractCacheService;
+import com.lc.zy.ball.app.common.CheckUtils;
+import com.lc.zy.ball.app.common.CommonService;
+import com.lc.zy.ball.app.common.Utils;
+import com.lc.zy.ball.app.service.statium.bean.*;
+import com.lc.zy.ball.domain.oa.mapper.*;
+import com.lc.zy.ball.domain.oa.po.*;
+import com.lc.zy.ball.solr.StatiumBean;
+import com.lc.zy.common.bean.CacheKeys;
+import com.lc.zy.common.search.PageBean;
+import com.lc.zy.common.search.Searcher;
+import com.lc.zy.common.util.DateUtils;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
+import org.apache.solr.client.solrj.SolrQuery.ORDER;
+import org.apache.solr.client.solrj.SolrQuery.SortClause;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
+import java.math.BigDecimal;
+import java.util.*;
+
+@Repository
+@Transactional
+public class StatiumRepository extends AbstractCacheService implements CacheKeys {
+
+	private static Logger logger = LoggerFactory.getLogger(StatiumRepository.class);
+
+	@Resource(name = "configs")
+	private Map<String, String> configs;
+
+	private StatiumInfosMapper statiumInfosMapper;
+
+	private StatiumClassMapper statiumClassMapper;
+
+	private StatiumClassInfoMapper statiumClassInfoMapper;
+
+	private CoachMapper coachMapper;
+
+	private StatiumClassMemberMapper statiumClassMemberMapper;
+
+	private StatiumActivityMapper statiumActivityMapper;
+
+	private StatiumActivityMemberMapper statiumActivityMemberMapper;
+
+	private CommonService commonService;
+
+	private CheckUtils checkUtils;
+
+	public StatiumRepository() {
+
+	}
+
+	@Autowired
+	public StatiumRepository(StatiumInfosMapper statiumInfosMapper, StatiumClassMapper statiumClassMapper,
+			StatiumClassInfoMapper statiumClassInfoMapper, CoachMapper coachMapper, StatiumClassMemberMapper statiumClassMemberMapper,
+							 StatiumActivityMapper statiumActivityMapper, StatiumActivityMemberMapper statiumActivityMemberMapper, CommonService commonService,
+							 CheckUtils checkUtils) {
+		super();
+		this.statiumInfosMapper = statiumInfosMapper;
+		this.statiumClassMapper = statiumClassMapper;
+		this.statiumClassInfoMapper = statiumClassInfoMapper;
+		this.coachMapper = coachMapper;
+		this.statiumClassMemberMapper = statiumClassMemberMapper;
+		this.statiumActivityMapper = statiumActivityMapper;
+		this.statiumActivityMemberMapper = statiumActivityMemberMapper;
+		this.commonService = commonService;
+		this.checkUtils = checkUtils;
+	}
+
+	/**
+	 * 
+	 * <搜索附近的球馆><功能具体实现>
+	 *
+	 * @create：2015年8月27日 上午11:00:16
+	 * @author：sl
+	 * @param type
+	 *            请求类型 map：地图附近的场馆列表 list：场馆列表
+	 * @param province
+	 *            省份
+	 * @param city
+	 *            城市
+	 * @param lng
+	 *            经度
+	 * @param lat
+	 *            纬度
+	 * @param radius
+	 *            范围
+	 * @param keyword
+	 *            关键字搜索
+	 * @param recommend
+	 *            推荐 1： 销量最多2：收藏列表3：评价最好4：价格最低 5：价格最高6：免费场馆0:离我最近
+	 * @param begin
+	 *            开始
+	 * @param size
+	 *            结束
+	 * @param version
+	 *            版本号
+	 * @param channel
+	 *            渠道
+	 * @return
+	 * @throws Exception
+	 */
+	public PageBean<StatiumBean> search(String token, String type, String province, String city, String area,
+			Double lng, Double lat, Double radius, String keyword, Integer recommend, Integer begin, Integer size,
+			String version, String channel) {
+		try {
+			final String URL = configs.get("services.solr_server") + "core0";
+			String q = null;
+
+			List<String> filterQueriesList = new ArrayList<String>();
+			String[] fields = null;
+			if ("map".equals(type)) {
+				fields = new String[] { "id", "name", "dist:geodist()", "address", "geo", "minPrice", "discount",
+						"discountPrice", "limitPrice", "statiumPrice", "photo_list" , "introduce", "recommend", "grade"};
+			} else if ("list".equals(type)) {
+				fields = new String[] { "id", "name", "address", "geo", "photo_list", "phone", "dist:geodist()",
+						"minPrice", "discount", "discountPrice", "limitPrice", "statiumPrice", "introduce", "recommend", "grade"}; // geodist()返回距离函数
+			}
+			StringBuilder sb = new StringBuilder();
+			if (StringUtils.isNotEmpty(province)) {
+				sb.append(province);
+			}
+			if (StringUtils.isNotEmpty(city)) {
+				sb.append(city);
+			}
+
+			if (StringUtils.isNotEmpty(sb.toString())) {
+				filterQueriesList.add("city:" + "*" + city + "*");
+			}
+
+			if (StringUtils.isNotEmpty(area)) {
+				filterQueriesList.add("area:" + area);
+			}
+
+			if (StringUtils.isNotEmpty(keyword)) {
+				filterQueriesList
+						.add("name:*" + keyword + "* or address:*" + keyword + "* or phone:" + "*" + keyword + "*");
+			}
+            // 只抽取审核通过的道馆
+            filterQueriesList.add("status:1");
+			Map<String, String> params = new HashMap<String, String>();
+			if (lat != null && lat != -1 && lng != null && lng != -1) {
+				filterQueriesList.add("{!geofilt}");
+				params.put("sfield", "geo");
+				params.put("pt", lat + "," + lng);
+				if ("list".equalsIgnoreCase(type) && (radius == null || radius == -1)) {
+					radius = 10000.0;
+				} else if ("map".equalsIgnoreCase(type) && (radius == null || radius == -1)) {
+					radius = 50.0;
+				}
+				params.put("d", "" + radius);
+			}
+			params.put("wt", "json");
+			params.put("indent", "true");
+			// 1： 销量最多2：收藏列表3：评价最好4：价格最低 5：价格最高6：免费场馆
+			List<SortClause> sortList = new ArrayList<SortClause>();
+			SortClause sort = null;
+			sort = SortClause.create("grade", ORDER.desc);
+			sortList.add(sort);
+			if (recommend != null && recommend != -1) {
+				switch (recommend) {
+				case 1:
+					sort = SortClause.create("sales", ORDER.desc);
+					sortList.add(sort);
+					break;
+				case 3:
+					sort = SortClause.create("comment", ORDER.desc);
+					sortList.add(sort);
+					break;
+				default:
+					sortList.add(SortClause.create("geodist()", ORDER.asc));
+					break;
+				}
+			}
+			PageBean<StatiumBean> page = Searcher.query(StatiumBean.class, URL, begin, size, q,
+					filterQueriesList.toArray(new String[filterQueriesList.size()]), fields, params, sortList);
+			List<StatiumBean> statiumBeanList = page.getData();
+			if ("list".equals(type) || "map".equals(type)) {
+				BigDecimal decimal1 = null;
+				BigDecimal decimal2 = null;
+				Double grade = null;
+				StatiumInfos statium = null;
+				for (StatiumBean s : statiumBeanList) {
+					statium = this.selectByPrimaryKey(StatiumInfos.class, s.getId());
+					Integer score = 10;
+					decimal1 = new BigDecimal(score); // 场馆评星总分
+					decimal2 = new BigDecimal(2);
+					decimal1 = decimal1.divide(decimal2);
+					grade = decimal1.setScale(1, BigDecimal.ROUND_HALF_UP).doubleValue(); // 四舍五入，保留一位
+					int gradeVal = Utils.getGrade(grade);
+					if (true) {
+						if (gradeVal < 8) {
+							gradeVal = 8;
+						}
+					}
+					s.setGrade(gradeVal);
+					// s.setOrderTotal(ordersCounter.fetch(s.getId()));
+					s.setOrderTotal(129);
+					if (statium != null && StringUtils.isNotEmpty(statium.getLogo())) {
+						s.setPhoto_list(statium.getLogo());
+					} else {
+						if (StringUtils.isNotEmpty(s.getPhoto_list())) {
+							s.setPhoto_list(s.getPhoto_list().split(";")[0]);
+						}
+					}
+				}
+			}
+
+			return page;
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			throw new RuntimeException(e);
+		}
+	}
+
+	/**
+	 * 
+	 * <道馆详情><功能具体实现>
+	 *
+	 * @create：2016年4月26日 上午11:26:51
+	 * @author：sl
+	 * @param statiumId
+	 * @param token
+	 * @return
+	 */
+	public StatiumInfoVo detail(String statiumId, String token) {
+		StatiumInfoVo statiumInfoVo = new StatiumInfoVo();
+		try {
+			// 根据道馆id获取道馆信息
+			StatiumInfos infos = infoById(statiumId);
+			// 图片格式处理
+			infos.setPhotos(infos.getPhotos().replace("__", ";"));
+			// bean copy
+			BeanUtils.copyProperties(infos, statiumInfoVo);
+			// 活动
+			List<StatiumActivityListVo> statiumActivityListVos = packageStatiumActivity(statiumId, token);
+			statiumInfoVo.setStatiumActivityListVos(statiumActivityListVos);
+			// 课程
+			List<StatiumClass> statiumClasses = classBySid(statiumId);
+			List<ClassListVo> classListVos = new ArrayList<ClassListVo>();
+			// 课程详情
+			List<ClassInfoVo> classInfoVos = new ArrayList<ClassInfoVo>();
+			if (statiumClasses != null) {
+				classListVos = classList(statiumClasses);
+				classInfoVos = classInfoVos(statiumClasses.get(0).getId());
+			}
+			statiumInfoVo.setClassListVos(classListVos);
+			// 课程详情
+			statiumInfoVo.setClassInfoVos(classInfoVos);
+			// 教练
+			List<Coach> coachs = coachsBysId(Integer.valueOf(statiumId));
+			statiumInfoVo.setCoachs(coachs);
+			// 所教课程
+			String classNames = packageClassNames(statiumClasses);
+			statiumInfoVo.setClassNames(classNames);
+			if (token != null) {
+				// 判断用户是否有1元体验次数
+				String userId = commonService.getSsoUserByToken(token).getId();
+				statiumInfoVo.setIsExperience(checkUtils.checkIsExperience(userId));
+			}
+		} catch (Exception e) {
+			logger.debug("道馆详情：｛｝", e.getMessage());
+		}
+		return statiumInfoVo;
+	}
+
+	/**
+	 *
+	 * <道馆活动列表><功能具体实现>
+	 *
+	 * @create：2016-07-28 14:31:48
+	 * @author：sl
+	 * @param statiumId
+	 * @param token
+	 * @return java.util.List<com.lc.zy.ball.app.service.statium.bean.StatiumActivityListVo>
+	 */
+	private List<StatiumActivityListVo> packageStatiumActivity(String statiumId, String token) {
+		List<StatiumActivityListVo> statiumActivityListVos = new ArrayList<StatiumActivityListVo>();
+		try {
+			StatiumActivityCriteria statiumActivityCriteria = new StatiumActivityCriteria();
+			StatiumActivityCriteria.Criteria criteria = statiumActivityCriteria.createCriteria();
+			criteria.andStatiumIdEqualTo(Integer.valueOf(statiumId));
+			List<StatiumActivity> statiumActivities = statiumActivityMapper.selectByExample(statiumActivityCriteria);
+			for (StatiumActivity statiumActivity : statiumActivities) {
+				StatiumActivityListVo statiumActivityListVo = new StatiumActivityListVo();
+				// 活动名称
+				statiumActivityListVo.setsAvtivityName(statiumActivity.getActivityTopic());
+				// 活动日期
+				int a = statiumActivity.getStartTime().lastIndexOf(":");
+				int b = statiumActivity.getEndTime().lastIndexOf(":");
+				statiumActivityListVo.setsActivityDate(statiumActivity.getStartTime().substring(0, a)  + " 至 " + statiumActivity.getEndTime().substring(0, b));
+				// 活动人数
+				statiumActivityListVo.setSignNum(statiumActivity.getAmount());
+				// 判断活动是否过期
+				logger.debug("endTime--------------- {}", statiumActivity.getEndTime());
+				Date now = new Date();
+				Date endDate = DateUtils.getDateTime(statiumActivity.getEndTime());
+				logger.debug("endDate ------------------ {}", endDate);
+				if (now.compareTo(endDate) >= 0) {
+					statiumActivityListVo.setsActivityStatus("已结束");
+				} else if (statiumActivity.getExpiryType() == 0
+						&& now.compareTo(DateUtils.getDateTime(statiumActivity.getExpiryData())) >= 0) {
+					statiumActivityListVo.setsActivityStatus("已截止");
+				} else if (statiumActivity.getExpiryType() == 1) {
+					Calendar calendar = Calendar.getInstance();
+					calendar.setTime(DateUtils.getDateTime(statiumActivity.getEndTime()));
+					calendar.add(Calendar.HOUR_OF_DAY, -Integer.parseInt(statiumActivity.getExpiryData()));
+					if (now.compareTo(calendar.getTime()) >= 0) {
+						statiumActivityListVo.setsActivityStatus("已截止");
+					}
+				} else {
+					if (activitysignNum(statiumActivity.getId()) >= statiumActivity.getAmount()) {
+						statiumActivityListVo.setsActivityStatus("已报满");
+					} else {
+						if (token != null) {
+							if (commonService.checkToken(token)) {
+								String userId = commonService.getSsoUserByToken(token).getId();
+								StatiumActivityMemberCriteria statiumActivityMemberCriteria = new StatiumActivityMemberCriteria();
+								StatiumActivityMemberCriteria.Criteria criteria1 = statiumActivityMemberCriteria.createCriteria();
+								criteria1.andActivityIdEqualTo(statiumActivity.getId());
+								criteria1.andUserIdEqualTo(userId);
+								List<StatiumActivityMember> statiumActivityMember = statiumActivityMemberMapper.selectByExample(statiumActivityMemberCriteria);
+
+								if (CollectionUtils.isNotEmpty(statiumActivityMember)) {
+									statiumActivityListVo.setsActivityStatus("已报名");
+								} else {
+									statiumActivityListVo.setsActivityStatus("报名");
+									// 活动可报名状态
+									statiumActivityListVo.setStatus(1);
+								}
+							} else {
+								statiumActivityListVo.setsActivityStatus("报名");
+								// 活动可报名状态
+								statiumActivityListVo.setStatus(1);
+							}
+						} else {
+							statiumActivityListVo.setsActivityStatus("报名");
+							// 活动可报名状态
+							statiumActivityListVo.setStatus(1);
+						}
+					}
+				}
+				// 活动id
+				statiumActivityListVo.setsActivityId(statiumActivity.getId());
+				// 活动图片
+				if (statiumActivity.getPhoto() != null) {
+					statiumActivityListVo.setsActivityphoto(statiumActivity.getPhoto().split("__")[0]);
+				}
+
+				statiumActivityListVos.add(statiumActivityListVo);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.debug("道馆活动列表", e.getMessage());
+		}
+		return statiumActivityListVos;
+	}
+
+	/**
+	 *
+	 * <获取活动报名人数><功能具体实现>
+	 *
+	 * @create：2016-07-28 14:10:21
+	 * @author：sl
+	 * @param activityId
+	 * @return int
+	 */
+	public int activitysignNum (String activityId) {
+		int num = 0;
+		try {
+			StatiumActivityMemberCriteria statiumActivityMemberCriteria = new StatiumActivityMemberCriteria();
+			StatiumActivityMemberCriteria.Criteria criteria = statiumActivityMemberCriteria.createCriteria();
+			criteria.andActivityIdEqualTo(activityId);
+			num = statiumActivityMemberMapper.countByExample(statiumActivityMemberCriteria);
+		} catch (Exception e) {
+			logger.debug("获取活动报名人数", e.getMessage());
+		}
+		return num;
+	}
+
+	/**
+	 *
+	 * <道馆课程列表信息><功能具体实现>
+	 *
+	 * @create：2016-07-19 19:35:25
+	 * @author：sl
+	 * @param statiumClasses
+	 * @return java.util.List<com.lc.zy.ball.app.service.statium.bean.ClassListVo>
+	 */
+	public List<ClassListVo> classList (List<StatiumClass> statiumClasses){
+		// 当天课程信息
+		List<ClassListVo> classListVos = new ArrayList<ClassListVo>();
+		try {
+			// 课程ids
+			List<String> classIds = new ArrayList<String>();
+			for (StatiumClass statiumClass : statiumClasses) {
+				classIds.add(statiumClass.getId());
+			}
+			// 获取道馆课时信息
+			List<StatiumClassInfo> statiumClassInfos = classInfos(classIds, DateUtils.getDate(DateUtils.getTodayStr()));
+			if (statiumClassInfos != null) {
+				classListVos = packageClassListVo(statiumClassInfos);
+			}
+		} catch (Exception e) {
+			logger.debug("道馆课程列表信息: {}", e.getMessage());
+		}
+		return classListVos;
+	}
+
+	/**
+	 *
+	 * <获取道馆课时报名人数><功能具体实现>
+	 *
+	 * @create：2016-07-19 19:31:43
+	 * @author：sl
+	 * @param classInfoId
+	 * @return int
+	 */
+	public int signNum (String classInfoId) {
+		int num = 0;
+		try {
+			StatiumClassMemberCriteria criteria = new StatiumClassMemberCriteria();
+			StatiumClassMemberCriteria.Criteria cri = criteria.createCriteria();
+			cri.andClassInfoIdEqualTo(classInfoId);
+			num = statiumClassMemberMapper.countByExample(criteria);
+		} catch (Exception e) {
+			logger.debug("获取道馆课时报名人数: {}", e.getMessage());
+		}
+		return num;
+	}
+
+	/**
+	 *
+	 * <根据课程id获取课程信息><功能具体实现>
+	 *
+	 * @create：2016-07-19 18:57:01
+	 * @author：sl
+	 * @param classId
+	 * @return com.lc.zy.ball.domain.oa.po.StatiumClass
+	 */
+	public StatiumClass statiumClassById(String classId){
+		StatiumClass statiumClass = new StatiumClass();
+		try {
+			statiumClass = this.selectByPrimaryKey(StatiumClass.class, classId);
+		}catch (Exception e){
+			logger.error("根据课程id获取课程信息: {}", e.getMessage());
+		}
+		return statiumClass;
+	}
+
+	/**
+	 * 
+	 * <功能描述><功能具体实现>
+	 *
+	 * @create：2016年5月13日 上午11:43:24
+	 * @author：sl
+	 * @param statiumClasses
+	 * @return
+	 */
+	private String packageClassNames(List<StatiumClass> statiumClasses) {
+		String classNames = "";
+		for (StatiumClass statiumClass : statiumClasses) {
+			classNames = classNames + statiumClass.getClassTitle() + " ";
+		}
+		return classNames;
+	}
+
+	/**
+	 * 
+	 * <根据道馆id查询道馆信息><功能具体实现>
+	 *
+	 * @create：2016年4月26日 上午10:52:37
+	 * @author：sl
+	 * @param statiumId
+	 * @return
+	 */
+	public StatiumInfos infoById(String statiumId) {
+		List<StatiumInfos> infos = new ArrayList<StatiumInfos>();
+		try {
+			StatiumInfosCriteria criteria = new StatiumInfosCriteria();
+			StatiumInfosCriteria.Criteria cri = criteria.createCriteria();
+			cri.andDgIdEqualTo(Integer.valueOf(statiumId));
+			infos = statiumInfosMapper.selectByExample(criteria);
+		} catch (Exception e) {
+			logger.debug("根据道馆id查询道馆信息：｛｝", e.getMessage());
+		}
+		return infos.get(0);
+	}
+
+	/**
+	 * 
+	 * <根据道馆ID查询道馆课程><功能具体实现>
+	 *
+	 * @create：2016年4月26日 上午11:18:55
+	 * @author：sl
+	 * @param statiumId
+	 * @return
+	 */
+	public List<StatiumClass> classBySid(String statiumId) {
+		List<StatiumClass> statiumClassesNew = new ArrayList<StatiumClass>();
+		try {
+			StatiumClassCriteria statiumClassCriteria = new StatiumClassCriteria();
+			statiumClassCriteria.createCriteria().andStatiumIdEqualTo(Integer.valueOf(statiumId));
+			List<StatiumClass> statiumClasses = statiumClassMapper.selectByExample(statiumClassCriteria);
+			// 判断道馆1周内课程
+			for (StatiumClass statiumClass : statiumClasses) {
+				List<StatiumClassInfo> statiumClassInfos = classInfo(statiumClass.getId());
+				if (!statiumClassInfos.isEmpty()) {
+					statiumClassesNew.add(statiumClass);
+				}
+			}
+		} catch (Exception e) {
+			logger.debug("根据道馆ID查询道馆课程：｛｝", e.getMessage());
+		}
+		return statiumClassesNew;
+	}
+
+	/**
+	 * 
+	 * <获取场馆课程详细信息><功能具体实现>
+	 *
+	 * @create：2016年4月26日 下午6:04:22
+	 * @author：sl
+	 * @param classId
+	 * @return
+	 */
+	public List<StatiumClassInfo> classInfo(String classId) {
+		List<StatiumClassInfo> statiumClassInfos = new ArrayList<StatiumClassInfo>();
+		try {
+			Date now = DateUtils.getDate(DateUtils.formatDate(DateUtils.getToday()));
+			StatiumClassInfoCriteria statiumClassInfoCriteria = new StatiumClassInfoCriteria();
+			StatiumClassInfoCriteria.Criteria criteria = statiumClassInfoCriteria.createCriteria();
+			statiumClassInfoCriteria.setOrderByClause("class_date asc, class_start_time desc");
+			criteria.andClassDateBetween(now, DateUtils.plusDaysToday(7));
+			criteria.andClassIdEqualTo(classId);
+			statiumClassInfos = statiumClassInfoMapper.selectByExample(statiumClassInfoCriteria);
+		} catch (Exception e) {
+			logger.debug("获取场馆课程详细信息：｛｝", e.getMessage());
+		}
+		return statiumClassInfos;
+	}
+
+	/**
+	 * 
+	 * <根据课程ID查询课程详情封装><功能具体实现>
+	 *
+	 * @create：2016年4月26日 下午10:21:05
+	 * @author：sl
+	 * @param classId
+	 * @return
+	 */
+	public List<ClassInfoVo> classInfoVos(String classId) {
+		List<ClassInfoVo> classInfoVos = new ArrayList<ClassInfoVo>();
+		try {
+			List<StatiumClassInfo> statiumClassInfos = classInfo(classId);
+			for (StatiumClassInfo statiumClassInfo : statiumClassInfos) {
+				ClassInfoVo classInfoVo = new ClassInfoVo();
+				BeanUtils.copyProperties(statiumClassInfo, classInfoVo);
+				// 日期(2016-04-19)转化x月x日
+				classInfoVo.setDate(DateUtils.getChineseDate(statiumClassInfo.getClassDate()));
+				// 根据日期获取星期
+				Date now = DateUtils.getDate(DateUtils.formatDate(DateUtils.getToday()));
+				if (DateUtils.isSameDate(now, statiumClassInfo.getClassDate())) {
+					classInfoVo.setWeek("今天");
+				} else {
+					classInfoVo.setWeek(DateUtils.getWeek(statiumClassInfo.getClassDate()));
+				}
+
+				classInfoVos.add(classInfoVo);
+			}
+		} catch (Exception e) {
+			logger.debug("根据课程ID查询课程详情封装：｛｝", e.getMessage());
+		}
+		return classInfoVos;
+	}
+
+	/**
+	 * 
+	 * <课时详情><功能具体实现>
+	 *
+	 * @create：2016年4月27日 下午3:23:35
+	 * @author：sl
+	 * @param classInfoId
+	 * @return
+	 */
+	public ClassDetalVo classDetail(String classInfoId, String token) {
+		ClassDetalVo classDetalVo = new ClassDetalVo();
+		try {
+			StatiumClassInfo statiumClassInfo = this.selectByPrimaryKey(StatiumClassInfo.class, classInfoId);
+			BeanUtils.copyProperties(statiumClassInfo, classDetalVo);
+			// 根据课程类型id获取课程信息
+			StatiumClass statiumClass = this.selectByPrimaryKey(StatiumClass.class, statiumClassInfo.getClassId());
+			// 课程名称
+			classDetalVo.setClassName(statiumClass.getClassTitle());
+			// 课程简介
+			classDetalVo.setBrief(statiumClass.getClassIntroduce());
+			// 根据道馆id获取道馆信息
+			StatiumInfosCriteria statiumInfosCriteria = new StatiumInfosCriteria();
+			StatiumInfosCriteria.Criteria criteria = statiumInfosCriteria.createCriteria();
+			criteria.andDgIdEqualTo(statiumClass.getStatiumId());
+			StatiumInfos statiumInfos = statiumInfosMapper.selectByExample(statiumInfosCriteria).get(0);
+			// 道馆地址
+			classDetalVo.setAddr(statiumInfos.getAddress());
+			// 咨询电话
+			classDetalVo.setTel(statiumInfos.getTel());
+			// 原价
+			classDetalVo.setPrice(statiumClass.getPrice() / 100);
+			// 折扣价
+			classDetalVo.setDiscountPrice(statiumClass.getDiscountPrice() / 100);
+			// 课程状态 0:可报名 1:已报名 2:报名已满
+			int status = 0;
+			Date now = new Date();
+			String classDate = DateUtils.formatDate(statiumClassInfo.getClassDate()) + " " + statiumClassInfo.getClassStartTime();
+			logger.debug("classDate {}", classDate);
+			Date endDate = DateUtils.getDate(classDate, "yyyy-MM-dd HH:mm");
+			logger.debug("endDate {}", endDate);
+			logger.debug("flag {}", now.compareTo(endDate));
+			SsoUser user = commonService.getSsoUserByToken(token);
+			if (now.compareTo(endDate) >= 0) {
+				// 已截止
+				status = 3;
+			} else {
+				if (checkUtils.checkClass(classInfoId)) {
+					// 判断是否已报名
+					if (!checkUtils.checkClassSign(classInfoId, user.getId())) {
+						// 已报名
+						status = 1;
+					}
+				} else {
+					// 报名已满
+					status = 2;
+				}
+			}
+			classDetalVo.setClassStatus(status);
+			// 体验次数
+			classDetalVo.setIsExperience(user.getExperience());
+
+		} catch (Exception e) {
+			logger.debug("课时详情：｛｝", e.getMessage());
+		}
+		return classDetalVo;
+	}
+
+	/**
+	 * 
+	 * <根据道馆id获取教练信息><功能具体实现>
+	 *
+	 * @create：2016年4月28日 上午10:55:20
+	 * @author：sl
+	 * @param statiumId
+	 * @return
+	 */
+	public List<Coach> coachsBysId(int statiumId) {
+		List<Coach> coachs = new ArrayList<Coach>();
+		try {
+			CoachCriteria coachCriteria = new CoachCriteria();
+			CoachCriteria.Criteria criteria = coachCriteria.createCriteria();
+			criteria.andDgIdEqualTo(statiumId);
+			coachs = coachMapper.selectByExample(coachCriteria);
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.debug("根据道馆id获取教练信息：｛｝", e.getMessage());
+		}
+		return coachs;
+	}
+
+	/**
+	 * 
+	 * <根据道馆id获取大课/私教><功能具体实现>
+	 *
+	 * @create：2016年4月28日 下午2:55:40
+	 * @author：sl
+	 * @param statiumId
+	 * @param type
+	 * @return
+	 */
+	public List<Coach> coachList(String statiumId, String type) {
+		List<Coach> coachs = new ArrayList<Coach>();
+		try {
+			CoachCriteria coachCriteria = new CoachCriteria();
+			CoachCriteria.Criteria criteria = coachCriteria.createCriteria();
+			if (!StringUtils.isEmpty(type)) {
+				criteria.andTypeEqualTo(type);
+			}
+			criteria.andDgIdEqualTo(Integer.valueOf(statiumId));
+			coachs = coachMapper.selectByExample(coachCriteria);
+		} catch (Exception e) {
+			logger.debug("根据道馆id获取大课/私教", e.getMessage());
+		}
+		return coachs;
+	}
+
+	/**
+	 *
+	 * <根据日期获取道馆课时listInfo><功能具体实现>
+	 *
+	 * @create：2016-07-23 18:44:45
+	 * @author：sl
+	 * @param statiumId
+	 * @param classDate
+	 * @return java.util.List<com.lc.zy.ball.app.service.statium.bean.ClassListVo>
+	 */
+	public List<ClassListVo> classListByDate(String statiumId, String classDate) {
+		List<ClassListVo> classListVos = new ArrayList<ClassListVo>();
+		try {
+			// 根据道馆id获取道馆课程
+			StatiumClassCriteria criteria = new StatiumClassCriteria();
+			StatiumClassCriteria.Criteria cri = criteria.createCriteria();
+			cri.andStatiumIdEqualTo(Integer.valueOf(statiumId));
+			List<StatiumClass> statiumClasses = statiumClassMapper.selectByExample(criteria);
+			// 格式化日期
+			Date cDate = DateUtils.getDate(fomatDate(classDate));
+			List<String> classIds = new ArrayList<String>();
+			for (StatiumClass sClass : statiumClasses) {
+				// 封装课程id
+				classIds.add(sClass.getId());
+			}
+			// 根据课程id,课时时间获取道馆课程课时
+			List<StatiumClassInfo> classInfos = classInfos(classIds, cDate);
+			classListVos = packageClassListVo(classInfos);
+		} catch (Exception e) {
+			logger.debug("根据日期获取道馆课时listInfo", e.getMessage());
+		}
+		return  classListVos;
+	}
+
+	/**
+	 *
+	 * <根据课程id,课时时间获取道馆课程课时><功能具体实现>
+	 *
+	 * @create：2016-07-23 18:33:11
+	 * @author：sl
+	 * @param classIds
+	 * @param cDate
+	 * @return java.util.List<com.lc.zy.ball.domain.oa.po.StatiumClassInfo>
+	 */
+	public List<StatiumClassInfo> classInfos (List<String> classIds, Date cDate) {
+		List<StatiumClassInfo> classInfos = new ArrayList<StatiumClassInfo>();
+		try {
+			// 根据课程id,课时时间获取道馆课程课时
+			StatiumClassInfoCriteria infoCriteria = new StatiumClassInfoCriteria();
+			StatiumClassInfoCriteria.Criteria infoCri = infoCriteria.createCriteria();
+			infoCri.andClassIdIn(classIds);
+			infoCri.andClassDateEqualTo(cDate);
+			infoCriteria.setOrderByClause("class_start_time asc");
+			classInfos = statiumClassInfoMapper.selectByExample(infoCriteria);
+		} catch (Exception e) {
+			logger.debug("根据课程id,课时时间获取道馆课程课时", e.getMessage());
+		}
+		return classInfos;
+	}
+
+	/**
+	 *
+	 * <封装道馆课时list><功能具体实现>
+	 *
+	 * @create：2016-07-23 18:43:18
+	 * @author：sl
+	 * @param statiumClassInfos
+	 * @return java.util.List<com.lc.zy.ball.app.service.statium.bean.ClassListVo>
+	 */
+	public List<ClassListVo> packageClassListVo (List<StatiumClassInfo> statiumClassInfos) {
+		List<ClassListVo> classListVos = new ArrayList<ClassListVo>();
+		try {
+			for (StatiumClassInfo info : statiumClassInfos) {
+				// 根据课程id获取课程信息
+				StatiumClass sClass = statiumClassById(info.getClassId());
+				// 课程
+				ClassListVo classListVo = new ClassListVo();
+				classListVo.setClassEndTime(info.getClassEndTime());
+				classListVo.setClassInfoId(info.getId());
+				classListVo.setClassStartTime(info.getClassStartTime());
+				classListVo.setClassName(sClass.getClassTitle());
+				classListVo.setClassPrice(sClass.getPrice()/100);
+                // 签约价
+                classListVo.setSignPrice(sClass.getDiscountPrice()/100);
+				// 可报名人数
+				int num = sClass.getMaxPeople() - signNum(info.getId());
+				if (num <= 0) {
+					num = 0;
+				}
+				classListVo.setSignNum(num);
+				// 是否可报名
+				int status = 0;
+				Date now = new Date();
+				String classDate = DateUtils.formatDate(info.getClassDate()) + " " + info.getClassStartTime();
+				logger.debug("classDate {}", classDate);
+				Date endDate = DateUtils.getDate(classDate, "yyyy-MM-dd HH:mm");
+				logger.debug("endDate {}", endDate);
+				logger.debug("flag {}", now.compareTo(endDate));
+				if (now.compareTo(endDate) >= 0) {
+					// 已截止
+					status = 1;
+				}
+				classListVo.setStatus(status);
+
+				classListVos.add(classListVo);
+			}
+		} catch (Exception e) {
+			logger.debug("封装道馆课时list", e.getMessage());
+		}
+		return  classListVos;
+	}
+
+	/**
+	 *
+	 * <格式化x月x日><功能具体实现>
+	 *
+	 * @create：2016-07-23 21:19:20
+	 * @author：sl
+	 * @param classDate
+	 * @return java.lang.String
+	 */
+	public String fomatDate (String classDate) {
+		String cDate = "";
+		try {
+			String[] dates = classDate.split("月");
+			String month = dates[0];
+			String day = dates[1].split("日")[0];
+			cDate = DateUtils.getYear() + "-" + month + "-" + day;
+		} catch (Exception e) {
+			logger.debug("格式化x月x日", e.getMessage());
+		}
+		return cDate;
+	}
+}

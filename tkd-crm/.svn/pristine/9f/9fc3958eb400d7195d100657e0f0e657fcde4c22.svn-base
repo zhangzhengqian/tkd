@@ -1,0 +1,31 @@
+<div class="orderTipMeg">
+	<a class="addLockBtn" href="#gameMembers/{{gameId}}">返回</a>
+	<a class="addLockBtn" ng-click="setSeedSort()" href="javascript:;">设定</a>
+	<p><span>鼠标拖拽进行排序,点击【设定】保存排位</span></p>
+</div>
+<div class="orderResult">
+<table crm-drag>
+	<tr id="sorthead">
+		<th>报名人</th>
+		<th>报名人性别</th>
+		<th>报名人身份证</th>
+		<th>报名人联系电话</th>
+		<th ng-if="doubleFlag==1">双打搭档</th>
+		<th ng-if="doubleFlag==1">搭档性别</th>
+		<th ng-if="doubleFlag==1">搭档身份证</th>
+		<th ng-if="doubleFlag==1">搭档联系电话</th>
+		<th>种子排位</th>
+	</tr>
+	<tr seed_id="{{$index+1}}" ng-repeat="member in seeds">
+		<td>{{member.name}}</td>
+		<td>{{member.sex}}</td>
+		<td>{{member.cardNo}}</td>
+		<td>{{member.phone}}</td>
+		<td ng-if="doubleFlag==1">{{member.team.name}}</td>
+		<td ng-if="doubleFlag==1">{{member.team.sex}}</td>
+		<td ng-if="doubleFlag==1">{{member.team.cardNo}}</td>
+		<td ng-if="doubleFlag==1">{{member.team.phone}}</td>
+		<td>{{$index+1|seedNumFilter}}</td>
+	</tr>
+</table>
+</div>

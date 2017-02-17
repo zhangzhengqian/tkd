@@ -1,0 +1,50 @@
+.ztree * {
+    font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI",
+    simsun, sans-serif;
+    font-size: 14px;
+}
+
+.ztree li {
+    margin: 3px 0;
+}
+
+.ztree li a.curSelectedNode {
+    height: 18px;
+}
+
+/*冻结根结节*/
+.ztree li span.button.switch.level0 {
+    visibility: hidden;
+    width: 1px;
+}
+
+.ztree li ul.level0 {
+    padding: 0;
+    background: none;
+}
+
+/*根节点图标样式*/
+.ztree li span.button.root_ico_open,.ztree li span.button.root_ico_close
+{
+    width: 0px;
+    height: 0px;
+}
+
+
+/*编辑按钮图标样式*/
+.ztree li a span.button.edit
+, .ztree li a span.button.remove
+, .ztree li a span.button.add {
+    margin-left: 10px;
+    margin-right: -5px;
+}
+.ztree li span.button.add {
+    background-position: -144px 0;
+    vertical-align: top;
+    *vertical-align: middle
+}
+
+.tree-container {
+    border: #efefef 1px solid;
+    overflow: auto;
+}

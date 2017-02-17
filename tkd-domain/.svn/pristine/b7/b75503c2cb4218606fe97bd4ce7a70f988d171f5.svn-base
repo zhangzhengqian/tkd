@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lc.zy.ball.domain.oa.mapper.OrderMapper" >
+  <resultMap id="BaseResultMap" type="com.lc.zy.ball.domain.oa.po.Order" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="statium_id" property="statiumId" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="order_type" property="orderType" jdbcType="VARCHAR" />
+    <result column="fee" property="fee" jdbcType="INTEGER" />
+    <result column="final_fee" property="finalFee" jdbcType="INTEGER" />
+    <result column="comment" property="comment" jdbcType="VARCHAR" />
+    <result column="ct" property="ct" jdbcType="TIMESTAMP" />
+    <result column="cb" property="cb" jdbcType="VARCHAR" />
+    <result column="et" property="et" jdbcType="TIMESTAMP" />
+    <result column="eb" property="eb" jdbcType="VARCHAR" />
+    <result column="number" property="number" jdbcType="VARCHAR" />
+    <result column="pay_type" property="payType" jdbcType="INTEGER" />
+    <result column="orders_type" property="ordersType" jdbcType="INTEGER" />
+    <result column="refund_batch_no" property="refundBatchNo" jdbcType="VARCHAR" />
+    <result column="reason" property="reason" jdbcType="VARCHAR" />
+    <result column="trade_no" property="tradeNo" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="is_check" property="isCheck" jdbcType="INTEGER" />
+    <result column="check_date" property="checkDate" jdbcType="TIMESTAMP" />
+    <result column="channel" property="channel" jdbcType="INTEGER" />
+    <result column="handle_status" property="handleStatus" jdbcType="INTEGER" />
+    <result column="handler" property="handler" jdbcType="VARCHAR" />
+    <result column="verify_flag" property="verifyFlag" jdbcType="INTEGER" />
+    <result column="is_comment" property="isComment" jdbcType="INTEGER" />
+    <result column="class_type" property="classType" jdbcType="INTEGER" />
+    <result column="is_experience" property="isExperience" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, user_id, statium_id, status, order_type, fee, final_fee, comment, ct, cb, et, 
+    eb, number, pay_type, orders_type, refund_batch_no, reason, trade_no, address, is_check, 
+    check_date, channel, handle_status, handler, verify_flag, is_comment, class_type, 
+    is_experience
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lc.zy.ball.domain.oa.po.OrderCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from oa_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="mysqlOffset != null and mysqlLength != null" >
+      <![CDATA[ limit #{mysqlOffset} , #{mysqlLength} ]]>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from oa_order
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from oa_order
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lc.zy.ball.domain.oa.po.OrderCriteria" >
+    delete from oa_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lc.zy.ball.domain.oa.po.Order" >
+    insert into oa_order (id, user_id, statium_id, status, order_type, fee, final_fee, 
+      comment, ct, cb, et, eb, number, pay_type, orders_type, refund_batch_no, 
+      reason, trade_no, address, is_check, check_date, channel, handle_status, 
+      handler, verify_flag, is_comment, class_type, is_experience)
+    values (#{id}, #{userId}, #{statiumId}, #{status}, #{orderType}, #{fee}, #{finalFee}, 
+      #{comment}, #{ct}, #{cb}, #{et}, #{eb}, #{number}, #{payType}, #{ordersType}, #{refundBatchNo}, 
+      #{reason}, #{tradeNo}, #{address}, #{isCheck}, #{checkDate}, #{channel}, #{handleStatus}, 
+      #{handler}, #{verifyFlag}, #{isComment}, #{classType}, #{isExperience})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lc.zy.ball.domain.oa.po.Order" >
+    insert into oa_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="statiumId != null" >
+        statium_id,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="orderType != null" >
+        order_type,
+      </if>
+      <if test="fee != null" >
+        fee,
+      </if>
+      <if test="finalFee != null" >
+        final_fee,
+      </if>
+      <if test="comment != null" >
+        comment,
+      </if>
+      <if test="ct != null" >
+        ct,
+      </if>
+      <if test="cb != null" >
+        cb,
+      </if>
+      <if test="et != null" >
+        et,
+      </if>
+      <if test="eb != null" >
+        eb,
+      </if>
+      <if test="number != null" >
+        number,
+      </if>
+      <if test="payType != null" >
+        pay_type,
+      </if>
+      <if test="ordersType != null" >
+        orders_type,
+      </if>
+      <if test="refundBatchNo != null" >
+        refund_batch_no,
+      </if>
+      <if test="reason != null" >
+        reason,
+      </if>
+      <if test="tradeNo != null" >
+        trade_no,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="isCheck != null" >
+        is_check,
+      </if>
+      <if test="checkDate != null" >
+        check_date,
+      </if>
+      <if test="channel != null" >
+        channel,
+      </if>
+      <if test="handleStatus != null" >
+        handle_status,
+      </if>
+      <if test="handler != null" >
+        handler,
+      </if>
+      <if test="verifyFlag != null" >
+        verify_flag,
+      </if>
+      <if test="isComment != null" >
+        is_comment,
+      </if>
+      <if test="classType != null" >
+        class_type,
+      </if>
+      <if test="isExperience != null" >
+        is_experience,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="userId != null" >
+        #{userId},
+      </if>
+      <if test="statiumId != null" >
+        #{statiumId},
+      </if>
+      <if test="status != null" >
+        #{status},
+      </if>
+      <if test="orderType != null" >
+        #{orderType},
+      </if>
+      <if test="fee != null" >
+        #{fee},
+      </if>
+      <if test="finalFee != null" >
+        #{finalFee},
+      </if>
+      <if test="comment != null" >
+        #{comment},
+      </if>
+      <if test="ct != null" >
+        #{ct},
+      </if>
+      <if test="cb != null" >
+        #{cb},
+      </if>
+      <if test="et != null" >
+        #{et},
+      </if>
+      <if test="eb != null" >
+        #{eb},
+      </if>
+      <if test="number != null" >
+        #{number},
+      </if>
+      <if test="payType != null" >
+        #{payType},
+      </if>
+      <if test="ordersType != null" >
+        #{ordersType},
+      </if>
+      <if test="refundBatchNo != null" >
+        #{refundBatchNo},
+      </if>
+      <if test="reason != null" >
+        #{reason},
+      </if>
+      <if test="tradeNo != null" >
+        #{tradeNo},
+      </if>
+      <if test="address != null" >
+        #{address},
+      </if>
+      <if test="isCheck != null" >
+        #{isCheck},
+      </if>
+      <if test="checkDate != null" >
+        #{checkDate},
+      </if>
+      <if test="channel != null" >
+        #{channel},
+      </if>
+      <if test="handleStatus != null" >
+        #{handleStatus},
+      </if>
+      <if test="handler != null" >
+        #{handler},
+      </if>
+      <if test="verifyFlag != null" >
+        #{verifyFlag},
+      </if>
+      <if test="isComment != null" >
+        #{isComment},
+      </if>
+      <if test="classType != null" >
+        #{classType},
+      </if>
+      <if test="isExperience != null" >
+        #{isExperience},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lc.zy.ball.domain.oa.po.OrderCriteria" resultType="java.lang.Integer" >
+    select count(*) from oa_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update oa_order
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId},
+      </if>
+      <if test="record.statiumId != null" >
+        statium_id = #{record.statiumId},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status},
+      </if>
+      <if test="record.orderType != null" >
+        order_type = #{record.orderType},
+      </if>
+      <if test="record.fee != null" >
+        fee = #{record.fee},
+      </if>
+      <if test="record.finalFee != null" >
+        final_fee = #{record.finalFee},
+      </if>
+      <if test="record.comment != null" >
+        comment = #{record.comment},
+      </if>
+      <if test="record.ct != null" >
+        ct = #{record.ct},
+      </if>
+      <if test="record.cb != null" >
+        cb = #{record.cb},
+      </if>
+      <if test="record.et != null" >
+        et = #{record.et},
+      </if>
+      <if test="record.eb != null" >
+        eb = #{record.eb},
+      </if>
+      <if test="record.number != null" >
+        number = #{record.number},
+      </if>
+      <if test="record.payType != null" >
+        pay_type = #{record.payType},
+      </if>
+      <if test="record.ordersType != null" >
+        orders_type = #{record.ordersType},
+      </if>
+      <if test="record.refundBatchNo != null" >
+        refund_batch_no = #{record.refundBatchNo},
+      </if>
+      <if test="record.reason != null" >
+        reason = #{record.reason},
+      </if>
+      <if test="record.tradeNo != null" >
+        trade_no = #{record.tradeNo},
+      </if>
+      <if test="record.address != null" >
+        address = #{record.address},
+      </if>
+      <if test="record.isCheck != null" >
+        is_check = #{record.isCheck},
+      </if>
+      <if test="record.checkDate != null" >
+        check_date = #{record.checkDate},
+      </if>
+      <if test="record.channel != null" >
+        channel = #{record.channel},
+      </if>
+      <if test="record.handleStatus != null" >
+        handle_status = #{record.handleStatus},
+      </if>
+      <if test="record.handler != null" >
+        handler = #{record.handler},
+      </if>
+      <if test="record.verifyFlag != null" >
+        verify_flag = #{record.verifyFlag},
+      </if>
+      <if test="record.isComment != null" >
+        is_comment = #{record.isComment},
+      </if>
+      <if test="record.classType != null" >
+        class_type = #{record.classType},
+      </if>
+      <if test="record.isExperience != null" >
+        is_experience = #{record.isExperience},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update oa_order
+    set id = #{record.id},
+      user_id = #{record.userId},
+      statium_id = #{record.statiumId},
+      status = #{record.status},
+      order_type = #{record.orderType},
+      fee = #{record.fee},
+      final_fee = #{record.finalFee},
+      comment = #{record.comment},
+      ct = #{record.ct},
+      cb = #{record.cb},
+      et = #{record.et},
+      eb = #{record.eb},
+      number = #{record.number},
+      pay_type = #{record.payType},
+      orders_type = #{record.ordersType},
+      refund_batch_no = #{record.refundBatchNo},
+      reason = #{record.reason},
+      trade_no = #{record.tradeNo},
+      address = #{record.address},
+      is_check = #{record.isCheck},
+      check_date = #{record.checkDate},
+      channel = #{record.channel},
+      handle_status = #{record.handleStatus},
+      handler = #{record.handler},
+      verify_flag = #{record.verifyFlag},
+      is_comment = #{record.isComment},
+      class_type = #{record.classType},
+      is_experience = #{record.isExperience}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lc.zy.ball.domain.oa.po.Order" >
+    update oa_order
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId},
+      </if>
+      <if test="statiumId != null" >
+        statium_id = #{statiumId},
+      </if>
+      <if test="status != null" >
+        status = #{status},
+      </if>
+      <if test="orderType != null" >
+        order_type = #{orderType},
+      </if>
+      <if test="fee != null" >
+        fee = #{fee},
+      </if>
+      <if test="finalFee != null" >
+        final_fee = #{finalFee},
+      </if>
+      <if test="comment != null" >
+        comment = #{comment},
+      </if>
+      <if test="ct != null" >
+        ct = #{ct},
+      </if>
+      <if test="cb != null" >
+        cb = #{cb},
+      </if>
+      <if test="et != null" >
+        et = #{et},
+      </if>
+      <if test="eb != null" >
+        eb = #{eb},
+      </if>
+      <if test="number != null" >
+        number = #{number},
+      </if>
+      <if test="payType != null" >
+        pay_type = #{payType},
+      </if>
+      <if test="ordersType != null" >
+        orders_type = #{ordersType},
+      </if>
+      <if test="refundBatchNo != null" >
+        refund_batch_no = #{refundBatchNo},
+      </if>
+      <if test="reason != null" >
+        reason = #{reason},
+      </if>
+      <if test="tradeNo != null" >
+        trade_no = #{tradeNo},
+      </if>
+      <if test="address != null" >
+        address = #{address},
+      </if>
+      <if test="isCheck != null" >
+        is_check = #{isCheck},
+      </if>
+      <if test="checkDate != null" >
+        check_date = #{checkDate},
+      </if>
+      <if test="channel != null" >
+        channel = #{channel},
+      </if>
+      <if test="handleStatus != null" >
+        handle_status = #{handleStatus},
+      </if>
+      <if test="handler != null" >
+        handler = #{handler},
+      </if>
+      <if test="verifyFlag != null" >
+        verify_flag = #{verifyFlag},
+      </if>
+      <if test="isComment != null" >
+        is_comment = #{isComment},
+      </if>
+      <if test="classType != null" >
+        class_type = #{classType},
+      </if>
+      <if test="isExperience != null" >
+        is_experience = #{isExperience},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lc.zy.ball.domain.oa.po.Order" >
+    update oa_order
+    set user_id = #{userId},
+      statium_id = #{statiumId},
+      status = #{status},
+      order_type = #{orderType},
+      fee = #{fee},
+      final_fee = #{finalFee},
+      comment = #{comment},
+      ct = #{ct},
+      cb = #{cb},
+      et = #{et},
+      eb = #{eb},
+      number = #{number},
+      pay_type = #{payType},
+      orders_type = #{ordersType},
+      refund_batch_no = #{refundBatchNo},
+      reason = #{reason},
+      trade_no = #{tradeNo},
+      address = #{address},
+      is_check = #{isCheck},
+      check_date = #{checkDate},
+      channel = #{channel},
+      handle_status = #{handleStatus},
+      handler = #{handler},
+      verify_flag = #{verifyFlag},
+      is_comment = #{isComment},
+      class_type = #{classType},
+      is_experience = #{isExperience}
+    where id = #{id}
+  </update>
+</mapper>

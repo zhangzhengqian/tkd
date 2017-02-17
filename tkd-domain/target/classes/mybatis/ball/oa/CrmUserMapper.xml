@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lc.zy.ball.domain.oa.mapper.CrmUserMapper" >
+  <resultMap id="BaseResultMap" type="com.lc.zy.ball.domain.oa.po.CrmUser" >
+    <id column="USER_ID" property="userId" jdbcType="VARCHAR" />
+    <result column="statium_id" property="statiumId" jdbcType="VARCHAR" />
+    <result column="CUST_ID" property="custId" jdbcType="VARCHAR" />
+    <result column="NICKNAME" property="nickname" jdbcType="VARCHAR" />
+    <result column="REALNAME" property="realname" jdbcType="VARCHAR" />
+    <result column="LOGIN_NAME" property="loginName" jdbcType="VARCHAR" />
+    <result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+    <result column="SALT" property="salt" jdbcType="VARCHAR" />
+    <result column="PWD_QUESTION" property="pwdQuestion" jdbcType="VARCHAR" />
+    <result column="PWD_ANSWER" property="pwdAnswer" jdbcType="VARCHAR" />
+    <result column="SEC_EMAIL" property="secEmail" jdbcType="VARCHAR" />
+    <result column="SEC_MOBILE" property="secMobile" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="LAST_TIME" property="lastTime" jdbcType="TIMESTAMP" />
+    <result column="LAST_IP" property="lastIp" jdbcType="VARCHAR" />
+    <result column="LATEST_TIME" property="latestTime" jdbcType="TIMESTAMP" />
+    <result column="LATEST_IP" property="latestIp" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="VARCHAR" />
+    <result column="CB" property="cb" jdbcType="VARCHAR" />
+    <result column="delete_flag" property="deleteFlag" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    USER_ID, statium_id, CUST_ID, NICKNAME, REALNAME, LOGIN_NAME, PASSWORD, SALT, PWD_QUESTION, 
+    PWD_ANSWER, SEC_EMAIL, SEC_MOBILE, CREATE_TIME, LAST_TIME, LAST_IP, LATEST_TIME, 
+    LATEST_IP, STATUS, CB, delete_flag
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lc.zy.ball.domain.oa.po.CrmUserCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from crm_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="mysqlOffset != null and mysqlLength != null" >
+      <![CDATA[ limit #{mysqlOffset} , #{mysqlLength} ]]>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from crm_user
+    where USER_ID = #{userId}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from crm_user
+    where USER_ID = #{userId}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lc.zy.ball.domain.oa.po.CrmUserCriteria" >
+    delete from crm_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lc.zy.ball.domain.oa.po.CrmUser" >
+    insert into crm_user (USER_ID, statium_id, CUST_ID, NICKNAME, REALNAME, LOGIN_NAME, 
+      PASSWORD, SALT, PWD_QUESTION, PWD_ANSWER, SEC_EMAIL, SEC_MOBILE, 
+      CREATE_TIME, LAST_TIME, LAST_IP, LATEST_TIME, LATEST_IP, STATUS, CB, 
+      delete_flag)
+    values (#{userId}, #{statiumId}, #{custId}, #{nickname}, #{realname}, #{loginName}, 
+      #{password}, #{salt}, #{pwdQuestion}, #{pwdAnswer}, #{secEmail}, #{secMobile}, 
+      #{createTime}, #{lastTime}, #{lastIp}, #{latestTime}, #{latestIp}, #{status}, #{cb}, 
+      #{deleteFlag})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lc.zy.ball.domain.oa.po.CrmUser" >
+    insert into crm_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="statiumId != null" >
+        statium_id,
+      </if>
+      <if test="custId != null" >
+        CUST_ID,
+      </if>
+      <if test="nickname != null" >
+        NICKNAME,
+      </if>
+      <if test="realname != null" >
+        REALNAME,
+      </if>
+      <if test="loginName != null" >
+        LOGIN_NAME,
+      </if>
+      <if test="password != null" >
+        PASSWORD,
+      </if>
+      <if test="salt != null" >
+        SALT,
+      </if>
+      <if test="pwdQuestion != null" >
+        PWD_QUESTION,
+      </if>
+      <if test="pwdAnswer != null" >
+        PWD_ANSWER,
+      </if>
+      <if test="secEmail != null" >
+        SEC_EMAIL,
+      </if>
+      <if test="secMobile != null" >
+        SEC_MOBILE,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="lastTime != null" >
+        LAST_TIME,
+      </if>
+      <if test="lastIp != null" >
+        LAST_IP,
+      </if>
+      <if test="latestTime != null" >
+        LATEST_TIME,
+      </if>
+      <if test="latestIp != null" >
+        LATEST_IP,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="cb != null" >
+        CB,
+      </if>
+      <if test="deleteFlag != null" >
+        delete_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId},
+      </if>
+      <if test="statiumId != null" >
+        #{statiumId},
+      </if>
+      <if test="custId != null" >
+        #{custId},
+      </if>
+      <if test="nickname != null" >
+        #{nickname},
+      </if>
+      <if test="realname != null" >
+        #{realname},
+      </if>
+      <if test="loginName != null" >
+        #{loginName},
+      </if>
+      <if test="password != null" >
+        #{password},
+      </if>
+      <if test="salt != null" >
+        #{salt},
+      </if>
+      <if test="pwdQuestion != null" >
+        #{pwdQuestion},
+      </if>
+      <if test="pwdAnswer != null" >
+        #{pwdAnswer},
+      </if>
+      <if test="secEmail != null" >
+        #{secEmail},
+      </if>
+      <if test="secMobile != null" >
+        #{secMobile},
+      </if>
+      <if test="createTime != null" >
+        #{createTime},
+      </if>
+      <if test="lastTime != null" >
+        #{lastTime},
+      </if>
+      <if test="lastIp != null" >
+        #{lastIp},
+      </if>
+      <if test="latestTime != null" >
+        #{latestTime},
+      </if>
+      <if test="latestIp != null" >
+        #{latestIp},
+      </if>
+      <if test="status != null" >
+        #{status},
+      </if>
+      <if test="cb != null" >
+        #{cb},
+      </if>
+      <if test="deleteFlag != null" >
+        #{deleteFlag},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lc.zy.ball.domain.oa.po.CrmUserCriteria" resultType="java.lang.Integer" >
+    select count(*) from crm_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update crm_user
+    <set >
+      <if test="record.userId != null" >
+        USER_ID = #{record.userId},
+      </if>
+      <if test="record.statiumId != null" >
+        statium_id = #{record.statiumId},
+      </if>
+      <if test="record.custId != null" >
+        CUST_ID = #{record.custId},
+      </if>
+      <if test="record.nickname != null" >
+        NICKNAME = #{record.nickname},
+      </if>
+      <if test="record.realname != null" >
+        REALNAME = #{record.realname},
+      </if>
+      <if test="record.loginName != null" >
+        LOGIN_NAME = #{record.loginName},
+      </if>
+      <if test="record.password != null" >
+        PASSWORD = #{record.password},
+      </if>
+      <if test="record.salt != null" >
+        SALT = #{record.salt},
+      </if>
+      <if test="record.pwdQuestion != null" >
+        PWD_QUESTION = #{record.pwdQuestion},
+      </if>
+      <if test="record.pwdAnswer != null" >
+        PWD_ANSWER = #{record.pwdAnswer},
+      </if>
+      <if test="record.secEmail != null" >
+        SEC_EMAIL = #{record.secEmail},
+      </if>
+      <if test="record.secMobile != null" >
+        SEC_MOBILE = #{record.secMobile},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime},
+      </if>
+      <if test="record.lastTime != null" >
+        LAST_TIME = #{record.lastTime},
+      </if>
+      <if test="record.lastIp != null" >
+        LAST_IP = #{record.lastIp},
+      </if>
+      <if test="record.latestTime != null" >
+        LATEST_TIME = #{record.latestTime},
+      </if>
+      <if test="record.latestIp != null" >
+        LATEST_IP = #{record.latestIp},
+      </if>
+      <if test="record.status != null" >
+        STATUS = #{record.status},
+      </if>
+      <if test="record.cb != null" >
+        CB = #{record.cb},
+      </if>
+      <if test="record.deleteFlag != null" >
+        delete_flag = #{record.deleteFlag},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update crm_user
+    set USER_ID = #{record.userId},
+      statium_id = #{record.statiumId},
+      CUST_ID = #{record.custId},
+      NICKNAME = #{record.nickname},
+      REALNAME = #{record.realname},
+      LOGIN_NAME = #{record.loginName},
+      PASSWORD = #{record.password},
+      SALT = #{record.salt},
+      PWD_QUESTION = #{record.pwdQuestion},
+      PWD_ANSWER = #{record.pwdAnswer},
+      SEC_EMAIL = #{record.secEmail},
+      SEC_MOBILE = #{record.secMobile},
+      CREATE_TIME = #{record.createTime},
+      LAST_TIME = #{record.lastTime},
+      LAST_IP = #{record.lastIp},
+      LATEST_TIME = #{record.latestTime},
+      LATEST_IP = #{record.latestIp},
+      STATUS = #{record.status},
+      CB = #{record.cb},
+      delete_flag = #{record.deleteFlag}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lc.zy.ball.domain.oa.po.CrmUser" >
+    update crm_user
+    <set >
+      <if test="statiumId != null" >
+        statium_id = #{statiumId},
+      </if>
+      <if test="custId != null" >
+        CUST_ID = #{custId},
+      </if>
+      <if test="nickname != null" >
+        NICKNAME = #{nickname},
+      </if>
+      <if test="realname != null" >
+        REALNAME = #{realname},
+      </if>
+      <if test="loginName != null" >
+        LOGIN_NAME = #{loginName},
+      </if>
+      <if test="password != null" >
+        PASSWORD = #{password},
+      </if>
+      <if test="salt != null" >
+        SALT = #{salt},
+      </if>
+      <if test="pwdQuestion != null" >
+        PWD_QUESTION = #{pwdQuestion},
+      </if>
+      <if test="pwdAnswer != null" >
+        PWD_ANSWER = #{pwdAnswer},
+      </if>
+      <if test="secEmail != null" >
+        SEC_EMAIL = #{secEmail},
+      </if>
+      <if test="secMobile != null" >
+        SEC_MOBILE = #{secMobile},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime},
+      </if>
+      <if test="lastTime != null" >
+        LAST_TIME = #{lastTime},
+      </if>
+      <if test="lastIp != null" >
+        LAST_IP = #{lastIp},
+      </if>
+      <if test="latestTime != null" >
+        LATEST_TIME = #{latestTime},
+      </if>
+      <if test="latestIp != null" >
+        LATEST_IP = #{latestIp},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status},
+      </if>
+      <if test="cb != null" >
+        CB = #{cb},
+      </if>
+      <if test="deleteFlag != null" >
+        delete_flag = #{deleteFlag},
+      </if>
+    </set>
+    where USER_ID = #{userId}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lc.zy.ball.domain.oa.po.CrmUser" >
+    update crm_user
+    set statium_id = #{statiumId},
+      CUST_ID = #{custId},
+      NICKNAME = #{nickname},
+      REALNAME = #{realname},
+      LOGIN_NAME = #{loginName},
+      PASSWORD = #{password},
+      SALT = #{salt},
+      PWD_QUESTION = #{pwdQuestion},
+      PWD_ANSWER = #{pwdAnswer},
+      SEC_EMAIL = #{secEmail},
+      SEC_MOBILE = #{secMobile},
+      CREATE_TIME = #{createTime},
+      LAST_TIME = #{lastTime},
+      LAST_IP = #{lastIp},
+      LATEST_TIME = #{latestTime},
+      LATEST_IP = #{latestIp},
+      STATUS = #{status},
+      CB = #{cb},
+      delete_flag = #{deleteFlag}
+    where USER_ID = #{userId}
+  </update>
+</mapper>

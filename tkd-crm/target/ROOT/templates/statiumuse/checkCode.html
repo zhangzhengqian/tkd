@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">活动码验证</h3>
+  </div>
+  <div class="panel-body">
+	<div class="row">
+		<div class="col-sm-4">
+			<input type="text" class="form-control" id="code" placeholder="请输入活动码">
+		</div>
+        <div class="col-sm-4 input-group form-inline">
+           <input type="text" class="form-control" id="qiuyou" placeholder="请输入球友号">
+           <span class="input-group-btn">
+               <button class="btn btn-primary" id="searchBtn" type="button">验证</button>
+           </span>
+        </div>
+    </div>
+	<br>
+    <div class="row">
+	    <div id="orderTable" style="overflow: auto;" class="col-sm-12">
+	   
+	    </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript">
+$(function(){
+	$("#searchBtn").on("click",function(e){
+		 var code = $('#code').val();
+         if(code==''){
+        	 swal({
+                 title: "警告",
+                 text: "请输入活动码！"
+             });
+             return;
+         }
+         var qiuyouno = $('#qiuyou').val();
+         if(qiuyouno==''){
+        	 swal({
+                 title: "警告",
+                 text: "请输入球友号！"
+             });
+             return;
+         }
+		$.ajax({
+	        cache: true,
+	        type: "POST",
+	        url:'/admin/order/verifyCode?code='+code+'&qiuyouno='+qiuyouno,
+	        data:{},
+	        async: false,
+	        error: function(request) {
+	        	swal({
+                    title: "警告",
+                    text: "查询活动码失败！"
+                });
+	        },
+	        dataType:"JSON",
+	        success: function(res) {
+	        	if(res!=null&&res!=""){
+		        	if(res["result"]=='success'){
+		        		swal({
+		                    title: "成功",
+		                    text: "验证成功"
+		                });
+		        		$("#orderModal").modal("hide");
+		        	}else{
+		        		swal({
+		                    title: "警告",
+		                    text: res["data"]
+		                });
+		        	}
+	        		
+	        	}
+	        }
+	    });
+	});
+});
+
+function checkOrder(orderId){
+    $.ajax({
+     cache: true,
+     type: 'POST',
+     url:'/admin/order/check?orderId='+orderId,
+     data:{},
+     async: false,
+     error: function(request) {
+    	 common.showMessage("查询订单信息失败！");
+     },
+     dataType:"JSON",
+     success: function(data) {
+    	 if(data!=null&&data!=""){
+	        	if(data["result"]=='success'){
+	        		var tableDatas = {table:data["data"]};
+	        		$('#'+orderId).find('td:eq(5)').text('已验证');
+	                $('#'+orderId).find('td:eq(6)').text(data["data"]);
+	                $('#'+orderId).find('td:eq(7)').html('');
+	        	}else{
+	        		swal({
+	                    title: "警告",
+	                    text: data["data"]
+	                });
+	        	}
+     		
+     	}
+     }
+     });
+}
+</script>

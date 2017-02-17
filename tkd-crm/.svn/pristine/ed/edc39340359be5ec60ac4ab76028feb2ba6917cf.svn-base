@@ -1,0 +1,63 @@
+<div class="orderSearch">
+        <ul>
+            <li>
+                <span>运动类型</span>
+                <select id='ballType' ng-model="ballType" ng-options="sportType as sportTypeMap[sportType] for sportType in sportTypes" class="form-control"></select>
+            </li>
+            <li>
+                <span>查询时间</span>
+                <input type="text" id="input_date" value="" class="form-control">
+            </li>
+            <li class="subSearch" id="check_order"><a class="submit" href="javascript:;">订单验证</a></li>
+        </ul>
+    </div>
+    <div class="spaceState">
+        <ul>
+            <li><em class="selectState"></em><span>选中状态</span></li>
+            <li><em class="lockState"></em><span>已锁定</span></li>
+            <li><em class="batchLockState"></em><span>批量锁定</span></li>
+            <li><em class="payState"></em><span>已支付</span></li>
+            <li><em class="noPayState"></em><span>待付款</span></li>
+            <li><em class="qNoPayState"></em><span>球友圈已支付</span></li>
+            <li><em class="qPayState"></em><span>球友圈未支付</span></li>
+        </ul>
+    </div>
+    <div class="spaceModule">
+        <div class="spaceDate">
+            <ul id="spaceDateTime">
+            </ul>
+            <a class="unLockBtn" id="unlock_order" href="javascript:;">解锁</a>
+            <a class="lockBtn" id="lock_order" href="javascript:;">锁定</a>
+            <a class="orderBtn" id="create_order" href="javascript:;">下单</a>
+            <a class="orderFormBtn" id="consume_good" href="javascript:;">商品消费</a>
+        </div>
+        <div class="dateTime" id="dateTime">
+            <a class="allBtn" id="all_select"  href="javascript:;">全选</a>
+            <div class="dateTimCont">
+                <ul id="dateUl">
+                </ul>
+            </div>
+
+        </div>
+        <div class="groundManager">
+            <div class="groundCont" id="groundCont">
+                <div class="groundLeft" id="groundLeft">
+                    <div class="groundLCont" id="groundLCont">
+                        <!-- <div class="first-child">羽毛球1号场</div>
+                        <div class="first-child">羽毛球6号场</div> -->
+                    </div>
+                </div>
+                <div class="groundRight" id="groundRight">
+                    <div class="groundRCont" id="scroller">
+                        <!-- <div class="spaceGround">
+                            <div price="27.0" begin-time-data="08:00" ce1="羽毛球2号场" class="cells cantBook"><span><a></a></span></div>
+                        </div>
+                        <div class="spaceGround">
+                            <div price="27.0" begin-time-data="08:00" ce1="羽毛球2号场" class="cells cantBook"><span><a></a></span></div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>

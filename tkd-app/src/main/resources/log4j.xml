@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/' >
+
+    <appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[%d{HH:mm:ss,SSS\} %-5p] [%t] %c - %m%n" />
+        </layout>
+        <!--过滤器设置输出的级别-->
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="levelMin" value="debug" />
+            <param name="levelMax" value="error" />
+            <param name="AcceptOnMatch" value="true" />
+        </filter>
+    </appender>
+
+    <appender name="fileout" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="logs/tkd-app.log" /><!-- 设置日志输出文件名 -->
+        <!-- 设置是否在重新启动服务时，在原有日志的基础添加新日志 -->
+        <param name="DatePattern" value=".yyyyMMdd" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{MMdd HH:mm:ss,SSS\} %-5p] [%t] %c - %m%n" />
+        </layout>
+    </appender>
+    
+    <!-- 指定logger的设置，additivity指示是否遵循缺省的继承机制-->
+    <logger name="com.lc.zy" additivity="false">
+        <level value ="DEBUG"/>
+        <appender-ref ref="stdout" />
+        <appender-ref ref="fileout" />
+    </logger>
+    <logger name="org.springframework" additivity="false">
+        <level value ="warn"/>
+        <appender-ref ref="stdout" />
+        <appender-ref ref="fileout" />
+    </logger>
+    <!--  
+    <logger name="org.dozer" additivity="false">
+        <level value ="DEBUG"/>
+        <appender-ref ref="stdout" />
+    </logger>
+    <logger name="jdbc.sqltiming" additivity="false">
+        <level value ="INFO"/>
+        <appender-ref ref="stdout" />
+    </logger>
+    -->
+    <logger name="com.lc.zy.ball.domain.oa.mapper.MessageMapper" additivity="false">
+        <level value ="ERROR"/>
+        <appender-ref ref="stdout" />
+    </logger>
+
+    <!-- 根logger的设置-->
+    <root>
+        <level value ="INFO"/>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="fileout"/>
+    </root>
+</log4j:configuration>

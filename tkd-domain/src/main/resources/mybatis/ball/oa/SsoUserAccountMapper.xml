@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lc.zy.ball.domain.oa.mapper.SsoUserAccountMapper" >
+  <resultMap id="BaseResultMap" type="com.lc.zy.ball.domain.oa.po.SsoUserAccount" >
+    <id column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="isFreeze" property="isfreeze" jdbcType="INTEGER" />
+    <result column="frozen" property="frozen" jdbcType="INTEGER" />
+    <result column="passwd" property="passwd" jdbcType="VARCHAR" />
+    <result column="balance" property="balance" jdbcType="INTEGER" />
+    <result column="ct" property="ct" jdbcType="TIMESTAMP" />
+    <result column="et" property="et" jdbcType="TIMESTAMP" />
+    <result column="cb" property="cb" jdbcType="VARCHAR" />
+    <result column="eb" property="eb" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    user_id, isFreeze, frozen, passwd, balance, ct, et, cb, eb
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lc.zy.ball.domain.oa.po.SsoUserAccountCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sso_user_account
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="mysqlOffset != null and mysqlLength != null" >
+      <![CDATA[ limit #{mysqlOffset} , #{mysqlLength} ]]>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sso_user_account
+    where user_id = #{userId}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sso_user_account
+    where user_id = #{userId}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lc.zy.ball.domain.oa.po.SsoUserAccountCriteria" >
+    delete from sso_user_account
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lc.zy.ball.domain.oa.po.SsoUserAccount" >
+    insert into sso_user_account (user_id, isFreeze, frozen, passwd, balance, ct, et, cb, 
+      eb)
+    values (#{userId}, #{isfreeze}, #{frozen}, #{passwd}, #{balance}, #{ct}, #{et}, #{cb}, 
+      #{eb})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lc.zy.ball.domain.oa.po.SsoUserAccount" >
+    insert into sso_user_account
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="isfreeze != null" >
+        isFreeze,
+      </if>
+      <if test="frozen != null" >
+        frozen,
+      </if>
+      <if test="passwd != null" >
+        passwd,
+      </if>
+      <if test="balance != null" >
+        balance,
+      </if>
+      <if test="ct != null" >
+        ct,
+      </if>
+      <if test="et != null" >
+        et,
+      </if>
+      <if test="cb != null" >
+        cb,
+      </if>
+      <if test="eb != null" >
+        eb,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId},
+      </if>
+      <if test="isfreeze != null" >
+        #{isfreeze},
+      </if>
+      <if test="frozen != null" >
+        #{frozen},
+      </if>
+      <if test="passwd != null" >
+        #{passwd},
+      </if>
+      <if test="balance != null" >
+        #{balance},
+      </if>
+      <if test="ct != null" >
+        #{ct},
+      </if>
+      <if test="et != null" >
+        #{et},
+      </if>
+      <if test="cb != null" >
+        #{cb},
+      </if>
+      <if test="eb != null" >
+        #{eb},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lc.zy.ball.domain.oa.po.SsoUserAccountCriteria" resultType="java.lang.Integer" >
+    select count(*) from sso_user_account
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sso_user_account
+    <set >
+      <if test="record.userId != null" >
+        user_id = #{record.userId},
+      </if>
+      <if test="record.isfreeze != null" >
+        isFreeze = #{record.isfreeze},
+      </if>
+      <if test="record.frozen != null" >
+        frozen = #{record.frozen},
+      </if>
+      <if test="record.passwd != null" >
+        passwd = #{record.passwd},
+      </if>
+      <if test="record.balance != null" >
+        balance = #{record.balance},
+      </if>
+      <if test="record.ct != null" >
+        ct = #{record.ct},
+      </if>
+      <if test="record.et != null" >
+        et = #{record.et},
+      </if>
+      <if test="record.cb != null" >
+        cb = #{record.cb},
+      </if>
+      <if test="record.eb != null" >
+        eb = #{record.eb},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sso_user_account
+    set user_id = #{record.userId},
+      isFreeze = #{record.isfreeze},
+      frozen = #{record.frozen},
+      passwd = #{record.passwd},
+      balance = #{record.balance},
+      ct = #{record.ct},
+      et = #{record.et},
+      cb = #{record.cb},
+      eb = #{record.eb}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lc.zy.ball.domain.oa.po.SsoUserAccount" >
+    update sso_user_account
+    <set >
+      <if test="isfreeze != null" >
+        isFreeze = #{isfreeze},
+      </if>
+      <if test="frozen != null" >
+        frozen = #{frozen},
+      </if>
+      <if test="passwd != null" >
+        passwd = #{passwd},
+      </if>
+      <if test="balance != null" >
+        balance = #{balance},
+      </if>
+      <if test="ct != null" >
+        ct = #{ct},
+      </if>
+      <if test="et != null" >
+        et = #{et},
+      </if>
+      <if test="cb != null" >
+        cb = #{cb},
+      </if>
+      <if test="eb != null" >
+        eb = #{eb},
+      </if>
+    </set>
+    where user_id = #{userId}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lc.zy.ball.domain.oa.po.SsoUserAccount" >
+    update sso_user_account
+    set isFreeze = #{isfreeze},
+      frozen = #{frozen},
+      passwd = #{passwd},
+      balance = #{balance},
+      ct = #{ct},
+      et = #{et},
+      cb = #{cb},
+      eb = #{eb}
+    where user_id = #{userId}
+  </update>
+</mapper>

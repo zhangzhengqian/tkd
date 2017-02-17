@@ -1,0 +1,65 @@
+<div class="header" ng-controller="loginUserCTL">
+    <div class="headerCont">
+        <h1>{{statiumName}}</h1>
+        <ul class="headerNav">
+            <li>
+                <a href="#statiumUse">
+                    <span class="bookSpaceIco"></span>
+                    <strong>场地预定</strong>
+                </a>
+            </li>
+            <li>
+                <a href="#order">
+                    <span class="orderMangeIco"></span>
+                    <strong>订单管理</strong>
+                </a>
+            </li>
+            <li>
+                <a href="#bill">
+                    <span class="billSearchIco"></span>
+                    <strong>账单查询</strong>
+                </a>
+            </li>
+            <li>
+                <a href="#spaceLock">
+                    <span class="bathchLockIco"></span>
+                    <strong>批量锁定</strong>
+                </a>
+            </li>
+            <li>
+                <a href="#userCenter">
+                    <span class="perCenterIcon"></span>
+                    <strong>信息管理</strong>
+                </a>
+            </li>
+            <li>
+                <a href="#game">
+                    <span class="CTAgameIco"></span>
+                    <strong>乐享赛</strong>
+                </a>
+            </li>
+            <li>
+                <a href="#mall/goods">
+                    <span class="MallIco"></span>
+                    <strong>商品管理</strong>
+                </a>
+            </li>
+            <li>
+                <a href="#members">
+                    <span class="memberIco"></span>
+                    <strong>会员管理</strong>
+                </a>
+            </li>
+        </ul>
+        <div class="logout">
+            <a href="/logout">注销</a>
+        </div>
+        <div class="help">
+        	<a target="_blank" href="http://wenku.baidu.com/view/272f7abfdd36a32d7275812a">帮助手册</a>
+        </div>
+        <div class="headerMessTip">
+            <a class="mgIco" href="#messages"><span id="unreadNum">{{msgCount}}</span></a>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="orderNav">
+	<ul>
+		<li class="active"><a href="#members">会员列表</a></li>
+		<li><a href="#memberLevels">会员等级</a></li>
+	</ul>
+</div>
+<div class="orderSearch">
+	<ul>
+		<li><span>会员卡号：</span><span id="cardNumber"></span></li>
+		<li>
+           <span>交易类型</span>
+           <!-- <input type="hidden" ng-model="searcher.memberId" id="memberId"> -->
+           <select name="orderType" id='orderType' ng-model="searcher.orderType" class="form-control">
+           	<option value="">全部</option>
+			<option value="0">充值</option>
+			<option value="1">订场</option>
+			<option value="2">消费</option>
+           </select>
+        </li>
+        <li class="subSearch">
+			<a class="submit" href="javascript:;" ng-click="search()">查询</a>
+		</li>
+	</ul>
+</div>
+<div class="orderResult">
+	<table>
+		<tr>
+			<th>订单号</th>
+			<th>类型</th>
+			<th>时间</th>
+			<th>金额</th>
+			<th>余额</th>
+			<th>支付方式</th>
+		</tr>
+		<tr ng-repeat="account in objs">
+			<td>{{account.orderId}}</td>
+			<td>{{account.type | orderTypeFilter}}</td>
+			<td>{{account.ct}}</td>
+			<td>{{account.changeAmount/100 | currency:'￥'}}</td>
+			<td>{{account.balance/100 | currency:'￥'}}</td>
+			<td>{{account.payType | payTypeFilter}}</td>
+		</tr>
+	</table>
+</div>
+<crm-pagination conf="paginationConf"></crm-pagination>

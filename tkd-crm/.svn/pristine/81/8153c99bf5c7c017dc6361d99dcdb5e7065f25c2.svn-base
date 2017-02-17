@@ -1,0 +1,87 @@
+<div class="matchSchedule" ng-repeat="gameSchedule in gameSchedules">
+	<p>
+		<span>
+			{{gameSchedule.gameType|typeFilter}}
+		</span>
+		<span>
+			<select ng-model='gameSchedule.gameFormat'
+			ng-options="key as value for (key,value) in gameFormatMap">
+			</select>
+		</span>
+		<span>
+			<select ng-model='gameSchedule.gameFormat1'
+			ng-options="key as value for (key,value) in gameFormat1Map">
+			</select>
+		</span>
+	</p>
+</div>
+<div class="matchSchedule">
+	<p>
+		<span><input ng-model="gameSchedule.gameField" type="number" placeholder="场地数"></span>
+	</p>
+	<a class="addLockBtn" ng-click="setSchedule()" href="javascript:;">设置赛程</a>
+	<a class="addLockBtn" ng-click="saveSchedule()" href="javascript:;">确定</a>
+	<a class="addLockBtn" href="#gameMembers/{{gameId}}">返回</a>
+</div>
+<!-- <div class="gameSchedule" ng-repeat="(group,players) in groups">
+<table>
+	<tr>
+		<th>{{group}}组</th>
+	<tr>
+	<tr ng-repeat="player in players">
+		<td>{{player.name}}<span ng-if="player.titel!=null&&player.titel!=''">({{player.titel}})</span></td>
+	</tr>
+</table>
+</div>
+<div class="clear"></div>
+<div class="gameSchedule" ng-repeat="(field,schedule) in schedules">
+<table>
+	<tr>
+		<th colspan="4">{{field}}号场地</th>
+	<tr>
+	<tr ng-repeat="gamePoint in schedule">
+		<td>{{gamePoint.groupId}}组{{gamePoint.turn}}轮</td><td>{{gamePoint.p1}} </td><td>VS</td><td> {{gamePoint.p2}}</td>
+	</tr>
+</table>
+</div>
+<div id="wrapper">
+	<div id="gameTree">
+	
+	</div>
+</div> -->
+<div ng-repeat="(type,schedule) in schedules.groups">
+	<div class="gameScheduleClear orderNav">
+		<ul>
+			<li class="active"><a>{{type|typeFilter}}</a></li>
+		</ul>
+	</div>
+	<div class="gameSchedule" ng-if="schedule.groupSchedule" ng-class="{true: 'gameScheduleClear', false: ''}[$index!=1&&$index%6==0]" ng-repeat="(group,players) in schedule.groupSchedule">
+		<table>
+			<tr>
+				<th>{{group}}组</th>
+			<tr>
+			<tr ng-repeat="player in players">
+				<td>{{player.name}}<span ng-if="player.titel!=null&&player.titel!=''">({{player.titel}})</span></td>
+			</tr>
+		</table>
+	</div>
+	<div ng-if="schedule.treeSchedule" class="wrapper">
+		<crm-gametree conf="schedule.treeSchedule"></crm-gametree>
+	</div>
+	<div class="clear"></div>
+</div>
+<div ng-if="schedules.fileds" class="gameScheduleClear orderNav">
+	<ul>
+		<li class="active"><a>整体场地编排</a></li>
+	</ul>
+</div>
+<div class="gameSchedule" ng-class="{true: 'gameScheduleClear', false: ''}[$index!=1&&$index%4==0]" ng-repeat="(field,schedule) in schedules.fileds">
+	<table>
+		<tr>
+			<th colspan="4">{{field}}号场地</th>
+		<tr>
+		<tr ng-repeat="gamePoint in schedule">
+			<td>{{gamePoint.gameType|typeFilter}}{{gamePoint.groupId}}组{{gamePoint.turn}}轮</td><td>{{gamePoint.p1}} </td><td>VS</td><td> {{gamePoint.p2}}</td>
+		</tr>
+	</table>
+</div>

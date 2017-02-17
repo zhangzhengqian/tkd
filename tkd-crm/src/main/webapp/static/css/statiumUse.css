@@ -1,0 +1,248 @@
+.ground-responsive {
+	overflow: hidden;
+}
+
+.ground {
+	position: relative;
+	clear: both;
+	display: table;
+	width: 100%;
+	min-width: 1100px;
+}
+
+.timeline {
+	position: relative;
+	min-width: 1100px;
+}
+
+.timeline .cells {
+	height: 30px;
+	line-height: 30px;
+	border-top: 1px solid #ddd;
+	border-left-style: dotted;
+	border-bottom-style: solid;
+	background-color: #f2f2f2;
+}
+
+.timeline .cells>strong {
+	margin-left: -16px;
+	padding: 0;
+	font-size: 13px;
+	font-weight: normal;
+	line-height: 18px;
+	background-color: #ddd;
+	border-radius: 9px;
+}
+
+.groundManager_ {
+	width: 143%;
+}
+
+.cells {
+	display: block;
+	float: left;
+	border: 1px dotted #ddd;
+	border-right: 0;
+	border-top: 0;
+	border-bottom-style: solid;
+	/*width:3.7%;*/
+	width: 45px;
+	/*height: 60px;
+            line-height: 60px;*/
+	height: 50px;
+	line-height: 50px;
+	cursor: hand;
+}
+
+.cells>span {
+	display: inline-block;
+	float: left;
+	width: 100%;
+	/*height: 60px;*/
+	height: 50px;
+	border-left: 1px dotted #F2F2F2;
+}
+
+.cells:first-child, .cells>span:first-child {
+	border-left: 0;
+}
+
+.cells>span>a {
+	display: inline-block;
+	/*margin:5px 0;*/
+	margin: 1px 0;
+	/*height: 49px;*/
+	height: 47px;
+	width: 100%;
+	font-size: 12px;
+	cursor: move;
+}
+
+.cells>span>a.green {
+	background: rgba(26, 179, 148, 0.7);
+}
+
+.cells>span>a.gray {
+	background:#10DAB4 url(/static/img/duigou.png) 50% 50% no-repeat;
+}
+.cells>span>a.red {
+	background:#00C7C8 url(/static/img/suoding.png) 50% 50% no-repeat;
+}
+.cells>span>a.yel {
+	background:#0EDBB2 url(/static/img/yizhifu.png) 50% 50% no-repeat;
+}
+.cells>span>a.blue {
+	background:#FC5873 url(/static/img/weizhifu.png) 50% 50% no-repeat;
+}
+.cells>span>a.bluebot{
+	background:#FC5873 url(/static/img/weizhifubot.png) 50% 50% no-repeat;
+}
+.cells>span>a.yelbot {
+	background:#0EDBB2 url(/static/img/yizhifubot.png) 50% 50% no-repeat;
+}
+.noBooked>span>a {
+	font-size: 15px;
+	text-align: center;
+	color: rgba(26, 179, 148, 0.7);
+}
+
+.Booking>span>a {
+	color: #fff;
+	text-align: center;
+	font-size: 5px;
+}
+
+.Booking {
+	animation: tobgcolor 1s;
+	-webkit-animation: tobgcolor 1s;
+	-moz-animation: tobgcolor 1s;
+	background-color: #1AB394;
+}
+
+@
+keyframes tobgcolor {from { background:rgba(204, 204, 204, 0.7);
+	
+}
+
+to {
+	background-color: #1AB394;
+}
+
+}
+@
+-webkit-keyframes tobgcolor {from { background:rgba(204, 204, 204, 0.7);
+	
+}
+
+to {
+	background-color: #1AB394;
+}
+
+}
+@
+-moz-keyframes tobgcolor {from { background:rgba(204, 204, 204, 0.7);
+	
+}
+
+to {
+	background-color: #1AB394;
+}
+
+}
+.timeline .cells.last-child, .ground .cells.last-child {
+	/*background: #D8D8D8;
+				border-right: 1px solid #ddd;*/
+	
+}
+
+.timeline .cells.first-child, .ground .cells.first-child {
+	width: 7%;
+	border-left: 1px solid #ddd;
+	background: #D8D8D8;
+	text-align: center;
+}
+
+.date-list {
+	margin: 0;
+}
+
+.date-list>div {
+	/*height: 34px;
+            line-height: 34px;*/
+	padding: 10px !important;
+	text-align: center;
+	margin-right: 10px;
+	overflow: hidden;
+	font-size: 16px;
+	cursor: pointer;
+	border: 1px solid #ddd;
+	background-color: #eee;
+	font-weight: bold;
+}
+
+.date-list>div>p {
+	margin: 0 !important;
+}
+
+.current {
+	background: #18a689 !important;
+	color: #ffffff;
+}
+
+
+.orderTip{position:fixed; display:none; right:0; bottom:0; width:200px; height:200px; background-color:#fff; z-index:1000; border:1px solid #ddd; border-radius: 5px;}
+.orderTip h3{ color:#999; overflow:hidden; padding:5px 10px;}
+.orderTip h3 span{float:left; font-size:16px;}
+.orderTip h3 a{float:right; font-size:16px;}
+
+.orderTip p{line-height:30px; font-size:14px; padding:10px; text-align:center;}
+
+
+.row{overflow:auto;}
+
+.col-sm-10{overflow-x:auto;}
+#dateTime{min-width:1400px;}
+
+
+.creatOrderList{padding:20px;}
+.creatOrderList dl{border:1px solid #ddd; border-radius:5px;}
+.creatOrderList dl dt{overflow:hidden;}
+.creatOrderList dl dd{overflow:hidden; border-top:1px solid #ddd;}
+.creatOrderList dl dt strong{line-height:40px; text-align:center; float:left; width:33%;}
+.creatOrderList dl dd span{line-height:40px; text-align:center; float:left; width:33%;}
+
+.orderTotal{}
+.orderTotal p{overflow:hidden;}
+.orderTotal p strong{float:right; line-height:30px;}
+.orderTotal p span{float:right; line-height:30px; width:60px; text-align:center;}
+.orderTotal p input{float:right; width:60px; border:1px solid #ccc; text-align:center; line-height:28px;}
+.cantBook{
+	background-color: silver;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

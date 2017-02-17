@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lc.zy.ball.domain.oa.mapper.ex.CrmFunctionMapperEx" >
+  <resultMap id="BaseResultMapEx" type="com.lc.zy.ball.domain.oa.po.ex.CrmFunctionEx" extends="com.lc.zy.ball.domain.oa.mapper.CrmFunctionMapper.BaseResultMap" >
+    <result column="CHILDREN" property="children" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <select id="selectByPid" resultMap="BaseResultMapEx" >
+	SELECT
+	    a.FUNC_ID,
+	    a.FUNC_NAME,
+	    a.PARENT_ID,
+	    a.SEQ_NUM,
+	    count(b.FUNC_ID) CHILDREN
+	FROM
+	    crm_function a LEFT JOIN crm_function b ON b.PARENT_ID = a.FUNC_ID
+	    
+	<where>
+	    <if test="pid != null" >
+	      and a.parent_id = #{pid}
+	    </if>
+	</where>
+	 
+	GROUP BY
+	    a.FUNC_ID,
+	    a.FUNC_NAME,
+	    a.PARENT_ID
+	    
+	ORDER BY
+	    SEQ_NUM
+    
+  </select>
+  
+  <select id="selectByUserId" resultType="java.lang.String" >
+	SELECT
+	    a.FUNC_ID
+	FROM
+	    crm_function a
+	JOIN crm_user_func b ON b.FUNC_ID = a.FUNC_ID
+        
+    <where>
+        <if test="userId != null" >
+          and b.USER_ID = #{userId}
+        </if>
+    </where>
+    
+  </select>
+  
+</mapper>

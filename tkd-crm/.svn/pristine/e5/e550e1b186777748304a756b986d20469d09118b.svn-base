@@ -1,0 +1,9 @@
+<ul>
+	<% childrens.forEach(function(child){ %>
+	<li id="<%=child.id%>" turn="<%=child.turn%>" smallscore="<%=child.smallscore%>" lscore="<%=child.lscore%>" gameTime="<%=child.gameTime%>" winner="<%=child.winner%>" rscore="<%=child.rscore%>" lid="<%=child.lid%>" rid="<%=child.rid%>">
+	   <a <%if(child.turn!=1){%> onclick="saveOutScore('<%=child.id%>')" <%}%> href="javascript:;"><%=child.hasOwnProperty("name")?(child.name==''?'轮空':child.name):"?"%><%=child.hasOwnProperty("title")?(child.title==''?'':'('+child.title+')'):""%></a>
+	</li>
+	<%
+  		})
+  	%>
+</ul>

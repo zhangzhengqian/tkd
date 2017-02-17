@@ -1,0 +1,68 @@
+<div class="orderTipMeg">
+	<a class="addLockBtn" href="#gameAdd">新增赛事</a>
+</div>
+<div class="orderResult">
+<table>
+	<tr>
+		<th>名称</th>
+		<th>赛事级别</th>
+		<th>项目</th>
+		<th>赛制</th>
+		<th>开始时间</th>
+		<th>结束时间</th>
+		<th>报名截止时间</th>
+		<th>报名费</th>
+		<th>报名人数</th>
+		<th>操作</th>
+	</tr>
+	<tr ng-repeat="game in objs">
+	<td>
+	{{game.name}}
+	<span ng-if="game.mainFlag==1&&game.deleteFlag==0" class="band">{{game.tip}}</span>
+	<span ng-if="game.mainFlag==1&&game.deleteFlag==2" class="redband">{{game.tip}}</span>
+	<span ng-if="game.mainFlag==1&&game.deleteFlag==0&&game.state==2" class="redband">{{game.tip}}</span>
+	</td>
+	<td>{{game.gameLevel|levelFilter}}</td>
+	<td>{{game.gameType|typeFilter}}</td>
+	<td>{{game.gameFormat|formatFilter}}</td>
+	<td>{{game.startTime}}</td>
+	<td>{{game.endTime}}</td>
+	<td>{{game.expiryDate}}</td>
+	<td>{{game.price/100}}</td>
+	<td ng-if="game.totalNumber">{{game.applicantNumber}}/{{game.totalNumber}}</td>
+	<td ng-if="!game.totalNumber">{{game.applicantNumber}}</td>
+	<td>
+		<a ng-if="game.mainFlag==1&&(game.state==0||game.state==1)" href="#viewGame/{{game.id}}" class="text-navy">查看</a>
+		<small ng-if="game.mainFlag==1&&(game.state==0||game.state==1)" class="text-muted p-xxs">|</small>
+		
+		
+		<a ng-if="(game.pauseFlag==0)&&(game.state==1)&&!game.isExpiry" href="javascript:;" ng-click="endSign($index,1)" class="text-navy">暂停报名</a>
+		<a ng-if="(game.pauseFlag==1)&&(game.state==1)&&!game.isExpiry" href="javascript:;" ng-click="endSign($index,0)" class="text-navy">恢复报名</a>
+		<small ng-if="(game.state==1)&&!game.isExpiry" class="text-muted p-xxs">|</small>
+		
+		
+		<a ng-if="game.mainFlag==1&&game.state!=0&&game.state!=1" href="#viewGame/{{game.id}}" class="text-navy">修改</a>
+		<small ng-if="game.mainFlag==1&&game.state!=0&&game.state!=1" class="text-muted p-xxs">|</small>
+		
+		<a ng-if="game.mainFlag==1&&(game.state==null||game.state==2)" ng-click="subGame($index)" href="javascript:;" class="text-navy">提交</a>
+		<small ng-if="game.mainFlag==1&&(game.state==null||game.state==2)" class="text-muted p-xxs">|</small>
+		
+		<a ng-if="game.mainFlag==1&&game.state!=0&&game.state!=1" ng-click="delGame($index)" href="javascript:;" class="text-navy">删除</a>
+		<small ng-if="game.mainFlag==1&&game.state!=0&&game.state!=1" class="text-muted p-xxs">|</small>
+		
+		<a ng-if="game.mainFlag==1&&game.deleteFlag==0&&(game.gameState==1||game.gameState==2)"  href="#scheduleList/{{game.id}}" class="text-navy">赛程/结果</a>
+		<small ng-if="game.mainFlag==1&&game.deleteFlag==0&&(game.gameState==1||game.gameState==2)" class="text-muted p-xxs">|</small>
+		
+		<a ng-if="game.deleteFlag==0&&(game.gameState==1||game.gameState==2)"  href="#inputScore/{{game.id}}" class="text-navy">比分录入</a>
+		<small ng-if="game.deleteFlag==0&&(game.gameState==1||game.gameState==2)" class="text-muted p-xxs">|</small>
+		
+		<a ng-if="game.deleteFlag==0&&(game.gameState==1||game.gameState==2)&&game.isScoreNotice!=0"  href="#getRank/{{game.id}}" class="text-navy">成绩排名</a>
+		<small ng-if="game.deleteFlag==0&&(game.gameState==1||game.gameState==2)&&game.isScoreNotice!=0" class="text-muted p-xxs">|</small>
+		
+		
+		<a href="#gameMembers/{{game.id}}" href="javascript:;" class="text-navy">报名列表</a>
+	</td>
+	</tr>
+</table>
+</div>
+<crm-pagination conf="paginationConf"></crm-pagination>

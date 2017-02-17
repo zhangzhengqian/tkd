@@ -1,0 +1,31 @@
+<div class="orderTipMeg">
+	<a class="addLockBtn" href="#game">返回</a>
+	<!-- <a class="addLockBtn"  ng-click="downBody()" href="javascript:;">下载当前页面</a> -->
+</div>
+<div ng-if="schedules.schedule_fields&&schedules.schedule_fields.size()!=0" class="gameScheduleClear orderNav">
+	<ul>
+		<li class="active"><a>整体场地编排</a></li>
+	</ul>
+</div>
+<div style='width:100%; position:relative;'>
+	<div class="gameSchedule schedule-list" ng-class="{true: 'gameScheduleClear', false: ''}[$index!=1&&$index%4==0]" ng-repeat="(field,schedule) in schedules.schedule_fields">
+		<table>
+			<tr>
+				<th colspan="4">{{field}}号场地</th>
+			<tr>
+			<tr ng-repeat="gamePoint in schedule">
+				<td>{{gamePoint.game_type|typeFilter}}{{gamePoint.group_id}}组{{gamePoint.turn}}轮</td><td>{{gamePoint.p1}} </td><td>VS</td><td> {{gamePoint.p2}}</td>
+			</tr>
+		</table>
+	</div>
+	<a class="downloadBtn" style="position:absolute;" href="/admin/game/exportScheduleFields/{{gameId}}">下载</a>
+</div>
+<div class="clear"></div>
+<div ng-repeat="game in schedules.games">
+	<div class="gameScheduleClear orderNav">
+		<ul>
+			<li class="active"><a>{{game.gameType|typeFilter}}</a></li>
+		</ul>
+	</div>
+	<crm-gameview conf="game"></crm-gameview>
+</div>

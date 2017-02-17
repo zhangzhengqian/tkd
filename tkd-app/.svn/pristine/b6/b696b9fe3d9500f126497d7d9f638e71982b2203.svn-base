@@ -1,0 +1,653 @@
+package com.lc.zy.ball.app.service.pay;
+
+import com.lc.zy.ball.app.common.AbstractCacheService;
+import com.lc.zy.ball.app.common.CheckUtils;
+import com.lc.zy.ball.app.common.Constants;
+import com.lc.zy.ball.app.service.account.AccountRepository;
+import com.lc.zy.ball.app.service.card.CardRepository;
+import com.lc.zy.ball.domain.oa.mapper.*;
+import com.lc.zy.ball.domain.oa.po.*;
+import com.lc.zy.common.bean.CacheKeys;
+import com.lc.zy.common.coreservice.OrdersCounter;
+import com.lc.zy.common.exception.ServiceException;
+import com.lc.zy.common.mq.QueueProducer;
+import com.lc.zy.common.util.*;
+import com.lc.zy.common.util.UUID;
+import com.lc.zy.common.zoo.SEQGenerate;
+
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.math.BigDecimal;
+import java.util.*;
+
+@Repository
+@Transactional
+public class PayRepository extends AbstractCacheService implements CacheKeys {
+
+    private static Logger logger = LoggerFactory.getLogger(PayRepository.class);
+
+    private final static BigDecimal base = new BigDecimal(100);
+
+    private SEQGenerate seqGenerate = null;
+
+    private OrderItemMapper orderItemMapper = null;
+
+    private OrderMapper orderMapper = null;
+
+    private MessageUtil messageUtil = null;
+
+    private OrderLogMapper orderLogMapper = null;
+
+    private PayLogMapper payLogMapper = null;
+
+    private UserRoleMapper userRoleMapper = null;
+
+    private RoleMapper roleMapper = null;
+
+    private OrdersCounter ordersCounter = null;
+
+    private OrderNotifyUtil orderNotifyUtil;
+
+    private QueueProducer queueProducer;
+
+    private StatiumActivityMemberMapper statiumActivityMemberMapper;
+
+    private StatiumInfosMapper statiumInfosMapper;
+
+    private CheckUtils checkUtils;
+
+    private AccountRepository accountRepository = null;
+
+    private CrmCardLogMapper crmCardLogMapper = null;
+    
+    private CrmUserCardAccountMapper crmUserCardAccountMapper = null;
+    
+    private CardRepository cardRepository = null;
+    
+    public PayRepository() {
+        super();
+    }
+
+    @Autowired
+    public PayRepository(SEQGenerate seqGenerate, OrderItemMapper orderItemMapper, OrderMapper orderMapper,
+            MessageUtil messageUtil, OrderLogMapper orderLogMapper,
+            PayLogMapper payLogMapper, UserRoleMapper userRoleMapper, RoleMapper roleMapper,
+            OrdersCounter ordersCounter, OrderNotifyUtil orderNotifyUtil,
+            QueueProducer queueProducer, StatiumActivityMemberMapper statiumActivityMemberMapper, StatiumInfosMapper statiumInfosMapper,
+                         CheckUtils checkUtils, AccountRepository accountRepository,CrmCardLogMapper crmCardLogMapper,CrmUserCardAccountMapper crmUserCardAccountMapper
+                         ,CardRepository cardRepository) {
+        this.seqGenerate = seqGenerate;
+        this.orderItemMapper = orderItemMapper;
+        this.orderMapper = orderMapper;
+        this.messageUtil = messageUtil;
+        this.orderLogMapper = orderLogMapper;
+        this.payLogMapper = payLogMapper;
+        this.userRoleMapper = userRoleMapper;
+        this.roleMapper = roleMapper;
+        this.ordersCounter = ordersCounter;
+        this.orderNotifyUtil = orderNotifyUtil;
+        this.queueProducer = queueProducer;
+        this.statiumActivityMemberMapper = statiumActivityMemberMapper;
+        this.statiumInfosMapper = statiumInfosMapper;
+        this.checkUtils = checkUtils;
+        this.accountRepository = accountRepository;
+        this.crmCardLogMapper = crmCardLogMapper;
+        this.crmUserCardAccountMapper = crmUserCardAccountMapper;
+        this.cardRepository = cardRepository;
+    }
+
+
+    /**
+     *
+     * <验证支付><功能具体实现>
+     *
+     * @create：2016-08-02 10:57:48
+     * @author：sl
+     * @param orderId
+     * @param userId
+     * @param channel
+     * @param version
+     * @return java.util.Map<java.lang.String,java.lang.String>
+     */
+    public Map<String, String> validatePay(String orderId, String userId, String channel,
+            String version, Boolean payType) throws Exception {
+        Map<String, String> data = null;
+        String tradeNo = "";
+
+        if (StringUtils.isEmpty(orderId)) {
+            throw new RuntimeException("订单号不能为空");
+        }
+        Order order = null;
+        Order orderSave = null;
+        try {
+            order = this.selectByPrimaryKey(Order.class, orderId);
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            throw new RuntimeException("订单查询失败");
+        }
+        if (order == null) {
+            throw new RuntimeException("查询不到订单");
+        }
+
+        if (!Constants.OrderStatus.NEW.equals(order.getStatus())) {
+            throw new RuntimeException("该订单不能重复支付");
+        }
+
+        Calendar orderCalendar = Calendar.getInstance();
+        orderCalendar.setTime(order.getCt());
+        orderCalendar.add(Calendar.MINUTE, 15); // 订单默认超时为15分钟
+        Date currDate = new Date();
+        if (currDate.compareTo(orderCalendar.getTime()) > 0) {
+            throw new RuntimeException("订单超时，请重新下单");
+        }
+        // 返回的流水号
+        try {
+            tradeNo = seqGenerate.genTradeNo();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        orderSave = new Order();
+        orderSave.setId(order.getId());
+        orderSave.setTradeNo(tradeNo);
+
+        BigDecimal decimal1 = new BigDecimal(order.getFinalFee()); // 实付金额
+        decimal1 = decimal1.divide(base);
+        Double finalFee = decimal1.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue(); // 获取订单实收金额(四舍五入，保留两位小数)
+
+        // 账户支付判断账号余额
+        if (payType) {
+            if (!cardRepository.isAmountFull(userId, finalFee)) {
+                throw new RuntimeException("账户余额不足");
+            }
+            if(!cardRepository.isActiveAccount(userId)){
+            	throw new RuntimeException("该账户已被冻结，请联系客服");
+            }
+        }
+
+        data = new HashMap<String, String>();
+        data.put("tradeNo", tradeNo);
+        data.put("finalFee", String.valueOf(finalFee));
+        try {
+            this.updateByPrimaryKeySelective(orderSave, order.getId());
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            throw new RuntimeException("订单更新失败");
+        }
+        try {
+            // 记录订单日志
+            OrderLog log = new OrderLog();
+            log.setId(UUID.get());
+            log.setCt(new Date());
+            log.setOrderId(order.getId());
+            log.setUserId(order.getUserId());
+            log.setAction(Constants.OrderAction.PRE_PAY);
+            log.setComment(order.getTradeNo());
+            orderLogMapper.insertSelective(log);
+        } catch (Exception e) {
+            logger.debug("订单号：{} 订单预支付成功日志记录失败！", order.getId());
+            throw new RuntimeException(e);
+        }
+        return data;
+    }
+
+    /**
+     * 
+     * <根据流水号查询订单信息><功能具体实现>
+     *
+     * @create：2015年9月22日 上午11:15:18
+     * @author： sl
+     * @param tradeNo
+     * @return
+     */
+    public Order orderByTradeNo(String tradeNo, String price, String number, Integer payType) {
+        OrderCriteria criteria = new OrderCriteria();
+        OrderCriteria.Criteria c = criteria.createCriteria();
+        c.andTradeNoEqualTo(tradeNo);
+        List<Order> orders = null;
+        try {
+            orders = orderMapper.selectByExample(criteria);
+            if (CollectionUtils.isEmpty(orders)) {
+                OrderLogCriteria logCriteria = new OrderLogCriteria();
+                OrderLogCriteria.Criteria cri = logCriteria.createCriteria();
+                cri.andCommentEqualTo(tradeNo);
+                List<OrderLog> logs = orderLogMapper.selectByExample(logCriteria);
+                String phone = "";
+                OrderLog logSign = new OrderLog();
+                if (CollectionUtils.isNotEmpty(logs)) {
+                    logSign = logs.get(0);
+                    SsoUser user = this.selectByPrimaryKey(SsoUser.class, logSign.getUserId());
+                    phone = user.getPhone();
+                }
+
+                String payTypeStr = "";
+                if (payType == 1) {
+                    payTypeStr = "支付宝";
+                } else if (payType == 2) {
+                    payTypeStr = "微信";
+                } else if (payType == 3) {
+                    payTypeStr = "微信公众平台";
+                }
+                messageUtil.sendSms("18602610039", "订单重复支付，乾正隆流水号：" + tradeNo + ";支付方式：" + payTypeStr + ";支付平台流水："
+                        + number + ";用户手机号：" + phone);
+                try {
+                    // 记录订单日志
+                    OrderLog log = new OrderLog();
+                    log.setId(UUID.get());
+                    log.setCt(new Date());
+                    log.setOrderId(logSign.getOrderId());
+                    log.setUserId(logSign.getUserId());
+                    log.setAction(Constants.OrderAction.PAY);
+                    log.setComment(Constants.OrderStatus.PAIED);
+                    orderLogMapper.insertSelective(log);
+                } catch (Exception e) {
+                    logger.debug("订单号：{} 订单支付成功日志记录失败！", "无对应订单号");
+                }
+
+                try {
+                    // 记录支付日志
+                    PayLog payLog = new PayLog();
+                    payLog.setId(UUID.get());
+                    payLog.setTradeNo(tradeNo);
+                    payLog.setOrderId(logSign.getOrderId());
+                    payLog.setUserId(logSign.getUserId());
+                    payLog.setFee(0);
+                    Double pri = Double.parseDouble(price);
+                    int priInt = pri.intValue();
+                    payLog.setFinalFee(priInt);
+                    payLog.setStatus(Constants.PayStatus.TRADE_SUCCESS);
+                    payLog.setCreateTime(new Date());
+                    payLog.setOutTradeNo(number);
+                    payLog.setPayType(payType);
+                    payLogMapper.insertSelective(payLog);
+                } catch (Exception e) {
+                    logger.error(e.getMessage(), e);
+                    logger.debug("订单号：{} 订单支付成功日志记录失败！", "无对应订单号");
+                }
+                return null;
+            }
+            return orders.get(0);
+        } catch (Exception e) {
+            logger.error("查询订单信息失败", e);
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * <根据订单号查询订单><功能具体实现>
+     * 
+     * @param orderId
+     * @return
+     * @author yankefei
+     * @date 2015年12月3日 下午3:55:05
+     */
+    public Order getOrderById(String orderId) {
+        Order order = null;
+        try {
+            order = this.selectByPrimaryKey(Order.class, orderId);
+        } catch (Exception e) {
+            logger.error("查询订单异常orderId={}", orderId);
+            throw new RuntimeException(e);
+        }
+        return order;
+    }
+
+    /**
+     *
+     * <支付成功回调接口><功能具体实现>
+     *
+     * @create：2016-08-04 14:26:23
+     * @author：sl
+     * @param tradeNo 本系统的交易流水号
+     * @param number 第三方交易流水号
+     * @param payType 交易类型
+     * @param price
+     * @param order
+     * @return void
+     */
+    public void payNotify(String tradeNo, String number, Integer payType, String price, Order order) throws Exception {
+        // 根据流水号获取订单信息
+        if (!Constants.OrderStatus.NEW.equals(order.getStatus())
+                && !Constants.OrderStatus.CANCELED.equals(order.getStatus())) {
+            return;
+        }
+        logger.debug("tradeNo{}", tradeNo);
+        String phone = "";
+        SsoUser user = null;
+        try {
+            // 获取用户信息
+            user = this.selectByPrimaryKey(SsoUser.class, order.getUserId());
+            logger.debug("user phone {}", user.getPhone());
+            // 获取手机号
+            phone = user.getPhone();
+        } catch (Exception e) {
+            logger.error("查询用户信息失败", e);
+            throw new ServiceException();
+        }
+
+        // 道馆信息
+        StatiumInfos statiumInfos = new StatiumInfos();
+        try {
+            StatiumInfosCriteria statiumInfosCriteria = new StatiumInfosCriteria();
+            StatiumInfosCriteria.Criteria criteria = statiumInfosCriteria.createCriteria();
+            criteria.andDgIdEqualTo(order.getStatiumId());
+            statiumInfos = statiumInfosMapper.selectByExample(statiumInfosCriteria).get(0);
+        } catch (Exception e) {
+            logger.error("查询道馆信息失败", e);
+            throw new ServiceException();
+        }
+
+        // 更新订单信息
+        BigDecimal price_ = new BigDecimal(order.getFinalFee());
+        Integer accountFinalFee = price_.intValue();
+
+        order.setFinalFee(accountFinalFee);
+        order.setStatus(Constants.OrderStatus.PAIED);
+        order.setEt(new Date());
+        order.setEb(user.getId());
+        order.setNumber(number);
+        order.setPayType(payType);
+        // 判断订单类型(课程时有1元体验)
+        if (Constants.OrderType.STATIUM == order.getOrdersType()) {
+            // 是否是1元体验 0:否 1:是
+            if (checkUtils.checkIsExperience(order.getUserId()) > 0) {
+                order.setIsExperience(1);
+                // 1元体验次数减1
+                int experrience = user.getExperience();
+                user.setExperience(experrience - 1);
+                try {
+                    this.updateByPrimaryKey(user, user.getId());
+                } catch (Exception e) {
+                    logger.debug("更新用户1元体验信息失败", e.getMessage());
+                    throw new ServiceException();
+                }
+            } else {
+                order.setIsExperience(0);
+            }
+        }
+
+        try {
+            this.updateByPrimaryKeySelective(order, order.getId());
+        } catch (Exception e) {
+            logger.error("更新订单信息失败", e);
+            throw new ServiceException();
+        }
+
+        /**
+         * 会员卡支付，需从会员卡扣除订单实付金额
+         */
+        if (payType == Constants.PayType.CARD) {
+            String userId = order.getUserId();
+            //accountRepository.accountUpdate(userId, new BigDecimal(accountFinalFee).negate().intValue(), 0, order.getTradeNo(), order.getId(), order.getUserId());
+            cardRepository.accountUpdate(userId, new BigDecimal(accountFinalFee).negate().intValue(), 0, order.getTradeNo(), order.getId(), order.getUserId(),statiumInfos,number);
+
+        }
+        
+        
+        // 短信提醒
+        String msg = "";
+        try {
+            // 获取订单详情
+            OrderItemCriteria orderItemCriteria = new OrderItemCriteria();
+            OrderItemCriteria.Criteria cri = orderItemCriteria.createCriteria();
+            cri.andOrderIdEqualTo(order.getId());
+            List<OrderItem> orderItems = orderItemMapper.selectByExample(orderItemCriteria);
+            OrderItem orderItem = new OrderItem();
+            Map<String, Object> root = new HashMap<String, Object>();
+            
+            
+            if (orderItems != null) {
+                orderItem = orderItems.get(0);
+                //用户id
+                String userId = order.getUserId();
+                //更新订单item表 modify by zzq
+                //办卡日期 只针对充值订单
+                if(Constants.OrderType.RECHARGE == order.getOrdersType()){
+                	orderItem.setCardBuyDate(new Date());
+                }
+                //et eb
+                orderItem.setEt(new Date());
+                orderItem.setEb(userId);
+                this.updateByPrimaryKeySelective(orderItem, orderItem.getId());
+                //保存用户会员卡表
+                String cardId = orderItem.getCardId();
+                if(cardId!=null){
+                	//判断有无该用户的会员卡 没有则创建 有的话则修改金额
+                	CrmUserCardAccountCriteria crmUserCardAccountCriteria = new CrmUserCardAccountCriteria();
+                	crmUserCardAccountCriteria.createCriteria().andUserIdEqualTo(userId).andCardTypeEqualTo(Constants.CardType.PAIEDCARD);
+                	List<CrmUserCardAccount> cardAccounts = crmUserCardAccountMapper.selectByExample(crmUserCardAccountCriteria);
+                	CrmUserCardAccount account = null;
+                	if(cardAccounts.size()!=0){
+                		account = cardAccounts.get(0);
+                	}
+                	CrmCard crmCard = this.selectByPrimaryKey(CrmCard.class, cardId);
+                	Integer balance = new BigDecimal(crmCard.getCardAmount()).add(new BigDecimal(crmCard.getCardGift())).intValue();
+                		//有该会员卡 对它进行修改操作并记录日志
+                		//没有会员卡创建该用户的会员卡并记录日志
+                		CrmUserCardLog cardLog = new CrmUserCardLog();
+                		String id = UUID.get();
+                		//主键id
+                		cardLog.setId(id);
+                		//用户id
+                		cardLog.setUserId(userId);
+                		//卡片id  储值卡为会员卡账户id
+                		cardLog.setCardId(account.getId());
+                		//金额
+                		cardLog.setAmount(balance);
+                		//订单号
+                		cardLog.setOrderId(order.getId());
+                		//交易类型
+                		cardLog.setTradetype(Constants.CardType.PAIEDCARD);
+                		//交易流水号
+                		cardLog.setTradeno(tradeNo);
+                		//支付宝或微信流水号
+                		cardLog.setNumber(number);
+                		//ct
+                		cardLog.setCt(new Date());
+                		//渠道
+                		cardLog.setOrderType(Constants.CHANNEL.APP);
+                		//状态
+                		cardLog.setStatus(Constants.CardStatus.ACTIVE);
+                		//卡片类型
+                		cardLog.setCardType(Constants.CardType.PAIEDCARD);
+                		if(account!=null&&account.getStatus()==Constants.CardStatus.ACTIVE){
+                			//类型
+                    		cardLog.setType(Constants.CrmUserCardStatus.RENEW);
+                    		//操作之后的账户余额
+                    		cardLog.setBalance(new BigDecimal(account.getBalance()).add(new BigDecimal(balance)).intValue());
+                    		//描述
+                    		cardLog.setDescription("充值");
+                    		//账户id
+                    		cardLog.setAccountId(account.getId());
+                		}else{
+                			//类型
+                    		cardLog.setType(Constants.CrmUserCardStatus.BUY);
+                    		//操作之后的账户余额
+                    		cardLog.setBalance(balance);
+                    		//描述
+                    		cardLog.setDescription("办卡");
+                    		if(account!=null){
+                    			cardLog.setAccountId(account.getId());
+                    		}
+                    		
+                		}
+                		//保存用户端卡片log信息
+                		this.insertSelective(cardLog, id);
+                		
+                		//对道馆端的会员卡log进行操作 相当于一个总表
+            			//增加会员卡log
+            			CrmCardLog crmCardLog = new CrmCardLog();
+            			//id
+            			String cardLogId = UUID.get();
+            			crmCardLog.setId(cardLogId);
+            			//userID
+            			crmCardLog.setUserId(userId);
+            			//道馆id
+            			crmCardLog.setStatiumId(statiumInfos.getDgId());
+            			//卡片id 会员卡id（储值卡为会员卡账户id
+            			crmCardLog.setCardId(cardId);
+            			//卡片类型
+            			crmCardLog.setCardType(Constants.CardType.PAIEDCARD);
+            			//充值金额
+            			crmCardLog.setAmount(crmCard.getCardAmount());
+            			//赠送金额
+            			crmCardLog.setGiftAmount(crmCard.getCardGift());
+            			//ct cb et eb
+            			crmCardLog.setCt(new Date());
+            			crmCardLog.setCb(userId);
+            			//付款渠道 0 app 1线下
+            			crmCardLog.setBuyType(0);
+            			if(account!=null&&account.getStatus()==Constants.CardStatus.ACTIVE){
+            				//状态充值
+                			crmCardLog.setType(Constants.CrmCardStatus.RECHARGE);
+            			}else{
+            			// 状态购买
+            			crmCardLog.setType(Constants.CrmCardStatus.BUY);
+            		}
+            			//保存数据
+            			this.insertSelective(crmCardLog, cardLogId);
+                		
+                		//对会员卡表进行操作 
+                		//保存储值用户  用户账户已经存在并且激活  更新余额
+                		//用户账户已经存在但未激活 更新账户 余额和状态
+                		if(account!=null){
+                			//支付完成更新账户余额中 可以消费提现
+                			//account.setFrozen(new BigDecimal(account.getFrozen()).add(new BigDecimal(balance)).intValue());
+                			account.setBalance(new BigDecimal(account.getBalance()).add(new BigDecimal(balance)).intValue());
+                			account.setEt(new Date());
+                			account.setEb(userId);
+                			account.setStatus(Constants.CardStatus.ACTIVE);
+                			account.setCardType(Constants.CardType.PAIEDCARD);
+                			this.updateByPrimaryKeySelective(account, account.getId());
+                		}//用户账户不存在 创建帐户   这段代码其实没用，在进入我的钱包的时候就已经创建了用户
+                		/*else if(account==null){
+                			CrmUserCardAccount crmUserCardAccount = new CrmUserCardAccount();
+                    		String cardAccountId = UUID.get();
+                    		crmUserCardAccount.setId(cardAccountId);
+                    		crmUserCardAccount.setStatus(Constants.CardStatus.ACTIVE);
+                    		crmUserCardAccount.setBalance(balance);
+                    		crmUserCardAccount.setEt(new Date());
+                    		crmUserCardAccount.setEb(userId);
+                    		crmUserCardAccount.setUserId(userId);
+                    		crmUserCardAccount.setStatiumId(statiumInfos.getDgId());
+                    		crmUserCardAccount.setCt(new Date());
+                    		crmUserCardAccount.setCb(user.getId());
+                    		//支付完成放入可用金额中 可以消费提现
+                    		// crmUserCardAccount.setFrozen(balance);
+                    		this.insertSelective(crmUserCardAccount, cardAccountId);
+                		}
+                		*/
+                		
+                }
+            }
+            
+            
+            if (Constants.OrderType.STATIUM == order.getOrdersType()) {
+                // 课程
+                // 活动名称
+                root.put("className", orderItem.getClassName());
+                // 道馆名称
+                root.put("statiumName", statiumInfos.getDgName());
+                // 时间
+                root.put("classTime", orderItem.getStartTime() + "~" + orderItem.getEndTime());
+                // 日期
+                root.put("classDate", DateUtils.formatDate(orderItem.getSignDate()));
+                // 星期
+                root.put("week", DateUtils.getWeek(orderItem.getSignDate()));
+                // 订单号
+                root.put("orderId", order.getId());
+                msg = FreeMarkerUtils.format("/template/sms/orderClassSuccess.ftl", root);
+                logger.debug("课程短信内容className{}" + orderItem.getClassName());
+                logger.debug("课程短信内容root{}" + root);
+                logger.debug("课程短信内容{}" + msg);
+
+            }else if (Constants.OrderType.ACTIVITY == order.getOrdersType()) {
+                // 活动名称
+                root.put("activityName", orderItem.getActivityName());
+                // modify by sl 2016-12-05 短信格式修改
+                StatiumActivity activity = this.selectByPrimaryKey(StatiumActivity.class, orderItem.getActivityId());
+                // 开始时间
+                int a = activity.getStartTime().lastIndexOf(":");
+                int b = activity.getEndTime().lastIndexOf(":");
+
+                String startTime = activity.getStartTime().substring(0, a);
+                root.put("startTime", startTime);
+                // 结束时间
+                String endTime = activity.getEndTime().substring(0, b);
+                root.put("endTime", endTime);
+               /* // 时间
+                root.put("activityTime", orderItem.getStartTime() + "~" + orderItem.getEndTime());
+                // 日期
+                root.put("activityDate", DateUtils.formatDate(orderItem.getSignDate()));
+                // 星期
+                root.put("week", DateUtils.getWeek(orderItem.getSignDate()));*/
+                // 订单号
+                root.put("orderId", order.getId());
+                msg = FreeMarkerUtils.format("/template/sms/orderActivitySuccess.ftl", root);
+                logger.debug("活动短信内容activityName{}" + orderItem.getActivityName());
+                logger.debug("活动短信内容root{}" + root);
+                logger.debug("活动短信内容{}" + msg);
+            }else if(Constants.OrderType.RECHARGE == order.getOrdersType()){
+            	//充值订单
+            	
+            }
+           
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+        }
+        // 发送短信
+        messageUtil.sendSms(phone, msg);
+
+        // 记录订单日志
+        try {
+            OrderLog log = new OrderLog();
+            log.setId(UUID.get());
+            log.setCt(new Date());
+            log.setOrderId(order.getId());
+            log.setUserId(order.getUserId());
+            log.setAction(Constants.OrderAction.PAY);
+            log.setComment(order.getStatus());
+            orderLogMapper.insertSelective(log);
+        } catch (Exception e) {
+            logger.debug("订单号：{} 订单支付成功日志记录失败！", order.getId());
+        }
+
+        // 记录支付日志
+        try {
+            // 记录支付日志
+            PayLog payLog = new PayLog();
+            payLog.setId(UUID.get());
+            payLog.setTradeNo(tradeNo);
+            payLog.setOrderId(order.getId());
+            payLog.setUserId(order.getUserId());
+            payLog.setFee(order.getFee());
+            payLog.setFinalFee(order.getFinalFee());
+            payLog.setStatus(Constants.PayStatus.TRADE_SUCCESS);
+            payLog.setCreateTime(new Date());
+            payLog.setOutTradeNo(number);
+            payLog.setPayType(payType);
+            payLogMapper.insertSelective(payLog);
+        } catch (Exception e) {
+            logger.debug("订单号：{} 订单支付成功日志记录失败！", order.getId());
+        }
+        
+        
+    }
+
+    public static void main(String[] args) {
+    	logger.debug("乐享赛发送短息");
+        Map<String, Object> root = new HashMap<String, Object>();
+        root.put("eventName","wfsffdsfdsdf");
+        root.put("eventTime", DateUtil.formatDate(new Date(), "yyyy年MM月dd日"));
+        root.put("orderId", "1313131321313");
+        String msg = FreeMarkerUtils.format("/template/sms/orderCtaSuccess.ftl", root);
+//        您已成功报名 "${eventName}",比赛开始时间${eventTime},订单号:${orderId},请提前前往比赛地点.
+        logger.debug("乐享赛msg=={}",msg);
+    }
+
+}

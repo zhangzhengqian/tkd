@@ -1,0 +1,40 @@
+<div class="orderNav">
+	<ul>
+		<li class="active"><a href="#/mall/goods">订货</a></li>
+		<li><a href="#/mall/orders">订单管理</a></li>
+		<li><a href="#/mall/storageSize">库存管理</a></li>
+		<li><a href="#/mall/storageLogs">出入库明细</a></li>
+	</ul>
+</div>
+<div class="shoppingTable">
+	<div class="leftTable row">
+	<div class="col-md-3" ng-repeat="good in goods">
+        <div class="thumbnail">
+            <img src="{{good.photo}}bigPicture" style="width: 160px;height: 120px" alt="通用的占位符缩略图">
+            <div class="caption">
+                <p>{{good.feeView|currency:'￥'}}</p>
+                <p>{{good.name}}<span style="font-size: 16px;color:red;padding-left:5px;" ng-if="good.hasActivity">(买{{good.buyAmount}}送{{good.giveAmount}})</span></p>
+                <p>整{{good.unit}}({{good.bulk}}*{{good.amount}})</p>
+                <p ng-if="good.hasActivity" style="color:red">赠送：{{good.goodsName}}</p>
+                <p class="add_cart" ng-click="addCart($index,good.id,good.name,good.fee,good.bulk,good.amount,good.unit)">
+                加入购物车
+                </p>
+            </div>
+        </div>
+    </div>
+	</div>
+	<div class="rightTable">
+		<p class="cart_title">已订商品</p>
+		<div class="cart">
+			<div class="cart_one" ng-repeat="(id,cart) in carts">
+				<div class="cart_name">{{cart.goodName}}</br>{{cart.bulk}}*{{cart.amount}}整{{cart.unit}}</div>
+				<input type="number" onkeyup="this.value=this.value.replace(/\D/g,'')" ng-change="updateCarts(id,cart)" ng-model="cart.amounts">
+			</div>
+		</div>
+		<p class="cart_addr"><span>联系地址：</span>{{linkAddress}}</p>
+		<p class="cart_man"><span>联系人：</span ng-model="">{{linkMan}}<a ng-click="updateMan()">修改</a></p>
+		<p class="cart_phone"><span>TEL：</span>{{linkPhone}}<a ng-click="updatePhone()">修改</a></p>
+		<p class="cart_amounts"><span>金额：</span><span class="cart_money" ng-init="totalAmount=0">{{totalAmount|currency:'￥'}}</span></p>
+		<p class="cart_btn" ng-click="subOrder()">提交订单</p>
+	</div>
+</div>

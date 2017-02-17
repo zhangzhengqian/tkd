@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lc.zy.ball.domain.oa.mapper.DicItemMapper" >
+  <resultMap id="BaseResultMap" type="com.lc.zy.ball.domain.oa.po.DicItem" >
+    <id column="ITEM_ID" property="itemId" jdbcType="VARCHAR" />
+    <result column="DIC_ID" property="dicId" jdbcType="VARCHAR" />
+    <result column="ITEM_CODE" property="itemCode" jdbcType="VARCHAR" />
+    <result column="ITEM_NAME" property="itemName" jdbcType="VARCHAR" />
+    <result column="SEQ_NUM" property="seqNum" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ITEM_ID, DIC_ID, ITEM_CODE, ITEM_NAME, SEQ_NUM
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lc.zy.ball.domain.oa.po.DicItemCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from c_dic_item
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="mysqlOffset != null and mysqlLength != null" >
+      <![CDATA[ limit #{mysqlOffset} , #{mysqlLength} ]]>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from c_dic_item
+    where ITEM_ID = #{itemId}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from c_dic_item
+    where ITEM_ID = #{itemId}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lc.zy.ball.domain.oa.po.DicItemCriteria" >
+    delete from c_dic_item
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lc.zy.ball.domain.oa.po.DicItem" >
+    insert into c_dic_item (ITEM_ID, DIC_ID, ITEM_CODE, ITEM_NAME, SEQ_NUM)
+    values (#{itemId}, #{dicId}, #{itemCode}, #{itemName}, #{seqNum})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lc.zy.ball.domain.oa.po.DicItem" >
+    insert into c_dic_item
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="itemId != null" >
+        ITEM_ID,
+      </if>
+      <if test="dicId != null" >
+        DIC_ID,
+      </if>
+      <if test="itemCode != null" >
+        ITEM_CODE,
+      </if>
+      <if test="itemName != null" >
+        ITEM_NAME,
+      </if>
+      <if test="seqNum != null" >
+        SEQ_NUM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="itemId != null" >
+        #{itemId},
+      </if>
+      <if test="dicId != null" >
+        #{dicId},
+      </if>
+      <if test="itemCode != null" >
+        #{itemCode},
+      </if>
+      <if test="itemName != null" >
+        #{itemName},
+      </if>
+      <if test="seqNum != null" >
+        #{seqNum},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lc.zy.ball.domain.oa.po.DicItemCriteria" resultType="java.lang.Integer" >
+    select count(*) from c_dic_item
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update c_dic_item
+    <set >
+      <if test="record.itemId != null" >
+        ITEM_ID = #{record.itemId},
+      </if>
+      <if test="record.dicId != null" >
+        DIC_ID = #{record.dicId},
+      </if>
+      <if test="record.itemCode != null" >
+        ITEM_CODE = #{record.itemCode},
+      </if>
+      <if test="record.itemName != null" >
+        ITEM_NAME = #{record.itemName},
+      </if>
+      <if test="record.seqNum != null" >
+        SEQ_NUM = #{record.seqNum},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update c_dic_item
+    set ITEM_ID = #{record.itemId},
+      DIC_ID = #{record.dicId},
+      ITEM_CODE = #{record.itemCode},
+      ITEM_NAME = #{record.itemName},
+      SEQ_NUM = #{record.seqNum}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lc.zy.ball.domain.oa.po.DicItem" >
+    update c_dic_item
+    <set >
+      <if test="dicId != null" >
+        DIC_ID = #{dicId},
+      </if>
+      <if test="itemCode != null" >
+        ITEM_CODE = #{itemCode},
+      </if>
+      <if test="itemName != null" >
+        ITEM_NAME = #{itemName},
+      </if>
+      <if test="seqNum != null" >
+        SEQ_NUM = #{seqNum},
+      </if>
+    </set>
+    where ITEM_ID = #{itemId}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lc.zy.ball.domain.oa.po.DicItem" >
+    update c_dic_item
+    set DIC_ID = #{dicId},
+      ITEM_CODE = #{itemCode},
+      ITEM_NAME = #{itemName},
+      SEQ_NUM = #{seqNum}
+    where ITEM_ID = #{itemId}
+  </update>
+</mapper>

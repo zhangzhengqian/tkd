@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.lc.zy</groupId>
+		<artifactId>tkd-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>tkd-message</artifactId>
+	<packaging>jar</packaging>
+	<name>tkd-message</name>
+	
+	<properties>
+		<cxf.version>2.6.3</cxf.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.lc.zy</groupId>
+			<artifactId>tkd-core-service-client</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		<!-- test begin -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.easymock</groupId>
+			<artifactId>easymock</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.lc.zy</groupId>
+			<artifactId>tkd-commons</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.lc.zy</groupId>
+			<artifactId>tkd-domain</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>tkd-message</finalName>
+		<resources>
+			<resource>
+		        <directory>src/main/resources</directory>  
+		        <filtering>true</filtering>  
+		    </resource>  
+		</resources>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>  
+			    <groupId>org.apache.maven.plugins</groupId>  
+			    <artifactId>maven-dependency-plugin</artifactId>  
+			    <executions>  
+			    <execution>  
+			    <id>copy</id>  
+			    <phase>install</phase>  
+			    <goals>  
+			        <goal>copy-dependencies</goal>  
+			    </goals>  
+			    <configuration>  
+			    <outputDirectory>target/lib</outputDirectory>
+			    </configuration>  
+			    </execution>  
+			    </executions>  
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- 环境配置 -->
+	<profiles>
+        <profile>
+            <!-- 测试环境: mvn package -Dmaven.test.skip=true -Ptest -->
+            <id>test</id>
+            <properties>
+				<brokerUrl><![CDATA[tcp://192.168.0.11:61616]]></brokerUrl>
+
+				<!-- <emailLicence>558ab798cf1a460aad7c3c57f7c78fe0</emailLicence>
+                <mailServiceHost><![CDATA[192.168.0.6:9025]]></mailServiceHost> -->
+
+				<!-- <smsLicence>qiuyouzonesms</smsLicence>
+				<smsServiceHost>192.168.0.5:9026</smsServiceHost> -->
+				<services.solr_server><![CDATA[http://192.168.0.11:8081/solr/]]></services.solr_server>
+				<!-- <coreServiceOrdersHost>192.168.0.7:9027</coreServiceOrdersHost>
+				<coreServiceOrdersLicense>558ab798cf1a460axx7c3c57f7c77fe0</coreServiceOrdersLicense> -->
+				<redis.server><![CDATA[192.168.0.11:6379]]></redis.server>
+			</properties>
+        </profile>
+        
+        <profile>
+            <!-- 生产环境: mvn package -Dmaven.test.skip=true -Ppro -->
+            <id>pro</id>
+            <properties>
+				<brokerUrl><![CDATA[tcp://192.168.0.2:61616]]></brokerUrl>
+				
+				<!-- <emailLicence>558ab798cf1a460aad7c3c57f7c78fe0</emailLicence>
+                <mailServiceHost><![CDATA[192.168.0.6:9025]]></mailServiceHost> -->
+				
+				<!-- <smsLicence>qiuyouzonesms</smsLicence>
+				<smsServiceHost>192.168.0.5:9026</smsServiceHost>
+				<coreServiceOrdersHost>192.168.0.6:9027</coreServiceOrdersHost>
+				<coreServiceOrdersLicense>558ab798cf1a460axx7c3c57f7c77fe0</coreServiceOrdersLicense> -->
+				
+				<services.solr_server><![CDATA[http://192.168.0.2:8081/solr/]]></services.solr_server>
+				<redis.server><![CDATA[192.168.0.2:6379]]></redis.server>
+			</properties>
+        </profile>
+
+        <profile>
+            <id>dev</id>
+            <properties>
+				<brokerUrl><![CDATA[tcp://192.168.1.219:61616]]></brokerUrl>
+
+				<!-- <emailLicence>558ab798cf1a460aad7c3c57f7c78fe0</emailLicence>
+                <mailServiceHost><![CDATA[fileserver.qiuyouzone.com:9025]]></mailServiceHost>
+				<coreServiceOrdersHost>192.168.0.213:9027</coreServiceOrdersHost>
+				<coreServiceOrdersLicense>558ab798cf1a460axx7c3c57f7c77fe0</coreServiceOrdersLicense> -->
+
+				<!-- <smsLicence>qiuyouzonesms</smsLicence>
+				<smsServiceHost>180.76.186.123:9026</smsServiceHost> -->
+				
+				<services.solr_server><![CDATA[http://192.168.1.219:8081/solr/]]></services.solr_server>
+				<redis.server><![CDATA[192.168.1.219:6379]]></redis.server>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+        </profile>
+        
+    </profiles>
+
+</project>

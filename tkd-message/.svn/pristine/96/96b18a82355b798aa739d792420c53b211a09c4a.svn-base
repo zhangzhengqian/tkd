@@ -1,0 +1,19 @@
+brokerUrl=tcp://60.219.169.5:61616
+smsServerAddr=http://180.76.153.246:8089/sms/send/
+
+
+# mail service config for dev
+emailLicence=558ab798cf1a460aad7c3c57f7c78fe0
+mailServiceHost=fileserver.qiuyouzone.com:9025
+
+smsLicence=qiuyouzonesms
+smsServiceHost=www.qiuyouzone.com:9026
+
+#solr
+solr_server=192.168.0.169:6379
+
+coreServiceOrdersHost=192.168.0.213:9027
+coreServiceOrdersLicense=558ab798cf1a460axx7c3c57f7c77fe0
+
+#sms
+sms.server=http://http.yunsms.cn/tx/?uid=21822&pwd=fc4b5e01dc4a50dd6aa1d818b8d118f0&encode=utf8

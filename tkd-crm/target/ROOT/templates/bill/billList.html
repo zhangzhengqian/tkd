@@ -1,0 +1,25 @@
+<div class="orderResult">
+<table>
+	<tr>
+		<th>开始时间</th>
+		<th>结束时间</th>
+		<th>订单总数</th>
+		<th>订单金额</th>
+		<th>补贴金额</th>
+		<th>总金额</th>
+		<th>创建时间</th>
+		<th>操作</th>
+	</tr>
+	<tr ng-repeat="bill in objs">
+	<td>{{bill.beginDate|dateToMill}}</td>
+	<td>{{bill.endDate|dateToMill}}</td>
+	<td>{{bill.orderNum}}</td>
+	<td>{{bill.fee}}</td>
+	<td>{{bill.subsidy}}</td>
+	<td>{{bill.fee+bill.subsidy}}</td>
+	<td>{{bill.ct}}</td>
+	<td><a href="#bill/{{bill.billId}}" href="javascript:;" class="text-navy">查看</a></td>
+	</tr>
+</table>
+</div>
+<crm-pagination conf="paginationConf"></crm-pagination>

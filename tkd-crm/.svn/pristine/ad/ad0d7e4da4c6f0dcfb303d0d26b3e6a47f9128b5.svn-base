@@ -1,0 +1,39 @@
+<div class="orderNav">
+	<ul>
+		<li><a href="#/mall/goods">订货</a></li>
+		<li><a href="#/mall/orders">订单管理</a></li>
+		<li class="active"><a href="#/mall/storageSize">库存管理</a></li>
+		<li><a href="#/mall/storageLogs">出入库明细</a></li>
+	</ul>
+</div>
+<div class="orderResult">
+	<table>
+		<tr>
+			<th>商品名称</th>
+			<th>规格</th>
+			<th>售价</th>
+			<th>库存</th>
+			<th>操作</th>
+		</tr>
+		<tr ng-repeat="storage in storages">
+			<td>{{storage.goodName}}</td>
+			<td>{{storage.bulk}}</td>
+			<td>{{storage.sellPrice==null?0:storage.price_|currency:'￥'}}</td>
+			<td>{{storage.storageSize}}</td>
+			<td>
+			<p class="add_cart" ng-click="update($index,storage.goodId)">
+                修改
+                </p>
+			<p class="add_cart" ng-click="add($index,storage.goodId)">
+                入库
+                </p>
+                <p class="cut_cart" ng-if="storage.storageSize!=0" ng-click="cut($index,storage.goodId)">
+                出库
+                </p>
+                <p class="cut_cart_zh" ng-if="storage.storageSize==0">
+                出库
+                </p>
+			</td>
+		</tr>
+	</table>
+</div>

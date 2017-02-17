@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lc.zy.ball.domain.oa.mapper.CoachMapper" >
+  <resultMap id="BaseResultMap" type="com.lc.zy.ball.domain.oa.po.Coach" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="dg_id" property="dgId" jdbcType="INTEGER" />
+    <result column="dg_name" property="dgName" jdbcType="VARCHAR" />
+    <result column="logo" property="logo" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="nick" property="nick" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="photos" property="photos" jdbcType="VARCHAR" />
+    <result column="position" property="position" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="danlevel" property="danlevel" jdbcType="VARCHAR" />
+    <result column="teachyear" property="teachyear" jdbcType="INTEGER" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="iscard" property="iscard" jdbcType="VARCHAR" />
+    <result column="isdan" property="isdan" jdbcType="VARCHAR" />
+    <result column="helfexper" property="helfexper" jdbcType="VARCHAR" />
+    <result column="tearchexper" property="tearchexper" jdbcType="VARCHAR" />
+    <result column="specialty" property="specialty" jdbcType="VARCHAR" />
+    <result column="students" property="students" jdbcType="INTEGER" />
+    <result column="rate" property="rate" jdbcType="REAL" />
+    <result column="grade" property="grade" jdbcType="INTEGER" />
+    <result column="ct" property="ct" jdbcType="TIMESTAMP" />
+    <result column="cb" property="cb" jdbcType="VARCHAR" />
+    <result column="et" property="et" jdbcType="TIMESTAMP" />
+    <result column="eb" property="eb" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="area" property="area" jdbcType="VARCHAR" />
+    <result column="coach_no" property="coachNo" jdbcType="VARCHAR" />
+    <result column="card_id" property="cardId" jdbcType="VARCHAR" />
+    <result column="active_state" property="activeState" jdbcType="INTEGER" />
+    <result column="cert_list" property="certList" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="areacode" property="areacode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, dg_id, dg_name, logo, name, nick, sex, type, photos, position, province, danlevel, 
+    teachyear, phone, iscard, isdan, helfexper, tearchexper, specialty, students, rate, 
+    grade, ct, cb, et, eb, city, area, coach_no, card_id, active_state, cert_list, password, 
+    areacode
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lc.zy.ball.domain.oa.po.CoachCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from oa_coach
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="mysqlOffset != null and mysqlLength != null" >
+      <![CDATA[ limit #{mysqlOffset} , #{mysqlLength} ]]>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from oa_coach
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from oa_coach
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lc.zy.ball.domain.oa.po.CoachCriteria" >
+    delete from oa_coach
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lc.zy.ball.domain.oa.po.Coach" >
+    insert into oa_coach (id, dg_id, dg_name, logo, name, nick, sex, type, photos, 
+      position, province, danlevel, teachyear, phone, iscard, isdan, 
+      helfexper, tearchexper, specialty, students, rate, grade, ct, 
+      cb, et, eb, city, area, coach_no, card_id, active_state, cert_list, 
+      password, areacode)
+    values (#{id}, #{dgId}, #{dgName}, #{logo}, #{name}, #{nick}, #{sex}, #{type}, #{photos}, 
+      #{position}, #{province}, #{danlevel}, #{teachyear}, #{phone}, #{iscard}, #{isdan}, 
+      #{helfexper}, #{tearchexper}, #{specialty}, #{students}, #{rate}, #{grade}, #{ct}, 
+      #{cb}, #{et}, #{eb}, #{city}, #{area}, #{coachNo}, #{cardId}, #{activeState}, #{certList}, 
+      #{password}, #{areacode})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lc.zy.ball.domain.oa.po.Coach" >
+    insert into oa_coach
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="dgId != null" >
+        dg_id,
+      </if>
+      <if test="dgName != null" >
+        dg_name,
+      </if>
+      <if test="logo != null" >
+        logo,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="nick != null" >
+        nick,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="photos != null" >
+        photos,
+      </if>
+      <if test="position != null" >
+        position,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="danlevel != null" >
+        danlevel,
+      </if>
+      <if test="teachyear != null" >
+        teachyear,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="iscard != null" >
+        iscard,
+      </if>
+      <if test="isdan != null" >
+        isdan,
+      </if>
+      <if test="helfexper != null" >
+        helfexper,
+      </if>
+      <if test="tearchexper != null" >
+        tearchexper,
+      </if>
+      <if test="specialty != null" >
+        specialty,
+      </if>
+      <if test="students != null" >
+        students,
+      </if>
+      <if test="rate != null" >
+        rate,
+      </if>
+      <if test="grade != null" >
+        grade,
+      </if>
+      <if test="ct != null" >
+        ct,
+      </if>
+      <if test="cb != null" >
+        cb,
+      </if>
+      <if test="et != null" >
+        et,
+      </if>
+      <if test="eb != null" >
+        eb,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="area != null" >
+        area,
+      </if>
+      <if test="coachNo != null" >
+        coach_no,
+      </if>
+      <if test="cardId != null" >
+        card_id,
+      </if>
+      <if test="activeState != null" >
+        active_state,
+      </if>
+      <if test="certList != null" >
+        cert_list,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="areacode != null" >
+        areacode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="dgId != null" >
+        #{dgId},
+      </if>
+      <if test="dgName != null" >
+        #{dgName},
+      </if>
+      <if test="logo != null" >
+        #{logo},
+      </if>
+      <if test="name != null" >
+        #{name},
+      </if>
+      <if test="nick != null" >
+        #{nick},
+      </if>
+      <if test="sex != null" >
+        #{sex},
+      </if>
+      <if test="type != null" >
+        #{type},
+      </if>
+      <if test="photos != null" >
+        #{photos},
+      </if>
+      <if test="position != null" >
+        #{position},
+      </if>
+      <if test="province != null" >
+        #{province},
+      </if>
+      <if test="danlevel != null" >
+        #{danlevel},
+      </if>
+      <if test="teachyear != null" >
+        #{teachyear},
+      </if>
+      <if test="phone != null" >
+        #{phone},
+      </if>
+      <if test="iscard != null" >
+        #{iscard},
+      </if>
+      <if test="isdan != null" >
+        #{isdan},
+      </if>
+      <if test="helfexper != null" >
+        #{helfexper},
+      </if>
+      <if test="tearchexper != null" >
+        #{tearchexper},
+      </if>
+      <if test="specialty != null" >
+        #{specialty},
+      </if>
+      <if test="students != null" >
+        #{students},
+      </if>
+      <if test="rate != null" >
+        #{rate},
+      </if>
+      <if test="grade != null" >
+        #{grade},
+      </if>
+      <if test="ct != null" >
+        #{ct},
+      </if>
+      <if test="cb != null" >
+        #{cb},
+      </if>
+      <if test="et != null" >
+        #{et},
+      </if>
+      <if test="eb != null" >
+        #{eb},
+      </if>
+      <if test="city != null" >
+        #{city},
+      </if>
+      <if test="area != null" >
+        #{area},
+      </if>
+      <if test="coachNo != null" >
+        #{coachNo},
+      </if>
+      <if test="cardId != null" >
+        #{cardId},
+      </if>
+      <if test="activeState != null" >
+        #{activeState},
+      </if>
+      <if test="certList != null" >
+        #{certList},
+      </if>
+      <if test="password != null" >
+        #{password},
+      </if>
+      <if test="areacode != null" >
+        #{areacode},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lc.zy.ball.domain.oa.po.CoachCriteria" resultType="java.lang.Integer" >
+    select count(*) from oa_coach
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update oa_coach
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.dgId != null" >
+        dg_id = #{record.dgId},
+      </if>
+      <if test="record.dgName != null" >
+        dg_name = #{record.dgName},
+      </if>
+      <if test="record.logo != null" >
+        logo = #{record.logo},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name},
+      </if>
+      <if test="record.nick != null" >
+        nick = #{record.nick},
+      </if>
+      <if test="record.sex != null" >
+        sex = #{record.sex},
+      </if>
+      <if test="record.type != null" >
+        type = #{record.type},
+      </if>
+      <if test="record.photos != null" >
+        photos = #{record.photos},
+      </if>
+      <if test="record.position != null" >
+        position = #{record.position},
+      </if>
+      <if test="record.province != null" >
+        province = #{record.province},
+      </if>
+      <if test="record.danlevel != null" >
+        danlevel = #{record.danlevel},
+      </if>
+      <if test="record.teachyear != null" >
+        teachyear = #{record.teachyear},
+      </if>
+      <if test="record.phone != null" >
+        phone = #{record.phone},
+      </if>
+      <if test="record.iscard != null" >
+        iscard = #{record.iscard},
+      </if>
+      <if test="record.isdan != null" >
+        isdan = #{record.isdan},
+      </if>
+      <if test="record.helfexper != null" >
+        helfexper = #{record.helfexper},
+      </if>
+      <if test="record.tearchexper != null" >
+        tearchexper = #{record.tearchexper},
+      </if>
+      <if test="record.specialty != null" >
+        specialty = #{record.specialty},
+      </if>
+      <if test="record.students != null" >
+        students = #{record.students},
+      </if>
+      <if test="record.rate != null" >
+        rate = #{record.rate},
+      </if>
+      <if test="record.grade != null" >
+        grade = #{record.grade},
+      </if>
+      <if test="record.ct != null" >
+        ct = #{record.ct},
+      </if>
+      <if test="record.cb != null" >
+        cb = #{record.cb},
+      </if>
+      <if test="record.et != null" >
+        et = #{record.et},
+      </if>
+      <if test="record.eb != null" >
+        eb = #{record.eb},
+      </if>
+      <if test="record.city != null" >
+        city = #{record.city},
+      </if>
+      <if test="record.area != null" >
+        area = #{record.area},
+      </if>
+      <if test="record.coachNo != null" >
+        coach_no = #{record.coachNo},
+      </if>
+      <if test="record.cardId != null" >
+        card_id = #{record.cardId},
+      </if>
+      <if test="record.activeState != null" >
+        active_state = #{record.activeState},
+      </if>
+      <if test="record.certList != null" >
+        cert_list = #{record.certList},
+      </if>
+      <if test="record.password != null" >
+        password = #{record.password},
+      </if>
+      <if test="record.areacode != null" >
+        areacode = #{record.areacode},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update oa_coach
+    set id = #{record.id},
+      dg_id = #{record.dgId},
+      dg_name = #{record.dgName},
+      logo = #{record.logo},
+      name = #{record.name},
+      nick = #{record.nick},
+      sex = #{record.sex},
+      type = #{record.type},
+      photos = #{record.photos},
+      position = #{record.position},
+      province = #{record.province},
+      danlevel = #{record.danlevel},
+      teachyear = #{record.teachyear},
+      phone = #{record.phone},
+      iscard = #{record.iscard},
+      isdan = #{record.isdan},
+      helfexper = #{record.helfexper},
+      tearchexper = #{record.tearchexper},
+      specialty = #{record.specialty},
+      students = #{record.students},
+      rate = #{record.rate},
+      grade = #{record.grade},
+      ct = #{record.ct},
+      cb = #{record.cb},
+      et = #{record.et},
+      eb = #{record.eb},
+      city = #{record.city},
+      area = #{record.area},
+      coach_no = #{record.coachNo},
+      card_id = #{record.cardId},
+      active_state = #{record.activeState},
+      cert_list = #{record.certList},
+      password = #{record.password},
+      areacode = #{record.areacode}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lc.zy.ball.domain.oa.po.Coach" >
+    update oa_coach
+    <set >
+      <if test="dgId != null" >
+        dg_id = #{dgId},
+      </if>
+      <if test="dgName != null" >
+        dg_name = #{dgName},
+      </if>
+      <if test="logo != null" >
+        logo = #{logo},
+      </if>
+      <if test="name != null" >
+        name = #{name},
+      </if>
+      <if test="nick != null" >
+        nick = #{nick},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex},
+      </if>
+      <if test="type != null" >
+        type = #{type},
+      </if>
+      <if test="photos != null" >
+        photos = #{photos},
+      </if>
+      <if test="position != null" >
+        position = #{position},
+      </if>
+      <if test="province != null" >
+        province = #{province},
+      </if>
+      <if test="danlevel != null" >
+        danlevel = #{danlevel},
+      </if>
+      <if test="teachyear != null" >
+        teachyear = #{teachyear},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone},
+      </if>
+      <if test="iscard != null" >
+        iscard = #{iscard},
+      </if>
+      <if test="isdan != null" >
+        isdan = #{isdan},
+      </if>
+      <if test="helfexper != null" >
+        helfexper = #{helfexper},
+      </if>
+      <if test="tearchexper != null" >
+        tearchexper = #{tearchexper},
+      </if>
+      <if test="specialty != null" >
+        specialty = #{specialty},
+      </if>
+      <if test="students != null" >
+        students = #{students},
+      </if>
+      <if test="rate != null" >
+        rate = #{rate},
+      </if>
+      <if test="grade != null" >
+        grade = #{grade},
+      </if>
+      <if test="ct != null" >
+        ct = #{ct},
+      </if>
+      <if test="cb != null" >
+        cb = #{cb},
+      </if>
+      <if test="et != null" >
+        et = #{et},
+      </if>
+      <if test="eb != null" >
+        eb = #{eb},
+      </if>
+      <if test="city != null" >
+        city = #{city},
+      </if>
+      <if test="area != null" >
+        area = #{area},
+      </if>
+      <if test="coachNo != null" >
+        coach_no = #{coachNo},
+      </if>
+      <if test="cardId != null" >
+        card_id = #{cardId},
+      </if>
+      <if test="activeState != null" >
+        active_state = #{activeState},
+      </if>
+      <if test="certList != null" >
+        cert_list = #{certList},
+      </if>
+      <if test="password != null" >
+        password = #{password},
+      </if>
+      <if test="areacode != null" >
+        areacode = #{areacode},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lc.zy.ball.domain.oa.po.Coach" >
+    update oa_coach
+    set dg_id = #{dgId},
+      dg_name = #{dgName},
+      logo = #{logo},
+      name = #{name},
+      nick = #{nick},
+      sex = #{sex},
+      type = #{type},
+      photos = #{photos},
+      position = #{position},
+      province = #{province},
+      danlevel = #{danlevel},
+      teachyear = #{teachyear},
+      phone = #{phone},
+      iscard = #{iscard},
+      isdan = #{isdan},
+      helfexper = #{helfexper},
+      tearchexper = #{tearchexper},
+      specialty = #{specialty},
+      students = #{students},
+      rate = #{rate},
+      grade = #{grade},
+      ct = #{ct},
+      cb = #{cb},
+      et = #{et},
+      eb = #{eb},
+      city = #{city},
+      area = #{area},
+      coach_no = #{coachNo},
+      card_id = #{cardId},
+      active_state = #{activeState},
+      cert_list = #{certList},
+      password = #{password},
+      areacode = #{areacode}
+    where id = #{id}
+  </update>
+</mapper>

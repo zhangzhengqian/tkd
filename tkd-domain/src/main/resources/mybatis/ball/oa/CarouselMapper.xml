@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lc.zy.ball.domain.oa.mapper.CarouselMapper" >
+  <resultMap id="BaseResultMap" type="com.lc.zy.ball.domain.oa.po.Carousel" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="image" property="image" jdbcType="VARCHAR" />
+    <result column="image_new" property="imageNew" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="position" property="position" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="resource_id" property="resourceId" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="content_wx" property="contentWx" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="duration" property="duration" jdbcType="VARCHAR" />
+    <result column="area_code" property="areaCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, image, image_new, name, position, type, resource_id, sort, update_time, create_time, 
+    content_wx, province, city, duration, area_code
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lc.zy.ball.domain.oa.po.CarouselCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from oa_carousel
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="mysqlOffset != null and mysqlLength != null" >
+      <![CDATA[ limit #{mysqlOffset} , #{mysqlLength} ]]>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from oa_carousel
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from oa_carousel
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lc.zy.ball.domain.oa.po.CarouselCriteria" >
+    delete from oa_carousel
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lc.zy.ball.domain.oa.po.Carousel" >
+    insert into oa_carousel (id, image, image_new, name, position, type, resource_id, 
+      sort, update_time, create_time, content_wx, province, city, duration, 
+      area_code)
+    values (#{id}, #{image}, #{imageNew}, #{name}, #{position}, #{type}, #{resourceId}, 
+      #{sort}, #{updateTime}, #{createTime}, #{contentWx}, #{province}, #{city}, #{duration}, 
+      #{areaCode})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lc.zy.ball.domain.oa.po.Carousel" >
+    insert into oa_carousel
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="image != null" >
+        image,
+      </if>
+      <if test="imageNew != null" >
+        image_new,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="position != null" >
+        position,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="resourceId != null" >
+        resource_id,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="contentWx != null" >
+        content_wx,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="duration != null" >
+        duration,
+      </if>
+      <if test="areaCode != null" >
+        area_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="image != null" >
+        #{image},
+      </if>
+      <if test="imageNew != null" >
+        #{imageNew},
+      </if>
+      <if test="name != null" >
+        #{name},
+      </if>
+      <if test="position != null" >
+        #{position},
+      </if>
+      <if test="type != null" >
+        #{type},
+      </if>
+      <if test="resourceId != null" >
+        #{resourceId},
+      </if>
+      <if test="sort != null" >
+        #{sort},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime},
+      </if>
+      <if test="createTime != null" >
+        #{createTime},
+      </if>
+      <if test="contentWx != null" >
+        #{contentWx},
+      </if>
+      <if test="province != null" >
+        #{province},
+      </if>
+      <if test="city != null" >
+        #{city},
+      </if>
+      <if test="duration != null" >
+        #{duration},
+      </if>
+      <if test="areaCode != null" >
+        #{areaCode},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lc.zy.ball.domain.oa.po.CarouselCriteria" resultType="java.lang.Integer" >
+    select count(*) from oa_carousel
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update oa_carousel
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.image != null" >
+        image = #{record.image},
+      </if>
+      <if test="record.imageNew != null" >
+        image_new = #{record.imageNew},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name},
+      </if>
+      <if test="record.position != null" >
+        position = #{record.position},
+      </if>
+      <if test="record.type != null" >
+        type = #{record.type},
+      </if>
+      <if test="record.resourceId != null" >
+        resource_id = #{record.resourceId},
+      </if>
+      <if test="record.sort != null" >
+        sort = #{record.sort},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime},
+      </if>
+      <if test="record.contentWx != null" >
+        content_wx = #{record.contentWx},
+      </if>
+      <if test="record.province != null" >
+        province = #{record.province},
+      </if>
+      <if test="record.city != null" >
+        city = #{record.city},
+      </if>
+      <if test="record.duration != null" >
+        duration = #{record.duration},
+      </if>
+      <if test="record.areaCode != null" >
+        area_code = #{record.areaCode},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update oa_carousel
+    set id = #{record.id},
+      image = #{record.image},
+      image_new = #{record.imageNew},
+      name = #{record.name},
+      position = #{record.position},
+      type = #{record.type},
+      resource_id = #{record.resourceId},
+      sort = #{record.sort},
+      update_time = #{record.updateTime},
+      create_time = #{record.createTime},
+      content_wx = #{record.contentWx},
+      province = #{record.province},
+      city = #{record.city},
+      duration = #{record.duration},
+      area_code = #{record.areaCode}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lc.zy.ball.domain.oa.po.Carousel" >
+    update oa_carousel
+    <set >
+      <if test="image != null" >
+        image = #{image},
+      </if>
+      <if test="imageNew != null" >
+        image_new = #{imageNew},
+      </if>
+      <if test="name != null" >
+        name = #{name},
+      </if>
+      <if test="position != null" >
+        position = #{position},
+      </if>
+      <if test="type != null" >
+        type = #{type},
+      </if>
+      <if test="resourceId != null" >
+        resource_id = #{resourceId},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime},
+      </if>
+      <if test="contentWx != null" >
+        content_wx = #{contentWx},
+      </if>
+      <if test="province != null" >
+        province = #{province},
+      </if>
+      <if test="city != null" >
+        city = #{city},
+      </if>
+      <if test="duration != null" >
+        duration = #{duration},
+      </if>
+      <if test="areaCode != null" >
+        area_code = #{areaCode},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lc.zy.ball.domain.oa.po.Carousel" >
+    update oa_carousel
+    set image = #{image},
+      image_new = #{imageNew},
+      name = #{name},
+      position = #{position},
+      type = #{type},
+      resource_id = #{resourceId},
+      sort = #{sort},
+      update_time = #{updateTime},
+      create_time = #{createTime},
+      content_wx = #{contentWx},
+      province = #{province},
+      city = #{city},
+      duration = #{duration},
+      area_code = #{areaCode}
+    where id = #{id}
+  </update>
+</mapper>

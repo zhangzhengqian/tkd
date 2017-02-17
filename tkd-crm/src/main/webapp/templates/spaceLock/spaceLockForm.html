@@ -1,0 +1,100 @@
+<div class="orderSearch">
+    <ul>
+        <li>
+            <span>运动类型</span>
+            <select ng-model='spaceLock.sportType' ng-change="changeSportType(spaceLock.sportType)" ng-options="sportType as sportTypesMap[sportType] for sportType in sportTypes"></select>
+        </li>
+        <li class="timeLi">
+            <span>查询时间</span>
+            <input type="text" ng-model='spaceLock.startTime' id="startTime" onchange="" onfocus="WdatePicker({firstDayOfWeek:1,minDate:'%y-%M-%d',maxDate:'#{%y+1}-%M-%d'})">
+            <em>到</em>
+            <input type="text" ng-model='spaceLock.endTime' onchange="" onfocus="WdatePicker({firstDayOfWeek:1,minDate:'#F{$dp.$D(\'startTime\')}',minDate:'%y-%M-%d',maxDate:'#{%y+1}-%M-%d'})">
+        </li>
+        <li class="timeSelect">
+            <span>时段</span>
+            <select ng-model='spaceLock.startHour'>
+				<option value="0">00:00</option>
+				<option value="1">01:00</option>
+				<option value="2">02:00</option>
+				<option value="3">03:00</option>
+				<option value="4">04:00</option>
+				<option value="5">05:00</option>
+				<option value="6">06:00</option>
+				<option value="7">07:00</option>
+				<option value="8">08:00</option>
+				<option value="9">09:00</option>
+				<option value="10">10:00</option>
+				<option value="11">11:00</option>
+				<option value="12">12:00</option>
+				<option value="13">13:00</option>
+				<option value="14">14:00</option>
+				<option value="15">15:00</option>
+				<option value="16">16:00</option>
+				<option value="17">17:00</option>
+				<option value="18">18:00</option>
+				<option value="19">19:00</option>
+				<option value="20">20:00</option>
+				<option value="21">21:00</option>
+				<option value="22">22:00</option>
+				<option value="23">23:00</option>
+			</select> 
+			<select ng-model='spaceLock.endHour'>
+				<option value="1">01:00</option>
+				<option value="2">02:00</option>
+				<option value="3">03:00</option>
+				<option value="4">04:00</option>
+				<option value="5">05:00</option>
+				<option value="6">06:00</option>
+				<option value="7">07:00</option>
+				<option value="8">08:00</option>
+				<option value="9">09:00</option>
+				<option value="10">10:00</option>
+				<option value="11">11:00</option>
+				<option value="12">12:00</option>
+				<option value="13">13:00</option>
+				<option value="14">14:00</option>
+				<option value="15">15:00</option>
+				<option value="16">16:00</option>
+				<option value="17">17:00</option>
+				<option value="18">18:00</option>
+				<option value="19">19:00</option>
+				<option value="20">20:00</option>
+				<option value="21">21:00</option>
+				<option value="22">22:00</option>
+				<option value="23">23:00</option>
+				<option value="24">24:00</option>
+			</select>
+        </li>
+        <li>
+            <span>星期</span>
+            <select ng-model='spaceLock.weekDay'>
+				<option value="0">全部</option>
+				<option value="2">一</option>
+				<option value="3">二</option>
+				<option value="4">三</option>
+				<option value="5">四</option>
+				<option value="6">五</option>
+				<option value="7">六</option>
+				<option value="1">日</option>
+			</select>
+        </li>
+        <li class="subLockBtn">
+        	<a class="submit" href="#spaceLock">返回</a>
+        	<a class="submit" ng-click="checkSpaceIsLock()" href="javascript:;">查看</a>
+        	<a class="submit" ng-click="lockSpaceBatch()" href="javascript:;" disabled="disabled">锁定</a>
+        </li>
+    </ul>
+</div>
+<div class="orderResult">
+	<table>
+		<tr>
+			<th width="20%" class="text-center">选择</th>
+			<th>场地编码</th>
+		</tr>
+		<tr ng-repeat="spaceCodeCheck in spaceLock.spaceList">
+			<td><input type="checkbox" ng-model="spaceCodeCheck.checked"></td>
+			<td>{{spaceCodeCheck.spaceCode}}</td>
+		</tr>
+
+	</table>
+</div>

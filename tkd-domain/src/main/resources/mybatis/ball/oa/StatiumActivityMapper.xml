@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lc.zy.ball.domain.oa.mapper.StatiumActivityMapper" >
+  <resultMap id="BaseResultMap" type="com.lc.zy.ball.domain.oa.po.StatiumActivity" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="statium_id" property="statiumId" jdbcType="INTEGER" />
+    <result column="activity_topic" property="activityTopic" jdbcType="VARCHAR" />
+    <result column="dg_name" property="dgName" jdbcType="VARCHAR" />
+    <result column="start_time" property="startTime" jdbcType="VARCHAR" />
+    <result column="end_time" property="endTime" jdbcType="VARCHAR" />
+    <result column="host_introduce" property="hostIntroduce" jdbcType="VARCHAR" />
+    <result column="photo" property="photo" jdbcType="VARCHAR" />
+    <result column="amount" property="amount" jdbcType="INTEGER" />
+    <result column="price" property="price" jdbcType="INTEGER" />
+    <result column="activity_introduce" property="activityIntroduce" jdbcType="VARCHAR" />
+    <result column="ct" property="ct" jdbcType="TIMESTAMP" />
+    <result column="cb" property="cb" jdbcType="VARCHAR" />
+    <result column="et" property="et" jdbcType="TIMESTAMP" />
+    <result column="eb" property="eb" jdbcType="VARCHAR" />
+    <result column="expiry_data" property="expiryData" jdbcType="VARCHAR" />
+    <result column="host_name" property="hostName" jdbcType="VARCHAR" />
+    <result column="expiry_type" property="expiryType" jdbcType="INTEGER" />
+    <result column="free" property="free" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, statium_id, activity_topic, dg_name, start_time, end_time, host_introduce, photo, 
+    amount, price, activity_introduce, ct, cb, et, eb, expiry_data, host_name, expiry_type, 
+    free
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lc.zy.ball.domain.oa.po.StatiumActivityCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from oa_statium_activity
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="mysqlOffset != null and mysqlLength != null" >
+      <![CDATA[ limit #{mysqlOffset} , #{mysqlLength} ]]>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from oa_statium_activity
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from oa_statium_activity
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lc.zy.ball.domain.oa.po.StatiumActivityCriteria" >
+    delete from oa_statium_activity
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lc.zy.ball.domain.oa.po.StatiumActivity" >
+    insert into oa_statium_activity (id, statium_id, activity_topic, dg_name, start_time, end_time, 
+      host_introduce, photo, amount, price, activity_introduce, ct, cb, 
+      et, eb, expiry_data, host_name, expiry_type, free)
+    values (#{id}, #{statiumId}, #{activityTopic}, #{dgName}, #{startTime}, #{endTime}, 
+      #{hostIntroduce}, #{photo}, #{amount}, #{price}, #{activityIntroduce}, #{ct}, #{cb}, 
+      #{et}, #{eb}, #{expiryData}, #{hostName}, #{expiryType}, #{free})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lc.zy.ball.domain.oa.po.StatiumActivity" >
+    insert into oa_statium_activity
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="statiumId != null" >
+        statium_id,
+      </if>
+      <if test="activityTopic != null" >
+        activity_topic,
+      </if>
+      <if test="dgName != null" >
+        dg_name,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="hostIntroduce != null" >
+        host_introduce,
+      </if>
+      <if test="photo != null" >
+        photo,
+      </if>
+      <if test="amount != null" >
+        amount,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="activityIntroduce != null" >
+        activity_introduce,
+      </if>
+      <if test="ct != null" >
+        ct,
+      </if>
+      <if test="cb != null" >
+        cb,
+      </if>
+      <if test="et != null" >
+        et,
+      </if>
+      <if test="eb != null" >
+        eb,
+      </if>
+      <if test="expiryData != null" >
+        expiry_data,
+      </if>
+      <if test="hostName != null" >
+        host_name,
+      </if>
+      <if test="expiryType != null" >
+        expiry_type,
+      </if>
+      <if test="free != null" >
+        free,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="statiumId != null" >
+        #{statiumId},
+      </if>
+      <if test="activityTopic != null" >
+        #{activityTopic},
+      </if>
+      <if test="dgName != null" >
+        #{dgName},
+      </if>
+      <if test="startTime != null" >
+        #{startTime},
+      </if>
+      <if test="endTime != null" >
+        #{endTime},
+      </if>
+      <if test="hostIntroduce != null" >
+        #{hostIntroduce},
+      </if>
+      <if test="photo != null" >
+        #{photo},
+      </if>
+      <if test="amount != null" >
+        #{amount},
+      </if>
+      <if test="price != null" >
+        #{price},
+      </if>
+      <if test="activityIntroduce != null" >
+        #{activityIntroduce},
+      </if>
+      <if test="ct != null" >
+        #{ct},
+      </if>
+      <if test="cb != null" >
+        #{cb},
+      </if>
+      <if test="et != null" >
+        #{et},
+      </if>
+      <if test="eb != null" >
+        #{eb},
+      </if>
+      <if test="expiryData != null" >
+        #{expiryData},
+      </if>
+      <if test="hostName != null" >
+        #{hostName},
+      </if>
+      <if test="expiryType != null" >
+        #{expiryType},
+      </if>
+      <if test="free != null" >
+        #{free},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lc.zy.ball.domain.oa.po.StatiumActivityCriteria" resultType="java.lang.Integer" >
+    select count(*) from oa_statium_activity
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update oa_statium_activity
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.statiumId != null" >
+        statium_id = #{record.statiumId},
+      </if>
+      <if test="record.activityTopic != null" >
+        activity_topic = #{record.activityTopic},
+      </if>
+      <if test="record.dgName != null" >
+        dg_name = #{record.dgName},
+      </if>
+      <if test="record.startTime != null" >
+        start_time = #{record.startTime},
+      </if>
+      <if test="record.endTime != null" >
+        end_time = #{record.endTime},
+      </if>
+      <if test="record.hostIntroduce != null" >
+        host_introduce = #{record.hostIntroduce},
+      </if>
+      <if test="record.photo != null" >
+        photo = #{record.photo},
+      </if>
+      <if test="record.amount != null" >
+        amount = #{record.amount},
+      </if>
+      <if test="record.price != null" >
+        price = #{record.price},
+      </if>
+      <if test="record.activityIntroduce != null" >
+        activity_introduce = #{record.activityIntroduce},
+      </if>
+      <if test="record.ct != null" >
+        ct = #{record.ct},
+      </if>
+      <if test="record.cb != null" >
+        cb = #{record.cb},
+      </if>
+      <if test="record.et != null" >
+        et = #{record.et},
+      </if>
+      <if test="record.eb != null" >
+        eb = #{record.eb},
+      </if>
+      <if test="record.expiryData != null" >
+        expiry_data = #{record.expiryData},
+      </if>
+      <if test="record.hostName != null" >
+        host_name = #{record.hostName},
+      </if>
+      <if test="record.expiryType != null" >
+        expiry_type = #{record.expiryType},
+      </if>
+      <if test="record.free != null" >
+        free = #{record.free},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update oa_statium_activity
+    set id = #{record.id},
+      statium_id = #{record.statiumId},
+      activity_topic = #{record.activityTopic},
+      dg_name = #{record.dgName},
+      start_time = #{record.startTime},
+      end_time = #{record.endTime},
+      host_introduce = #{record.hostIntroduce},
+      photo = #{record.photo},
+      amount = #{record.amount},
+      price = #{record.price},
+      activity_introduce = #{record.activityIntroduce},
+      ct = #{record.ct},
+      cb = #{record.cb},
+      et = #{record.et},
+      eb = #{record.eb},
+      expiry_data = #{record.expiryData},
+      host_name = #{record.hostName},
+      expiry_type = #{record.expiryType},
+      free = #{record.free}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lc.zy.ball.domain.oa.po.StatiumActivity" >
+    update oa_statium_activity
+    <set >
+      <if test="statiumId != null" >
+        statium_id = #{statiumId},
+      </if>
+      <if test="activityTopic != null" >
+        activity_topic = #{activityTopic},
+      </if>
+      <if test="dgName != null" >
+        dg_name = #{dgName},
+      </if>
+      <if test="startTime != null" >
+        start_time = #{startTime},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime},
+      </if>
+      <if test="hostIntroduce != null" >
+        host_introduce = #{hostIntroduce},
+      </if>
+      <if test="photo != null" >
+        photo = #{photo},
+      </if>
+      <if test="amount != null" >
+        amount = #{amount},
+      </if>
+      <if test="price != null" >
+        price = #{price},
+      </if>
+      <if test="activityIntroduce != null" >
+        activity_introduce = #{activityIntroduce},
+      </if>
+      <if test="ct != null" >
+        ct = #{ct},
+      </if>
+      <if test="cb != null" >
+        cb = #{cb},
+      </if>
+      <if test="et != null" >
+        et = #{et},
+      </if>
+      <if test="eb != null" >
+        eb = #{eb},
+      </if>
+      <if test="expiryData != null" >
+        expiry_data = #{expiryData},
+      </if>
+      <if test="hostName != null" >
+        host_name = #{hostName},
+      </if>
+      <if test="expiryType != null" >
+        expiry_type = #{expiryType},
+      </if>
+      <if test="free != null" >
+        free = #{free},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lc.zy.ball.domain.oa.po.StatiumActivity" >
+    update oa_statium_activity
+    set statium_id = #{statiumId},
+      activity_topic = #{activityTopic},
+      dg_name = #{dgName},
+      start_time = #{startTime},
+      end_time = #{endTime},
+      host_introduce = #{hostIntroduce},
+      photo = #{photo},
+      amount = #{amount},
+      price = #{price},
+      activity_introduce = #{activityIntroduce},
+      ct = #{ct},
+      cb = #{cb},
+      et = #{et},
+      eb = #{eb},
+      expiry_data = #{expiryData},
+      host_name = #{hostName},
+      expiry_type = #{expiryType},
+      free = #{free}
+    where id = #{id}
+  </update>
+</mapper>

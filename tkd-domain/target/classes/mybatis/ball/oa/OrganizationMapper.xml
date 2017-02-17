@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lc.zy.ball.domain.oa.mapper.OrganizationMapper" >
+  <resultMap id="BaseResultMap" type="com.lc.zy.ball.domain.oa.po.Organization" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="pid" property="pid" jdbcType="VARCHAR" />
+    <result column="org_code" property="orgCode" jdbcType="VARCHAR" />
+    <result column="org_name" property="orgName" jdbcType="VARCHAR" />
+    <result column="comment" property="comment" jdbcType="VARCHAR" />
+    <result column="seq" property="seq" jdbcType="INTEGER" />
+    <result column="partner" property="partner" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="VARCHAR" />
+    <result column="appid" property="appid" jdbcType="VARCHAR" />
+    <result column="mch_id" property="mchId" jdbcType="VARCHAR" />
+    <result column="wx_appid" property="wxAppid" jdbcType="VARCHAR" />
+    <result column="wx_mch_id" property="wxMchId" jdbcType="VARCHAR" />
+    <result column="private_key" property="privateKey" jdbcType="VARCHAR" />
+    <result column="ali_public_key" property="aliPublicKey" jdbcType="VARCHAR" />
+    <result column="partner_key" property="partnerKey" jdbcType="VARCHAR" />
+    <result column="app_secret" property="appSecret" jdbcType="VARCHAR" />
+    <result column="app_key" property="appKey" jdbcType="VARCHAR" />
+    <result column="wx_app_key" property="wxAppKey" jdbcType="VARCHAR" />
+    <result column="wx_certLocal_path" property="wxCertlocalPath" jdbcType="VARCHAR" />
+    <result column="wx_cert_password" property="wxCertPassword" jdbcType="VARCHAR" />
+    <result column="certLocal_path" property="certlocalPath" jdbcType="VARCHAR" />
+    <result column="cert_password" property="certPassword" jdbcType="VARCHAR" />
+    <result column="wx_app_secret" property="wxAppSecret" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, pid, org_code, org_name, comment, seq, partner, seller_id, appid, mch_id, wx_appid, 
+    wx_mch_id, private_key, ali_public_key, partner_key, app_secret, app_key, wx_app_key, 
+    wx_certLocal_path, wx_cert_password, certLocal_path, cert_password, wx_app_secret
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lc.zy.ball.domain.oa.po.OrganizationCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from c_organization
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="mysqlOffset != null and mysqlLength != null" >
+      <![CDATA[ limit #{mysqlOffset} , #{mysqlLength} ]]>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from c_organization
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from c_organization
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lc.zy.ball.domain.oa.po.OrganizationCriteria" >
+    delete from c_organization
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lc.zy.ball.domain.oa.po.Organization" >
+    insert into c_organization (id, pid, org_code, org_name, comment, seq, partner, seller_id, 
+      appid, mch_id, wx_appid, wx_mch_id, private_key, ali_public_key, partner_key, 
+      app_secret, app_key, wx_app_key, wx_certLocal_path, wx_cert_password, certLocal_path, 
+      cert_password, wx_app_secret)
+    values (#{id}, #{pid}, #{orgCode}, #{orgName}, #{comment}, #{seq}, #{partner}, #{sellerId}, 
+      #{appid}, #{mchId}, #{wxAppid}, #{wxMchId}, #{privateKey}, #{aliPublicKey}, #{partnerKey}, 
+      #{appSecret}, #{appKey}, #{wxAppKey}, #{wxCertlocalPath}, #{wxCertPassword}, #{certlocalPath}, 
+      #{certPassword}, #{wxAppSecret})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lc.zy.ball.domain.oa.po.Organization" >
+    insert into c_organization
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="orgCode != null" >
+        org_code,
+      </if>
+      <if test="orgName != null" >
+        org_name,
+      </if>
+      <if test="comment != null" >
+        comment,
+      </if>
+      <if test="seq != null" >
+        seq,
+      </if>
+      <if test="partner != null" >
+        partner,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="appid != null" >
+        appid,
+      </if>
+      <if test="mchId != null" >
+        mch_id,
+      </if>
+      <if test="wxAppid != null" >
+        wx_appid,
+      </if>
+      <if test="wxMchId != null" >
+        wx_mch_id,
+      </if>
+      <if test="privateKey != null" >
+        private_key,
+      </if>
+      <if test="aliPublicKey != null" >
+        ali_public_key,
+      </if>
+      <if test="partnerKey != null" >
+        partner_key,
+      </if>
+      <if test="appSecret != null" >
+        app_secret,
+      </if>
+      <if test="appKey != null" >
+        app_key,
+      </if>
+      <if test="wxAppKey != null" >
+        wx_app_key,
+      </if>
+      <if test="wxCertlocalPath != null" >
+        wx_certLocal_path,
+      </if>
+      <if test="wxCertPassword != null" >
+        wx_cert_password,
+      </if>
+      <if test="certlocalPath != null" >
+        certLocal_path,
+      </if>
+      <if test="certPassword != null" >
+        cert_password,
+      </if>
+      <if test="wxAppSecret != null" >
+        wx_app_secret,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="pid != null" >
+        #{pid},
+      </if>
+      <if test="orgCode != null" >
+        #{orgCode},
+      </if>
+      <if test="orgName != null" >
+        #{orgName},
+      </if>
+      <if test="comment != null" >
+        #{comment},
+      </if>
+      <if test="seq != null" >
+        #{seq},
+      </if>
+      <if test="partner != null" >
+        #{partner},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId},
+      </if>
+      <if test="appid != null" >
+        #{appid},
+      </if>
+      <if test="mchId != null" >
+        #{mchId},
+      </if>
+      <if test="wxAppid != null" >
+        #{wxAppid},
+      </if>
+      <if test="wxMchId != null" >
+        #{wxMchId},
+      </if>
+      <if test="privateKey != null" >
+        #{privateKey},
+      </if>
+      <if test="aliPublicKey != null" >
+        #{aliPublicKey},
+      </if>
+      <if test="partnerKey != null" >
+        #{partnerKey},
+      </if>
+      <if test="appSecret != null" >
+        #{appSecret},
+      </if>
+      <if test="appKey != null" >
+        #{appKey},
+      </if>
+      <if test="wxAppKey != null" >
+        #{wxAppKey},
+      </if>
+      <if test="wxCertlocalPath != null" >
+        #{wxCertlocalPath},
+      </if>
+      <if test="wxCertPassword != null" >
+        #{wxCertPassword},
+      </if>
+      <if test="certlocalPath != null" >
+        #{certlocalPath},
+      </if>
+      <if test="certPassword != null" >
+        #{certPassword},
+      </if>
+      <if test="wxAppSecret != null" >
+        #{wxAppSecret},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lc.zy.ball.domain.oa.po.OrganizationCriteria" resultType="java.lang.Integer" >
+    select count(*) from c_organization
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update c_organization
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.pid != null" >
+        pid = #{record.pid},
+      </if>
+      <if test="record.orgCode != null" >
+        org_code = #{record.orgCode},
+      </if>
+      <if test="record.orgName != null" >
+        org_name = #{record.orgName},
+      </if>
+      <if test="record.comment != null" >
+        comment = #{record.comment},
+      </if>
+      <if test="record.seq != null" >
+        seq = #{record.seq},
+      </if>
+      <if test="record.partner != null" >
+        partner = #{record.partner},
+      </if>
+      <if test="record.sellerId != null" >
+        seller_id = #{record.sellerId},
+      </if>
+      <if test="record.appid != null" >
+        appid = #{record.appid},
+      </if>
+      <if test="record.mchId != null" >
+        mch_id = #{record.mchId},
+      </if>
+      <if test="record.wxAppid != null" >
+        wx_appid = #{record.wxAppid},
+      </if>
+      <if test="record.wxMchId != null" >
+        wx_mch_id = #{record.wxMchId},
+      </if>
+      <if test="record.privateKey != null" >
+        private_key = #{record.privateKey},
+      </if>
+      <if test="record.aliPublicKey != null" >
+        ali_public_key = #{record.aliPublicKey},
+      </if>
+      <if test="record.partnerKey != null" >
+        partner_key = #{record.partnerKey},
+      </if>
+      <if test="record.appSecret != null" >
+        app_secret = #{record.appSecret},
+      </if>
+      <if test="record.appKey != null" >
+        app_key = #{record.appKey},
+      </if>
+      <if test="record.wxAppKey != null" >
+        wx_app_key = #{record.wxAppKey},
+      </if>
+      <if test="record.wxCertlocalPath != null" >
+        wx_certLocal_path = #{record.wxCertlocalPath},
+      </if>
+      <if test="record.wxCertPassword != null" >
+        wx_cert_password = #{record.wxCertPassword},
+      </if>
+      <if test="record.certlocalPath != null" >
+        certLocal_path = #{record.certlocalPath},
+      </if>
+      <if test="record.certPassword != null" >
+        cert_password = #{record.certPassword},
+      </if>
+      <if test="record.wxAppSecret != null" >
+        wx_app_secret = #{record.wxAppSecret},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update c_organization
+    set id = #{record.id},
+      pid = #{record.pid},
+      org_code = #{record.orgCode},
+      org_name = #{record.orgName},
+      comment = #{record.comment},
+      seq = #{record.seq},
+      partner = #{record.partner},
+      seller_id = #{record.sellerId},
+      appid = #{record.appid},
+      mch_id = #{record.mchId},
+      wx_appid = #{record.wxAppid},
+      wx_mch_id = #{record.wxMchId},
+      private_key = #{record.privateKey},
+      ali_public_key = #{record.aliPublicKey},
+      partner_key = #{record.partnerKey},
+      app_secret = #{record.appSecret},
+      app_key = #{record.appKey},
+      wx_app_key = #{record.wxAppKey},
+      wx_certLocal_path = #{record.wxCertlocalPath},
+      wx_cert_password = #{record.wxCertPassword},
+      certLocal_path = #{record.certlocalPath},
+      cert_password = #{record.certPassword},
+      wx_app_secret = #{record.wxAppSecret}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lc.zy.ball.domain.oa.po.Organization" >
+    update c_organization
+    <set >
+      <if test="pid != null" >
+        pid = #{pid},
+      </if>
+      <if test="orgCode != null" >
+        org_code = #{orgCode},
+      </if>
+      <if test="orgName != null" >
+        org_name = #{orgName},
+      </if>
+      <if test="comment != null" >
+        comment = #{comment},
+      </if>
+      <if test="seq != null" >
+        seq = #{seq},
+      </if>
+      <if test="partner != null" >
+        partner = #{partner},
+      </if>
+      <if test="sellerId != null" >
+        seller_id = #{sellerId},
+      </if>
+      <if test="appid != null" >
+        appid = #{appid},
+      </if>
+      <if test="mchId != null" >
+        mch_id = #{mchId},
+      </if>
+      <if test="wxAppid != null" >
+        wx_appid = #{wxAppid},
+      </if>
+      <if test="wxMchId != null" >
+        wx_mch_id = #{wxMchId},
+      </if>
+      <if test="privateKey != null" >
+        private_key = #{privateKey},
+      </if>
+      <if test="aliPublicKey != null" >
+        ali_public_key = #{aliPublicKey},
+      </if>
+      <if test="partnerKey != null" >
+        partner_key = #{partnerKey},
+      </if>
+      <if test="appSecret != null" >
+        app_secret = #{appSecret},
+      </if>
+      <if test="appKey != null" >
+        app_key = #{appKey},
+      </if>
+      <if test="wxAppKey != null" >
+        wx_app_key = #{wxAppKey},
+      </if>
+      <if test="wxCertlocalPath != null" >
+        wx_certLocal_path = #{wxCertlocalPath},
+      </if>
+      <if test="wxCertPassword != null" >
+        wx_cert_password = #{wxCertPassword},
+      </if>
+      <if test="certlocalPath != null" >
+        certLocal_path = #{certlocalPath},
+      </if>
+      <if test="certPassword != null" >
+        cert_password = #{certPassword},
+      </if>
+      <if test="wxAppSecret != null" >
+        wx_app_secret = #{wxAppSecret},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lc.zy.ball.domain.oa.po.Organization" >
+    update c_organization
+    set pid = #{pid},
+      org_code = #{orgCode},
+      org_name = #{orgName},
+      comment = #{comment},
+      seq = #{seq},
+      partner = #{partner},
+      seller_id = #{sellerId},
+      appid = #{appid},
+      mch_id = #{mchId},
+      wx_appid = #{wxAppid},
+      wx_mch_id = #{wxMchId},
+      private_key = #{privateKey},
+      ali_public_key = #{aliPublicKey},
+      partner_key = #{partnerKey},
+      app_secret = #{appSecret},
+      app_key = #{appKey},
+      wx_app_key = #{wxAppKey},
+      wx_certLocal_path = #{wxCertlocalPath},
+      wx_cert_password = #{wxCertPassword},
+      certLocal_path = #{certlocalPath},
+      cert_password = #{certPassword},
+      wx_app_secret = #{wxAppSecret}
+    where id = #{id}
+  </update>
+</mapper>

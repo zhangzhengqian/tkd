@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lc.zy.ball.domain.oa.mapper.ex.OrganizationMapperEx" >
+  <resultMap id="BaseResultMapEx" type="com.lc.zy.ball.domain.oa.po.ex.OrganizationEx" extends="com.lc.zy.ball.domain.oa.mapper.OrganizationMapper.BaseResultMap" >
+    <result column="CHILDREN" property="children" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <select id="selectByPid" resultMap="BaseResultMapEx" >
+	SELECT
+	    a.id,
+	    a.org_name,
+	    a.pid,
+	    a.seq,
+	    count(b.id) CHILDREN
+	FROM
+	    c_organization a LEFT JOIN c_organization b ON b.pid = a.id
+	    
+	<where>
+	    <if test="pid != null" >
+	      and a.pid = #{pid}
+	    </if>
+	</where>
+	 
+	GROUP BY
+	    a.id,
+	    a.org_name,
+	    a.pid
+	ORDER BY
+	    SEQ
+    
+  </select>
+  
+</mapper>

@@ -1,0 +1,609 @@
+[0122 17:21:39,536 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'crmFunctionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.CrmFunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0122 17:21:39,536 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'dicItemMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.DicItemMapperEx' mapperInterface. Bean already defined with the same name!
+[0122 17:21:39,536 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'functionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.FunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0122 17:21:39,536 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'operatorMapper' and 'com.lc.zy.ball.domain.oa.mapper.ex.OperatorMapper' mapperInterface. Bean already defined with the same name!
+[0122 17:21:39,536 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'organizationMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.OrganizationMapperEx' mapperInterface. Bean already defined with the same name!
+[0122 17:21:39,536 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'statisticUserMobileMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.StatisticUserMobileMapperEx' mapperInterface. Bean already defined with the same name!
+[0122 17:21:39,536 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'userMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.UserMapperEx' mapperInterface. Bean already defined with the same name!
+[0122 17:21:39,691 DEBUG] [main] com.lc.zy.common.util.SpringUtils - set application context ===> Root WebApplicationContext: startup date [Sun Jan 22 17:21:38 CST 2017]; root of context hierarchy
+[0122 17:21:39,811 INFO ] [main] com.mchange.v2.log.MLog - MLog clients using log4j logging.
+[0122 17:21:39,912 INFO ] [main] com.mchange.v2.c3p0.C3P0Registry - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+[0122 17:21:40,569 INFO ] [main] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 2880, acquireRetryDelay -> 30000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 10000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge14u9l1isl05nongxtw|2cb57927, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge14u9l1isl05nongxtw|2cb57927, idleConnectionTestPeriod -> 120, initialPoolSize -> 5, jdbcUrl -> jdbc:mysql://60.219.169.5:3306/tkd_oa?zeroDateTimeBehavior=convertToNull&useUnicode=true, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 120, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[0122 17:21:43,746 INFO ] [main] com.lc.zy.common.cache.MapperOnCacheSupport - exclude_cache_mapper ==> {OrderSms=true, OrderItem=true, OrderBill=true, Order=true, OrderBillItem=true, OrderAlarm=true, OrderLog=true}
+[0122 17:21:43,776 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheEnable = true
+[0122 17:21:43,776 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheServer = 192.168.1.219:6379
+[0122 17:21:43,786 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cachePwd = null
+[0122 17:21:43,797 ERROR] [main] com.lc.zy.common.cache.RedisPool - cache 初始化成功
+[0122 17:21:43,827 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+[0122 17:21:43,827 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:host.name=J8LZEKL1TNCFRZY
+[0122 17:21:43,827 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.version=1.7.0_67
+[0122 17:21:43,827 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.vendor=Oracle Corporation
+[0122 17:21:43,827 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.home=G:\eclipse\jre
+[0122 17:21:43,827 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.class.path=G:\eclipse\configuration\org.eclipse.osgi\858\0\.cp\lib\core-3.1.1.jar;G:\eclipse\configuration\org.eclipse.osgi\858\0\.cp\lib\jetty-6.1.26.jar;G:\eclipse\configuration\org.eclipse.osgi\858\0\.cp\lib\jetty-management-6.1.26.jar;G:\eclipse\configuration\org.eclipse.osgi\858\0\.cp\lib\jetty-util-6.1.26.jar;G:\eclipse\configuration\org.eclipse.osgi\858\0\.cp\lib\jsp-2.1.jar;G:\eclipse\configuration\org.eclipse.osgi\858\0\.cp\lib\jsp-api-2.1.jar;G:\eclipse\configuration\org.eclipse.osgi\858\0\.cp\lib\run-jetty-run-bootstrap.jar;G:\eclipse\configuration\org.eclipse.osgi\858\0\.cp\lib\servlet-api-2.5-20081211.jar
+[0122 17:21:43,827 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.library.path=G:\eclipse\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;G:\eclipse\jre\bin;G:/eclipse/jre/bin/server;G:/eclipse/jre/bin;G:/eclipse/jre/lib/amd64;.;C:\Program Files\Java\jdk1.7.0_51\bin;C:\Program Files (x86)\Common Files\NetSarang;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;G:\apache-maven-3.3.1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;G:\apache-maven-3.3.1\bin;G:\mysql\bin;C:\Program Files\TortoiseSVN\bin;G:\apache-maven-3.3.1\bin;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\lib;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\bin;G:\eclipse;;.
+[0122 17:21:43,827 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.io.tmpdir=C:\Users\ADMINI~1\AppData\Local\Temp\
+[0122 17:21:43,827 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.compiler=<NA>
+[0122 17:21:43,827 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.name=Windows 7
+[0122 17:21:43,827 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.arch=amd64
+[0122 17:21:43,827 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.version=6.1
+[0122 17:21:43,827 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.name=Administrator
+[0122 17:21:43,827 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.home=C:\Users\Administrator
+[0122 17:21:43,827 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.dir=G:\qzlspace4\tkd-app
+[0122 17:21:43,837 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@5e9a681a
+[0122 17:21:43,857 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@5e9a681a
+[0122 17:21:43,867 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0122 17:21:43,867 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0122 17:21:43,867 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0122 17:21:43,867 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0122 17:21:43,877 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15980ee5fd80078, negotiated timeout = 5000
+[0122 17:21:43,887 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15980ee5fd80079, negotiated timeout = 5000
+[0122 17:21:43,887 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@3f5e8edc
+[0122 17:21:43,887 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0122 17:21:43,887 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@3f5e8edc
+[0122 17:21:43,887 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0122 17:21:43,887 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0122 17:21:43,887 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0122 17:21:43,897 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15980ee5fd8007b, negotiated timeout = 5000
+[0122 17:21:43,907 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15980ee5fd8007a, negotiated timeout = 5000
+[0122 17:21:44,101 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - locCustomer was started ...
+[0122 17:21:44,101 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - brokerUrl=tcp://192.168.1.219:61616
+[0122 17:21:45,369 WARN ] [main] com.lc.zy.common.coreservice.OrdersCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0122 17:21:45,430 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - locCustomer was started ...
+[0122 17:21:45,430 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - brokerUrl=tcp://192.168.1.219:61616
+[0122 17:21:46,732 WARN ] [main] com.lc.zy.common.coreservice.FreeSpaceCounter - FreeSpaceCounter and coreServiceOrdersLicense not define
+[0122 17:21:46,732 WARN ] [main] com.lc.zy.common.coreservice.Scores - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0122 17:21:46,732 WARN ] [main] com.lc.zy.common.coreservice.UserStatiumCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0122 17:24:29,450 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.controller.HubController - [INPUT]:body={"sn":"000601-3AA0-","service":"statium","method":"classDetail","params":{"classInfoId"：“1f09c145f5cf4db6a95e70f8fe3a26dc”}}
+[0122 17:24:29,451 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.controller.HubController - [INPUT]:secret=null
+[0122 17:24:29,508 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.common.util.AppRequestUtil - body = {"sn":"000601-3AA0-","service":"statium","method":"classDetail","params":{"classInfoId"：“1f09c145f5cf4db6a95e70f8fe3a26dc”}}
+[0122 17:24:29,508 ERROR] [806986018@qtp-281437045-0] com.lc.zy.common.util.AppRequestUtil - ClientRequest 参数反序列化异常
+org.codehaus.jackson.JsonParseException: Unexpected character ('：' (code 65306 / 0xff1a)): was expecting a colon to separate field name and value
+ at [Source: java.io.StringReader@269b5c5b; line: 1, column: 89]
+	at org.codehaus.jackson.JsonParser._constructError(JsonParser.java:1433)
+	at org.codehaus.jackson.impl.JsonParserMinimalBase._reportError(JsonParserMinimalBase.java:521)
+	at org.codehaus.jackson.impl.JsonParserMinimalBase._reportUnexpectedChar(JsonParserMinimalBase.java:442)
+	at org.codehaus.jackson.impl.ReaderBasedParser.nextToken(ReaderBasedParser.java:423)
+	at org.codehaus.jackson.map.deser.std.MapDeserializer._readAndBind(MapDeserializer.java:299)
+	at org.codehaus.jackson.map.deser.std.MapDeserializer.deserialize(MapDeserializer.java:249)
+	at org.codehaus.jackson.map.deser.std.MapDeserializer.deserialize(MapDeserializer.java:33)
+	at org.codehaus.jackson.map.deser.SettableBeanProperty.deserialize(SettableBeanProperty.java:299)
+	at org.codehaus.jackson.map.deser.SettableBeanProperty$MethodProperty.deserializeAndSet(SettableBeanProperty.java:414)
+	at org.codehaus.jackson.map.deser.BeanDeserializer.deserializeFromObject(BeanDeserializer.java:697)
+	at org.codehaus.jackson.map.deser.BeanDeserializer.deserialize(BeanDeserializer.java:580)
+	at org.codehaus.jackson.map.ObjectReader._bindAndClose(ObjectReader.java:768)
+	at org.codehaus.jackson.map.ObjectReader.readValue(ObjectReader.java:460)
+	at com.lc.zy.common.util.AppRequestUtil.reviceClientRequest(AppRequestUtil.java:198)
+	at com.lc.zy.ball.app.controller.HubController.request(HubController.java:86)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:685)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+[0122 17:24:29,510 ERROR] [806986018@qtp-281437045-0] com.lc.zy.ball.app.controller.HubController - hub_error
+java.lang.Exception: ClientRequest 参数反序列化异常
+	at com.lc.zy.common.util.AppRequestUtil.reviceClientRequest(AppRequestUtil.java:204)
+	at com.lc.zy.ball.app.controller.HubController.request(HubController.java:86)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:685)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+Caused by: org.codehaus.jackson.JsonParseException: Unexpected character ('：' (code 65306 / 0xff1a)): was expecting a colon to separate field name and value
+ at [Source: java.io.StringReader@269b5c5b; line: 1, column: 89]
+	at org.codehaus.jackson.JsonParser._constructError(JsonParser.java:1433)
+	at org.codehaus.jackson.impl.JsonParserMinimalBase._reportError(JsonParserMinimalBase.java:521)
+	at org.codehaus.jackson.impl.JsonParserMinimalBase._reportUnexpectedChar(JsonParserMinimalBase.java:442)
+	at org.codehaus.jackson.impl.ReaderBasedParser.nextToken(ReaderBasedParser.java:423)
+	at org.codehaus.jackson.map.deser.std.MapDeserializer._readAndBind(MapDeserializer.java:299)
+	at org.codehaus.jackson.map.deser.std.MapDeserializer.deserialize(MapDeserializer.java:249)
+	at org.codehaus.jackson.map.deser.std.MapDeserializer.deserialize(MapDeserializer.java:33)
+	at org.codehaus.jackson.map.deser.SettableBeanProperty.deserialize(SettableBeanProperty.java:299)
+	at org.codehaus.jackson.map.deser.SettableBeanProperty$MethodProperty.deserializeAndSet(SettableBeanProperty.java:414)
+	at org.codehaus.jackson.map.deser.BeanDeserializer.deserializeFromObject(BeanDeserializer.java:697)
+	at org.codehaus.jackson.map.deser.BeanDeserializer.deserialize(BeanDeserializer.java:580)
+	at org.codehaus.jackson.map.ObjectReader._bindAndClose(ObjectReader.java:768)
+	at org.codehaus.jackson.map.ObjectReader.readValue(ObjectReader.java:460)
+	at com.lc.zy.common.util.AppRequestUtil.reviceClientRequest(AppRequestUtil.java:198)
+	... 37 more
+[0122 17:24:29,516 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.common.mq.BizLog - coll=null , text={"message":"ClientRequest 参数反序列化异常","level":"error"}
+[0122 17:24:29,522 DEBUG] [Thread-13] com.lc.zy.common.mq.TopicPublisher - topic send:::>BALL_LOG_TOPIC{"message":"ClientRequest 参数反序列化异常","level":"error"}
+[0122 17:24:29,562 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.controller.HubController - [OUTPUT]:rtn={"success":false,"entity":{"errorCode":"HUB_ERROR","reason":"后台异常:ClientRequest 参数反序列化异常","sourceVersion":"devel","localIps":["127.0.0.1","0:0:0:0:0:0:0:1","192.168.1.62","fe80:0:0:0:3dab:85fb:114c:d859%11","fe80:0:0:0:0:100:7f:fffe%12","fe80:0:0:0:0:5efe:c0a8:13e%13"]}}
+[0122 17:24:29,562 INFO ] [806986018@qtp-281437045-0] com.lc.zy.ball.app.controller.HubController - [null.null]-111ms.
+[0122 17:24:29,642 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.common.mq.BizLog - coll=ualog , text={"dt":"2017-01-22","ua":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36","rt":111}
+[0122 17:24:29,642 DEBUG] [Thread-13] com.lc.zy.common.mq.TopicPublisher - topic send:::>BALL_LOG_TOPIC{"dt":"2017-01-22","ua":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36","rt":111,"coll":"ualog"}
+[0122 17:25:35,609 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.controller.HubController - [INPUT]:body={"sn":"000601-3AA0-","service":"statium","method":"classDetail","params":{"classInfoId"："1f09c145f5cf4db6a95e70f8fe3a26dc"}}
+[0122 17:25:35,609 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.controller.HubController - [INPUT]:secret=null
+[0122 17:25:35,629 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.common.util.AppRequestUtil - body = {"sn":"000601-3AA0-","service":"statium","method":"classDetail","params":{"classInfoId"："1f09c145f5cf4db6a95e70f8fe3a26dc"}}
+[0122 17:25:35,630 ERROR] [806986018@qtp-281437045-0] com.lc.zy.common.util.AppRequestUtil - ClientRequest 参数反序列化异常
+org.codehaus.jackson.JsonParseException: Unexpected character ('：' (code 65306 / 0xff1a)): was expecting a colon to separate field name and value
+ at [Source: java.io.StringReader@5c8486c4; line: 1, column: 89]
+	at org.codehaus.jackson.JsonParser._constructError(JsonParser.java:1433)
+	at org.codehaus.jackson.impl.JsonParserMinimalBase._reportError(JsonParserMinimalBase.java:521)
+	at org.codehaus.jackson.impl.JsonParserMinimalBase._reportUnexpectedChar(JsonParserMinimalBase.java:442)
+	at org.codehaus.jackson.impl.ReaderBasedParser.nextToken(ReaderBasedParser.java:423)
+	at org.codehaus.jackson.map.deser.std.MapDeserializer._readAndBind(MapDeserializer.java:299)
+	at org.codehaus.jackson.map.deser.std.MapDeserializer.deserialize(MapDeserializer.java:249)
+	at org.codehaus.jackson.map.deser.std.MapDeserializer.deserialize(MapDeserializer.java:33)
+	at org.codehaus.jackson.map.deser.SettableBeanProperty.deserialize(SettableBeanProperty.java:299)
+	at org.codehaus.jackson.map.deser.SettableBeanProperty$MethodProperty.deserializeAndSet(SettableBeanProperty.java:414)
+	at org.codehaus.jackson.map.deser.BeanDeserializer.deserializeFromObject(BeanDeserializer.java:697)
+	at org.codehaus.jackson.map.deser.BeanDeserializer.deserialize(BeanDeserializer.java:580)
+	at org.codehaus.jackson.map.ObjectReader._bindAndClose(ObjectReader.java:768)
+	at org.codehaus.jackson.map.ObjectReader.readValue(ObjectReader.java:460)
+	at com.lc.zy.common.util.AppRequestUtil.reviceClientRequest(AppRequestUtil.java:198)
+	at com.lc.zy.ball.app.controller.HubController.request(HubController.java:86)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:685)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+[0122 17:25:35,630 ERROR] [806986018@qtp-281437045-0] com.lc.zy.ball.app.controller.HubController - hub_error
+java.lang.Exception: ClientRequest 参数反序列化异常
+	at com.lc.zy.common.util.AppRequestUtil.reviceClientRequest(AppRequestUtil.java:204)
+	at com.lc.zy.ball.app.controller.HubController.request(HubController.java:86)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:685)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+Caused by: org.codehaus.jackson.JsonParseException: Unexpected character ('：' (code 65306 / 0xff1a)): was expecting a colon to separate field name and value
+ at [Source: java.io.StringReader@5c8486c4; line: 1, column: 89]
+	at org.codehaus.jackson.JsonParser._constructError(JsonParser.java:1433)
+	at org.codehaus.jackson.impl.JsonParserMinimalBase._reportError(JsonParserMinimalBase.java:521)
+	at org.codehaus.jackson.impl.JsonParserMinimalBase._reportUnexpectedChar(JsonParserMinimalBase.java:442)
+	at org.codehaus.jackson.impl.ReaderBasedParser.nextToken(ReaderBasedParser.java:423)
+	at org.codehaus.jackson.map.deser.std.MapDeserializer._readAndBind(MapDeserializer.java:299)
+	at org.codehaus.jackson.map.deser.std.MapDeserializer.deserialize(MapDeserializer.java:249)
+	at org.codehaus.jackson.map.deser.std.MapDeserializer.deserialize(MapDeserializer.java:33)
+	at org.codehaus.jackson.map.deser.SettableBeanProperty.deserialize(SettableBeanProperty.java:299)
+	at org.codehaus.jackson.map.deser.SettableBeanProperty$MethodProperty.deserializeAndSet(SettableBeanProperty.java:414)
+	at org.codehaus.jackson.map.deser.BeanDeserializer.deserializeFromObject(BeanDeserializer.java:697)
+	at org.codehaus.jackson.map.deser.BeanDeserializer.deserialize(BeanDeserializer.java:580)
+	at org.codehaus.jackson.map.ObjectReader._bindAndClose(ObjectReader.java:768)
+	at org.codehaus.jackson.map.ObjectReader.readValue(ObjectReader.java:460)
+	at com.lc.zy.common.util.AppRequestUtil.reviceClientRequest(AppRequestUtil.java:198)
+	... 37 more
+[0122 17:25:35,634 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.common.mq.BizLog - coll=null , text={"message":"ClientRequest 参数反序列化异常","level":"error"}
+[0122 17:25:35,636 DEBUG] [Thread-13] com.lc.zy.common.mq.TopicPublisher - topic send:::>BALL_LOG_TOPIC{"message":"ClientRequest 参数反序列化异常","level":"error"}
+[0122 17:25:35,639 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.controller.HubController - [OUTPUT]:rtn={"success":false,"entity":{"errorCode":"HUB_ERROR","reason":"后台异常:ClientRequest 参数反序列化异常","sourceVersion":"devel","localIps":["127.0.0.1","0:0:0:0:0:0:0:1","192.168.1.62","fe80:0:0:0:3dab:85fb:114c:d859%11","fe80:0:0:0:0:100:7f:fffe%12","fe80:0:0:0:0:5efe:c0a8:13e%13"]}}
+[0122 17:25:35,639 INFO ] [806986018@qtp-281437045-0] com.lc.zy.ball.app.controller.HubController - [null.null]-30ms.
+[0122 17:25:35,641 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.common.mq.BizLog - coll=ualog , text={"dt":"2017-01-22","ua":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36","rt":30}
+[0122 17:25:35,642 DEBUG] [Thread-13] com.lc.zy.common.mq.TopicPublisher - topic send:::>BALL_LOG_TOPIC{"dt":"2017-01-22","ua":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36","rt":30,"coll":"ualog"}
+[0122 17:26:57,046 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.controller.HubController - [INPUT]:body={"sn":"000601-3AA0-","service":"statium","method":"classDetail","params":{" classInfoId"："1f09c145f5cf4db6a95e70f8fe3a26dc"}}
+[0122 17:26:57,046 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.controller.HubController - [INPUT]:secret=null
+[0122 17:26:57,051 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.common.util.AppRequestUtil - body = {"sn":"000601-3AA0-","service":"statium","method":"classDetail","params":{" classInfoId"："1f09c145f5cf4db6a95e70f8fe3a26dc"}}
+[0122 17:26:57,051 ERROR] [806986018@qtp-281437045-0] com.lc.zy.common.util.AppRequestUtil - ClientRequest 参数反序列化异常
+org.codehaus.jackson.JsonParseException: Unexpected character ('：' (code 65306 / 0xff1a)): was expecting a colon to separate field name and value
+ at [Source: java.io.StringReader@3c1bd405; line: 1, column: 90]
+	at org.codehaus.jackson.JsonParser._constructError(JsonParser.java:1433)
+	at org.codehaus.jackson.impl.JsonParserMinimalBase._reportError(JsonParserMinimalBase.java:521)
+	at org.codehaus.jackson.impl.JsonParserMinimalBase._reportUnexpectedChar(JsonParserMinimalBase.java:442)
+	at org.codehaus.jackson.impl.ReaderBasedParser.nextToken(ReaderBasedParser.java:423)
+	at org.codehaus.jackson.map.deser.std.MapDeserializer._readAndBind(MapDeserializer.java:299)
+	at org.codehaus.jackson.map.deser.std.MapDeserializer.deserialize(MapDeserializer.java:249)
+	at org.codehaus.jackson.map.deser.std.MapDeserializer.deserialize(MapDeserializer.java:33)
+	at org.codehaus.jackson.map.deser.SettableBeanProperty.deserialize(SettableBeanProperty.java:299)
+	at org.codehaus.jackson.map.deser.SettableBeanProperty$MethodProperty.deserializeAndSet(SettableBeanProperty.java:414)
+	at org.codehaus.jackson.map.deser.BeanDeserializer.deserializeFromObject(BeanDeserializer.java:697)
+	at org.codehaus.jackson.map.deser.BeanDeserializer.deserialize(BeanDeserializer.java:580)
+	at org.codehaus.jackson.map.ObjectReader._bindAndClose(ObjectReader.java:768)
+	at org.codehaus.jackson.map.ObjectReader.readValue(ObjectReader.java:460)
+	at com.lc.zy.common.util.AppRequestUtil.reviceClientRequest(AppRequestUtil.java:198)
+	at com.lc.zy.ball.app.controller.HubController.request(HubController.java:86)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:685)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+[0122 17:26:57,051 ERROR] [806986018@qtp-281437045-0] com.lc.zy.ball.app.controller.HubController - hub_error
+java.lang.Exception: ClientRequest 参数反序列化异常
+	at com.lc.zy.common.util.AppRequestUtil.reviceClientRequest(AppRequestUtil.java:204)
+	at com.lc.zy.ball.app.controller.HubController.request(HubController.java:86)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:685)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+Caused by: org.codehaus.jackson.JsonParseException: Unexpected character ('：' (code 65306 / 0xff1a)): was expecting a colon to separate field name and value
+ at [Source: java.io.StringReader@3c1bd405; line: 1, column: 90]
+	at org.codehaus.jackson.JsonParser._constructError(JsonParser.java:1433)
+	at org.codehaus.jackson.impl.JsonParserMinimalBase._reportError(JsonParserMinimalBase.java:521)
+	at org.codehaus.jackson.impl.JsonParserMinimalBase._reportUnexpectedChar(JsonParserMinimalBase.java:442)
+	at org.codehaus.jackson.impl.ReaderBasedParser.nextToken(ReaderBasedParser.java:423)
+	at org.codehaus.jackson.map.deser.std.MapDeserializer._readAndBind(MapDeserializer.java:299)
+	at org.codehaus.jackson.map.deser.std.MapDeserializer.deserialize(MapDeserializer.java:249)
+	at org.codehaus.jackson.map.deser.std.MapDeserializer.deserialize(MapDeserializer.java:33)
+	at org.codehaus.jackson.map.deser.SettableBeanProperty.deserialize(SettableBeanProperty.java:299)
+	at org.codehaus.jackson.map.deser.SettableBeanProperty$MethodProperty.deserializeAndSet(SettableBeanProperty.java:414)
+	at org.codehaus.jackson.map.deser.BeanDeserializer.deserializeFromObject(BeanDeserializer.java:697)
+	at org.codehaus.jackson.map.deser.BeanDeserializer.deserialize(BeanDeserializer.java:580)
+	at org.codehaus.jackson.map.ObjectReader._bindAndClose(ObjectReader.java:768)
+	at org.codehaus.jackson.map.ObjectReader.readValue(ObjectReader.java:460)
+	at com.lc.zy.common.util.AppRequestUtil.reviceClientRequest(AppRequestUtil.java:198)
+	... 37 more
+[0122 17:26:57,054 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.common.mq.BizLog - coll=null , text={"message":"ClientRequest 参数反序列化异常","level":"error"}
+[0122 17:26:57,054 DEBUG] [Thread-13] com.lc.zy.common.mq.TopicPublisher - topic send:::>BALL_LOG_TOPIC{"message":"ClientRequest 参数反序列化异常","level":"error"}
+[0122 17:26:57,055 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.controller.HubController - [OUTPUT]:rtn={"success":false,"entity":{"errorCode":"HUB_ERROR","reason":"后台异常:ClientRequest 参数反序列化异常","sourceVersion":"devel","localIps":["127.0.0.1","0:0:0:0:0:0:0:1","192.168.1.62","fe80:0:0:0:3dab:85fb:114c:d859%11","fe80:0:0:0:0:100:7f:fffe%12","fe80:0:0:0:0:5efe:c0a8:13e%13"]}}
+[0122 17:26:57,083 INFO ] [806986018@qtp-281437045-0] com.lc.zy.ball.app.controller.HubController - [null.null]-9ms.
+[0122 17:26:57,085 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.common.mq.BizLog - coll=ualog , text={"dt":"2017-01-22","ua":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36","rt":9}
+[0122 17:26:57,085 DEBUG] [Thread-13] com.lc.zy.common.mq.TopicPublisher - topic send:::>BALL_LOG_TOPIC{"dt":"2017-01-22","ua":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36","rt":9,"coll":"ualog"}
+[0122 17:28:45,018 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.controller.HubController - [INPUT]:body={"sn":"000601-3AA0-","service":"statium","method":"classDetail","params":{"classInfoId":"1f09c145f5cf4db6a95e70f8fe3a26dc"}}
+[0122 17:28:45,019 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.controller.HubController - [INPUT]:secret=null
+[0122 17:28:52,283 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.service.statium.StatiumService - version:null
+[0122 17:28:52,283 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.service.statium.StatiumService - channel:null
+[0122 17:28:52,284 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.service.statium.StatiumService - classInfoId=1f09c145f5cf4db6a95e70f8fe3a26dc 
+[0122 17:28:54,310 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumClassInfoMapper.1f09c145f5cf4db6a95e70f8fe3a26dc
+[0122 17:28:54,395 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByPrimaryKey - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@277baa77]
+[0122 17:28:54,398 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByPrimaryKey - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info where id = ? 
+[0122 17:28:54,443 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByPrimaryKey - ==> Parameters: 1f09c145f5cf4db6a95e70f8fe3a26dc(String)
+[0122 17:28:54,626 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0122 17:28:54,626 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.service.statium.StatiumRepository - 课时详情：｛｝
+[0122 17:28:54,939 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.controller.HubController - [OUTPUT]:rtn={"sn":"000601-3AA0-","success":true,"entity":{"classDetail":{"price":0,"discountPrice":0,"minPeople":0,"maxPeople":0,"type":0,"classStatus":0,"isExperience":0}}}
+[0122 17:28:54,939 INFO ] [806986018@qtp-281437045-0] com.lc.zy.ball.app.controller.HubController - [statium.classDetail]-9920ms.
+[0122 17:28:54,940 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.common.mq.BizLog - coll=ualog , text={"dt":"2017-01-22","service":"statium","ua":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36","rt":9920,"method":"classDetail"}
+[0122 17:28:54,941 DEBUG] [Thread-13] com.lc.zy.common.mq.TopicPublisher - topic send:::>BALL_LOG_TOPIC{"dt":"2017-01-22","service":"statium","ua":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36","method":"classDetail","rt":9920,"coll":"ualog"}
+[0122 17:29:29,424 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.controller.HubController - [INPUT]:body={"sn":"000601-3AA0-","service":"statium","method":"classDetail","params":{"classInfoId":"88f7b4a26f684fb986e3ff5365b6cd5e"}}
+[0122 17:29:29,424 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.controller.HubController - [INPUT]:secret=null
+[0122 17:29:29,434 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.service.statium.StatiumService - version:null
+[0122 17:29:29,434 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.service.statium.StatiumService - channel:null
+[0122 17:29:29,434 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.service.statium.StatiumService - classInfoId=88f7b4a26f684fb986e3ff5365b6cd5e 
+[0122 17:29:29,609 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumClassInfoMapper.88f7b4a26f684fb986e3ff5365b6cd5e
+[0122 17:29:29,610 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByPrimaryKey - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@604b4235]
+[0122 17:29:29,610 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByPrimaryKey - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info where id = ? 
+[0122 17:29:29,612 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByPrimaryKey - ==> Parameters: 88f7b4a26f684fb986e3ff5365b6cd5e(String)
+[0122 17:29:29,815 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : com.lc.zy.ball.domain.oa.po.StatiumClassInfo@742243f2[
+  id=88f7b4a26f684fb986e3ff5365b6cd5e
+  classId=1f09c145f5cf4db6a95e70f8fe3a26dc
+  coachId=882200262d754778828956fba2a42d0b
+  coachName=李鑫月
+  classDate=Wed Jan 25 00:00:00 CST 2017
+  classStartTime=16:00
+  classEndTime=18:00
+  ct=Sun Jan 22 17:19:15 CST 2017
+  cb=0369e6bc11e040ac997b140a41897ebd
+  et=Sun Jan 22 17:19:15 CST 2017
+  eb=0369e6bc11e040ac997b140a41897ebd
+]
+[0122 17:29:29,829 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumClassMapper.1f09c145f5cf4db6a95e70f8fe3a26dc
+[0122 17:29:29,830 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.domain.oa.mapper.StatiumClassMapper.selectByPrimaryKey - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@604b4235]
+[0122 17:29:29,830 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.domain.oa.mapper.StatiumClassMapper.selectByPrimaryKey - ==>  Preparing: select id, statium_id, class_title, class_introduce, price, discount, discount_price, limit_price, ct, cb, et, eb, min_people, max_people, type from oa_statium_class where id = ? 
+[0122 17:29:29,830 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.domain.oa.mapper.StatiumClassMapper.selectByPrimaryKey - ==> Parameters: 1f09c145f5cf4db6a95e70f8fe3a26dc(String)
+[0122 17:29:29,995 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : com.lc.zy.ball.domain.oa.po.StatiumClass@20d7aa52[
+  id=1f09c145f5cf4db6a95e70f8fe3a26dc
+  statiumId=221
+  classTitle=综合班
+  classIntroduce=通过形体艺术和健身方法结合，帮助人体增强速度、力量等素质，加强神经系统的专注力有明显作用。
+
+  price=15000
+  discount=0
+  discountPrice=3100
+  limitPrice=<null>
+  ct=Thu May 12 15:39:56 CST 2016
+  cb=0369e6bc11e040ac997b140a41897ebd
+  et=Sun Sep 18 15:45:38 CST 2016
+  eb=1
+  minPeople=5
+  maxPeople=10
+  type=0
+]
+[0122 17:29:30,075 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.domain.oa.mapper.StatiumInfosMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@604b4235]
+[0122 17:29:30,075 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.domain.oa.mapper.StatiumInfosMapper.selectByExample - ==>  Preparing: select id, dg_name, dg_id, photos, remark, lng, lat, address, contact, tel, province, city, area, areacode, salecount, starttime, endtime, logo, ct, cb, et, eb, recommend, service_tel, bank_account_name, bank_account_no, bank_account_branch_name, status, grade, qr_code from oa_statium_infos WHERE ( dg_id = ? ) 
+[0122 17:29:30,075 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.domain.oa.mapper.StatiumInfosMapper.selectByExample - ==> Parameters: 221(Integer)
+[0122 17:29:30,245 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.service.statium.StatiumRepository - classDate 2017-01-25 16:00
+[0122 17:29:30,246 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.service.statium.StatiumRepository - endDate Wed Jan 25 16:00:00 CST 2017
+[0122 17:29:30,246 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.service.statium.StatiumRepository - flag -1
+[0122 17:29:30,247 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.common.CommonService - k=token_null , v=null
+[0122 17:29:30,252 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.common.cache.MapperOnCache - cacheKey = ssoUserMapper.null
+[0122 17:29:30,253 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.common.cache.MapperOnCache - param : mapper=ssoUserMapper ; cacheKey=ssoUserMapper.null
+[0122 17:29:30,253 ERROR] [806986018@qtp-281437045-0] com.lc.zy.common.cache.MapperOnCache - 缓存 selectByPrimaryKey 方法异常 : 
+java.lang.NullPointerException
+	at com.lc.zy.common.cache.MapperOnCache.selectByPrimaryKey(MapperOnCache.java:123)
+	at com.lc.zy.ball.app.common.AbstractCacheService.selectByPrimaryKey(AbstractCacheService.java:34)
+	at com.lc.zy.ball.app.common.CommonService.getSsoUserByToken(CommonService.java:71)
+	at com.lc.zy.ball.app.service.statium.StatiumRepository.classDetail(StatiumRepository.java:633)
+	at com.lc.zy.ball.app.service.statium.StatiumRepository$$FastClassBySpringCGLIB$$4bc1b6a6.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:150)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:96)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:260)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:94)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:172)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:633)
+	at com.lc.zy.ball.app.service.statium.StatiumRepository$$EnhancerBySpringCGLIB$$7054ad2f.classDetail(<generated>)
+	at com.lc.zy.ball.app.service.statium.StatiumService.classDetail(StatiumService.java:192)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.lc.zy.ball.app.controller.HubController.request(HubController.java:111)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:685)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+[0122 17:29:30,254 ERROR] [806986018@qtp-281437045-0] com.lc.zy.ball.app.common.CommonService - 
+java.lang.NullPointerException
+	at com.lc.zy.ball.app.common.CommonService.getSsoUserByToken(CommonService.java:66)
+	at com.lc.zy.ball.app.service.statium.StatiumRepository.classDetail(StatiumRepository.java:633)
+	at com.lc.zy.ball.app.service.statium.StatiumRepository$$FastClassBySpringCGLIB$$4bc1b6a6.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:150)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:96)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:260)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:94)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:172)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:633)
+	at com.lc.zy.ball.app.service.statium.StatiumRepository$$EnhancerBySpringCGLIB$$7054ad2f.classDetail(<generated>)
+	at com.lc.zy.ball.app.service.statium.StatiumService.classDetail(StatiumService.java:192)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.lc.zy.ball.app.controller.HubController.request(HubController.java:111)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:685)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+[0122 17:29:30,257 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumClassInfoMapper.88f7b4a26f684fb986e3ff5365b6cd5e
+[0122 17:29:30,261 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"88f7b4a26f684fb986e3ff5365b6cd5e","classId":"1f09c145f5cf4db6a95e70f8fe3a26dc","coachId":"882200262d754778828956fba2a42d0b","coachName":"李鑫月","classDate":"2017-01-25 00:00:00","classStartTime":"16:00","classEndTime":"18:00","ct":"2017-01-22 17:19:15","cb":"0369e6bc11e040ac997b140a41897ebd","et":"2017-01-22 17:19:15","eb":"0369e6bc11e040ac997b140a41897ebd"}
+[0122 17:29:30,262 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumClassMapper.1f09c145f5cf4db6a95e70f8fe3a26dc
+[0122 17:29:30,263 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"1f09c145f5cf4db6a95e70f8fe3a26dc","statiumId":221,"classTitle":"综合班","classIntroduce":"通过形体艺术和健身方法结合，帮助人体增强速度、力量等素质，加强神经系统的专注力有明显作用。\r\n","price":15000,"discount":0,"discountPrice":3100,"ct":"2016-05-12 15:39:56","cb":"0369e6bc11e040ac997b140a41897ebd","et":"2016-09-18 15:45:38","eb":"1","minPeople":5,"maxPeople":10,"type":0}
+[0122 17:29:30,273 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.domain.oa.mapper.StatiumClassMemberMapper.countByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@604b4235]
+[0122 17:29:30,273 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.domain.oa.mapper.StatiumClassMemberMapper.countByExample - ==>  Preparing: select count(*) from oa_statium_class_member WHERE ( class_info_id = ? ) 
+[0122 17:29:30,274 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.domain.oa.mapper.StatiumClassMemberMapper.countByExample - ==> Parameters: 88f7b4a26f684fb986e3ff5365b6cd5e(String)
+[0122 17:29:30,596 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.service.statium.StatiumRepository - 课时详情：｛｝
+[0122 17:29:30,918 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.ball.app.controller.HubController - [OUTPUT]:rtn={"sn":"000601-3AA0-","success":true,"entity":{"classDetail":{"className":"综合班","brief":"通过形体艺术和健身方法结合，帮助人体增强速度、力量等素质，加强神经系统的专注力有明显作用。\r\n","addr":"北京市北京市朝阳区西大望南路","tel":"18511324641","price":150,"discountPrice":31,"minPeople":0,"maxPeople":0,"type":0,"classStatus":0,"isExperience":0,"id":"88f7b4a26f684fb986e3ff5365b6cd5e","classId":"1f09c145f5cf4db6a95e70f8fe3a26dc","coachId":"882200262d754778828956fba2a42d0b","coachName":"李鑫月","classDate":"2017-01-25 00:00:00","classStartTime":"16:00","classEndTime":"18:00","ct":"2017-01-22 17:19:15","cb":"0369e6bc11e040ac997b140a41897ebd","et":"2017-01-22 17:19:15","eb":"0369e6bc11e040ac997b140a41897ebd"}}}
+[0122 17:29:30,918 INFO ] [806986018@qtp-281437045-0] com.lc.zy.ball.app.controller.HubController - [statium.classDetail]-1494ms.
+[0122 17:29:30,919 DEBUG] [806986018@qtp-281437045-0] com.lc.zy.common.mq.BizLog - coll=ualog , text={"dt":"2017-01-22","service":"statium","ua":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36","rt":1494,"method":"classDetail"}
+[0122 17:29:30,920 DEBUG] [Thread-13] com.lc.zy.common.mq.TopicPublisher - topic send:::>BALL_LOG_TOPIC{"dt":"2017-01-22","service":"statium","ua":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36","method":"classDetail","rt":1494,"coll":"ualog"}

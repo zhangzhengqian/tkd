@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lc.zy.ball.domain.oa.mapper.CrmTurnCardLogMapper" >
+  <resultMap id="BaseResultMap" type="com.lc.zy.ball.domain.oa.po.CrmTurnCardLog" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="old_user_id" property="oldUserId" jdbcType="VARCHAR" />
+    <result column="old_account_id" property="oldAccountId" jdbcType="VARCHAR" />
+    <result column="card_type" property="cardType" jdbcType="INTEGER" />
+    <result column="card_balance" property="cardBalance" jdbcType="INTEGER" />
+    <result column="reason" property="reason" jdbcType="VARCHAR" />
+    <result column="card_cost" property="cardCost" jdbcType="INTEGER" />
+    <result column="ct" property="ct" jdbcType="TIMESTAMP" />
+    <result column="new_user_id" property="newUserId" jdbcType="VARCHAR" />
+    <result column="new_account_id" property="newAccountId" jdbcType="VARCHAR" />
+    <result column="start_date" property="startDate" jdbcType="DATE" />
+    <result column="end_date" property="endDate" jdbcType="DATE" />
+    <result column="statium_id" property="statiumId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, old_user_id, old_account_id, card_type, card_balance, reason, card_cost, ct, 
+    new_user_id, new_account_id, start_date, end_date, statium_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lc.zy.ball.domain.oa.po.CrmTurnCardLogCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from crm_turn_card_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="mysqlOffset != null and mysqlLength != null" >
+      <![CDATA[ limit #{mysqlOffset} , #{mysqlLength} ]]>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from crm_turn_card_log
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from crm_turn_card_log
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lc.zy.ball.domain.oa.po.CrmTurnCardLogCriteria" >
+    delete from crm_turn_card_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lc.zy.ball.domain.oa.po.CrmTurnCardLog" >
+    insert into crm_turn_card_log (id, old_user_id, old_account_id, card_type, card_balance, reason, 
+      card_cost, ct, new_user_id, new_account_id, start_date, end_date, statium_id
+      )
+    values (#{id}, #{oldUserId}, #{oldAccountId}, #{cardType}, #{cardBalance}, #{reason}, 
+      #{cardCost}, #{ct}, #{newUserId}, #{newAccountId}, #{startDate}, #{endDate}, #{statiumId}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lc.zy.ball.domain.oa.po.CrmTurnCardLog" >
+    insert into crm_turn_card_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="oldUserId != null" >
+        old_user_id,
+      </if>
+      <if test="oldAccountId != null" >
+        old_account_id,
+      </if>
+      <if test="cardType != null" >
+        card_type,
+      </if>
+      <if test="cardBalance != null" >
+        card_balance,
+      </if>
+      <if test="reason != null" >
+        reason,
+      </if>
+      <if test="cardCost != null" >
+        card_cost,
+      </if>
+      <if test="ct != null" >
+        ct,
+      </if>
+      <if test="newUserId != null" >
+        new_user_id,
+      </if>
+      <if test="newAccountId != null" >
+        new_account_id,
+      </if>
+      <if test="startDate != null" >
+        start_date,
+      </if>
+      <if test="endDate != null" >
+        end_date,
+      </if>
+      <if test="statiumId != null" >
+        statium_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="oldUserId != null" >
+        #{oldUserId},
+      </if>
+      <if test="oldAccountId != null" >
+        #{oldAccountId},
+      </if>
+      <if test="cardType != null" >
+        #{cardType},
+      </if>
+      <if test="cardBalance != null" >
+        #{cardBalance},
+      </if>
+      <if test="reason != null" >
+        #{reason},
+      </if>
+      <if test="cardCost != null" >
+        #{cardCost},
+      </if>
+      <if test="ct != null" >
+        #{ct},
+      </if>
+      <if test="newUserId != null" >
+        #{newUserId},
+      </if>
+      <if test="newAccountId != null" >
+        #{newAccountId},
+      </if>
+      <if test="startDate != null" >
+        #{startDate},
+      </if>
+      <if test="endDate != null" >
+        #{endDate},
+      </if>
+      <if test="statiumId != null" >
+        #{statiumId},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lc.zy.ball.domain.oa.po.CrmTurnCardLogCriteria" resultType="java.lang.Integer" >
+    select count(*) from crm_turn_card_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update crm_turn_card_log
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.oldUserId != null" >
+        old_user_id = #{record.oldUserId},
+      </if>
+      <if test="record.oldAccountId != null" >
+        old_account_id = #{record.oldAccountId},
+      </if>
+      <if test="record.cardType != null" >
+        card_type = #{record.cardType},
+      </if>
+      <if test="record.cardBalance != null" >
+        card_balance = #{record.cardBalance},
+      </if>
+      <if test="record.reason != null" >
+        reason = #{record.reason},
+      </if>
+      <if test="record.cardCost != null" >
+        card_cost = #{record.cardCost},
+      </if>
+      <if test="record.ct != null" >
+        ct = #{record.ct},
+      </if>
+      <if test="record.newUserId != null" >
+        new_user_id = #{record.newUserId},
+      </if>
+      <if test="record.newAccountId != null" >
+        new_account_id = #{record.newAccountId},
+      </if>
+      <if test="record.startDate != null" >
+        start_date = #{record.startDate},
+      </if>
+      <if test="record.endDate != null" >
+        end_date = #{record.endDate},
+      </if>
+      <if test="record.statiumId != null" >
+        statium_id = #{record.statiumId},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update crm_turn_card_log
+    set id = #{record.id},
+      old_user_id = #{record.oldUserId},
+      old_account_id = #{record.oldAccountId},
+      card_type = #{record.cardType},
+      card_balance = #{record.cardBalance},
+      reason = #{record.reason},
+      card_cost = #{record.cardCost},
+      ct = #{record.ct},
+      new_user_id = #{record.newUserId},
+      new_account_id = #{record.newAccountId},
+      start_date = #{record.startDate},
+      end_date = #{record.endDate},
+      statium_id = #{record.statiumId}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lc.zy.ball.domain.oa.po.CrmTurnCardLog" >
+    update crm_turn_card_log
+    <set >
+      <if test="oldUserId != null" >
+        old_user_id = #{oldUserId},
+      </if>
+      <if test="oldAccountId != null" >
+        old_account_id = #{oldAccountId},
+      </if>
+      <if test="cardType != null" >
+        card_type = #{cardType},
+      </if>
+      <if test="cardBalance != null" >
+        card_balance = #{cardBalance},
+      </if>
+      <if test="reason != null" >
+        reason = #{reason},
+      </if>
+      <if test="cardCost != null" >
+        card_cost = #{cardCost},
+      </if>
+      <if test="ct != null" >
+        ct = #{ct},
+      </if>
+      <if test="newUserId != null" >
+        new_user_id = #{newUserId},
+      </if>
+      <if test="newAccountId != null" >
+        new_account_id = #{newAccountId},
+      </if>
+      <if test="startDate != null" >
+        start_date = #{startDate},
+      </if>
+      <if test="endDate != null" >
+        end_date = #{endDate},
+      </if>
+      <if test="statiumId != null" >
+        statium_id = #{statiumId},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lc.zy.ball.domain.oa.po.CrmTurnCardLog" >
+    update crm_turn_card_log
+    set old_user_id = #{oldUserId},
+      old_account_id = #{oldAccountId},
+      card_type = #{cardType},
+      card_balance = #{cardBalance},
+      reason = #{reason},
+      card_cost = #{cardCost},
+      ct = #{ct},
+      new_user_id = #{newUserId},
+      new_account_id = #{newAccountId},
+      start_date = #{startDate},
+      end_date = #{endDate},
+      statium_id = #{statiumId}
+    where id = #{id}
+  </update>
+</mapper>

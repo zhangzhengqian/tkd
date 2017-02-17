@@ -1,0 +1,1 @@
+新订单！订单号${orderId}，${user}已购买面值${cardAmount}元赠送${giftAmount}元的会员卡，电话${phone}。感谢您对我们的支持~【道馆通】

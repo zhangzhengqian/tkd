@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lc.zy.ball.domain.oa.mapper.StatiumClassMapper" >
+  <resultMap id="BaseResultMap" type="com.lc.zy.ball.domain.oa.po.StatiumClass" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="statium_id" property="statiumId" jdbcType="INTEGER" />
+    <result column="class_title" property="classTitle" jdbcType="VARCHAR" />
+    <result column="class_introduce" property="classIntroduce" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="INTEGER" />
+    <result column="discount" property="discount" jdbcType="INTEGER" />
+    <result column="discount_price" property="discountPrice" jdbcType="INTEGER" />
+    <result column="limit_price" property="limitPrice" jdbcType="INTEGER" />
+    <result column="ct" property="ct" jdbcType="TIMESTAMP" />
+    <result column="cb" property="cb" jdbcType="VARCHAR" />
+    <result column="et" property="et" jdbcType="TIMESTAMP" />
+    <result column="eb" property="eb" jdbcType="VARCHAR" />
+    <result column="min_people" property="minPeople" jdbcType="INTEGER" />
+    <result column="max_people" property="maxPeople" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, statium_id, class_title, class_introduce, price, discount, discount_price, limit_price, 
+    ct, cb, et, eb, min_people, max_people, type
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lc.zy.ball.domain.oa.po.StatiumClassCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from oa_statium_class
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="mysqlOffset != null and mysqlLength != null" >
+      <![CDATA[ limit #{mysqlOffset} , #{mysqlLength} ]]>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from oa_statium_class
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from oa_statium_class
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lc.zy.ball.domain.oa.po.StatiumClassCriteria" >
+    delete from oa_statium_class
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lc.zy.ball.domain.oa.po.StatiumClass" >
+    insert into oa_statium_class (id, statium_id, class_title, class_introduce, price, discount, 
+      discount_price, limit_price, ct, cb, et, eb, min_people, max_people, 
+      type)
+    values (#{id}, #{statiumId}, #{classTitle}, #{classIntroduce}, #{price}, #{discount}, 
+      #{discountPrice}, #{limitPrice}, #{ct}, #{cb}, #{et}, #{eb}, #{minPeople}, #{maxPeople}, 
+      #{type})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lc.zy.ball.domain.oa.po.StatiumClass" >
+    insert into oa_statium_class
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="statiumId != null" >
+        statium_id,
+      </if>
+      <if test="classTitle != null" >
+        class_title,
+      </if>
+      <if test="classIntroduce != null" >
+        class_introduce,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="discount != null" >
+        discount,
+      </if>
+      <if test="discountPrice != null" >
+        discount_price,
+      </if>
+      <if test="limitPrice != null" >
+        limit_price,
+      </if>
+      <if test="ct != null" >
+        ct,
+      </if>
+      <if test="cb != null" >
+        cb,
+      </if>
+      <if test="et != null" >
+        et,
+      </if>
+      <if test="eb != null" >
+        eb,
+      </if>
+      <if test="minPeople != null" >
+        min_people,
+      </if>
+      <if test="maxPeople != null" >
+        max_people,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="statiumId != null" >
+        #{statiumId},
+      </if>
+      <if test="classTitle != null" >
+        #{classTitle},
+      </if>
+      <if test="classIntroduce != null" >
+        #{classIntroduce},
+      </if>
+      <if test="price != null" >
+        #{price},
+      </if>
+      <if test="discount != null" >
+        #{discount},
+      </if>
+      <if test="discountPrice != null" >
+        #{discountPrice},
+      </if>
+      <if test="limitPrice != null" >
+        #{limitPrice},
+      </if>
+      <if test="ct != null" >
+        #{ct},
+      </if>
+      <if test="cb != null" >
+        #{cb},
+      </if>
+      <if test="et != null" >
+        #{et},
+      </if>
+      <if test="eb != null" >
+        #{eb},
+      </if>
+      <if test="minPeople != null" >
+        #{minPeople},
+      </if>
+      <if test="maxPeople != null" >
+        #{maxPeople},
+      </if>
+      <if test="type != null" >
+        #{type},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lc.zy.ball.domain.oa.po.StatiumClassCriteria" resultType="java.lang.Integer" >
+    select count(*) from oa_statium_class
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update oa_statium_class
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.statiumId != null" >
+        statium_id = #{record.statiumId},
+      </if>
+      <if test="record.classTitle != null" >
+        class_title = #{record.classTitle},
+      </if>
+      <if test="record.classIntroduce != null" >
+        class_introduce = #{record.classIntroduce},
+      </if>
+      <if test="record.price != null" >
+        price = #{record.price},
+      </if>
+      <if test="record.discount != null" >
+        discount = #{record.discount},
+      </if>
+      <if test="record.discountPrice != null" >
+        discount_price = #{record.discountPrice},
+      </if>
+      <if test="record.limitPrice != null" >
+        limit_price = #{record.limitPrice},
+      </if>
+      <if test="record.ct != null" >
+        ct = #{record.ct},
+      </if>
+      <if test="record.cb != null" >
+        cb = #{record.cb},
+      </if>
+      <if test="record.et != null" >
+        et = #{record.et},
+      </if>
+      <if test="record.eb != null" >
+        eb = #{record.eb},
+      </if>
+      <if test="record.minPeople != null" >
+        min_people = #{record.minPeople},
+      </if>
+      <if test="record.maxPeople != null" >
+        max_people = #{record.maxPeople},
+      </if>
+      <if test="record.type != null" >
+        type = #{record.type},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update oa_statium_class
+    set id = #{record.id},
+      statium_id = #{record.statiumId},
+      class_title = #{record.classTitle},
+      class_introduce = #{record.classIntroduce},
+      price = #{record.price},
+      discount = #{record.discount},
+      discount_price = #{record.discountPrice},
+      limit_price = #{record.limitPrice},
+      ct = #{record.ct},
+      cb = #{record.cb},
+      et = #{record.et},
+      eb = #{record.eb},
+      min_people = #{record.minPeople},
+      max_people = #{record.maxPeople},
+      type = #{record.type}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lc.zy.ball.domain.oa.po.StatiumClass" >
+    update oa_statium_class
+    <set >
+      <if test="statiumId != null" >
+        statium_id = #{statiumId},
+      </if>
+      <if test="classTitle != null" >
+        class_title = #{classTitle},
+      </if>
+      <if test="classIntroduce != null" >
+        class_introduce = #{classIntroduce},
+      </if>
+      <if test="price != null" >
+        price = #{price},
+      </if>
+      <if test="discount != null" >
+        discount = #{discount},
+      </if>
+      <if test="discountPrice != null" >
+        discount_price = #{discountPrice},
+      </if>
+      <if test="limitPrice != null" >
+        limit_price = #{limitPrice},
+      </if>
+      <if test="ct != null" >
+        ct = #{ct},
+      </if>
+      <if test="cb != null" >
+        cb = #{cb},
+      </if>
+      <if test="et != null" >
+        et = #{et},
+      </if>
+      <if test="eb != null" >
+        eb = #{eb},
+      </if>
+      <if test="minPeople != null" >
+        min_people = #{minPeople},
+      </if>
+      <if test="maxPeople != null" >
+        max_people = #{maxPeople},
+      </if>
+      <if test="type != null" >
+        type = #{type},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lc.zy.ball.domain.oa.po.StatiumClass" >
+    update oa_statium_class
+    set statium_id = #{statiumId},
+      class_title = #{classTitle},
+      class_introduce = #{classIntroduce},
+      price = #{price},
+      discount = #{discount},
+      discount_price = #{discountPrice},
+      limit_price = #{limitPrice},
+      ct = #{ct},
+      cb = #{cb},
+      et = #{et},
+      eb = #{eb},
+      min_people = #{minPeople},
+      max_people = #{maxPeople},
+      type = #{type}
+    where id = #{id}
+  </update>
+</mapper>

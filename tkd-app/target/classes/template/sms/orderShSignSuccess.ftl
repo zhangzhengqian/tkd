@@ -1,0 +1,1 @@
+您已成功报名${activityName}!比赛时间${activityTime}!比赛地点：${address}，请您准时参赛，感谢您的支持。

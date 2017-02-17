@@ -1,0 +1,115 @@
+<div class="orderNav">
+	<ul>
+		<li><a href="#/mall/goods">订货</a></li>
+		<li class="active"><a href="#/mall/orders">订单管理</a></li>
+		<li><a href="#/mall/storageSize">库存管理</a></li>
+		<li><a href="#/mall/storageLogs">出入库明细</a></li>
+	</ul>
+</div>
+<p class="dingdanId">
+  订单编号：{{orderId}}<span>{{order.createDate}}</span><span>订单状态：{{order.status|mallOrderFilter}}</span><a href="javascript:history.go(-1)">返回</a>
+</p>
+<ul ng-if="order.status!=4&&order.status!=5&&order.status!=6" class="order_status"> 
+  <li ng-if="order.logs['1000000']!=null&&order.logs['0100000']==null"><img src="/static/img/status_010.png"></li>
+  <li ng-if="order.logs['0100000']!=null"><img src="/static/img/status_011.png"></li>
+  <li ng-if="order.logs['0100000']!=null" style="width:18%;"><img src="/static/img/line01.png"></li>
+  <li ng-if="order.logs['0100000']==null" style="width:18%;"><img src="/static/img/line02.png"></li>
+  <li ng-if="order.logs['0100000']==null"><img src="/static/img/status_020.png"></li>
+  <li ng-if="order.logs['0100000']!=null&&order.logs['0010000']==null"><img src="/static/img/status_021.png"></li>
+  <li ng-if="order.logs['0010000']!=null"><img src="/static/img/status_022.png"></li>
+  <li ng-if="order.logs['0010000']!=null" style="width:18%;"><img src="/static/img/line01.png"></li>
+  <li ng-if="order.logs['0010000']==null" style="width:18%;"><img src="/static/img/line02.png"></li>
+  <li ng-if="order.logs['0010000']==null"><img src="/static/img/status_030.png"></li>
+  <li ng-if="order.logs['0010000']!=null&&order.logs['0001000']==null"><img src="/static/img/status_031.png"></li>
+  <li ng-if="order.logs['0001000']!=null"><img src="/static/img/status_032.png"></li>
+  <li ng-if="order.logs['0001000']!=null" style="width:18%;"><img src="/static/img/line01.png"></li>
+  <li ng-if="order.logs['0001000']==null" style="width:18%;"><img src="/static/img/line02.png"></li>
+  <li ng-if="order.logs['0001000']==null"><img src="/static/img/status_040.png"></li>
+  <li ng-if="order.logs['0001000']!=null"><img src="/static/img/status_041.png"></li>
+</ul>
+<div class="orderNav">
+	<ul>
+		<li class="active"><a href="javascript:;">货品信息</a></li>
+	</ul>
+</div>
+
+<div class="orderResult">
+	<table class="hpTable">
+		<tr>
+			<th>商品图片</th>
+			<th>商品详情</th>
+			<th>单价</th>
+			<th>数量</th>
+			<th>总价</th>
+		</tr>
+		<tr ng-repeat="(id,cart) in order.carts">
+			<td class="hpTableTd hpTableTd1"><img src="{{cart.photo}}bigPicture" style="width: 160px;height: 120px" alt="通用的占位符缩略图"></td>
+			<td class="hpTableTd">{{cart.goodName}}{{cart.bulk}}*{{cart.amount}} 整{{cart.unit}}</td>
+			<td class="hpTableTd">{{cart.price|currency:'￥'}}</td>
+			<td class="hpTableTd">{{cart.amounts}}{{cart.unit}}</td>
+			<td class="hpTableTd">{{cart.amounts*cart.price|currency:'￥'}}</td>
+		</tr>
+	</table>
+</div>
+<div ng-if="order.status==0" class="orderNav">
+	<ul>
+		<li class="active"><a href="javascript:;">支付方式</a></li>
+	</ul>
+</div>
+<div ng-if="order.status==0" class="formTable formTableZhifu">
+	<input type="radio" name="payType" ng-model="payType" value='0'/> 支付宝
+</div>
+
+<div ng-if="order.giveNum!=0" class="orderNav">
+	<ul>
+		<li class="active"><a href="javascript:;">赠品信息</a></li>
+	</ul>
+</div>
+<div ng-if="order.giveNum!=0" class="huopin">
+	<table class="hpTable">
+		<tr>
+			<th>商品名称</th>
+			<th>数量</th>
+			<th>总价</th>
+		</tr>
+		<tr ng-repeat="give in order.gives">
+			<td class="hpTableTd hpTableTd1" style="text-align: center">{{give.name}}</td>
+			<td class="hpTableTd">{{give.amount}}</td>
+			<td ng-if="$index==0" rowspan="{{order.giveNum}}">
+				￥0.00
+			</td>
+		</tr>
+	</table>
+</div>
+<div class="orderResult orderResultBox">
+	<p class="yfMoney">订单金额：{{order.feeView|currency:'￥'}}</p>	
+	
+	<input type="button" ng-if="order.status==0" value="付款" ng-click="pay()" class="qrddBtn">
+	<input type="button" ng-if="order.status==0" value="取消订单" ng-click="cancel()" class="qrddBtn">
+	<input type="button" ng-if="order.status==2&&order.delayNum==0" value="延长收货" ng-click="delay()" class="qrddBtn">
+	<input type="button" ng-if="order.status==2&&order.delayNum>=1" value="已延期收货" class="qrddBtn_zh">
+	<input type="button" ng-if="order.status==2" value="确认收货" ng-click="verify()" class="qrddBtn">
+</div>
+
+<div class="orderNav">
+	<ul>
+		<li class="active"><a href="javascript:;">收货人信息</a></li>
+	</ul>
+</div>
+<div class="formTable formTablePerson">
+	<span>联系人：{{order.man}}</span>
+	<span>TEL：{{order.phone}}</span>
+	<span>联系地址：{{order.address}}</span>
+</div>
+<div class="formTable formTablePerson">
+	<span>收货截止时间：{{order.shTime}}(系统将在截止时间自动确认收货，如未收到货物，请联系客服400-681-8888)</span>
+</div>
+<div ng-if="order.sendMan" class="orderNav">
+	<ul>
+		<li class="active"><a href="javascript:;">派送员信息</a></li>
+	</ul>
+</div>
+<div ng-if="order.sendMan" class="formTable formTablePerson">
+	<span>派送员：{{order.sendMan}}</span>
+	<span>派送电话：{{order.sendPhone}}</span>
+</div>

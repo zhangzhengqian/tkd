@@ -1,0 +1,1490 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lc.zy.ball.domain.oa.mapper.PmwMemberMapper" >
+  <resultMap id="BaseResultMap" type="com.lc.zy.ball.domain.oa.po.PmwMember" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="answer" property="answer" jdbcType="VARCHAR" />
+    <result column="cnname" property="cnname" jdbcType="VARCHAR" />
+    <result column="add1" property="add1" jdbcType="VARCHAR" />
+    <result column="add2" property="add2" jdbcType="VARCHAR" />
+    <result column="avatar" property="avatar" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="TINYINT" />
+    <result column="birthtype" property="birthtype" jdbcType="TINYINT" />
+    <result column="birth_year" property="birthYear" jdbcType="VARCHAR" />
+    <result column="birth_month" property="birthMonth" jdbcType="VARCHAR" />
+    <result column="birth_day" property="birthDay" jdbcType="VARCHAR" />
+    <result column="astro" property="astro" jdbcType="VARCHAR" />
+    <result column="bloodtype" property="bloodtype" jdbcType="TINYINT" />
+    <result column="trade" property="trade" jdbcType="VARCHAR" />
+    <result column="live_prov" property="liveProv" jdbcType="VARCHAR" />
+    <result column="live_city" property="liveCity" jdbcType="VARCHAR" />
+    <result column="live_country" property="liveCountry" jdbcType="VARCHAR" />
+    <result column="home_prov" property="homeProv" jdbcType="VARCHAR" />
+    <result column="home_city" property="homeCity" jdbcType="VARCHAR" />
+    <result column="home_country" property="homeCountry" jdbcType="VARCHAR" />
+    <result column="cardtype" property="cardtype" jdbcType="TINYINT" />
+    <result column="cardnum" property="cardnum" jdbcType="VARCHAR" />
+    <result column="intro" property="intro" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="qqnum" property="qqnum" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="telephone" property="telephone" jdbcType="VARCHAR" />
+    <result column="address_prov" property="addressProv" jdbcType="VARCHAR" />
+    <result column="address_city" property="addressCity" jdbcType="VARCHAR" />
+    <result column="address_country" property="addressCountry" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="zipcode" property="zipcode" jdbcType="VARCHAR" />
+    <result column="enteruser" property="enteruser" jdbcType="CHAR" />
+    <result column="expval" property="expval" jdbcType="INTEGER" />
+    <result column="integral" property="integral" jdbcType="INTEGER" />
+    <result column="regtime" property="regtime" jdbcType="INTEGER" />
+    <result column="regip" property="regip" jdbcType="VARCHAR" />
+    <result column="logintime" property="logintime" jdbcType="INTEGER" />
+    <result column="loginip" property="loginip" jdbcType="VARCHAR" />
+    <result column="haoduan" property="haoduan" jdbcType="INTEGER" />
+    <result column="huiyuan" property="huiyuan" jdbcType="VARCHAR" />
+    <result column="aboutus" property="aboutus" jdbcType="VARCHAR" />
+    <result column="contactus" property="contactus" jdbcType="VARCHAR" />
+    <result column="a1" property="a1" jdbcType="VARCHAR" />
+    <result column="a2" property="a2" jdbcType="VARCHAR" />
+    <result column="a3" property="a3" jdbcType="VARCHAR" />
+    <result column="a4" property="a4" jdbcType="VARCHAR" />
+    <result column="a5" property="a5" jdbcType="VARCHAR" />
+    <result column="a6" property="a6" jdbcType="VARCHAR" />
+    <result column="a7" property="a7" jdbcType="VARCHAR" />
+    <result column="a8" property="a8" jdbcType="VARCHAR" />
+    <result column="a9" property="a9" jdbcType="VARCHAR" />
+    <result column="a10" property="a10" jdbcType="VARCHAR" />
+    <result column="a11" property="a11" jdbcType="VARCHAR" />
+    <result column="trainnums" property="trainnums" jdbcType="VARCHAR" />
+    <result column="studentnums" property="studentnums" jdbcType="VARCHAR" />
+    <result column="yyzz" property="yyzz" jdbcType="VARCHAR" />
+    <result column="swdjzh" property="swdjzh" jdbcType="VARCHAR" />
+    <result column="trainname" property="trainname" jdbcType="VARCHAR" />
+    <result column="traintel" property="traintel" jdbcType="VARCHAR" />
+    <result column="idnums" property="idnums" jdbcType="VARCHAR" />
+    <result column="xydw" property="xydw" jdbcType="VARCHAR" />
+    <result column="trainlevel" property="trainlevel" jdbcType="VARCHAR" />
+    <result column="refereelevel" property="refereelevel" jdbcType="VARCHAR" />
+    <result column="train_people" property="trainPeople" jdbcType="VARCHAR" />
+    <result column="train_space" property="trainSpace" jdbcType="VARCHAR" />
+    <result column="train_kind" property="trainKind" jdbcType="VARCHAR" />
+    <result column="question" property="question" jdbcType="VARCHAR" />
+    <result column="enname" property="enname" jdbcType="VARCHAR" />
+    <result column="user_money" property="userMoney" jdbcType="DECIMAL" />
+    <result column="frozen_moner" property="frozenMoner" jdbcType="DECIMAL" />
+    <result column="checkuser_tinyint" property="checkuserTinyint" jdbcType="INTEGER" />
+    <result column="login_type" property="loginType" jdbcType="INTEGER" />
+    <result column="login_type_ck" property="loginTypeCk" jdbcType="INTEGER" />
+    <result column="zwpj" property="zwpj" jdbcType="VARCHAR" />
+    <result column="ktqz" property="ktqz" jdbcType="TINYINT" />
+    <result column="daoguan_id" property="daoguanId" jdbcType="INTEGER" />
+    <result column="pid" property="pid" jdbcType="VARCHAR" />
+    <result column="orderid" property="orderid" jdbcType="INTEGER" />
+    <result column="pstr" property="pstr" jdbcType="VARCHAR" />
+    <result column="infotype" property="infotype" jdbcType="INTEGER" />
+    <result column="gldaoguan" property="gldaoguan" jdbcType="VARCHAR" />
+    <result column="kq_fl" property="kqFl" jdbcType="INTEGER" />
+    <result column="fl_money" property="flMoney" jdbcType="DECIMAL" />
+    <result column="bank" property="bank" jdbcType="VARCHAR" />
+    <result column="bank_card" property="bankCard" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, username, password, answer, cnname, add1, add2, avatar, sex, birthtype, birth_year, 
+    birth_month, birth_day, astro, bloodtype, trade, live_prov, live_city, live_country, 
+    home_prov, home_city, home_country, cardtype, cardnum, intro, email, qqnum, mobile, 
+    telephone, address_prov, address_city, address_country, address, zipcode, enteruser, 
+    expval, integral, regtime, regip, logintime, loginip, haoduan, huiyuan, aboutus, 
+    contactus, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, trainnums, studentnums, 
+    yyzz, swdjzh, trainname, traintel, idnums, xydw, trainlevel, refereelevel, train_people, 
+    train_space, train_kind, question, enname, user_money, frozen_moner, checkuser_tinyint, 
+    login_type, login_type_ck, zwpj, ktqz, daoguan_id, pid, orderid, pstr, infotype, 
+    gldaoguan, kq_fl, fl_money, bank, bank_card
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lc.zy.ball.domain.oa.po.PmwMemberCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from pmw_member
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="mysqlOffset != null and mysqlLength != null" >
+      <![CDATA[ limit #{mysqlOffset} , #{mysqlLength} ]]>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from pmw_member
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pmw_member
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lc.zy.ball.domain.oa.po.PmwMemberCriteria" >
+    delete from pmw_member
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lc.zy.ball.domain.oa.po.PmwMember" >
+    insert into pmw_member (id, username, password, answer, cnname, add1, add2, 
+      avatar, sex, birthtype, birth_year, birth_month, birth_day, astro, 
+      bloodtype, trade, live_prov, live_city, live_country, home_prov, 
+      home_city, home_country, cardtype, cardnum, intro, email, qqnum, 
+      mobile, telephone, address_prov, address_city, address_country, address, 
+      zipcode, enteruser, expval, integral, regtime, regip, logintime, 
+      loginip, haoduan, huiyuan, aboutus, contactus, a1, a2, a3, 
+      a4, a5, a6, a7, a8, a9, a10, a11, trainnums, studentnums, 
+      yyzz, swdjzh, trainname, traintel, idnums, xydw, trainlevel, 
+      refereelevel, train_people, train_space, train_kind, question, enname, 
+      user_money, frozen_moner, checkuser_tinyint, login_type, login_type_ck, 
+      zwpj, ktqz, daoguan_id, pid, orderid, pstr, infotype, gldaoguan, 
+      kq_fl, fl_money, bank, bank_card)
+    values (#{id}, #{username}, #{password}, #{answer}, #{cnname}, #{add1}, #{add2}, 
+      #{avatar}, #{sex}, #{birthtype}, #{birthYear}, #{birthMonth}, #{birthDay}, #{astro}, 
+      #{bloodtype}, #{trade}, #{liveProv}, #{liveCity}, #{liveCountry}, #{homeProv}, 
+      #{homeCity}, #{homeCountry}, #{cardtype}, #{cardnum}, #{intro}, #{email}, #{qqnum}, 
+      #{mobile}, #{telephone}, #{addressProv}, #{addressCity}, #{addressCountry}, #{address}, 
+      #{zipcode}, #{enteruser}, #{expval}, #{integral}, #{regtime}, #{regip}, #{logintime}, 
+      #{loginip}, #{haoduan}, #{huiyuan}, #{aboutus}, #{contactus}, #{a1}, #{a2}, #{a3}, 
+      #{a4}, #{a5}, #{a6}, #{a7}, #{a8}, #{a9}, #{a10}, #{a11}, #{trainnums}, #{studentnums}, 
+      #{yyzz}, #{swdjzh}, #{trainname}, #{traintel}, #{idnums}, #{xydw}, #{trainlevel}, 
+      #{refereelevel}, #{trainPeople}, #{trainSpace}, #{trainKind}, #{question}, #{enname}, 
+      #{userMoney}, #{frozenMoner}, #{checkuserTinyint}, #{loginType}, #{loginTypeCk}, 
+      #{zwpj}, #{ktqz}, #{daoguanId}, #{pid}, #{orderid}, #{pstr}, #{infotype}, #{gldaoguan}, 
+      #{kqFl}, #{flMoney}, #{bank}, #{bankCard})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lc.zy.ball.domain.oa.po.PmwMember" >
+    insert into pmw_member
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="answer != null" >
+        answer,
+      </if>
+      <if test="cnname != null" >
+        cnname,
+      </if>
+      <if test="add1 != null" >
+        add1,
+      </if>
+      <if test="add2 != null" >
+        add2,
+      </if>
+      <if test="avatar != null" >
+        avatar,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="birthtype != null" >
+        birthtype,
+      </if>
+      <if test="birthYear != null" >
+        birth_year,
+      </if>
+      <if test="birthMonth != null" >
+        birth_month,
+      </if>
+      <if test="birthDay != null" >
+        birth_day,
+      </if>
+      <if test="astro != null" >
+        astro,
+      </if>
+      <if test="bloodtype != null" >
+        bloodtype,
+      </if>
+      <if test="trade != null" >
+        trade,
+      </if>
+      <if test="liveProv != null" >
+        live_prov,
+      </if>
+      <if test="liveCity != null" >
+        live_city,
+      </if>
+      <if test="liveCountry != null" >
+        live_country,
+      </if>
+      <if test="homeProv != null" >
+        home_prov,
+      </if>
+      <if test="homeCity != null" >
+        home_city,
+      </if>
+      <if test="homeCountry != null" >
+        home_country,
+      </if>
+      <if test="cardtype != null" >
+        cardtype,
+      </if>
+      <if test="cardnum != null" >
+        cardnum,
+      </if>
+      <if test="intro != null" >
+        intro,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="qqnum != null" >
+        qqnum,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="telephone != null" >
+        telephone,
+      </if>
+      <if test="addressProv != null" >
+        address_prov,
+      </if>
+      <if test="addressCity != null" >
+        address_city,
+      </if>
+      <if test="addressCountry != null" >
+        address_country,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="zipcode != null" >
+        zipcode,
+      </if>
+      <if test="enteruser != null" >
+        enteruser,
+      </if>
+      <if test="expval != null" >
+        expval,
+      </if>
+      <if test="integral != null" >
+        integral,
+      </if>
+      <if test="regtime != null" >
+        regtime,
+      </if>
+      <if test="regip != null" >
+        regip,
+      </if>
+      <if test="logintime != null" >
+        logintime,
+      </if>
+      <if test="loginip != null" >
+        loginip,
+      </if>
+      <if test="haoduan != null" >
+        haoduan,
+      </if>
+      <if test="huiyuan != null" >
+        huiyuan,
+      </if>
+      <if test="aboutus != null" >
+        aboutus,
+      </if>
+      <if test="contactus != null" >
+        contactus,
+      </if>
+      <if test="a1 != null" >
+        a1,
+      </if>
+      <if test="a2 != null" >
+        a2,
+      </if>
+      <if test="a3 != null" >
+        a3,
+      </if>
+      <if test="a4 != null" >
+        a4,
+      </if>
+      <if test="a5 != null" >
+        a5,
+      </if>
+      <if test="a6 != null" >
+        a6,
+      </if>
+      <if test="a7 != null" >
+        a7,
+      </if>
+      <if test="a8 != null" >
+        a8,
+      </if>
+      <if test="a9 != null" >
+        a9,
+      </if>
+      <if test="a10 != null" >
+        a10,
+      </if>
+      <if test="a11 != null" >
+        a11,
+      </if>
+      <if test="trainnums != null" >
+        trainnums,
+      </if>
+      <if test="studentnums != null" >
+        studentnums,
+      </if>
+      <if test="yyzz != null" >
+        yyzz,
+      </if>
+      <if test="swdjzh != null" >
+        swdjzh,
+      </if>
+      <if test="trainname != null" >
+        trainname,
+      </if>
+      <if test="traintel != null" >
+        traintel,
+      </if>
+      <if test="idnums != null" >
+        idnums,
+      </if>
+      <if test="xydw != null" >
+        xydw,
+      </if>
+      <if test="trainlevel != null" >
+        trainlevel,
+      </if>
+      <if test="refereelevel != null" >
+        refereelevel,
+      </if>
+      <if test="trainPeople != null" >
+        train_people,
+      </if>
+      <if test="trainSpace != null" >
+        train_space,
+      </if>
+      <if test="trainKind != null" >
+        train_kind,
+      </if>
+      <if test="question != null" >
+        question,
+      </if>
+      <if test="enname != null" >
+        enname,
+      </if>
+      <if test="userMoney != null" >
+        user_money,
+      </if>
+      <if test="frozenMoner != null" >
+        frozen_moner,
+      </if>
+      <if test="checkuserTinyint != null" >
+        checkuser_tinyint,
+      </if>
+      <if test="loginType != null" >
+        login_type,
+      </if>
+      <if test="loginTypeCk != null" >
+        login_type_ck,
+      </if>
+      <if test="zwpj != null" >
+        zwpj,
+      </if>
+      <if test="ktqz != null" >
+        ktqz,
+      </if>
+      <if test="daoguanId != null" >
+        daoguan_id,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="orderid != null" >
+        orderid,
+      </if>
+      <if test="pstr != null" >
+        pstr,
+      </if>
+      <if test="infotype != null" >
+        infotype,
+      </if>
+      <if test="gldaoguan != null" >
+        gldaoguan,
+      </if>
+      <if test="kqFl != null" >
+        kq_fl,
+      </if>
+      <if test="flMoney != null" >
+        fl_money,
+      </if>
+      <if test="bank != null" >
+        bank,
+      </if>
+      <if test="bankCard != null" >
+        bank_card,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="username != null" >
+        #{username},
+      </if>
+      <if test="password != null" >
+        #{password},
+      </if>
+      <if test="answer != null" >
+        #{answer},
+      </if>
+      <if test="cnname != null" >
+        #{cnname},
+      </if>
+      <if test="add1 != null" >
+        #{add1},
+      </if>
+      <if test="add2 != null" >
+        #{add2},
+      </if>
+      <if test="avatar != null" >
+        #{avatar},
+      </if>
+      <if test="sex != null" >
+        #{sex},
+      </if>
+      <if test="birthtype != null" >
+        #{birthtype},
+      </if>
+      <if test="birthYear != null" >
+        #{birthYear},
+      </if>
+      <if test="birthMonth != null" >
+        #{birthMonth},
+      </if>
+      <if test="birthDay != null" >
+        #{birthDay},
+      </if>
+      <if test="astro != null" >
+        #{astro},
+      </if>
+      <if test="bloodtype != null" >
+        #{bloodtype},
+      </if>
+      <if test="trade != null" >
+        #{trade},
+      </if>
+      <if test="liveProv != null" >
+        #{liveProv},
+      </if>
+      <if test="liveCity != null" >
+        #{liveCity},
+      </if>
+      <if test="liveCountry != null" >
+        #{liveCountry},
+      </if>
+      <if test="homeProv != null" >
+        #{homeProv},
+      </if>
+      <if test="homeCity != null" >
+        #{homeCity},
+      </if>
+      <if test="homeCountry != null" >
+        #{homeCountry},
+      </if>
+      <if test="cardtype != null" >
+        #{cardtype},
+      </if>
+      <if test="cardnum != null" >
+        #{cardnum},
+      </if>
+      <if test="intro != null" >
+        #{intro},
+      </if>
+      <if test="email != null" >
+        #{email},
+      </if>
+      <if test="qqnum != null" >
+        #{qqnum},
+      </if>
+      <if test="mobile != null" >
+        #{mobile},
+      </if>
+      <if test="telephone != null" >
+        #{telephone},
+      </if>
+      <if test="addressProv != null" >
+        #{addressProv},
+      </if>
+      <if test="addressCity != null" >
+        #{addressCity},
+      </if>
+      <if test="addressCountry != null" >
+        #{addressCountry},
+      </if>
+      <if test="address != null" >
+        #{address},
+      </if>
+      <if test="zipcode != null" >
+        #{zipcode},
+      </if>
+      <if test="enteruser != null" >
+        #{enteruser},
+      </if>
+      <if test="expval != null" >
+        #{expval},
+      </if>
+      <if test="integral != null" >
+        #{integral},
+      </if>
+      <if test="regtime != null" >
+        #{regtime},
+      </if>
+      <if test="regip != null" >
+        #{regip},
+      </if>
+      <if test="logintime != null" >
+        #{logintime},
+      </if>
+      <if test="loginip != null" >
+        #{loginip},
+      </if>
+      <if test="haoduan != null" >
+        #{haoduan},
+      </if>
+      <if test="huiyuan != null" >
+        #{huiyuan},
+      </if>
+      <if test="aboutus != null" >
+        #{aboutus},
+      </if>
+      <if test="contactus != null" >
+        #{contactus},
+      </if>
+      <if test="a1 != null" >
+        #{a1},
+      </if>
+      <if test="a2 != null" >
+        #{a2},
+      </if>
+      <if test="a3 != null" >
+        #{a3},
+      </if>
+      <if test="a4 != null" >
+        #{a4},
+      </if>
+      <if test="a5 != null" >
+        #{a5},
+      </if>
+      <if test="a6 != null" >
+        #{a6},
+      </if>
+      <if test="a7 != null" >
+        #{a7},
+      </if>
+      <if test="a8 != null" >
+        #{a8},
+      </if>
+      <if test="a9 != null" >
+        #{a9},
+      </if>
+      <if test="a10 != null" >
+        #{a10},
+      </if>
+      <if test="a11 != null" >
+        #{a11},
+      </if>
+      <if test="trainnums != null" >
+        #{trainnums},
+      </if>
+      <if test="studentnums != null" >
+        #{studentnums},
+      </if>
+      <if test="yyzz != null" >
+        #{yyzz},
+      </if>
+      <if test="swdjzh != null" >
+        #{swdjzh},
+      </if>
+      <if test="trainname != null" >
+        #{trainname},
+      </if>
+      <if test="traintel != null" >
+        #{traintel},
+      </if>
+      <if test="idnums != null" >
+        #{idnums},
+      </if>
+      <if test="xydw != null" >
+        #{xydw},
+      </if>
+      <if test="trainlevel != null" >
+        #{trainlevel},
+      </if>
+      <if test="refereelevel != null" >
+        #{refereelevel},
+      </if>
+      <if test="trainPeople != null" >
+        #{trainPeople},
+      </if>
+      <if test="trainSpace != null" >
+        #{trainSpace},
+      </if>
+      <if test="trainKind != null" >
+        #{trainKind},
+      </if>
+      <if test="question != null" >
+        #{question},
+      </if>
+      <if test="enname != null" >
+        #{enname},
+      </if>
+      <if test="userMoney != null" >
+        #{userMoney},
+      </if>
+      <if test="frozenMoner != null" >
+        #{frozenMoner},
+      </if>
+      <if test="checkuserTinyint != null" >
+        #{checkuserTinyint},
+      </if>
+      <if test="loginType != null" >
+        #{loginType},
+      </if>
+      <if test="loginTypeCk != null" >
+        #{loginTypeCk},
+      </if>
+      <if test="zwpj != null" >
+        #{zwpj},
+      </if>
+      <if test="ktqz != null" >
+        #{ktqz},
+      </if>
+      <if test="daoguanId != null" >
+        #{daoguanId},
+      </if>
+      <if test="pid != null" >
+        #{pid},
+      </if>
+      <if test="orderid != null" >
+        #{orderid},
+      </if>
+      <if test="pstr != null" >
+        #{pstr},
+      </if>
+      <if test="infotype != null" >
+        #{infotype},
+      </if>
+      <if test="gldaoguan != null" >
+        #{gldaoguan},
+      </if>
+      <if test="kqFl != null" >
+        #{kqFl},
+      </if>
+      <if test="flMoney != null" >
+        #{flMoney},
+      </if>
+      <if test="bank != null" >
+        #{bank},
+      </if>
+      <if test="bankCard != null" >
+        #{bankCard},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lc.zy.ball.domain.oa.po.PmwMemberCriteria" resultType="java.lang.Integer" >
+    select count(*) from pmw_member
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update pmw_member
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.username != null" >
+        username = #{record.username},
+      </if>
+      <if test="record.password != null" >
+        password = #{record.password},
+      </if>
+      <if test="record.answer != null" >
+        answer = #{record.answer},
+      </if>
+      <if test="record.cnname != null" >
+        cnname = #{record.cnname},
+      </if>
+      <if test="record.add1 != null" >
+        add1 = #{record.add1},
+      </if>
+      <if test="record.add2 != null" >
+        add2 = #{record.add2},
+      </if>
+      <if test="record.avatar != null" >
+        avatar = #{record.avatar},
+      </if>
+      <if test="record.sex != null" >
+        sex = #{record.sex},
+      </if>
+      <if test="record.birthtype != null" >
+        birthtype = #{record.birthtype},
+      </if>
+      <if test="record.birthYear != null" >
+        birth_year = #{record.birthYear},
+      </if>
+      <if test="record.birthMonth != null" >
+        birth_month = #{record.birthMonth},
+      </if>
+      <if test="record.birthDay != null" >
+        birth_day = #{record.birthDay},
+      </if>
+      <if test="record.astro != null" >
+        astro = #{record.astro},
+      </if>
+      <if test="record.bloodtype != null" >
+        bloodtype = #{record.bloodtype},
+      </if>
+      <if test="record.trade != null" >
+        trade = #{record.trade},
+      </if>
+      <if test="record.liveProv != null" >
+        live_prov = #{record.liveProv},
+      </if>
+      <if test="record.liveCity != null" >
+        live_city = #{record.liveCity},
+      </if>
+      <if test="record.liveCountry != null" >
+        live_country = #{record.liveCountry},
+      </if>
+      <if test="record.homeProv != null" >
+        home_prov = #{record.homeProv},
+      </if>
+      <if test="record.homeCity != null" >
+        home_city = #{record.homeCity},
+      </if>
+      <if test="record.homeCountry != null" >
+        home_country = #{record.homeCountry},
+      </if>
+      <if test="record.cardtype != null" >
+        cardtype = #{record.cardtype},
+      </if>
+      <if test="record.cardnum != null" >
+        cardnum = #{record.cardnum},
+      </if>
+      <if test="record.intro != null" >
+        intro = #{record.intro},
+      </if>
+      <if test="record.email != null" >
+        email = #{record.email},
+      </if>
+      <if test="record.qqnum != null" >
+        qqnum = #{record.qqnum},
+      </if>
+      <if test="record.mobile != null" >
+        mobile = #{record.mobile},
+      </if>
+      <if test="record.telephone != null" >
+        telephone = #{record.telephone},
+      </if>
+      <if test="record.addressProv != null" >
+        address_prov = #{record.addressProv},
+      </if>
+      <if test="record.addressCity != null" >
+        address_city = #{record.addressCity},
+      </if>
+      <if test="record.addressCountry != null" >
+        address_country = #{record.addressCountry},
+      </if>
+      <if test="record.address != null" >
+        address = #{record.address},
+      </if>
+      <if test="record.zipcode != null" >
+        zipcode = #{record.zipcode},
+      </if>
+      <if test="record.enteruser != null" >
+        enteruser = #{record.enteruser},
+      </if>
+      <if test="record.expval != null" >
+        expval = #{record.expval},
+      </if>
+      <if test="record.integral != null" >
+        integral = #{record.integral},
+      </if>
+      <if test="record.regtime != null" >
+        regtime = #{record.regtime},
+      </if>
+      <if test="record.regip != null" >
+        regip = #{record.regip},
+      </if>
+      <if test="record.logintime != null" >
+        logintime = #{record.logintime},
+      </if>
+      <if test="record.loginip != null" >
+        loginip = #{record.loginip},
+      </if>
+      <if test="record.haoduan != null" >
+        haoduan = #{record.haoduan},
+      </if>
+      <if test="record.huiyuan != null" >
+        huiyuan = #{record.huiyuan},
+      </if>
+      <if test="record.aboutus != null" >
+        aboutus = #{record.aboutus},
+      </if>
+      <if test="record.contactus != null" >
+        contactus = #{record.contactus},
+      </if>
+      <if test="record.a1 != null" >
+        a1 = #{record.a1},
+      </if>
+      <if test="record.a2 != null" >
+        a2 = #{record.a2},
+      </if>
+      <if test="record.a3 != null" >
+        a3 = #{record.a3},
+      </if>
+      <if test="record.a4 != null" >
+        a4 = #{record.a4},
+      </if>
+      <if test="record.a5 != null" >
+        a5 = #{record.a5},
+      </if>
+      <if test="record.a6 != null" >
+        a6 = #{record.a6},
+      </if>
+      <if test="record.a7 != null" >
+        a7 = #{record.a7},
+      </if>
+      <if test="record.a8 != null" >
+        a8 = #{record.a8},
+      </if>
+      <if test="record.a9 != null" >
+        a9 = #{record.a9},
+      </if>
+      <if test="record.a10 != null" >
+        a10 = #{record.a10},
+      </if>
+      <if test="record.a11 != null" >
+        a11 = #{record.a11},
+      </if>
+      <if test="record.trainnums != null" >
+        trainnums = #{record.trainnums},
+      </if>
+      <if test="record.studentnums != null" >
+        studentnums = #{record.studentnums},
+      </if>
+      <if test="record.yyzz != null" >
+        yyzz = #{record.yyzz},
+      </if>
+      <if test="record.swdjzh != null" >
+        swdjzh = #{record.swdjzh},
+      </if>
+      <if test="record.trainname != null" >
+        trainname = #{record.trainname},
+      </if>
+      <if test="record.traintel != null" >
+        traintel = #{record.traintel},
+      </if>
+      <if test="record.idnums != null" >
+        idnums = #{record.idnums},
+      </if>
+      <if test="record.xydw != null" >
+        xydw = #{record.xydw},
+      </if>
+      <if test="record.trainlevel != null" >
+        trainlevel = #{record.trainlevel},
+      </if>
+      <if test="record.refereelevel != null" >
+        refereelevel = #{record.refereelevel},
+      </if>
+      <if test="record.trainPeople != null" >
+        train_people = #{record.trainPeople},
+      </if>
+      <if test="record.trainSpace != null" >
+        train_space = #{record.trainSpace},
+      </if>
+      <if test="record.trainKind != null" >
+        train_kind = #{record.trainKind},
+      </if>
+      <if test="record.question != null" >
+        question = #{record.question},
+      </if>
+      <if test="record.enname != null" >
+        enname = #{record.enname},
+      </if>
+      <if test="record.userMoney != null" >
+        user_money = #{record.userMoney},
+      </if>
+      <if test="record.frozenMoner != null" >
+        frozen_moner = #{record.frozenMoner},
+      </if>
+      <if test="record.checkuserTinyint != null" >
+        checkuser_tinyint = #{record.checkuserTinyint},
+      </if>
+      <if test="record.loginType != null" >
+        login_type = #{record.loginType},
+      </if>
+      <if test="record.loginTypeCk != null" >
+        login_type_ck = #{record.loginTypeCk},
+      </if>
+      <if test="record.zwpj != null" >
+        zwpj = #{record.zwpj},
+      </if>
+      <if test="record.ktqz != null" >
+        ktqz = #{record.ktqz},
+      </if>
+      <if test="record.daoguanId != null" >
+        daoguan_id = #{record.daoguanId},
+      </if>
+      <if test="record.pid != null" >
+        pid = #{record.pid},
+      </if>
+      <if test="record.orderid != null" >
+        orderid = #{record.orderid},
+      </if>
+      <if test="record.pstr != null" >
+        pstr = #{record.pstr},
+      </if>
+      <if test="record.infotype != null" >
+        infotype = #{record.infotype},
+      </if>
+      <if test="record.gldaoguan != null" >
+        gldaoguan = #{record.gldaoguan},
+      </if>
+      <if test="record.kqFl != null" >
+        kq_fl = #{record.kqFl},
+      </if>
+      <if test="record.flMoney != null" >
+        fl_money = #{record.flMoney},
+      </if>
+      <if test="record.bank != null" >
+        bank = #{record.bank},
+      </if>
+      <if test="record.bankCard != null" >
+        bank_card = #{record.bankCard},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update pmw_member
+    set id = #{record.id},
+      username = #{record.username},
+      password = #{record.password},
+      answer = #{record.answer},
+      cnname = #{record.cnname},
+      add1 = #{record.add1},
+      add2 = #{record.add2},
+      avatar = #{record.avatar},
+      sex = #{record.sex},
+      birthtype = #{record.birthtype},
+      birth_year = #{record.birthYear},
+      birth_month = #{record.birthMonth},
+      birth_day = #{record.birthDay},
+      astro = #{record.astro},
+      bloodtype = #{record.bloodtype},
+      trade = #{record.trade},
+      live_prov = #{record.liveProv},
+      live_city = #{record.liveCity},
+      live_country = #{record.liveCountry},
+      home_prov = #{record.homeProv},
+      home_city = #{record.homeCity},
+      home_country = #{record.homeCountry},
+      cardtype = #{record.cardtype},
+      cardnum = #{record.cardnum},
+      intro = #{record.intro},
+      email = #{record.email},
+      qqnum = #{record.qqnum},
+      mobile = #{record.mobile},
+      telephone = #{record.telephone},
+      address_prov = #{record.addressProv},
+      address_city = #{record.addressCity},
+      address_country = #{record.addressCountry},
+      address = #{record.address},
+      zipcode = #{record.zipcode},
+      enteruser = #{record.enteruser},
+      expval = #{record.expval},
+      integral = #{record.integral},
+      regtime = #{record.regtime},
+      regip = #{record.regip},
+      logintime = #{record.logintime},
+      loginip = #{record.loginip},
+      haoduan = #{record.haoduan},
+      huiyuan = #{record.huiyuan},
+      aboutus = #{record.aboutus},
+      contactus = #{record.contactus},
+      a1 = #{record.a1},
+      a2 = #{record.a2},
+      a3 = #{record.a3},
+      a4 = #{record.a4},
+      a5 = #{record.a5},
+      a6 = #{record.a6},
+      a7 = #{record.a7},
+      a8 = #{record.a8},
+      a9 = #{record.a9},
+      a10 = #{record.a10},
+      a11 = #{record.a11},
+      trainnums = #{record.trainnums},
+      studentnums = #{record.studentnums},
+      yyzz = #{record.yyzz},
+      swdjzh = #{record.swdjzh},
+      trainname = #{record.trainname},
+      traintel = #{record.traintel},
+      idnums = #{record.idnums},
+      xydw = #{record.xydw},
+      trainlevel = #{record.trainlevel},
+      refereelevel = #{record.refereelevel},
+      train_people = #{record.trainPeople},
+      train_space = #{record.trainSpace},
+      train_kind = #{record.trainKind},
+      question = #{record.question},
+      enname = #{record.enname},
+      user_money = #{record.userMoney},
+      frozen_moner = #{record.frozenMoner},
+      checkuser_tinyint = #{record.checkuserTinyint},
+      login_type = #{record.loginType},
+      login_type_ck = #{record.loginTypeCk},
+      zwpj = #{record.zwpj},
+      ktqz = #{record.ktqz},
+      daoguan_id = #{record.daoguanId},
+      pid = #{record.pid},
+      orderid = #{record.orderid},
+      pstr = #{record.pstr},
+      infotype = #{record.infotype},
+      gldaoguan = #{record.gldaoguan},
+      kq_fl = #{record.kqFl},
+      fl_money = #{record.flMoney},
+      bank = #{record.bank},
+      bank_card = #{record.bankCard}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lc.zy.ball.domain.oa.po.PmwMember" >
+    update pmw_member
+    <set >
+      <if test="username != null" >
+        username = #{username},
+      </if>
+      <if test="password != null" >
+        password = #{password},
+      </if>
+      <if test="answer != null" >
+        answer = #{answer},
+      </if>
+      <if test="cnname != null" >
+        cnname = #{cnname},
+      </if>
+      <if test="add1 != null" >
+        add1 = #{add1},
+      </if>
+      <if test="add2 != null" >
+        add2 = #{add2},
+      </if>
+      <if test="avatar != null" >
+        avatar = #{avatar},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex},
+      </if>
+      <if test="birthtype != null" >
+        birthtype = #{birthtype},
+      </if>
+      <if test="birthYear != null" >
+        birth_year = #{birthYear},
+      </if>
+      <if test="birthMonth != null" >
+        birth_month = #{birthMonth},
+      </if>
+      <if test="birthDay != null" >
+        birth_day = #{birthDay},
+      </if>
+      <if test="astro != null" >
+        astro = #{astro},
+      </if>
+      <if test="bloodtype != null" >
+        bloodtype = #{bloodtype},
+      </if>
+      <if test="trade != null" >
+        trade = #{trade},
+      </if>
+      <if test="liveProv != null" >
+        live_prov = #{liveProv},
+      </if>
+      <if test="liveCity != null" >
+        live_city = #{liveCity},
+      </if>
+      <if test="liveCountry != null" >
+        live_country = #{liveCountry},
+      </if>
+      <if test="homeProv != null" >
+        home_prov = #{homeProv},
+      </if>
+      <if test="homeCity != null" >
+        home_city = #{homeCity},
+      </if>
+      <if test="homeCountry != null" >
+        home_country = #{homeCountry},
+      </if>
+      <if test="cardtype != null" >
+        cardtype = #{cardtype},
+      </if>
+      <if test="cardnum != null" >
+        cardnum = #{cardnum},
+      </if>
+      <if test="intro != null" >
+        intro = #{intro},
+      </if>
+      <if test="email != null" >
+        email = #{email},
+      </if>
+      <if test="qqnum != null" >
+        qqnum = #{qqnum},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile},
+      </if>
+      <if test="telephone != null" >
+        telephone = #{telephone},
+      </if>
+      <if test="addressProv != null" >
+        address_prov = #{addressProv},
+      </if>
+      <if test="addressCity != null" >
+        address_city = #{addressCity},
+      </if>
+      <if test="addressCountry != null" >
+        address_country = #{addressCountry},
+      </if>
+      <if test="address != null" >
+        address = #{address},
+      </if>
+      <if test="zipcode != null" >
+        zipcode = #{zipcode},
+      </if>
+      <if test="enteruser != null" >
+        enteruser = #{enteruser},
+      </if>
+      <if test="expval != null" >
+        expval = #{expval},
+      </if>
+      <if test="integral != null" >
+        integral = #{integral},
+      </if>
+      <if test="regtime != null" >
+        regtime = #{regtime},
+      </if>
+      <if test="regip != null" >
+        regip = #{regip},
+      </if>
+      <if test="logintime != null" >
+        logintime = #{logintime},
+      </if>
+      <if test="loginip != null" >
+        loginip = #{loginip},
+      </if>
+      <if test="haoduan != null" >
+        haoduan = #{haoduan},
+      </if>
+      <if test="huiyuan != null" >
+        huiyuan = #{huiyuan},
+      </if>
+      <if test="aboutus != null" >
+        aboutus = #{aboutus},
+      </if>
+      <if test="contactus != null" >
+        contactus = #{contactus},
+      </if>
+      <if test="a1 != null" >
+        a1 = #{a1},
+      </if>
+      <if test="a2 != null" >
+        a2 = #{a2},
+      </if>
+      <if test="a3 != null" >
+        a3 = #{a3},
+      </if>
+      <if test="a4 != null" >
+        a4 = #{a4},
+      </if>
+      <if test="a5 != null" >
+        a5 = #{a5},
+      </if>
+      <if test="a6 != null" >
+        a6 = #{a6},
+      </if>
+      <if test="a7 != null" >
+        a7 = #{a7},
+      </if>
+      <if test="a8 != null" >
+        a8 = #{a8},
+      </if>
+      <if test="a9 != null" >
+        a9 = #{a9},
+      </if>
+      <if test="a10 != null" >
+        a10 = #{a10},
+      </if>
+      <if test="a11 != null" >
+        a11 = #{a11},
+      </if>
+      <if test="trainnums != null" >
+        trainnums = #{trainnums},
+      </if>
+      <if test="studentnums != null" >
+        studentnums = #{studentnums},
+      </if>
+      <if test="yyzz != null" >
+        yyzz = #{yyzz},
+      </if>
+      <if test="swdjzh != null" >
+        swdjzh = #{swdjzh},
+      </if>
+      <if test="trainname != null" >
+        trainname = #{trainname},
+      </if>
+      <if test="traintel != null" >
+        traintel = #{traintel},
+      </if>
+      <if test="idnums != null" >
+        idnums = #{idnums},
+      </if>
+      <if test="xydw != null" >
+        xydw = #{xydw},
+      </if>
+      <if test="trainlevel != null" >
+        trainlevel = #{trainlevel},
+      </if>
+      <if test="refereelevel != null" >
+        refereelevel = #{refereelevel},
+      </if>
+      <if test="trainPeople != null" >
+        train_people = #{trainPeople},
+      </if>
+      <if test="trainSpace != null" >
+        train_space = #{trainSpace},
+      </if>
+      <if test="trainKind != null" >
+        train_kind = #{trainKind},
+      </if>
+      <if test="question != null" >
+        question = #{question},
+      </if>
+      <if test="enname != null" >
+        enname = #{enname},
+      </if>
+      <if test="userMoney != null" >
+        user_money = #{userMoney},
+      </if>
+      <if test="frozenMoner != null" >
+        frozen_moner = #{frozenMoner},
+      </if>
+      <if test="checkuserTinyint != null" >
+        checkuser_tinyint = #{checkuserTinyint},
+      </if>
+      <if test="loginType != null" >
+        login_type = #{loginType},
+      </if>
+      <if test="loginTypeCk != null" >
+        login_type_ck = #{loginTypeCk},
+      </if>
+      <if test="zwpj != null" >
+        zwpj = #{zwpj},
+      </if>
+      <if test="ktqz != null" >
+        ktqz = #{ktqz},
+      </if>
+      <if test="daoguanId != null" >
+        daoguan_id = #{daoguanId},
+      </if>
+      <if test="pid != null" >
+        pid = #{pid},
+      </if>
+      <if test="orderid != null" >
+        orderid = #{orderid},
+      </if>
+      <if test="pstr != null" >
+        pstr = #{pstr},
+      </if>
+      <if test="infotype != null" >
+        infotype = #{infotype},
+      </if>
+      <if test="gldaoguan != null" >
+        gldaoguan = #{gldaoguan},
+      </if>
+      <if test="kqFl != null" >
+        kq_fl = #{kqFl},
+      </if>
+      <if test="flMoney != null" >
+        fl_money = #{flMoney},
+      </if>
+      <if test="bank != null" >
+        bank = #{bank},
+      </if>
+      <if test="bankCard != null" >
+        bank_card = #{bankCard},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lc.zy.ball.domain.oa.po.PmwMember" >
+    update pmw_member
+    set username = #{username},
+      password = #{password},
+      answer = #{answer},
+      cnname = #{cnname},
+      add1 = #{add1},
+      add2 = #{add2},
+      avatar = #{avatar},
+      sex = #{sex},
+      birthtype = #{birthtype},
+      birth_year = #{birthYear},
+      birth_month = #{birthMonth},
+      birth_day = #{birthDay},
+      astro = #{astro},
+      bloodtype = #{bloodtype},
+      trade = #{trade},
+      live_prov = #{liveProv},
+      live_city = #{liveCity},
+      live_country = #{liveCountry},
+      home_prov = #{homeProv},
+      home_city = #{homeCity},
+      home_country = #{homeCountry},
+      cardtype = #{cardtype},
+      cardnum = #{cardnum},
+      intro = #{intro},
+      email = #{email},
+      qqnum = #{qqnum},
+      mobile = #{mobile},
+      telephone = #{telephone},
+      address_prov = #{addressProv},
+      address_city = #{addressCity},
+      address_country = #{addressCountry},
+      address = #{address},
+      zipcode = #{zipcode},
+      enteruser = #{enteruser},
+      expval = #{expval},
+      integral = #{integral},
+      regtime = #{regtime},
+      regip = #{regip},
+      logintime = #{logintime},
+      loginip = #{loginip},
+      haoduan = #{haoduan},
+      huiyuan = #{huiyuan},
+      aboutus = #{aboutus},
+      contactus = #{contactus},
+      a1 = #{a1},
+      a2 = #{a2},
+      a3 = #{a3},
+      a4 = #{a4},
+      a5 = #{a5},
+      a6 = #{a6},
+      a7 = #{a7},
+      a8 = #{a8},
+      a9 = #{a9},
+      a10 = #{a10},
+      a11 = #{a11},
+      trainnums = #{trainnums},
+      studentnums = #{studentnums},
+      yyzz = #{yyzz},
+      swdjzh = #{swdjzh},
+      trainname = #{trainname},
+      traintel = #{traintel},
+      idnums = #{idnums},
+      xydw = #{xydw},
+      trainlevel = #{trainlevel},
+      refereelevel = #{refereelevel},
+      train_people = #{trainPeople},
+      train_space = #{trainSpace},
+      train_kind = #{trainKind},
+      question = #{question},
+      enname = #{enname},
+      user_money = #{userMoney},
+      frozen_moner = #{frozenMoner},
+      checkuser_tinyint = #{checkuserTinyint},
+      login_type = #{loginType},
+      login_type_ck = #{loginTypeCk},
+      zwpj = #{zwpj},
+      ktqz = #{ktqz},
+      daoguan_id = #{daoguanId},
+      pid = #{pid},
+      orderid = #{orderid},
+      pstr = #{pstr},
+      infotype = #{infotype},
+      gldaoguan = #{gldaoguan},
+      kq_fl = #{kqFl},
+      fl_money = #{flMoney},
+      bank = #{bank},
+      bank_card = #{bankCard}
+    where id = #{id}
+  </update>
+</mapper>

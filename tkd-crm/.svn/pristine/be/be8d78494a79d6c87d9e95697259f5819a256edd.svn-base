@@ -1,0 +1,31 @@
+<div class="orderNav">
+	<ul>
+		<li><a href="#userCenter">个人中心</a></li>
+		<li><a href="#statiumEdit">场馆信息</a></li>
+		<li class="active"><a href="#space">场地管理</a></li>
+		<li><a href="#user">员工管理</a></li>
+		<li><a href="#/prize/list">获奖列表</a></li>
+	</ul>
+</div>
+
+<div class="orderResult">
+	<table>
+		<tr>
+			<th width="5%" class="text-center">No.</th>
+			<th>编号</th>
+			<th>名称</th>
+			<th>类型</th>
+			<th>状态</th>
+			<th>操作</th>
+		</tr>
+		<tr ng-repeat="space in objs">
+			<td class="text-center">{{$index + 1}}</td>
+			<td>{{space.spaceCode}}</td>
+			<td>{{space.spaceName}}</td>
+			<td>{{space.sportType|transSportType}}</td>
+			<td>{{space.status|statusFilter:'display'}}</td>
+			<td><a href="#spaceEdit/{{space.id}}" class="text-navy">修改</a></td>
+		</tr>
+	</table>
+</div>
+<crm-pagination conf="paginationConf"></crm-pagination>

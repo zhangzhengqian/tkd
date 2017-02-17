@@ -1,0 +1,40 @@
+<div class="orderNav">
+	<ul>
+		<li class="active"><a href="#members">会员列表</a></li>
+		<li><a href="#memberLevels">会员等级</a></li>
+	</ul>
+</div>
+<div class="formTable">
+    <ul>
+    	<li>
+        	<span class="title">会员卡号：</span>
+         	<input type="text" ng-model="member.cardNo">
+        </li>
+        <li>
+        	<span class="title">会员姓名：</span>
+         	<input type="text" ng-model="member.name">
+        </li>
+        <li style="line-height: 30px;">
+        	<span class="title">会员性别：</span>
+         	<label class="memberFormlabel"><input type="radio" ng-model="member.gender" value="男" class="sexMan memberFormSex">男</label>
+         	<label class="memberFormlabel"><input type="radio" ng-model="member.gender" value="女" class="sexWomen memberFormSex">女</label>
+        </li>
+        <li>
+        	<span class="title">会员生日：</span>
+         	<input type="text" id="birthday" ng-model="member.birthday" onchange="" onClick="WdatePicker({dateFmt:'yyyy-MM-dd 00:00:00',maxDate:'%y-%M-%d'})">
+        </li>
+        <li>
+        	<span class="title">手机号码：</span>
+         	<input type="text" ng-model="member.phone" maxlength=11>
+        </li>
+        <li>
+        	<span class="title">会员等级：</span>
+        	<span class="title">{{member.levelName}}</span>
+        </li>
+      </ul>
+      <div class="formSubDiv">
+      	<a href="#members" class="saveBtnBot">返回</a>
+      	<a class="saveBtnBot" ng-click="updateMember()" href="javascript:;">保存</a>
+      </div>
+      
+</div>

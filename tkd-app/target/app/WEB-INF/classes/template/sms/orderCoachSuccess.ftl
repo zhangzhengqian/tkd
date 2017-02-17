@@ -1,0 +1,1 @@
+您已成功预约${userType}：${nickName}!时间：${date}，${address}，订单号：${orderId}，感谢您的支持。

@@ -1,0 +1,29 @@
+<div class="notify">
+	<div class="notifyLeft">
+		<div class="notifyManage">
+			<a href="javascript:;" ng-click="first()">刷新</a>
+			<a href="javascript:;" ng-click="batchUpdate()">全部变为已读</a>
+		</div>
+		<div class="notifyList">
+			<ul>
+				<li ng-repeat="messages in objs" ng-click="showDetailMsg($index)" class="{{messages.status|filterIsRead}}"><em></em><span>{{messages.ct}}</span><strong>{{messages.title }}</strong></li>
+			</ul>
+		</div>
+		
+	</div>
+	<div class="notifyRight">
+		<dl>
+			<dt>消息详情</dt>
+			<dd><span>主题：</span><strong id="msgTitle">{{objs[0].title}}</strong></dd>
+			<dd><span>来自：</span><strong>系统管理员</strong></dd>
+			<dd><span>消息时间：</span><strong>{{objs[0].ct}}</strong></dd>
+			<dd id="msgConten" ng-bind-html="objs[0].content|to_trusted"></dd>
+		</dl>
+	</div>
+	<div class="clear"></div>
+	<crm-pagination conf="paginationConf"></crm-pagination>
+</div>
+ 
+<style>
+.text-right{text-align:left;}
+</style>

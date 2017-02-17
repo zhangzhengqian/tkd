@@ -1,0 +1,23 @@
+<div class="orderTipMeg">
+	<a class="addLockBtn" href="#bill">返回</a>
+	<p>总金额合计<span class="text-danger">{{totalFee}}</span>元</p>
+</div>
+<div class="orderResult">
+	<table>
+		<tr>
+			<th>日期</th>
+			<th>订单总数</th>
+			<th>订单金额</th>
+			<th>补贴金额</th>
+			<th>操作</th>
+		</tr>
+		<tr ng-repeat="item in billItems">
+			<td>{{item.startDate }}</td>
+			<td>{{item.orderCount}}</td>
+			<td>{{item.totalFee}}</td>
+			<td>{{item.subsidyAmount}}</td>
+			<td><a  href="#bill/getOrder/{{item.startDate}}_{{billId}}"
+				class="text-navy">查看订单</a></td>
+		</tr>
+	</table>
+</div>

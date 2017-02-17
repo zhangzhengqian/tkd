@@ -1,0 +1,54 @@
+<div class="orderNav">
+	<ul>
+		<li><a href="#members">会员列表</a></li>
+		<li class="active"><a href="#memberLevels">会员等级</a></li>
+	</ul>
+</div>
+<!-- 添加等级 -->
+<div class="formTable">
+    <ul>
+    	<li>
+        	<span class="title">等级名称：</span>
+         	<input type="text" ng-model="level.name">
+         	<input type="hidden" ng-model="level.id">
+        </li>
+        <li>
+        	<span class="title">充值金额：</span>
+         	<input type="text" ng-model="level.chargeAmount">
+        </li>
+        <li>
+        	<span class="title">赠送金额：</span>
+         	<input type="text" ng-model="level.giveAmount">
+        </li>
+        <li>
+        	<span class="title">折扣比例：</span>
+         	<input type="text" ng-model="level.rebate">
+         	<span class="title"><font color="red">(0.8=8折，1=不打折)</font></span>
+        </li>
+      </ul>
+      <div class="formSubDiv">
+      	<a class="saveBtnBot" ng-click="saveMemberLevel()" href="javascript:;">保存等级</a>
+      </div>
+</div>
+<!-- 等级列表  -->
+<div class="orderResult">
+	<table>
+		<tr>
+			<th>等级名称</th>
+			<th>充值金额</th>
+			<th>赠送金额</th>
+			<th>折扣比例</th>
+			<th>操作</th>
+		</tr>
+		<tr ng-repeat="vo in levels">
+			<td>{{vo.name}}</td>
+			<td>￥{{vo.chargeAmount}}</td>
+			<td>￥{{vo.giveAmount}}</td>
+			<td>{{vo.rebate}}</td>
+			<td><a class="submit" href="javascript:;" ng-click="updateLevel($index)">修改</a>
+				<small class="text-muted p-xxs">|</small> 
+				<a class="submit" href="javascript:;" ng-click="deleteMemberLevel($index)">删除</a>
+			</td>
+		</tr>
+	</table>
+</div>

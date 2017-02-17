@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">按订单号查询订单</h3>
+  </div>
+  <div class="panel-body">
+	<div class="row">
+        <div class="col-sm-4 input-group">
+           <input type="text" class="form-control" id="search_value" placeholder="请输入完整订单号或手机号">
+           <span class="input-group-btn">
+               <button class="btn btn-primary" id="searchBtn" type="button">查询</button>
+           </span>
+        </div>
+    </div>
+	<br>
+    <div class="row">
+	    <div id="orderTable" style="overflow: auto;" class="col-sm-12">
+	   
+	    </div>
+    </div>
+</div>
+</div>
+   <textarea id="template" style="display:none">
+	        <table class="table table-bordered table-striped table-hover" >
+	            <thead>
+						<tr>
+							<th style="border-bottom-width: 0px;">订单号</th>
+							<th style="border-bottom-width: 0px;">手机号</th>
+							<th style="border-bottom-width: 0px;">预约日期</th>
+							<th style="border-bottom-width: 0px;">订单详情</th>
+							<th style="border-bottom-width: 0px;">订单状态</th>
+							<th style="border-bottom-width: 0px;">验证状态</th>
+							<th style="border-bottom-width: 0px;">验证日期</th>
+							<th style="border-bottom-width: 0px;">操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						{#foreach $T.table as record} 
+						<tr  style="cursor: pointer;" id="{$T.record.id}">
+							<td>{$T.record.id}</td>
+							<td>{$T.record.userPhone}</td>
+							<td>{$T.record.orderDate}</td>
+							<td>{$T.record.orderTime}</td>
+							<td>{$T.record.status}</td>
+							<td>{$T.record.isCheckStr}</td>
+							<td>{$T.record.checkDateStr}</td>
+							<td>
+								{#if $T.record.isCheckStr=='未验证'}
+									<a href="javascript:;" onclick="checkOrder('{$T.record.id}')">验证</a>
+								{#/if}
+							</td>
+						</tr>
+						{#/for}  
+					</tbody>
+	        </table>
+	     </textarea>
+</div>
+<script type="text/javascript">
+$(function(){
+	$("#searchBtn").on("click",function(e){
+		 var search_value = $('#search_value').val();
+         if(search_value==''){
+        	 swal({
+                 title: "警告",
+                 text: "请输入手机号或订单号！"
+             });
+             return;
+         }
+         var telphone = '';
+         var orderId = '';
+         var search_len = search_value.length;
+         if(search_len==11){
+             telphone = search_value;
+         }else if(search_len==10){
+             orderId = search_value;
+         }else {
+        	 swal({
+                 title: "警告",
+                 text: "输入的手机号或者订单号不正确！"
+             });
+             return;
+         }
+		$.ajax({
+	        cache: true,
+	        type: "POST",
+	        url:'/admin/order/checkOrder?orderId='+orderId+'&phone='+telphone,
+	        data:{},
+	        async: false,
+	        error: function(request) {
+	        	swal({
+                    title: "警告",
+                    text: "查询订单信息失败！"
+                });
+	        },
+	        dataType:"JSON",
+	        success: function(data) {
+	        	if(data!=null&&data!=""){
+		        	if(data["result"]=='success'){
+		        		var tableDatas = {table:data["data"]};
+		        		$("#orderTable").setTemplateElement("template", null, {filter_data: false});
+		                // 给模板加载数据
+		                $("#orderTable").processTemplate(tableDatas);
+		        	}else{
+		        		swal({
+		                    title: "警告",
+		                    text: data["data"]
+		                });
+		        		$("#orderTable").html("");
+		        	}
+	        		
+	        	}
+	        }
+	    });
+	});
+});
+
+function checkOrder(orderId){
+    $.ajax({
+     cache: true,
+     type: 'POST',
+     url:'/admin/order/check?orderId='+orderId,
+     data:{},
+     async: false,
+     error: function(request) {
+    	 common.showMessage("查询订单信息失败！");
+     },
+     dataType:"JSON",
+     success: function(data) {
+    	 if(data!=null&&data!=""){
+	        	if(data["result"]=='success'){
+	        		var tableDatas = {table:data["data"]};
+	        		$('#'+orderId).find('td:eq(5)').text('已验证');
+	                $('#'+orderId).find('td:eq(6)').text(data["data"]);
+	                $('#'+orderId).find('td:eq(7)').html('');
+	        	}else{
+	        		swal({
+	                    title: "警告",
+	                    text: data["data"]
+	                });
+	        	}
+     		
+     	}
+     }
+     });
+}
+</script>

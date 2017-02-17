@@ -1,0 +1,1 @@
+球友圈送您${count}张优惠券，最高优惠${amount}元，${expireDate}过期，可用于${sportType}类场馆的预订，请到我的优惠券里查看！

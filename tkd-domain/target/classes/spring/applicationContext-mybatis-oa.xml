@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd" 
+		default-lazy-init="false">
+	
+	<context:property-placeholder ignore-resource-not-found="true" location="classpath*:properties/application-db.properties" />
+	
+	<!-- 数据源 -->
+	<bean id="oaDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+
+		<property name="driverClass" value="${jdbc.driver}" />
+		<property name="jdbcUrl" value="${oa.jdbc.url}" />
+		<property name="user" value="${oa.jdbc.username}" />
+		<property name="password" value="${oa.jdbc.password}" />
+		
+		<!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default: 3 --> 
+		<property name="acquireIncrement" value="5" />
+		<!-- 初始连接池大小 -->
+		<property name="initialPoolSize" value="5" />
+		<!-- 连接池最小连接数 -->
+		<property name="minPoolSize" value="5" />
+		<!-- 连接池最大连接数 -->
+		<property name="maxPoolSize" value="30" />
+		<!--最大空闲时间, 120秒内未使用则连 接被丢弃。若为0则永不丢弃。Default: 0 --> 
+		<property name="maxIdleTime" value="120" />
+		
+	<!-- 	<property name="unreturnedConnectionTimeout" value="25" /> -->
+		<!--
+			JDBC的标准参数，用以控制数据源内加载的 PreparedStatements数量。但由于预缓存的statements 
+			属于单个connection而不是整个连接池。所以设置这个参数需要考虑到多方面的因素。 
+			如果maxStatements与maxStatementsPerConnection均为0，则缓存被关闭。 Default: 0
+		--> 
+		<property name="maxStatements" value="0" />
+		<property name="maxStatementsPerConnection" value="0" />
+		<!--每 120 秒检查所有连接池中的空闲连接。Default: 0 --> 
+		<property name="idleConnectionTestPeriod" value="120" />
+		<!--取新连接失败后重试次数;2880次，每次30秒，正好是24小时。 Default: 30 --> 
+		<property name="acquireRetryAttempts" value="2880" />
+		<!--连接间隔时间，单位毫秒。Default: 1000 --> 
+		<property name="acquireRetryDelay" value="30000" />
+		<!--
+			获取连接失败将会引起所有等待连接池来获取连接的线程抛出异常。但是数据源仍有效 保留，
+			并在下次调用getConnection()的时候继续尝试获取连接。如果设为true，那么在尝试 获取连接失败后该数据源将申明已断开并永久关闭。
+			Default: false
+		--> 
+		<property name="breakAfterAcquireFailure" value="false" />
+		<!--
+			因性能消耗大请只在需要的时候使用它。如果设为true那么在每个 connection提交的 时候都将校验其有效性。
+			建议使用 idleConnectionTestPeriod或automaticTestTable 等方法来提升连接测试的性能。
+			Default: false 
+		-->
+		<property name="testConnectionOnCheckout" value="false" />
+		<!--
+			当连接池用完时客户端调用getConnection()后等待获取新连接的时间，超时后将抛出 SQLException,
+			如设为0则无限期等待。单位毫秒。
+			Default: 0 
+		--> 
+		<property name="checkoutTimeout" value="10000" />
+		<property name="autoCommitOnClose" value="false" />
+	</bean>
+	
+	<bean id="oaJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="oaDataSource" />
+		<qualifier value="oa" />
+	</bean>
+	
+	<bean id="oaNamedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+		<constructor-arg><ref bean="oaDataSource" /></constructor-arg>
+		<qualifier value="oa" />
+	</bean>
+		
+	<bean id="oaSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="oaDataSource" />
+
+		<property name="typeAliasesPackage">
+			<value>
+				com.lc.zy.ball.domain.oa.po 
+				com.lc.zy.ball.domain.oa.po.ex
+			</value>
+		</property>
+		<property name="mapperLocations">
+			<value>
+				classpath:mybatis/ball/oa/**/*.xml
+			</value>
+		</property>
+	</bean>
+	
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="sqlSessionFactoryBeanName" value="oaSessionFactory" />
+		<property name="basePackage">
+			<value>
+				com.lc.zy.ball.domain.oa.mapper 
+				com.lc.zy.ball.domain.oa.mapper.ex
+			</value>
+		</property>
+	</bean>
+	
+</beans>

@@ -1,0 +1,27 @@
+<div class="orderTipMeg">
+    <a class="addLockBtn" href="#spaceLockSave">添加锁定场地</a><p>您可将会员固定到场时间录入，录入后信息将在场地预订页自动锁定</p>
+</div>
+<div class="orderResult">
+	<table>
+		<tr>
+			<th>开始日期</th>
+			<th>结束日期</th>
+			<th>星期</th>
+			<th>总时长</th>
+			<th>总金额</th>
+			<th>类型</th>
+			<th>操作</th>
+		</tr>
+		<tr ng-repeat="spaceLock in objs">
+			<td>{{spaceLock.startTime}}</td>
+			<td>{{spaceLock.endTime}}</td>
+			<td>{{spaceLock.weekDay|weekFilter}}</td>
+			<td>{{spaceLock.totalHour}}</td>
+			<td>{{spaceLock.totalFee}}</td>
+			<td>{{spaceLock.sportType|transSportType}}</td>
+			<td><a ng-click="deleteLockSpaceBatch($index)" class="text-navy"
+				href="javascript:;">解锁</a></td>
+		</tr>
+	</table>
+</div>
+<crm-pagination conf="paginationConf"></crm-pagination>

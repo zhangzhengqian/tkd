@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+	default-lazy-init="false" default-autowire="byName">
+	<description>Spring</description>
+
+	<bean id="locations" class="java.util.ArrayList" >
+  		<constructor-arg>
+		   	<list>
+				<value>classpath:properties/application-db.properties</value>
+			</list>
+	  	</constructor-arg>
+  	</bean>
+  	<bean id="config" class="org.springframework.beans.factory.config.PropertiesFactoryBean" lazy-init="false">
+  		<property name="locations" ref="locations" />
+  	</bean>
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+  		<property name="locations" ref="locations" />
+	</bean>
+
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+	<!-- 扫描service层 -->
+    <context:component-scan base-package="com.lc.zy.ball" />
+
+	<import resource="applicationContext-mybatis-oa-tx.xml"/>
+	<!--<import resource="applicationContext-mybatis-ball.xml"/>-->
+	<!--<import resource="applicationContext-mybatis-sso.xml"/>-->
+	<!--<import resource="applicationContext-mybatis-crm-tx.xml"/>-->
+</beans>

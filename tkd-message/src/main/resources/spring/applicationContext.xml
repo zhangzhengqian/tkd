@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+	default-lazy-init="false" default-autowire="byName">
+	<description>Spring</description>
+
+	<bean name="springUtils" class="com.lc.zy.common.util.SpringUtils" />
+
+	<bean id="locations" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<value>classpath:properties/application.properties</value>
+				<value>classpath:properties/application-db.properties</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	<bean id="config"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean"
+		lazy-init="false">
+		<property name="locations" ref="locations" />
+	</bean>
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="locations" ref="locations" />
+	</bean>
+
+	<!-- 使用annotation 自动注册bean,并检查@Required,@Autowired的属性已被注入 -->
+	<context:component-scan base-package="com.lc.zy.common.cache">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+
+	<bean
+		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+	<!-- 扫描service层 -->
+	<context:component-scan base-package="com.lc.zy.message" />
+
+	<!-- 配置jms 服务器地址 -->
+	<bean id="brokerUrl" class="java.lang.String">
+		<constructor-arg index="0">
+			<value><![CDATA[${brokerUrl}]]></value>
+		</constructor-arg>
+	</bean>
+	<!-- 配置邮件 邮件服务许可 -->
+	<!-- <bean id="emailLicence" class="java.lang.String">
+		<constructor-arg index="0">
+			<value><![CDATA[${emailLicence}]]></value>
+		</constructor-arg>
+	</bean> -->
+	<!-- 配置邮件 邮件服务接口 -->
+	<!-- <bean id="mailServiceHost" class="java.lang.String">
+		<constructor-arg index="0">
+			<value><![CDATA[${mailServiceHost}]]></value>
+		</constructor-arg>
+	</bean> -->
+
+	<!-- <bean id="smsLicence" class="java.lang.String">
+		<constructor-arg index="0">
+			<value><![CDATA[${smsLicence}]]></value>
+		</constructor-arg>
+	</bean> -->
+	
+	<!-- <bean id="smsServiceHost" class="java.lang.String">
+		<constructor-arg index="0">
+			<value><![CDATA[${smsServiceHost}]]></value>
+		</constructor-arg>
+	</bean> -->
+	
+	<bean id="solrServer" class="java.lang.String">
+		<constructor-arg index="0">
+			<value><![CDATA[${services.solr_server}]]></value>
+		</constructor-arg>
+	</bean>
+	<!-- 
+		系统静态资源配置 
+		开发时，值取自 properties，测试和生产时，值取自 pom.profiles
+	-->
+	<bean id="configs" class="java.util.HashMap">
+		<constructor-arg>
+			<map>
+				<!-- 订单的一些服务，例如计数器等 -->
+				<!-- <entry key="coreServiceOrdersHost" value="${coreServiceOrdersHost}" />
+				<entry key="coreServiceOrdersLicense" value="${coreServiceOrdersLicense}" /> -->
+				<entry key="redis.server" value="${redis.server}" />
+				<!-- 短信服务器 -->
+				<entry key="sms.server">
+					<value><![CDATA[${sms.server}]]></value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<import resource="classpath:spring/applicationContext-mybatis-oa.xml" />
+
+</beans>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>球友圈CRM注册</title>
+
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="static/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="static/css/animate.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+
+    <div class="middle-box text-center loginscreen   animated fadeInDown">
+        <div>
+            <h3>注册场馆用户</h3>
+            <p>填写以下内容完成用户创建</p>
+            <form class="m-t" role="form" action="login.html">
+                <div class="form-group input-group">
+                    <input type="text" class="form-control" placeholder="请输入手机号" required="">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button">发送验证码</button>
+                        </span>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="请输入验证码" required="">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="请输入密码" required="">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="请输入确认密码" required="">
+                </div>
+                <div class="form-group">
+                        <div class="checkbox i-checks">
+                            <label> <input type="checkbox"><i></i>
+                                <a href="#" data-toggle="modal" data-target="#policyModal">同意球友圈用户的条款及协议</a>
+                            </label>
+                        </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block full-width m-b">注册</button>
+
+                <p class="text-muted text-center"><small>已经有账号?</small></p>
+                <a class="btn btn-sm btn-white btn-block" href="login.html">登录</a>
+            </form>
+            <p class="m-t"> <small>北京球友圈网络科技有限公司 &copy; 2015</small> </p>
+        </div>
+    </div>
+    <div class="modal inmodal fade" id="policyModal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h5 class="modal-title"><small>球友圈用户的条款及协议</small></h5>
+                </div>
+                <div class="modal-body">
+                    <ol>
+                        <li>*************</li>
+                        <li>*************</li>
+                        <li>*************</li>
+                        <li>*************</li>
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Mainly scripts -->
+    <script src="static/lib/jquery-2.1.1.js"></script>
+    <script src="static/lib/bootstrap.min.js"></script>
+    <!-- iCheck -->
+    <script src="static/lib/plugins/iCheck/icheck.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green'
+            });
+        });
+    </script>
+</body>
+
+</html>

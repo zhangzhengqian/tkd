@@ -1,0 +1,265 @@
+package com.lc.zy.ball.crm.framework.system.user.service;
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.List;
+
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.lc.zy.ball.common.data.pageable.Page;
+import com.lc.zy.ball.common.data.pageable.PageImpl;
+import com.lc.zy.ball.common.data.pageable.PageRequest;
+import com.lc.zy.ball.crm.common.Constants;
+import com.lc.zy.ball.crm.common.SessionUtil;
+import com.lc.zy.ball.crm.common.security.ShiroCacheManager;
+import com.lc.zy.ball.crm.common.service.AbstractCacheService;
+import com.lc.zy.ball.crm.framework.system.function.service.FunctionService;
+import com.lc.zy.ball.crm.framework.system.user.vo.UserVo;
+import com.lc.zy.ball.domain.oa.mapper.CrmUserFuncMapper;
+import com.lc.zy.ball.domain.oa.mapper.CrmUserMapper;
+import com.lc.zy.ball.domain.oa.po.CrmFunction;
+import com.lc.zy.ball.domain.oa.po.CrmUser;
+import com.lc.zy.ball.domain.oa.po.CrmUserCriteria;
+import com.lc.zy.ball.domain.oa.po.CrmUserFunc;
+import com.lc.zy.ball.domain.oa.po.CrmUserFuncCriteria;
+import com.lc.zy.ball.domain.oa.po.ex.CrmFunctionEx;
+import com.lc.zy.ball.domain.oa.po.ex.CrmUserEx;
+import com.lc.zy.common.util.Encrypts;
+import com.lc.zy.common.util.UUID;
+
+@Service
+@Transactional(readOnly = true)
+public class UserService extends AbstractCacheService{
+	
+	private static Logger logger = LoggerFactory.getLogger(UserService.class);
+
+	@Autowired
+	private CrmUserMapper crmUserMapper;
+
+	@Autowired
+	private FunctionService functionService;
+	
+	@Autowired
+	private CrmUserFuncMapper crmUserFuncMapper;
+	
+	@Autowired
+	private ShiroCacheManager shiroCacheManager;
+	
+	public Page<CrmUser> list(int page,int size) throws Exception{
+		List<CrmUser> users = new ArrayList<CrmUser>();
+		CrmUserCriteria criteria = new CrmUserCriteria();
+		CrmUser user = SessionUtil.currentUser();
+		CrmUserCriteria.Criteria cia = criteria.createCriteria();
+		cia.andUserIdNotEqualTo(user.getUserId());
+		cia.andStatiumIdEqualTo(user.getStatiumId());
+		int total = crmUserMapper.countByExample(criteria);
+		PageRequest pageable = new PageRequest(page, size);
+		criteria.setMysqlOffset(pageable.getOffset());
+		criteria.setMysqlLength(pageable.getPageSize());
+		users = crmUserMapper.selectByExample(criteria);
+		return new PageImpl<>(users, pageable, total);
+	}
+	
+	@Transactional(readOnly = false)
+	public void update(CrmUser user){
+		crmUserMapper.updateByPrimaryKeySelective(user);
+		shiroCacheManager.clear();
+	}
+	
+	public CrmUserEx get(String id) throws Exception{
+		List<CrmFunction> totalFuncs = functionService.findAll();
+		Collections.sort(totalFuncs, new Comparator<CrmFunction>() {
+
+			@Override
+			public int compare(CrmFunction o1, CrmFunction o2) {
+				if(o1.getSeqNum()<o2.getSeqNum()){
+					return -1;
+				}else if(o1.getSeqNum()>o2.getSeqNum()){
+					return 1;
+				}else{
+					return 0;
+				}
+			}
+		});
+		if(StringUtils.isNotEmpty(id)){
+			List<String> userFuncs = functionService.selectByUserId(id);
+			List<CrmFunctionEx> checkFuncs = new ArrayList<CrmFunctionEx>();
+			for(CrmFunction func:totalFuncs){
+				String funcId = func.getFuncId();
+				CrmFunctionEx checkFunc = new CrmFunctionEx();
+				checkFunc.setFuncId(func.getFuncId());
+				checkFunc.setFuncName(func.getFuncName());
+				if(userFuncs.contains(funcId)){
+					checkFunc.setChecked(true);
+				}else{
+					checkFunc.setChecked(false);
+				}
+				checkFuncs.add(checkFunc);
+			}
+			CrmUser user = crmUserMapper.selectByPrimaryKey(id);
+			CrmUserEx userVo = new CrmUserEx();
+			userVo.setUserId(user.getUserId());
+			userVo.setCustId(user.getCustId());
+			userVo.setRealname(user.getRealname());
+			userVo.setNickname(user.getNickname());
+			userVo.setLoginName(user.getLoginName());
+			userVo.setCheckFuncs(checkFuncs);
+			userVo.setPassword(null);
+			userVo.setSalt(null);
+			userVo.setCreateTime(null);
+			return userVo;
+		}else{
+			List<CrmFunctionEx> checkFuncs = new ArrayList<CrmFunctionEx>();
+			for(CrmFunction func:totalFuncs){
+				CrmFunctionEx checkFunc = new CrmFunctionEx();
+				checkFunc.setFuncId(func.getFuncId());
+				checkFunc.setFuncName(func.getFuncName());
+				checkFunc.setChecked(false);
+				checkFuncs.add(checkFunc);
+			}
+			CrmUserEx userVo = new CrmUserEx();
+			userVo.setCheckFuncs(checkFuncs);
+			return userVo;
+		}
+		
+		
+	}
+	
+	@Transactional(readOnly = false)
+	public void save(CrmUserEx user) throws RuntimeException{
+		if (StringUtils.isNotBlank(user.getUserId())){
+			deleteUserFunctions(user.getUserId());
+			try {
+				super.clean(CrmUser.class, user.getUserId());
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
+			user.setSecMobile(user.getLoginName());
+			crmUserMapper.updateByPrimaryKeySelective(user);
+		} else {
+			CrmUser currentUser = SessionUtil.currentUser();
+			user.setStatiumId(currentUser.getStatiumId());
+			user.setPassword(user.getLoginName());
+			user.setSecMobile(user.getLoginName());
+			user.setCb(currentUser.getUserId());
+			if (StringUtils.isNotBlank(user.getPassword())) {
+				//创建用户时需要加密明文密码，修改用户信息时不修改密码
+				entryptPassword(user);
+			}
+			user.setUserId(UUID.get());
+			user.setCreateTime(new Date());
+			user.setStatus(Constants.UserStatus.ENABLE);
+			crmUserMapper.insertSelective(user);
+		}
+		List<CrmFunctionEx> checkFuncs = user.getCheckFuncs();
+		for(CrmFunctionEx func:checkFuncs){
+			if(func.isChecked()){
+				CrmUserFunc uf = new CrmUserFunc();
+				uf.setFuncId(func.getFuncId());
+				uf.setUserId(user.getUserId());
+				crmUserFuncMapper.insert(uf);
+			}
+		}
+		shiroCacheManager.clear();
+		
+	}
+	
+	
+	@Transactional(readOnly = false)
+	private void deleteUserFunctions(String userId){
+		CrmUserFuncCriteria funcCriteria = new CrmUserFuncCriteria();
+		CrmUserFuncCriteria.Criteria c = funcCriteria.createCriteria();
+		c.andUserIdEqualTo(userId);
+		crmUserFuncMapper.deleteByExample(funcCriteria);
+	}
+	
+	/**
+	 * 设定安全的密码，生成随机的salt并经过1024次 sha-1 hash
+	 */
+	private void entryptPassword(CrmUser user) {
+		if (user.getPassword() == null)
+			return;
+		
+		String[] hash = Encrypts.hashPassword(user.getPassword());
+		user.setPassword(hash[0]);
+		user.setSalt(hash[1]);
+	}
+	
+	/**
+	 * 删除用户
+	 * 
+	 * @param id
+	 */
+	@Transactional(readOnly = false)
+	public void deleteUser(String id) {
+		//1、删除权限集
+		//2、删除用户
+		deleteUserFunctions(id);
+		try {
+			deleteByPrimaryKey(CrmUser.class,id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Transactional(readOnly = false)
+	public void modifyPassword(UserVo user) throws Exception{
+		CrmUser crmUser = SessionUtil.currentUser();
+		CrmUser realUser = this.selectByPrimaryKey(CrmUser.class, crmUser.getUserId());
+		String hash = Encrypts.hashPassword(user.getPassword(), realUser.getSalt());
+		if (!hash.equals(realUser.getPassword())) {
+			throw new Exception("旧密码不正确!");
+		}
+		
+		CrmUser userUpdate = new CrmUser();
+		userUpdate.setUserId(user.getUserId());
+		String[] hashNew = Encrypts.hashPassword(user.getNewPassword());
+		
+		userUpdate.setPassword(hashNew[0]);
+		userUpdate.setSalt(hashNew[1]);
+		try {
+			updateByPrimaryKeySelective(userUpdate,userUpdate.getUserId());
+		} catch (Exception e) {
+			logger.debug(e.getMessage(),e);
+			throw new Exception("服务器异常！");
+		}
+	}
+	
+	@Transactional(readOnly = false)
+	public void updateUserLoginInfo(String userId, String ip) {
+		try {
+			//User user = userMapper.selectByPrimaryKey(userId);
+			CrmUser user = new CrmUser();
+			user.setUserId(userId);
+			user.setLastIp(user.getLatestIp());
+			user.setLastTime(user.getLatestTime());
+			user.setLatestIp(ip);
+			user.setLatestTime(new Date());
+			updateByPrimaryKeySelective(user,user.getUserId());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Transactional(readOnly = false)
+	public boolean check(String userName) throws Exception{
+		CrmUserCriteria criteria = new CrmUserCriteria();
+		CrmUserCriteria.Criteria cri = criteria.createCriteria();
+		cri.andLoginNameEqualTo(userName);
+		int cont = crmUserMapper.countByExample(criteria);
+		if(cont!=0){
+			return false;
+		}else{
+			return true;
+		}
+	}
+	
+}

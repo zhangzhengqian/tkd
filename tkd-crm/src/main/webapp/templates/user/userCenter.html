@@ -1,0 +1,45 @@
+<div class="orderNav">
+	<ul>
+		<li class="active"><a href="#userCenter">个人中心</a></li>
+		<li><a href="#statiumEdit">场馆信息</a></li>
+		<li><a href="#space">场地管理</a></li>
+		<li><a href="#user">员工管理</a></li>
+		<!-- <li><a href="#/prize/list">获奖列表</a></li> -->
+	</ul>
+</div>
+<div class="formTable">
+	<ul>
+		<li>
+			<span class="title">姓名：</span>
+			<input type="text" ng-model="user.realname" disabled>
+		</li>
+		<li>
+			<span class="title">昵称：</span>
+			<input type="text" ng-model="user.nickname" disabled>
+		</li>
+		<li>
+			<span class="title">手机号(用户名)：</span>
+			<input type="text" ng-model="user.loginName" disabled>
+		</li>
+		<li>
+			<span class="title">姓名：</span>
+			<input type="text" ng-model="user.realname" disabled>
+		</li>
+		<li>
+			<span class="title">员工号：</span>
+			<input type="text" ng-model="user.custId" disabled>
+		</li>
+		<li>
+			<span class="title">原密码：</span>
+			<input type="password"  ng-model="user.password" >
+		</li>
+		<li>
+			<span class="title">新密码：</span>
+			<input type="password" ng-model="user.newPassword" >
+		</li>
+	</ul>
+	<div class="formSubDiv">
+	   	<a class="saveBtnBot" ng-click="updateUser()" href="javascript:;">保存</a>
+    </div>
+	
+</div>

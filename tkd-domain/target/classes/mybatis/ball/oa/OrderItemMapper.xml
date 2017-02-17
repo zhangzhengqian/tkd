@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lc.zy.ball.domain.oa.mapper.OrderItemMapper" >
+  <resultMap id="BaseResultMap" type="com.lc.zy.ball.domain.oa.po.OrderItem" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="order_id" property="orderId" jdbcType="VARCHAR" />
+    <result column="class_id" property="classId" jdbcType="VARCHAR" />
+    <result column="class_info_id" property="classInfoId" jdbcType="VARCHAR" />
+    <result column="class_name" property="className" jdbcType="VARCHAR" />
+    <result column="activity_id" property="activityId" jdbcType="VARCHAR" />
+    <result column="sign_date" property="signDate" jdbcType="DATE" />
+    <result column="start_time" property="startTime" jdbcType="VARCHAR" />
+    <result column="end_time" property="endTime" jdbcType="VARCHAR" />
+    <result column="wait_time" property="waitTime" jdbcType="INTEGER" />
+    <result column="price" property="price" jdbcType="INTEGER" />
+    <result column="ct" property="ct" jdbcType="TIMESTAMP" />
+    <result column="cb" property="cb" jdbcType="VARCHAR" />
+    <result column="et" property="et" jdbcType="TIMESTAMP" />
+    <result column="eb" property="eb" jdbcType="VARCHAR" />
+    <result column="orders_type" property="ordersType" jdbcType="VARCHAR" />
+    <result column="cost_price" property="costPrice" jdbcType="INTEGER" />
+    <result column="coach_id" property="coachId" jdbcType="VARCHAR" />
+    <result column="activity_name" property="activityName" jdbcType="VARCHAR" />
+    <result column="active_date" property="activeDate" jdbcType="TIMESTAMP" />
+    <result column="card_type" property="cardType" jdbcType="INTEGER" />
+    <result column="card_status" property="cardStatus" jdbcType="INTEGER" />
+    <result column="card_id" property="cardId" jdbcType="VARCHAR" />
+    <result column="card_buy_date" property="cardBuyDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, order_id, class_id, class_info_id, class_name, activity_id, sign_date, start_time, 
+    end_time, wait_time, price, ct, cb, et, eb, orders_type, cost_price, coach_id, activity_name, 
+    active_date, card_type, card_status, card_id, card_buy_date
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lc.zy.ball.domain.oa.po.OrderItemCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from oa_order_item
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="mysqlOffset != null and mysqlLength != null" >
+      <![CDATA[ limit #{mysqlOffset} , #{mysqlLength} ]]>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from oa_order_item
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from oa_order_item
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lc.zy.ball.domain.oa.po.OrderItemCriteria" >
+    delete from oa_order_item
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lc.zy.ball.domain.oa.po.OrderItem" >
+    insert into oa_order_item (id, order_id, class_id, class_info_id, class_name, activity_id, 
+      sign_date, start_time, end_time, wait_time, price, ct, cb, et, 
+      eb, orders_type, cost_price, coach_id, activity_name, active_date, 
+      card_type, card_status, card_id, card_buy_date)
+    values (#{id}, #{orderId}, #{classId}, #{classInfoId}, #{className}, #{activityId}, 
+      #{signDate}, #{startTime}, #{endTime}, #{waitTime}, #{price}, #{ct}, #{cb}, #{et}, 
+      #{eb}, #{ordersType}, #{costPrice}, #{coachId}, #{activityName}, #{activeDate}, 
+      #{cardType}, #{cardStatus}, #{cardId}, #{cardBuyDate})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lc.zy.ball.domain.oa.po.OrderItem" >
+    insert into oa_order_item
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="classId != null" >
+        class_id,
+      </if>
+      <if test="classInfoId != null" >
+        class_info_id,
+      </if>
+      <if test="className != null" >
+        class_name,
+      </if>
+      <if test="activityId != null" >
+        activity_id,
+      </if>
+      <if test="signDate != null" >
+        sign_date,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="waitTime != null" >
+        wait_time,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="ct != null" >
+        ct,
+      </if>
+      <if test="cb != null" >
+        cb,
+      </if>
+      <if test="et != null" >
+        et,
+      </if>
+      <if test="eb != null" >
+        eb,
+      </if>
+      <if test="ordersType != null" >
+        orders_type,
+      </if>
+      <if test="costPrice != null" >
+        cost_price,
+      </if>
+      <if test="coachId != null" >
+        coach_id,
+      </if>
+      <if test="activityName != null" >
+        activity_name,
+      </if>
+      <if test="activeDate != null" >
+        active_date,
+      </if>
+      <if test="cardType != null" >
+        card_type,
+      </if>
+      <if test="cardStatus != null" >
+        card_status,
+      </if>
+      <if test="cardId != null" >
+        card_id,
+      </if>
+      <if test="cardBuyDate != null" >
+        card_buy_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="orderId != null" >
+        #{orderId},
+      </if>
+      <if test="classId != null" >
+        #{classId},
+      </if>
+      <if test="classInfoId != null" >
+        #{classInfoId},
+      </if>
+      <if test="className != null" >
+        #{className},
+      </if>
+      <if test="activityId != null" >
+        #{activityId},
+      </if>
+      <if test="signDate != null" >
+        #{signDate},
+      </if>
+      <if test="startTime != null" >
+        #{startTime},
+      </if>
+      <if test="endTime != null" >
+        #{endTime},
+      </if>
+      <if test="waitTime != null" >
+        #{waitTime},
+      </if>
+      <if test="price != null" >
+        #{price},
+      </if>
+      <if test="ct != null" >
+        #{ct},
+      </if>
+      <if test="cb != null" >
+        #{cb},
+      </if>
+      <if test="et != null" >
+        #{et},
+      </if>
+      <if test="eb != null" >
+        #{eb},
+      </if>
+      <if test="ordersType != null" >
+        #{ordersType},
+      </if>
+      <if test="costPrice != null" >
+        #{costPrice},
+      </if>
+      <if test="coachId != null" >
+        #{coachId},
+      </if>
+      <if test="activityName != null" >
+        #{activityName},
+      </if>
+      <if test="activeDate != null" >
+        #{activeDate},
+      </if>
+      <if test="cardType != null" >
+        #{cardType},
+      </if>
+      <if test="cardStatus != null" >
+        #{cardStatus},
+      </if>
+      <if test="cardId != null" >
+        #{cardId},
+      </if>
+      <if test="cardBuyDate != null" >
+        #{cardBuyDate},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lc.zy.ball.domain.oa.po.OrderItemCriteria" resultType="java.lang.Integer" >
+    select count(*) from oa_order_item
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update oa_order_item
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.orderId != null" >
+        order_id = #{record.orderId},
+      </if>
+      <if test="record.classId != null" >
+        class_id = #{record.classId},
+      </if>
+      <if test="record.classInfoId != null" >
+        class_info_id = #{record.classInfoId},
+      </if>
+      <if test="record.className != null" >
+        class_name = #{record.className},
+      </if>
+      <if test="record.activityId != null" >
+        activity_id = #{record.activityId},
+      </if>
+      <if test="record.signDate != null" >
+        sign_date = #{record.signDate},
+      </if>
+      <if test="record.startTime != null" >
+        start_time = #{record.startTime},
+      </if>
+      <if test="record.endTime != null" >
+        end_time = #{record.endTime},
+      </if>
+      <if test="record.waitTime != null" >
+        wait_time = #{record.waitTime},
+      </if>
+      <if test="record.price != null" >
+        price = #{record.price},
+      </if>
+      <if test="record.ct != null" >
+        ct = #{record.ct},
+      </if>
+      <if test="record.cb != null" >
+        cb = #{record.cb},
+      </if>
+      <if test="record.et != null" >
+        et = #{record.et},
+      </if>
+      <if test="record.eb != null" >
+        eb = #{record.eb},
+      </if>
+      <if test="record.ordersType != null" >
+        orders_type = #{record.ordersType},
+      </if>
+      <if test="record.costPrice != null" >
+        cost_price = #{record.costPrice},
+      </if>
+      <if test="record.coachId != null" >
+        coach_id = #{record.coachId},
+      </if>
+      <if test="record.activityName != null" >
+        activity_name = #{record.activityName},
+      </if>
+      <if test="record.activeDate != null" >
+        active_date = #{record.activeDate},
+      </if>
+      <if test="record.cardType != null" >
+        card_type = #{record.cardType},
+      </if>
+      <if test="record.cardStatus != null" >
+        card_status = #{record.cardStatus},
+      </if>
+      <if test="record.cardId != null" >
+        card_id = #{record.cardId},
+      </if>
+      <if test="record.cardBuyDate != null" >
+        card_buy_date = #{record.cardBuyDate},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update oa_order_item
+    set id = #{record.id},
+      order_id = #{record.orderId},
+      class_id = #{record.classId},
+      class_info_id = #{record.classInfoId},
+      class_name = #{record.className},
+      activity_id = #{record.activityId},
+      sign_date = #{record.signDate},
+      start_time = #{record.startTime},
+      end_time = #{record.endTime},
+      wait_time = #{record.waitTime},
+      price = #{record.price},
+      ct = #{record.ct},
+      cb = #{record.cb},
+      et = #{record.et},
+      eb = #{record.eb},
+      orders_type = #{record.ordersType},
+      cost_price = #{record.costPrice},
+      coach_id = #{record.coachId},
+      activity_name = #{record.activityName},
+      active_date = #{record.activeDate},
+      card_type = #{record.cardType},
+      card_status = #{record.cardStatus},
+      card_id = #{record.cardId},
+      card_buy_date = #{record.cardBuyDate}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lc.zy.ball.domain.oa.po.OrderItem" >
+    update oa_order_item
+    <set >
+      <if test="orderId != null" >
+        order_id = #{orderId},
+      </if>
+      <if test="classId != null" >
+        class_id = #{classId},
+      </if>
+      <if test="classInfoId != null" >
+        class_info_id = #{classInfoId},
+      </if>
+      <if test="className != null" >
+        class_name = #{className},
+      </if>
+      <if test="activityId != null" >
+        activity_id = #{activityId},
+      </if>
+      <if test="signDate != null" >
+        sign_date = #{signDate},
+      </if>
+      <if test="startTime != null" >
+        start_time = #{startTime},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime},
+      </if>
+      <if test="waitTime != null" >
+        wait_time = #{waitTime},
+      </if>
+      <if test="price != null" >
+        price = #{price},
+      </if>
+      <if test="ct != null" >
+        ct = #{ct},
+      </if>
+      <if test="cb != null" >
+        cb = #{cb},
+      </if>
+      <if test="et != null" >
+        et = #{et},
+      </if>
+      <if test="eb != null" >
+        eb = #{eb},
+      </if>
+      <if test="ordersType != null" >
+        orders_type = #{ordersType},
+      </if>
+      <if test="costPrice != null" >
+        cost_price = #{costPrice},
+      </if>
+      <if test="coachId != null" >
+        coach_id = #{coachId},
+      </if>
+      <if test="activityName != null" >
+        activity_name = #{activityName},
+      </if>
+      <if test="activeDate != null" >
+        active_date = #{activeDate},
+      </if>
+      <if test="cardType != null" >
+        card_type = #{cardType},
+      </if>
+      <if test="cardStatus != null" >
+        card_status = #{cardStatus},
+      </if>
+      <if test="cardId != null" >
+        card_id = #{cardId},
+      </if>
+      <if test="cardBuyDate != null" >
+        card_buy_date = #{cardBuyDate},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lc.zy.ball.domain.oa.po.OrderItem" >
+    update oa_order_item
+    set order_id = #{orderId},
+      class_id = #{classId},
+      class_info_id = #{classInfoId},
+      class_name = #{className},
+      activity_id = #{activityId},
+      sign_date = #{signDate},
+      start_time = #{startTime},
+      end_time = #{endTime},
+      wait_time = #{waitTime},
+      price = #{price},
+      ct = #{ct},
+      cb = #{cb},
+      et = #{et},
+      eb = #{eb},
+      orders_type = #{ordersType},
+      cost_price = #{costPrice},
+      coach_id = #{coachId},
+      activity_name = #{activityName},
+      active_date = #{activeDate},
+      card_type = #{cardType},
+      card_status = #{cardStatus},
+      card_id = #{cardId},
+      card_buy_date = #{cardBuyDate}
+    where id = #{id}
+  </update>
+</mapper>

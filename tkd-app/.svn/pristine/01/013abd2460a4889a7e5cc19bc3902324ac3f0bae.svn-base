@@ -1,0 +1,1 @@
+手机号：${phone}预订成功，时间：${date}(${week})，场地：${statiumName}，订单号：${orderId}，订单详情：${orderItem}。

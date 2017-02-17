@@ -1,0 +1,36 @@
+<div class="orderNav">
+	<ul>
+		<li><a href="#userCenter">个人中心</a></li>
+		<li><a href="#statiumEdit">场馆信息</a></li>
+		<li><a href="#space">场地管理</a></li>
+		<li><a href="#user">员工管理</a></li>
+		<!-- <li class="active"><a href="#/prize/list">获奖列表</a></li> -->
+	</ul>
+</div>
+<div class="orderSearch">
+	<ul>
+		<li class="timeLi"><span>查询月份</span> <input type="text"
+			id="start" ng-model="searcher.date" onchange=""
+			onClick="WdatePicker({dateFmt:'yyyyM'})">
+		</li>
+		<li class="subSearch">
+			<a class="submit" href="javascript:;" ng-click="search()">查询</a>
+			<a class="reset"  href="javascript:;" ng-click="reset()">重置</a>
+		</li>
+	</ul>
+</div>
+<div class="orderResult">
+	<table>
+		<tr>
+			<th>奖品名称</th>
+			<th>抽奖时间</th>
+			<th>金额</th>
+		</tr>
+		<tr ng-repeat="prize in objs">
+			<td>{{prize.prizeName}}</td>
+			<td>{{prize.date}}</td>
+			<td>{{prize.amount}}</td>
+		</tr>
+	</table>
+</div>
+<crm-pagination conf="paginationConf"></crm-pagination>

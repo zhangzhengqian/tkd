@@ -1,0 +1,102 @@
+.wrapper{
+	overflow-x:auto;
+	overflow-y:hidden;
+	width:100%;
+}
+.gameTree {
+	width:1600px;
+}
+.gameTree ul {
+ padding-top: 20px; position: relative;
+ transition: all 0.5s;
+ -webkit-transition: all 0.5s;
+ -moz-transition: all 0.5s;
+}
+
+.gameTree li {
+ float: left; text-align: center;
+ list-style-type: none;
+ position: relative;
+ padding: 30px 20px 0 20px;
+ transition: all 0.5s;
+ -webkit-transition: all 0.5s;
+ -moz-transition: all 0.5s;
+}
+
+/*We will use ::before and ::after to draw the connectors*/
+
+.gameTree li::before, .gameTree li::after{
+ content: '';
+ position: absolute; top: 0; right: 50%;
+ border-top: 1px solid #ccc;
+ width:50%; height: 30px;
+}
+.gameTree li::after{
+ right: auto; left: 50%;
+ border-left: 1px solid #ccc;
+}
+
+/*We need to remove left-right connectors from elements without 
+any siblings*/
+.gameTree li:only-child::after, .gameTree li:only-child::before {
+ display: none;
+}
+
+/*Remove space from the top of single children*/
+.gameTree li:only-child{ padding-top: 0;}
+
+/*Remove left connector from first child and 
+right connector from last child*/
+.gameTree li:first-child::before, .gameTree li:last-child::after{
+ border: 0 none;
+}
+/*Adding back the vertical connector to the last nodes*/
+.gameTree li:last-child::before{
+ border-right: 1px solid #ccc;
+ border-radius: 0 5px 0 0;
+ -webkit-border-radius: 0 5px 0 0;
+ -moz-border-radius: 0 5px 0 0;
+}
+.gameTree li:first-child::after{
+ -webkit-border-radius: 5px 0 0 0;
+ -moz-border-radius: 5px 0 0 0;
+}
+
+/*Time to add downward connectors from parents*/
+.gameTree ul ul::before{
+ content: '';
+ position: absolute; top: 0; left: 50%;
+ border-left: 1px solid #ccc;
+ width: 0; height: 20px;
+}
+
+.gameTree li a{
+ border: 1px solid #ccc;
+ padding: 1em 1em;
+ text-decoration: none;
+ color: #666;
+ font-family: arial, verdana, tahoma;
+ font-size: 11px;
+ display: inline-block;
+ background-color:#fff;
+ border-radius: 5px;
+ -webkit-border-radius: 5px;
+ -moz-border-radius: 5px;
+ min-width:65px;
+ transition: all 0.5s;
+ -webkit-transition: all 0.5s;
+ -moz-transition: all 0.5s;
+}
+
+/*Time for some hover effects*/
+/*We will apply the hover effect the the lineage of the element also*/
+.gameTree li a:hover, .gameTree li a:hover+ul li a {
+ background: #c8e4f8; color: #000; border: 1px solid #94a0b4;
+}
+/*Connector styles on hover*/
+.gameTree li a:hover+ul li::after, 
+.gameTree li a:hover+ul li::before, 
+.gameTree li a:hover+ul::before, 
+.gameTree li a:hover+ul ul::before{
+ border-color:  #94a0b4;
+}

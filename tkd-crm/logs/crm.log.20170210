@@ -1,0 +1,527 @@
+[0210 17:45:40,081 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'crmFunctionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.CrmFunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0210 17:45:40,084 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'dicItemMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.DicItemMapperEx' mapperInterface. Bean already defined with the same name!
+[0210 17:45:40,084 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'functionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.FunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0210 17:45:40,084 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'operatorMapper' and 'com.lc.zy.ball.domain.oa.mapper.ex.OperatorMapper' mapperInterface. Bean already defined with the same name!
+[0210 17:45:40,084 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'organizationMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.OrganizationMapperEx' mapperInterface. Bean already defined with the same name!
+[0210 17:45:40,084 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'statisticUserMobileMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.StatisticUserMobileMapperEx' mapperInterface. Bean already defined with the same name!
+[0210 17:45:40,084 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'userMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.UserMapperEx' mapperInterface. Bean already defined with the same name!
+[0210 17:45:40,561 INFO ] [main] com.mchange.v2.log.MLog - MLog clients using log4j logging.
+[0210 17:45:40,747 INFO ] [main] com.mchange.v2.c3p0.C3P0Registry - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+[0210 17:45:41,486 INFO ] [main] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 2880, acquireRetryDelay -> 30000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 10000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge14u9maxp0jk1dkhfjz|776c5d93, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge14u9maxp0jk1dkhfjz|776c5d93, idleConnectionTestPeriod -> 120, initialPoolSize -> 5, jdbcUrl -> jdbc:mysql://60.219.169.5:3306/tkd_oa?zeroDateTimeBehavior=convertToNull&useUnicode=true, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 120, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[0210 17:45:47,351 INFO ] [main] org.apache.shiro.realm.AuthorizingRealm - No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+[0210 17:45:47,484 INFO ] [main] org.apache.shiro.cache.ehcache.EhCacheManager - Cache with name 'com.lc.zy.ball.crm.common.security.ShiroDbRealm.authorizationCache' does not yet exist.  Creating now.
+[0210 17:45:47,514 INFO ] [main] org.apache.shiro.cache.ehcache.EhCacheManager - Added EhCache named [com.lc.zy.ball.crm.common.security.ShiroDbRealm.authorizationCache]
+[0210 17:45:47,559 INFO ] [main] com.lc.zy.common.cache.MapperOnCacheSupport - exclude_cache_mapper ==> {OrderSms=true, OrderItem=true, OrderBill=true, Order=true, OrderBillItem=true, OrderAlarm=true, OrderLog=true}
+[0210 17:45:47,577 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheEnable = true
+[0210 17:45:47,577 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheServer = 192.168.1.219:6379
+[0210 17:45:47,583 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cachePwd = null
+[0210 17:45:47,596 ERROR] [main] com.lc.zy.common.cache.RedisPool - cache 初始化成功
+[0210 17:45:47,811 DEBUG] [main] com.lc.zy.common.util.SpringUtils - set application context ===> Root WebApplicationContext: startup date [Fri Feb 10 17:45:35 CST 2017]; root of context hierarchy
+[0210 17:45:48,028 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+[0210 17:45:48,028 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:host.name=J8LZEKL1TNCFRZY
+[0210 17:45:48,028 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.version=1.7.0_67
+[0210 17:45:48,029 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.vendor=Oracle Corporation
+[0210 17:45:48,029 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.home=G:\eclipse\jre
+[0210 17:45:48,029 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.class.path=G:\eclipse\configuration\org.eclipse.osgi\858\0\.cp\lib\core-3.1.1.jar;G:\eclipse\configuration\org.eclipse.osgi\858\0\.cp\lib\jetty-6.1.26.jar;G:\eclipse\configuration\org.eclipse.osgi\858\0\.cp\lib\jetty-management-6.1.26.jar;G:\eclipse\configuration\org.eclipse.osgi\858\0\.cp\lib\jetty-util-6.1.26.jar;G:\eclipse\configuration\org.eclipse.osgi\858\0\.cp\lib\jsp-2.1.jar;G:\eclipse\configuration\org.eclipse.osgi\858\0\.cp\lib\jsp-api-2.1.jar;G:\eclipse\configuration\org.eclipse.osgi\858\0\.cp\lib\run-jetty-run-bootstrap.jar;G:\eclipse\configuration\org.eclipse.osgi\858\0\.cp\lib\servlet-api-2.5-20081211.jar
+[0210 17:45:48,029 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.library.path=G:\eclipse\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;G:\eclipse\jre\bin;G:/eclipse/jre/bin/server;G:/eclipse/jre/bin;G:/eclipse/jre/lib/amd64;.;C:\Program Files\Java\jdk1.7.0_51\bin;C:\Program Files (x86)\Common Files\NetSarang;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;G:\apache-maven-3.3.1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;G:\apache-maven-3.3.1\bin;G:\mysql\bin;C:\Program Files\TortoiseSVN\bin;G:\apache-maven-3.3.1\bin;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\lib;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\bin;G:\eclipse;;.
+[0210 17:45:48,029 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.io.tmpdir=C:\Users\ADMINI~1\AppData\Local\Temp\
+[0210 17:45:48,029 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.compiler=<NA>
+[0210 17:45:48,029 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.name=Windows 7
+[0210 17:45:48,029 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.arch=amd64
+[0210 17:45:48,029 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.version=6.1
+[0210 17:45:48,029 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.name=Administrator
+[0210 17:45:48,029 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.home=C:\Users\Administrator
+[0210 17:45:48,029 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.dir=G:\qzlspace4\tkd-crm
+[0210 17:45:48,030 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@7076b8d2
+[0210 17:45:48,080 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@7076b8d2
+[0210 17:45:48,089 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0210 17:45:48,089 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0210 17:45:48,094 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0210 17:45:48,150 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15980ee5fd801b8, negotiated timeout = 5000
+[0210 17:45:51,097 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0210 17:45:51,102 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15980ee5fd801b9, negotiated timeout = 5000
+[0210 17:45:51,104 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@5ed53f6b
+[0210 17:45:51,106 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@5ed53f6b
+[0210 17:45:51,107 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0210 17:45:51,109 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0210 17:45:51,109 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0210 17:45:51,112 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0210 17:45:51,114 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15980ee5fd801ba, negotiated timeout = 5000
+[0210 17:45:51,117 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15980ee5fd801bb, negotiated timeout = 5000
+[0210 17:45:51,246 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - locCustomer was started ...
+[0210 17:45:51,246 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - brokerUrl=tcp://192.168.1.219:61616
+[0210 17:45:51,593 WARN ] [main] com.lc.zy.common.coreservice.FreeSpaceCounter - FreeSpaceCounter and coreServiceOrdersLicense not define
+[0210 17:45:51,597 WARN ] [main] com.lc.zy.common.coreservice.OrdersCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0210 17:45:51,601 WARN ] [main] com.lc.zy.common.coreservice.Scores - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0210 17:45:51,604 WARN ] [main] com.lc.zy.common.coreservice.UserStatiumCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0210 17:45:51,625 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - locCustomer was started ...
+[0210 17:45:51,626 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - brokerUrl=tcp://192.168.1.219:61616
+[0210 17:45:53,858 INFO ] [43907587@qtp-860816123-2] org.apache.shiro.session.mgt.AbstractValidatingSessionManager - Enabling session validation scheduler...
+[0210 17:45:57,492 DEBUG] [1069727073@qtp-860816123-7] com.lc.zy.ball.domain.oa.mapper.CrmUserMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@42bfa3c1]
+[0210 17:45:57,495 DEBUG] [1069727073@qtp-860816123-7] com.lc.zy.ball.domain.oa.mapper.CrmUserMapper.selectByExample - ==>  Preparing: select USER_ID, statium_id, CUST_ID, NICKNAME, REALNAME, LOGIN_NAME, PASSWORD, SALT, PWD_QUESTION, PWD_ANSWER, SEC_EMAIL, SEC_MOBILE, CREATE_TIME, LAST_TIME, LAST_IP, LATEST_TIME, LATEST_IP, STATUS, CB, delete_flag from crm_user WHERE ( LOGIN_NAME = ? ) 
+[0210 17:45:57,519 DEBUG] [1069727073@qtp-860816123-7] com.lc.zy.ball.domain.oa.mapper.CrmUserMapper.selectByExample - ==> Parameters: qzl123(String)
+[0210 17:46:00,510 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.CrmUserMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@1e27672f]
+[0210 17:46:00,512 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.CrmUserMapper.selectByExample - ==>  Preparing: select USER_ID, statium_id, CUST_ID, NICKNAME, REALNAME, LOGIN_NAME, PASSWORD, SALT, PWD_QUESTION, PWD_ANSWER, SEC_EMAIL, SEC_MOBILE, CREATE_TIME, LAST_TIME, LAST_IP, LATEST_TIME, LATEST_IP, STATUS, CB, delete_flag from crm_user WHERE ( LOGIN_NAME = ? ) 
+[0210 17:46:00,513 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.CrmUserMapper.selectByExample - ==> Parameters: qzl123(String)
+[0210 17:46:00,712 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.common.security.ShiroDbRealm - crmUser qzl123
+[0210 17:46:00,736 INFO ] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.common.security.CaptchaFormAuthenticationFilter - qzl123登录成功
+[0210 17:46:00,950 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.CrmUser
+[0210 17:46:00,951 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : CrmUser
+[0210 17:46:00,961 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.CrmUserMapper.updateByPrimaryKeySelective - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@7abff4ae]
+[0210 17:46:00,961 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.CrmUserMapper.updateByPrimaryKeySelective - ==>  Preparing: update crm_user SET LATEST_TIME = ?, LATEST_IP = ? where USER_ID = ? 
+[0210 17:46:00,961 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.CrmUserMapper.updateByPrimaryKeySelective - ==> Parameters: 2017-02-10 17:46:00.929(Timestamp), 127.0.0.1(String), 4854c04bf5434f578426167851b54262(String)
+[0210 17:46:03,142 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0210 17:46:03,143 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0210 17:46:03,376 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.order.service.OrderService - {}
+[0210 17:46:03,614 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.order.service.OrderService - select 
+	count(DISTINCT o.id) 	as cont
+from 
+	oa_order o left join oa_order_item i on o.id=i.order_id
+where 
+	o.statium_id = '221'
+		and o.order_type = 'BOOK_APP'
+
+[0210 17:46:03,615 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.order.service.OrderService - {statiumId=221, order_type=BOOK_APP}
+[0210 17:46:05,686 DEBUG] [1069727073@qtp-860816123-7] com.lc.zy.ball.crm.common.security.ShiroDbRealm - crmUser qzl123
+[0210 17:46:05,776 INFO ] [1069727073@qtp-860816123-7] com.lc.zy.ball.crm.common.security.CaptchaFormAuthenticationFilter - qzl123登录成功
+[0210 17:46:05,928 DEBUG] [1069727073@qtp-860816123-7] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.CrmUser
+[0210 17:46:05,928 DEBUG] [1069727073@qtp-860816123-7] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : CrmUser
+[0210 17:46:05,929 DEBUG] [1069727073@qtp-860816123-7] com.lc.zy.ball.domain.oa.mapper.CrmUserMapper.updateByPrimaryKeySelective - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@57172439]
+[0210 17:46:05,929 DEBUG] [1069727073@qtp-860816123-7] com.lc.zy.ball.domain.oa.mapper.CrmUserMapper.updateByPrimaryKeySelective - ==>  Preparing: update crm_user SET LATEST_TIME = ?, LATEST_IP = ? where USER_ID = ? 
+[0210 17:46:05,929 DEBUG] [1069727073@qtp-860816123-7] com.lc.zy.ball.domain.oa.mapper.CrmUserMapper.updateByPrimaryKeySelective - ==> Parameters: 2017-02-10 17:46:05.928(Timestamp), 127.0.0.1(String), 4854c04bf5434f578426167851b54262(String)
+[0210 17:46:06,531 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = ssoUserMapper.f987c26abd1249c58ef000fdb52a59d3
+[0210 17:46:06,538 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"f987c26abd1249c58ef000fdb52a59d3","username":"15810800217","phone":"15810800217","password":"e43b64987b429ec09aba89c3f265a9ff14b24141","photo":"http://7xt8bo.com2.z0.glb.qiniucdn.com/FuUjbIDuZ3Nq2anMuEjZGSBH8Ndm","nickName":"cool","sex":"男","cardId":"130622199303141064","address":"河北省 - 保定市","property":"普通","name":"","tkdNo":"10000046","isattestation":0,"app":0,"level":0,"createUser":"f987c26abd1249c58ef000fdb52a59d3","updateUser":"f987c26abd1249c58ef000fdb52a59d3","createTime":"2016-05-18 14:43:46","updateTime":"2016-08-12 17:59:58","state":1,"activeState":1,"registTime":"2016-05-18 14:43:46","dan":"红黑带(一级)","experience":0,"statiumId":221}
+[0210 17:46:06,556 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@26896f57]
+[0210 17:46:06,556 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==>  Preparing: select id, order_id, class_id, class_info_id, class_name, activity_id, sign_date, start_time, end_time, wait_time, price, ct, cb, et, eb, orders_type, cost_price, coach_id, activity_name, active_date, card_type, card_status, card_id, card_buy_date from oa_order_item WHERE ( order_id = ? ) 
+[0210 17:46:06,557 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==> Parameters: 1000002136(String)
+[0210 17:46:06,772 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumClassMapper.5455bbf95a7b4d3d87720d8ce04e6b44
+[0210 17:46:06,773 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"5455bbf95a7b4d3d87720d8ce04e6b44","statiumId":221,"classTitle":"成人班","classIntroduce":"通过科学方式指导成年人健身的方法。具有增强人体速度、力量、灵敏、耐力等身体素质，是提高神经系统的灵活性有明显作用。\r\n","price":24000,"discount":9,"discountPrice":21600,"ct":"2016-06-03 18:38:04","cb":"df2be6fb166845f9a93179fc11a3c8e5","et":"2016-09-18 15:45:51","eb":"1","minPeople":5,"maxPeople":50,"type":0}
+[0210 17:46:06,775 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = coachMapper.7cc179c7d0314411a619cd65f35c1874
+[0210 17:46:06,777 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"7cc179c7d0314411a619cd65f35c1874","dgId":221,"dgName":"北京乾正隆跆拳道（朝阳店）","logo":"http://7xt8bo.com2.z0.glb.qiniucdn.com/11a4628bc89f44f79c8db0f89c3d8f8f.png","name":"洪万祥","nick":"洪万祥","sex":"男","type":"1","photos":"http://7xt8bo.com2.z0.glb.qiniucdn.com/b8af28c0b805405d9b2f568925156f94.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/dcc1f8f2869046dd9ab45d7dc061456d.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/613c90e5c74543f3957e5723bec50171.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/9168d9b27d8a47f4916f12d9da0b6652.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/6e064d312d89429189bbf6635148354d.png","position":"主教练","province":"北京市","danlevel":"黑带三段","teachyear":11,"phone":"13811446614","iscard":"1","isdan":"1","helfexper":"\t2004年首届“博力杯”跆拳道武道竞技大赛中获得男子56kg冠军\r\n\t2004年获得中韩跆拳道技术交流赛中个人品势第二名\r\n\t2005年获得北京市“跆协杯”跆拳道竞技比赛青少组58kg冠军\r\n\t2006年获得首届跆拳道特技交流大会自创特技组“特技新星”称号\r\n\t2011年担任乾正隆跆拳道山西馆馆长\r\n\t2012年担任乾正隆跆拳道大连馆馆长\r\n\t2013年参与中国首部跆拳道题材大型情景剧《我的青春道馆》的拍摄\r\n\t2013年百度世界大会作为安全顾问负责VVIP人员贴身安全\r\n\t2013年至今担任乾正隆跆拳道北京馆馆长\r\n\t2014年至今担任北京市广渠门中学青少年体育俱乐部跆拳道项目技术顾问\r\n\t2014跆拳道晋级考试官跆拳道大众裁判员 跆拳道高级教练员\r\n\t2015世界跆拳道教练员 现任乾正隆跆拳道总馆长\r\n擅长：跆拳道竞技技术提高、品势技术提高、击破技术提高、比赛、晋级晋级考前辅导提高跆拳道裁判员知识培训、跆拳道、跆拳道教练员培训、跆拳道道馆培训\r\n\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t","tearchexper":"    从事跆拳道运动训练跆拳道文化、担任百度世界大会作为安全顾问负责VVIP人员贴身安全。2016年“国技院杯”全国跆拳道邀请赛，带领团体获得多项赛事冠军，个人冠军等。\r\n\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t","specialty":"竞技、品势","students":400,"grade":122,"ct":"2016-05-12 15:34:11","cb":"0369e6bc11e040ac997b140a41897ebd","et":"2016-12-19 17:13:31","eb":"4854c04bf5434f578426167851b54262","city":"北京市","area":"朝阳区","coachNo":"10000208","areacode":"110105"}
+[0210 17:46:06,780 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = ssoUserMapper.879c66456c904523964c99b2f3a7db56
+[0210 17:46:06,781 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"879c66456c904523964c99b2f3a7db56","username":"18602610039","phone":"18602610039","password":"e43b64987b429ec09aba89c3f265a9ff14b24141","photo":"http://7xt8bo.com2.z0.glb.qiniucdn.com/Ft3GPq0tR4V4CwG7IbVjb1jVKofp","nickName":"学员","sex":"男","cardId":"","address":"北京市","property":"普通","name":"","tkdNo":"10000009","isattestation":0,"app":0,"level":0,"createUser":"879c66456c904523964c99b2f3a7db56","updateUser":"879c66456c904523964c99b2f3a7db56","createTime":"2016-05-19 19:58:06","updateTime":"2016-08-12 19:27:40","state":1,"activeState":1,"registTime":"2016-05-19 19:58:06","dan":"黑带九段","experience":0,"statiumId":221}
+[0210 17:46:06,781 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@26896f57]
+[0210 17:46:06,781 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==>  Preparing: select id, order_id, class_id, class_info_id, class_name, activity_id, sign_date, start_time, end_time, wait_time, price, ct, cb, et, eb, orders_type, cost_price, coach_id, activity_name, active_date, card_type, card_status, card_id, card_buy_date from oa_order_item WHERE ( order_id = ? ) 
+[0210 17:46:06,782 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==> Parameters: 1000002135(String)
+[0210 17:46:06,961 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumClassMapper.5455bbf95a7b4d3d87720d8ce04e6b44
+[0210 17:46:06,962 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"5455bbf95a7b4d3d87720d8ce04e6b44","statiumId":221,"classTitle":"成人班","classIntroduce":"通过科学方式指导成年人健身的方法。具有增强人体速度、力量、灵敏、耐力等身体素质，是提高神经系统的灵活性有明显作用。\r\n","price":24000,"discount":9,"discountPrice":21600,"ct":"2016-06-03 18:38:04","cb":"df2be6fb166845f9a93179fc11a3c8e5","et":"2016-09-18 15:45:51","eb":"1","minPeople":5,"maxPeople":50,"type":0}
+[0210 17:46:06,964 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = coachMapper.7cc179c7d0314411a619cd65f35c1874
+[0210 17:46:06,965 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"7cc179c7d0314411a619cd65f35c1874","dgId":221,"dgName":"北京乾正隆跆拳道（朝阳店）","logo":"http://7xt8bo.com2.z0.glb.qiniucdn.com/11a4628bc89f44f79c8db0f89c3d8f8f.png","name":"洪万祥","nick":"洪万祥","sex":"男","type":"1","photos":"http://7xt8bo.com2.z0.glb.qiniucdn.com/b8af28c0b805405d9b2f568925156f94.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/dcc1f8f2869046dd9ab45d7dc061456d.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/613c90e5c74543f3957e5723bec50171.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/9168d9b27d8a47f4916f12d9da0b6652.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/6e064d312d89429189bbf6635148354d.png","position":"主教练","province":"北京市","danlevel":"黑带三段","teachyear":11,"phone":"13811446614","iscard":"1","isdan":"1","helfexper":"\t2004年首届“博力杯”跆拳道武道竞技大赛中获得男子56kg冠军\r\n\t2004年获得中韩跆拳道技术交流赛中个人品势第二名\r\n\t2005年获得北京市“跆协杯”跆拳道竞技比赛青少组58kg冠军\r\n\t2006年获得首届跆拳道特技交流大会自创特技组“特技新星”称号\r\n\t2011年担任乾正隆跆拳道山西馆馆长\r\n\t2012年担任乾正隆跆拳道大连馆馆长\r\n\t2013年参与中国首部跆拳道题材大型情景剧《我的青春道馆》的拍摄\r\n\t2013年百度世界大会作为安全顾问负责VVIP人员贴身安全\r\n\t2013年至今担任乾正隆跆拳道北京馆馆长\r\n\t2014年至今担任北京市广渠门中学青少年体育俱乐部跆拳道项目技术顾问\r\n\t2014跆拳道晋级考试官跆拳道大众裁判员 跆拳道高级教练员\r\n\t2015世界跆拳道教练员 现任乾正隆跆拳道总馆长\r\n擅长：跆拳道竞技技术提高、品势技术提高、击破技术提高、比赛、晋级晋级考前辅导提高跆拳道裁判员知识培训、跆拳道、跆拳道教练员培训、跆拳道道馆培训\r\n\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t","tearchexper":"    从事跆拳道运动训练跆拳道文化、担任百度世界大会作为安全顾问负责VVIP人员贴身安全。2016年“国技院杯”全国跆拳道邀请赛，带领团体获得多项赛事冠军，个人冠军等。\r\n\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t","specialty":"竞技、品势","students":400,"grade":122,"ct":"2016-05-12 15:34:11","cb":"0369e6bc11e040ac997b140a41897ebd","et":"2016-12-19 17:13:31","eb":"4854c04bf5434f578426167851b54262","city":"北京市","area":"朝阳区","coachNo":"10000208","areacode":"110105"}
+[0210 17:46:06,966 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = ssoUserMapper.e0c2d4edd9fb4ba5b6f2c31a44bdd914
+[0210 17:46:06,967 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"e0c2d4edd9fb4ba5b6f2c31a44bdd914","username":"13051668747","phone":"13051668747","password":"e43b64987b429ec09aba89c3f265a9ff14b24141","photo":"http://7xt8bo.com2.z0.glb.qiniucdn.com/FuUjbIDuZ3Nq2anMuEjZGSBH8Ndm","nickName":"学员","sex":"女","cardId":"","address":"北京市","property":"普通","tkdNo":"10000163","isattestation":0,"app":0,"level":0,"createUser":"e0c2d4edd9fb4ba5b6f2c31a44bdd914","updateUser":"e0c2d4edd9fb4ba5b6f2c31a44bdd914","createTime":"2016-12-09 09:31:30","updateTime":"2016-12-09 09:31:30","state":1,"activeState":1,"registTime":"2016-12-09 09:31:30","dan":"黑带九段","experience":0,"statiumId":221}
+[0210 17:46:06,968 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@26896f57]
+[0210 17:46:06,968 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==>  Preparing: select id, order_id, class_id, class_info_id, class_name, activity_id, sign_date, start_time, end_time, wait_time, price, ct, cb, et, eb, orders_type, cost_price, coach_id, activity_name, active_date, card_type, card_status, card_id, card_buy_date from oa_order_item WHERE ( order_id = ? ) 
+[0210 17:46:06,968 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==> Parameters: 1000002134(String)
+[0210 17:46:07,133 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = ssoUserMapper.f987c26abd1249c58ef000fdb52a59d3
+[0210 17:46:07,134 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"f987c26abd1249c58ef000fdb52a59d3","username":"15810800217","phone":"15810800217","password":"e43b64987b429ec09aba89c3f265a9ff14b24141","photo":"http://7xt8bo.com2.z0.glb.qiniucdn.com/FuUjbIDuZ3Nq2anMuEjZGSBH8Ndm","nickName":"cool","sex":"男","cardId":"130622199303141064","address":"河北省 - 保定市","property":"普通","name":"","tkdNo":"10000046","isattestation":0,"app":0,"level":0,"createUser":"f987c26abd1249c58ef000fdb52a59d3","updateUser":"f987c26abd1249c58ef000fdb52a59d3","createTime":"2016-05-18 14:43:46","updateTime":"2016-08-12 17:59:58","state":1,"activeState":1,"registTime":"2016-05-18 14:43:46","dan":"红黑带(一级)","experience":0,"statiumId":221}
+[0210 17:46:07,134 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@26896f57]
+[0210 17:46:07,134 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==>  Preparing: select id, order_id, class_id, class_info_id, class_name, activity_id, sign_date, start_time, end_time, wait_time, price, ct, cb, et, eb, orders_type, cost_price, coach_id, activity_name, active_date, card_type, card_status, card_id, card_buy_date from oa_order_item WHERE ( order_id = ? ) 
+[0210 17:46:07,135 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==> Parameters: 1000002133(String)
+[0210 17:46:07,294 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumClassMapper.ad20972651174329adb7f2e21bb85dc0
+[0210 17:46:07,295 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"ad20972651174329adb7f2e21bb85dc0","statiumId":221,"classTitle":"私教课","classIntroduce":"对于选手针对性的指导，提高技能和表演的观赏性，使选手的能力得到提高。","price":24000,"discount":0,"discountPrice":12300,"ct":"2016-06-03 18:39:06","cb":"df2be6fb166845f9a93179fc11a3c8e5","et":"2016-09-18 15:46:02","eb":"1","minPeople":0,"maxPeople":1,"type":1}
+[0210 17:46:07,296 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = coachMapper.b28ca76ce40c4ac69b4415e6ba670c18
+[0210 17:46:07,297 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"b28ca76ce40c4ac69b4415e6ba670c18","dgId":221,"dgName":"北京乾正隆跆拳道（朝阳店）","logo":"http://7xt8bo.com2.z0.glb.qiniucdn.com/c00ab864ad7341f8a307efcac3a03a6d.png","name":"阎肃","nick":"阎肃","sex":"男","type":"0","photos":"http://7xt8bo.com2.z0.glb.qiniucdn.com/fd4c1b99afcf42c1b313c4160cdb0ac0.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/0b71890b87384a63af1684084173edb6.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/db943c83cfce4267b493f88124ada186.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/6ed2c88a2b8d45909e3642a25d44760a.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/baab28f33d00436aabfd1672a32078a4.png","position":"教练","province":"北京市","danlevel":"黑带二段","teachyear":5,"phone":"15903531660","iscard":"1","isdan":"1","helfexper":"本人责任感强，具备专业化、系统化、较为全面的体育理论知识，体育术科基本功扎实，专业业务能力强，组织代表队参加重大比赛、参与指导全校学生课余训练和组织竞赛活动并取得优异成绩。\r\n","tearchexper":"执教以来，带领学员获得各项重大赛事冠军、亚军等多项团体荣誉。","specialty":"竞技、品势","students":150,"grade":24,"ct":"2016-05-12 17:46:52","cb":"0369e6bc11e040ac997b140a41897ebd","et":"2016-06-17 10:33:22","eb":"df2be6fb166845f9a93179fc11a3c8e5","city":"北京市","area":"朝阳区","coachNo":"10000205","areacode":"110105"}
+[0210 17:46:07,298 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = ssoUserMapper.e0c2d4edd9fb4ba5b6f2c31a44bdd914
+[0210 17:46:07,299 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"e0c2d4edd9fb4ba5b6f2c31a44bdd914","username":"13051668747","phone":"13051668747","password":"e43b64987b429ec09aba89c3f265a9ff14b24141","photo":"http://7xt8bo.com2.z0.glb.qiniucdn.com/FuUjbIDuZ3Nq2anMuEjZGSBH8Ndm","nickName":"学员","sex":"女","cardId":"","address":"北京市","property":"普通","tkdNo":"10000163","isattestation":0,"app":0,"level":0,"createUser":"e0c2d4edd9fb4ba5b6f2c31a44bdd914","updateUser":"e0c2d4edd9fb4ba5b6f2c31a44bdd914","createTime":"2016-12-09 09:31:30","updateTime":"2016-12-09 09:31:30","state":1,"activeState":1,"registTime":"2016-12-09 09:31:30","dan":"黑带九段","experience":0,"statiumId":221}
+[0210 17:46:07,300 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@26896f57]
+[0210 17:46:07,300 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==>  Preparing: select id, order_id, class_id, class_info_id, class_name, activity_id, sign_date, start_time, end_time, wait_time, price, ct, cb, et, eb, orders_type, cost_price, coach_id, activity_name, active_date, card_type, card_status, card_id, card_buy_date from oa_order_item WHERE ( order_id = ? ) 
+[0210 17:46:07,300 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==> Parameters: 1000002132(String)
+[0210 17:46:07,454 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumClassMapper.530c9b2610c14e47854fbd369d221bb8
+[0210 17:46:07,455 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"530c9b2610c14e47854fbd369d221bb8","statiumId":221,"classTitle":"竞技班","classIntroduce":"通过专业的技能指导，使学员通过阶段性的训练，增强竞技能力、竞技技巧等。","price":24000,"discount":9,"discountPrice":21600,"ct":"2016-05-12 15:39:17","cb":"0369e6bc11e040ac997b140a41897ebd","et":"2016-09-18 15:45:54","eb":"1","minPeople":5,"maxPeople":50,"type":0}
+[0210 17:46:07,456 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = coachMapper.882200262d754778828956fba2a42d0b
+[0210 17:46:07,458 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"882200262d754778828956fba2a42d0b","dgId":221,"dgName":"北京乾正隆跆拳道（朝阳店）","logo":"http://7xt8bo.com2.z0.glb.qiniucdn.com/cf73b8c60b064f929b062ef9d243bb38.png","name":"李鑫月","nick":"李鑫月","sex":"男","type":"0","photos":"http://7xt8bo.com2.z0.glb.qiniucdn.com/1caeff7d4ffb405092a0cf341881f5a0.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/fa6443fffd5948848e0cd97f3acd4a6b.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/94f322d5966a4b8c9ea14c649d39f81b.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/ae125932db45410aa7ba8e6f64929582.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/4075244b78734dddb27bf9f96afecce8.png","position":"教练","province":"北京市","danlevel":"黑带二段","teachyear":5,"phone":"18233441830","iscard":"1","isdan":"1","helfexper":"本人上课风格严肃，对待学生要求严厉，注重实践教学环节，组织代表队参加各大跆拳道赛事、参与指导全校学生课余训练和组织竞赛活动，并长期在大型场馆执教，有丰富的授课经验。","tearchexper":"带领学员参加各大赛事，获得各项团体冠军、亚军等多项傲人成绩。","specialty":"竞技、品势","students":150,"grade":90,"ct":"2016-05-12 15:37:23","cb":"0369e6bc11e040ac997b140a41897ebd","et":"2016-06-17 10:31:15","eb":"df2be6fb166845f9a93179fc11a3c8e5","city":"北京市","area":"朝阳区","coachNo":"10000204","areacode":"110105"}
+[0210 17:46:07,460 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = ssoUserMapper.e0c2d4edd9fb4ba5b6f2c31a44bdd914
+[0210 17:46:07,461 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"e0c2d4edd9fb4ba5b6f2c31a44bdd914","username":"13051668747","phone":"13051668747","password":"e43b64987b429ec09aba89c3f265a9ff14b24141","photo":"http://7xt8bo.com2.z0.glb.qiniucdn.com/FuUjbIDuZ3Nq2anMuEjZGSBH8Ndm","nickName":"学员","sex":"女","cardId":"","address":"北京市","property":"普通","tkdNo":"10000163","isattestation":0,"app":0,"level":0,"createUser":"e0c2d4edd9fb4ba5b6f2c31a44bdd914","updateUser":"e0c2d4edd9fb4ba5b6f2c31a44bdd914","createTime":"2016-12-09 09:31:30","updateTime":"2016-12-09 09:31:30","state":1,"activeState":1,"registTime":"2016-12-09 09:31:30","dan":"黑带九段","experience":0,"statiumId":221}
+[0210 17:46:07,462 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@26896f57]
+[0210 17:46:07,462 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==>  Preparing: select id, order_id, class_id, class_info_id, class_name, activity_id, sign_date, start_time, end_time, wait_time, price, ct, cb, et, eb, orders_type, cost_price, coach_id, activity_name, active_date, card_type, card_status, card_id, card_buy_date from oa_order_item WHERE ( order_id = ? ) 
+[0210 17:46:07,462 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==> Parameters: 1000002131(String)
+[0210 17:46:07,623 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumClassMapper.ad20972651174329adb7f2e21bb85dc0
+[0210 17:46:07,626 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"ad20972651174329adb7f2e21bb85dc0","statiumId":221,"classTitle":"私教课","classIntroduce":"对于选手针对性的指导，提高技能和表演的观赏性，使选手的能力得到提高。","price":24000,"discount":0,"discountPrice":12300,"ct":"2016-06-03 18:39:06","cb":"df2be6fb166845f9a93179fc11a3c8e5","et":"2016-09-18 15:46:02","eb":"1","minPeople":0,"maxPeople":1,"type":1}
+[0210 17:46:07,628 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = coachMapper.882200262d754778828956fba2a42d0b
+[0210 17:46:07,629 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"882200262d754778828956fba2a42d0b","dgId":221,"dgName":"北京乾正隆跆拳道（朝阳店）","logo":"http://7xt8bo.com2.z0.glb.qiniucdn.com/cf73b8c60b064f929b062ef9d243bb38.png","name":"李鑫月","nick":"李鑫月","sex":"男","type":"0","photos":"http://7xt8bo.com2.z0.glb.qiniucdn.com/1caeff7d4ffb405092a0cf341881f5a0.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/fa6443fffd5948848e0cd97f3acd4a6b.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/94f322d5966a4b8c9ea14c649d39f81b.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/ae125932db45410aa7ba8e6f64929582.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/4075244b78734dddb27bf9f96afecce8.png","position":"教练","province":"北京市","danlevel":"黑带二段","teachyear":5,"phone":"18233441830","iscard":"1","isdan":"1","helfexper":"本人上课风格严肃，对待学生要求严厉，注重实践教学环节，组织代表队参加各大跆拳道赛事、参与指导全校学生课余训练和组织竞赛活动，并长期在大型场馆执教，有丰富的授课经验。","tearchexper":"带领学员参加各大赛事，获得各项团体冠军、亚军等多项傲人成绩。","specialty":"竞技、品势","students":150,"grade":90,"ct":"2016-05-12 15:37:23","cb":"0369e6bc11e040ac997b140a41897ebd","et":"2016-06-17 10:31:15","eb":"df2be6fb166845f9a93179fc11a3c8e5","city":"北京市","area":"朝阳区","coachNo":"10000204","areacode":"110105"}
+[0210 17:46:07,632 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = ssoUserMapper.e0c2d4edd9fb4ba5b6f2c31a44bdd914
+[0210 17:46:07,635 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"e0c2d4edd9fb4ba5b6f2c31a44bdd914","username":"13051668747","phone":"13051668747","password":"e43b64987b429ec09aba89c3f265a9ff14b24141","photo":"http://7xt8bo.com2.z0.glb.qiniucdn.com/FuUjbIDuZ3Nq2anMuEjZGSBH8Ndm","nickName":"学员","sex":"女","cardId":"","address":"北京市","property":"普通","tkdNo":"10000163","isattestation":0,"app":0,"level":0,"createUser":"e0c2d4edd9fb4ba5b6f2c31a44bdd914","updateUser":"e0c2d4edd9fb4ba5b6f2c31a44bdd914","createTime":"2016-12-09 09:31:30","updateTime":"2016-12-09 09:31:30","state":1,"activeState":1,"registTime":"2016-12-09 09:31:30","dan":"黑带九段","experience":0,"statiumId":221}
+[0210 17:46:07,636 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@26896f57]
+[0210 17:46:07,636 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==>  Preparing: select id, order_id, class_id, class_info_id, class_name, activity_id, sign_date, start_time, end_time, wait_time, price, ct, cb, et, eb, orders_type, cost_price, coach_id, activity_name, active_date, card_type, card_status, card_id, card_buy_date from oa_order_item WHERE ( order_id = ? ) 
+[0210 17:46:07,636 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==> Parameters: 1000002130(String)
+[0210 17:46:07,797 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = ssoUserMapper.0ae02cd169374f87af2a0226ee47f7b3
+[0210 17:46:07,798 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"0ae02cd169374f87af2a0226ee47f7b3","username":"18310116990","phone":"18310116990","password":"e43b64987b429ec09aba89c3f265a9ff14b24141","email":"","photo":"http://7xt8bo.com2.z0.glb.qiniucdn.com/FhSeKT2eQsP3upEVYDp68x9wpgGZ","nickName":"你好","sex":"男","cardId":"612425199209280011","address":"北京市","property":"普通","name":"薄荷","tkdNo":"10000040","isattestation":0,"app":0,"level":0,"createUser":"0ae02cd169374f87af2a0226ee47f7b3","updateUser":"0ae02cd169374f87af2a0226ee47f7b3","createTime":"2016-05-18 10:31:45","updateTime":"2016-08-26 00:00:00","state":1,"city":"","activeState":1,"registTime":"2016-05-18 10:31:45","dan":"黑带八段","experience":0,"statiumId":221}
+[0210 17:46:07,799 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@26896f57]
+[0210 17:46:07,799 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==>  Preparing: select id, order_id, class_id, class_info_id, class_name, activity_id, sign_date, start_time, end_time, wait_time, price, ct, cb, et, eb, orders_type, cost_price, coach_id, activity_name, active_date, card_type, card_status, card_id, card_buy_date from oa_order_item WHERE ( order_id = ? ) 
+[0210 17:46:07,800 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==> Parameters: 1000002129(String)
+[0210 17:46:07,964 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumClassMapper.ad20972651174329adb7f2e21bb85dc0
+[0210 17:46:07,965 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"ad20972651174329adb7f2e21bb85dc0","statiumId":221,"classTitle":"私教课","classIntroduce":"对于选手针对性的指导，提高技能和表演的观赏性，使选手的能力得到提高。","price":24000,"discount":0,"discountPrice":12300,"ct":"2016-06-03 18:39:06","cb":"df2be6fb166845f9a93179fc11a3c8e5","et":"2016-09-18 15:46:02","eb":"1","minPeople":0,"maxPeople":1,"type":1}
+[0210 17:46:07,967 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = coachMapper.7cc179c7d0314411a619cd65f35c1874
+[0210 17:46:07,968 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"7cc179c7d0314411a619cd65f35c1874","dgId":221,"dgName":"北京乾正隆跆拳道（朝阳店）","logo":"http://7xt8bo.com2.z0.glb.qiniucdn.com/11a4628bc89f44f79c8db0f89c3d8f8f.png","name":"洪万祥","nick":"洪万祥","sex":"男","type":"1","photos":"http://7xt8bo.com2.z0.glb.qiniucdn.com/b8af28c0b805405d9b2f568925156f94.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/dcc1f8f2869046dd9ab45d7dc061456d.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/613c90e5c74543f3957e5723bec50171.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/9168d9b27d8a47f4916f12d9da0b6652.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/6e064d312d89429189bbf6635148354d.png","position":"主教练","province":"北京市","danlevel":"黑带三段","teachyear":11,"phone":"13811446614","iscard":"1","isdan":"1","helfexper":"\t2004年首届“博力杯”跆拳道武道竞技大赛中获得男子56kg冠军\r\n\t2004年获得中韩跆拳道技术交流赛中个人品势第二名\r\n\t2005年获得北京市“跆协杯”跆拳道竞技比赛青少组58kg冠军\r\n\t2006年获得首届跆拳道特技交流大会自创特技组“特技新星”称号\r\n\t2011年担任乾正隆跆拳道山西馆馆长\r\n\t2012年担任乾正隆跆拳道大连馆馆长\r\n\t2013年参与中国首部跆拳道题材大型情景剧《我的青春道馆》的拍摄\r\n\t2013年百度世界大会作为安全顾问负责VVIP人员贴身安全\r\n\t2013年至今担任乾正隆跆拳道北京馆馆长\r\n\t2014年至今担任北京市广渠门中学青少年体育俱乐部跆拳道项目技术顾问\r\n\t2014跆拳道晋级考试官跆拳道大众裁判员 跆拳道高级教练员\r\n\t2015世界跆拳道教练员 现任乾正隆跆拳道总馆长\r\n擅长：跆拳道竞技技术提高、品势技术提高、击破技术提高、比赛、晋级晋级考前辅导提高跆拳道裁判员知识培训、跆拳道、跆拳道教练员培训、跆拳道道馆培训\r\n\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t","tearchexper":"    从事跆拳道运动训练跆拳道文化、担任百度世界大会作为安全顾问负责VVIP人员贴身安全。2016年“国技院杯”全国跆拳道邀请赛，带领团体获得多项赛事冠军，个人冠军等。\r\n\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t","specialty":"竞技、品势","students":400,"grade":122,"ct":"2016-05-12 15:34:11","cb":"0369e6bc11e040ac997b140a41897ebd","et":"2016-12-19 17:13:31","eb":"4854c04bf5434f578426167851b54262","city":"北京市","area":"朝阳区","coachNo":"10000208","areacode":"110105"}
+[0210 17:46:07,971 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = ssoUserMapper.0ae02cd169374f87af2a0226ee47f7b3
+[0210 17:46:07,971 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"0ae02cd169374f87af2a0226ee47f7b3","username":"18310116990","phone":"18310116990","password":"e43b64987b429ec09aba89c3f265a9ff14b24141","email":"","photo":"http://7xt8bo.com2.z0.glb.qiniucdn.com/FhSeKT2eQsP3upEVYDp68x9wpgGZ","nickName":"你好","sex":"男","cardId":"612425199209280011","address":"北京市","property":"普通","name":"薄荷","tkdNo":"10000040","isattestation":0,"app":0,"level":0,"createUser":"0ae02cd169374f87af2a0226ee47f7b3","updateUser":"0ae02cd169374f87af2a0226ee47f7b3","createTime":"2016-05-18 10:31:45","updateTime":"2016-08-26 00:00:00","state":1,"city":"","activeState":1,"registTime":"2016-05-18 10:31:45","dan":"黑带八段","experience":0,"statiumId":221}
+[0210 17:46:07,972 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@26896f57]
+[0210 17:46:07,972 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==>  Preparing: select id, order_id, class_id, class_info_id, class_name, activity_id, sign_date, start_time, end_time, wait_time, price, ct, cb, et, eb, orders_type, cost_price, coach_id, activity_name, active_date, card_type, card_status, card_id, card_buy_date from oa_order_item WHERE ( order_id = ? ) 
+[0210 17:46:07,973 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==> Parameters: 1000002128(String)
+[0210 17:46:08,893 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumClassMapper.ad20972651174329adb7f2e21bb85dc0
+[0210 17:46:08,895 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"ad20972651174329adb7f2e21bb85dc0","statiumId":221,"classTitle":"私教课","classIntroduce":"对于选手针对性的指导，提高技能和表演的观赏性，使选手的能力得到提高。","price":24000,"discount":0,"discountPrice":12300,"ct":"2016-06-03 18:39:06","cb":"df2be6fb166845f9a93179fc11a3c8e5","et":"2016-09-18 15:46:02","eb":"1","minPeople":0,"maxPeople":1,"type":1}
+[0210 17:46:08,899 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = coachMapper.7cc179c7d0314411a619cd65f35c1874
+[0210 17:46:08,899 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"7cc179c7d0314411a619cd65f35c1874","dgId":221,"dgName":"北京乾正隆跆拳道（朝阳店）","logo":"http://7xt8bo.com2.z0.glb.qiniucdn.com/11a4628bc89f44f79c8db0f89c3d8f8f.png","name":"洪万祥","nick":"洪万祥","sex":"男","type":"1","photos":"http://7xt8bo.com2.z0.glb.qiniucdn.com/b8af28c0b805405d9b2f568925156f94.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/dcc1f8f2869046dd9ab45d7dc061456d.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/613c90e5c74543f3957e5723bec50171.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/9168d9b27d8a47f4916f12d9da0b6652.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/6e064d312d89429189bbf6635148354d.png","position":"主教练","province":"北京市","danlevel":"黑带三段","teachyear":11,"phone":"13811446614","iscard":"1","isdan":"1","helfexper":"\t2004年首届“博力杯”跆拳道武道竞技大赛中获得男子56kg冠军\r\n\t2004年获得中韩跆拳道技术交流赛中个人品势第二名\r\n\t2005年获得北京市“跆协杯”跆拳道竞技比赛青少组58kg冠军\r\n\t2006年获得首届跆拳道特技交流大会自创特技组“特技新星”称号\r\n\t2011年担任乾正隆跆拳道山西馆馆长\r\n\t2012年担任乾正隆跆拳道大连馆馆长\r\n\t2013年参与中国首部跆拳道题材大型情景剧《我的青春道馆》的拍摄\r\n\t2013年百度世界大会作为安全顾问负责VVIP人员贴身安全\r\n\t2013年至今担任乾正隆跆拳道北京馆馆长\r\n\t2014年至今担任北京市广渠门中学青少年体育俱乐部跆拳道项目技术顾问\r\n\t2014跆拳道晋级考试官跆拳道大众裁判员 跆拳道高级教练员\r\n\t2015世界跆拳道教练员 现任乾正隆跆拳道总馆长\r\n擅长：跆拳道竞技技术提高、品势技术提高、击破技术提高、比赛、晋级晋级考前辅导提高跆拳道裁判员知识培训、跆拳道、跆拳道教练员培训、跆拳道道馆培训\r\n\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t","tearchexper":"    从事跆拳道运动训练跆拳道文化、担任百度世界大会作为安全顾问负责VVIP人员贴身安全。2016年“国技院杯”全国跆拳道邀请赛，带领团体获得多项赛事冠军，个人冠军等。\r\n\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t","specialty":"竞技、品势","students":400,"grade":122,"ct":"2016-05-12 15:34:11","cb":"0369e6bc11e040ac997b140a41897ebd","et":"2016-12-19 17:13:31","eb":"4854c04bf5434f578426167851b54262","city":"北京市","area":"朝阳区","coachNo":"10000208","areacode":"110105"}
+[0210 17:46:08,902 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = ssoUserMapper.0ae02cd169374f87af2a0226ee47f7b3
+[0210 17:46:08,902 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"0ae02cd169374f87af2a0226ee47f7b3","username":"18310116990","phone":"18310116990","password":"e43b64987b429ec09aba89c3f265a9ff14b24141","email":"","photo":"http://7xt8bo.com2.z0.glb.qiniucdn.com/FhSeKT2eQsP3upEVYDp68x9wpgGZ","nickName":"你好","sex":"男","cardId":"612425199209280011","address":"北京市","property":"普通","name":"薄荷","tkdNo":"10000040","isattestation":0,"app":0,"level":0,"createUser":"0ae02cd169374f87af2a0226ee47f7b3","updateUser":"0ae02cd169374f87af2a0226ee47f7b3","createTime":"2016-05-18 10:31:45","updateTime":"2016-08-26 00:00:00","state":1,"city":"","activeState":1,"registTime":"2016-05-18 10:31:45","dan":"黑带八段","experience":0,"statiumId":221}
+[0210 17:46:08,903 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@26896f57]
+[0210 17:46:08,903 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==>  Preparing: select id, order_id, class_id, class_info_id, class_name, activity_id, sign_date, start_time, end_time, wait_time, price, ct, cb, et, eb, orders_type, cost_price, coach_id, activity_name, active_date, card_type, card_status, card_id, card_buy_date from oa_order_item WHERE ( order_id = ? ) 
+[0210 17:46:08,904 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==> Parameters: 1000002127(String)
+[0210 17:46:11,896 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumInfosMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@5e77533b]
+[0210 17:46:11,896 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumInfosMapper.selectByExample - ==>  Preparing: select id, dg_name, dg_id, photos, remark, lng, lat, address, contact, tel, province, city, area, areacode, salecount, starttime, endtime, logo, ct, cb, et, eb, recommend, service_tel, bank_account_name, bank_account_no, bank_account_branch_name, status, grade, qr_code from oa_statium_infos WHERE ( dg_id = ? ) 
+[0210 17:46:11,897 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumInfosMapper.selectByExample - ==> Parameters: 221(Integer)
+[0210 17:46:18,012 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0210 17:46:18,012 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0210 17:46:18,181 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - {EQ_statiumId=221}
+[0210 17:46:18,190 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - select 
+	count(DISTINCT o.id) 	as cont
+from 
+	oa_order o left join oa_order_item i on o.id=i.order_id
+where 
+	o.statium_id = '221'
+	and o.orders_type in (0 , 1)
+		and o.order_type = 'BOOK_APP'
+		and o.status in 
+		(
+				'ORDER_PAIED',
+				'ORDER_SIGN'
+		)
+
+[0210 17:46:18,190 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - {statiumId=221, statusIn=[Ljava.lang.String;@58d51629, order_type=BOOK_APP}
+[0210 17:46:18,379 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - select 
+DISTINCT
+	o.id 			as id,
+	o.ct 			as ct,
+	o.fee 			as fee,
+	o.final_fee 	as finalFee,
+	o.reason 		as reason,
+	o.order_type	as orderType,
+	o.user_id 	    as userId,
+	o.status 		as status,
+	o.et 			as et,
+	o.orders_type   as ordersType,
+	o.eb			as eb
+from 
+	oa_order o left join oa_order_item i on o.id=i.order_id
+where 
+	o.statium_id = '221'
+	and o.orders_type in (0 , 1)
+	and o.order_type = 'BOOK_APP'
+	and o.status in
+	(
+		'ORDER_PAIED',
+		'ORDER_SIGN'
+	)
+	order by o.et asc, i.sign_date asc, start_time asc
+		limit 
+		0, 10
+
+[0210 17:46:18,380 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - {statiumId=221, pageSize=10, statusIn=[Ljava.lang.String;@58d51629, offset=0, order_type=BOOK_APP}
+[0210 17:46:19,187 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@483057c6]
+[0210 17:46:19,189 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassMapper.selectByExample - ==>  Preparing: select id, statium_id, class_title, class_introduce, price, discount, discount_price, limit_price, ct, cb, et, eb, min_people, max_people, type from oa_statium_class WHERE ( statium_id = ? ) 
+[0210 17:46:19,190 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassMapper.selectByExample - ==> Parameters: 221(Integer)
+[0210 17:46:19,360 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@483057c6]
+[0210 17:46:19,360 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:46:19,361 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 1f09c145f5cf4db6a95e70f8fe3a26dc(String)
+[0210 17:46:19,518 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@483057c6]
+[0210 17:46:19,518 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:46:19,519 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 3dd7724365c846e6874a6dfc139dec37(String)
+[0210 17:46:19,680 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@483057c6]
+[0210 17:46:19,681 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:46:19,682 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 443d4109657e4d38a19e4306c950894d(String)
+[0210 17:46:19,843 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@483057c6]
+[0210 17:46:19,843 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:46:19,844 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 530c9b2610c14e47854fbd369d221bb8(String)
+[0210 17:46:20,001 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@483057c6]
+[0210 17:46:20,001 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:46:20,002 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 5455bbf95a7b4d3d87720d8ce04e6b44(String)
+[0210 17:46:20,155 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@483057c6]
+[0210 17:46:20,155 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:46:20,156 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), ad20972651174329adb7f2e21bb85dc0(String)
+[0210 17:46:20,795 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumInfosMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@19e99c0f]
+[0210 17:46:20,795 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumInfosMapper.selectByExample - ==>  Preparing: select id, dg_name, dg_id, photos, remark, lng, lat, address, contact, tel, province, city, area, areacode, salecount, starttime, endtime, logo, ct, cb, et, eb, recommend, service_tel, bank_account_name, bank_account_no, bank_account_branch_name, status, grade, qr_code from oa_statium_infos WHERE ( dg_id = ? ) 
+[0210 17:46:20,796 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumInfosMapper.selectByExample - ==> Parameters: 221(Integer)
+[0210 17:46:47,780 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0210 17:46:47,780 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0210 17:46:47,935 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - {EQ_statiumId=221}
+[0210 17:46:47,939 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - select 
+	count(DISTINCT o.id) 	as cont
+from 
+	oa_order o left join oa_order_item i on o.id=i.order_id
+where 
+	o.statium_id = '221'
+	and o.orders_type in (0 , 1)
+		and o.order_type = 'BOOK_APP'
+		and o.status in 
+		(
+				'ORDER_PAIED',
+				'ORDER_SIGN'
+		)
+
+[0210 17:46:47,939 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - {statiumId=221, statusIn=[Ljava.lang.String;@7c888fc7, order_type=BOOK_APP}
+[0210 17:46:48,102 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - select 
+DISTINCT
+	o.id 			as id,
+	o.ct 			as ct,
+	o.fee 			as fee,
+	o.final_fee 	as finalFee,
+	o.reason 		as reason,
+	o.order_type	as orderType,
+	o.user_id 	    as userId,
+	o.status 		as status,
+	o.et 			as et,
+	o.orders_type   as ordersType,
+	o.eb			as eb
+from 
+	oa_order o left join oa_order_item i on o.id=i.order_id
+where 
+	o.statium_id = '221'
+	and o.orders_type in (0 , 1)
+	and o.order_type = 'BOOK_APP'
+	and o.status in
+	(
+		'ORDER_PAIED',
+		'ORDER_SIGN'
+	)
+	order by o.et asc, i.sign_date asc, start_time asc
+		limit 
+		0, 10
+
+[0210 17:46:48,102 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - {statiumId=221, pageSize=10, statusIn=[Ljava.lang.String;@7c888fc7, offset=0, order_type=BOOK_APP}
+[0210 17:46:48,715 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@e1daa34]
+[0210 17:46:48,716 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassMapper.selectByExample - ==>  Preparing: select id, statium_id, class_title, class_introduce, price, discount, discount_price, limit_price, ct, cb, et, eb, min_people, max_people, type from oa_statium_class WHERE ( statium_id = ? ) 
+[0210 17:46:48,716 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassMapper.selectByExample - ==> Parameters: 221(Integer)
+[0210 17:46:48,876 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@e1daa34]
+[0210 17:46:48,876 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:46:48,877 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 1f09c145f5cf4db6a95e70f8fe3a26dc(String)
+[0210 17:46:49,031 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@e1daa34]
+[0210 17:46:49,031 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:46:49,033 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 3dd7724365c846e6874a6dfc139dec37(String)
+[0210 17:46:49,183 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@e1daa34]
+[0210 17:46:49,183 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:46:49,184 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 443d4109657e4d38a19e4306c950894d(String)
+[0210 17:46:49,334 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@e1daa34]
+[0210 17:46:49,334 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:46:49,335 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 530c9b2610c14e47854fbd369d221bb8(String)
+[0210 17:46:49,483 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@e1daa34]
+[0210 17:46:49,484 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:46:49,484 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 5455bbf95a7b4d3d87720d8ce04e6b44(String)
+[0210 17:46:49,633 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@e1daa34]
+[0210 17:46:49,633 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:46:49,634 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), ad20972651174329adb7f2e21bb85dc0(String)
+[0210 17:46:50,245 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumInfosMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@77723e8]
+[0210 17:46:50,245 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumInfosMapper.selectByExample - ==>  Preparing: select id, dg_name, dg_id, photos, remark, lng, lat, address, contact, tel, province, city, area, areacode, salecount, starttime, endtime, logo, ct, cb, et, eb, recommend, service_tel, bank_account_name, bank_account_no, bank_account_branch_name, status, grade, qr_code from oa_statium_infos WHERE ( dg_id = ? ) 
+[0210 17:46:50,246 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumInfosMapper.selectByExample - ==> Parameters: 221(Integer)
+[0210 17:48:17,852 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0210 17:48:17,853 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0210 17:48:18,010 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - {EQ_statiumId=221}
+[0210 17:48:18,014 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - select 
+	count(DISTINCT o.id) 	as cont
+from 
+	oa_order o left join oa_order_item i on o.id=i.order_id
+where 
+	o.statium_id = '221'
+	and o.orders_type in (0 , 1)
+		and o.order_type = 'BOOK_APP'
+		and o.status in 
+		(
+				'ORDER_PAIED',
+				'ORDER_SIGN'
+		)
+
+[0210 17:48:18,014 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - {statiumId=221, statusIn=[Ljava.lang.String;@46d40021, order_type=BOOK_APP}
+[0210 17:48:18,180 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - select 
+DISTINCT
+	o.id 			as id,
+	o.ct 			as ct,
+	o.fee 			as fee,
+	o.final_fee 	as finalFee,
+	o.reason 		as reason,
+	o.order_type	as orderType,
+	o.user_id 	    as userId,
+	o.status 		as status,
+	o.et 			as et,
+	o.orders_type   as ordersType,
+	o.eb			as eb
+from 
+	oa_order o left join oa_order_item i on o.id=i.order_id
+where 
+	o.statium_id = '221'
+	and o.orders_type in (0 , 1)
+	and o.order_type = 'BOOK_APP'
+	and o.status in
+	(
+		'ORDER_PAIED',
+		'ORDER_SIGN'
+	)
+	order by o.et asc, i.sign_date asc, start_time asc
+		limit 
+		0, 10
+
+[0210 17:48:18,180 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - {statiumId=221, pageSize=10, statusIn=[Ljava.lang.String;@46d40021, offset=0, order_type=BOOK_APP}
+[0210 17:48:18,778 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@14ca7473]
+[0210 17:48:18,778 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassMapper.selectByExample - ==>  Preparing: select id, statium_id, class_title, class_introduce, price, discount, discount_price, limit_price, ct, cb, et, eb, min_people, max_people, type from oa_statium_class WHERE ( statium_id = ? ) 
+[0210 17:48:18,778 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassMapper.selectByExample - ==> Parameters: 221(Integer)
+[0210 17:48:18,934 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@14ca7473]
+[0210 17:48:18,934 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:48:18,934 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 1f09c145f5cf4db6a95e70f8fe3a26dc(String)
+[0210 17:48:19,083 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@14ca7473]
+[0210 17:48:19,083 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:48:19,084 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 3dd7724365c846e6874a6dfc139dec37(String)
+[0210 17:48:19,230 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@14ca7473]
+[0210 17:48:19,230 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:48:19,230 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 443d4109657e4d38a19e4306c950894d(String)
+[0210 17:48:19,378 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@14ca7473]
+[0210 17:48:19,379 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:48:19,379 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 530c9b2610c14e47854fbd369d221bb8(String)
+[0210 17:48:19,525 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@14ca7473]
+[0210 17:48:19,526 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:48:19,528 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 5455bbf95a7b4d3d87720d8ce04e6b44(String)
+[0210 17:48:19,672 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@14ca7473]
+[0210 17:48:19,672 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:48:19,673 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), ad20972651174329adb7f2e21bb85dc0(String)
+[0210 17:48:20,264 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumInfosMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@7dec690c]
+[0210 17:48:20,264 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumInfosMapper.selectByExample - ==>  Preparing: select id, dg_name, dg_id, photos, remark, lng, lat, address, contact, tel, province, city, area, areacode, salecount, starttime, endtime, logo, ct, cb, et, eb, recommend, service_tel, bank_account_name, bank_account_no, bank_account_branch_name, status, grade, qr_code from oa_statium_infos WHERE ( dg_id = ? ) 
+[0210 17:48:20,264 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumInfosMapper.selectByExample - ==> Parameters: 221(Integer)
+[0210 17:49:16,634 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0210 17:49:16,635 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0210 17:49:16,804 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - {EQ_statiumId=221}
+[0210 17:49:16,808 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - select 
+	count(DISTINCT o.id) 	as cont
+from 
+	oa_order o left join oa_order_item i on o.id=i.order_id
+where 
+	o.statium_id = '221'
+	and o.orders_type in (0 , 1)
+		and o.order_type = 'BOOK_APP'
+		and o.status in 
+		(
+				'ORDER_PAIED',
+				'ORDER_SIGN'
+		)
+
+[0210 17:49:16,808 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - {statiumId=221, statusIn=[Ljava.lang.String;@3b2f1977, order_type=BOOK_APP}
+[0210 17:49:16,982 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - select 
+DISTINCT
+	o.id 			as id,
+	o.ct 			as ct,
+	o.fee 			as fee,
+	o.final_fee 	as finalFee,
+	o.reason 		as reason,
+	o.order_type	as orderType,
+	o.user_id 	    as userId,
+	o.status 		as status,
+	o.et 			as et,
+	o.orders_type   as ordersType,
+	o.eb			as eb
+from 
+	oa_order o left join oa_order_item i on o.id=i.order_id
+where 
+	o.statium_id = '221'
+	and o.orders_type in (0 , 1)
+	and o.order_type = 'BOOK_APP'
+	and o.status in
+	(
+		'ORDER_PAIED',
+		'ORDER_SIGN'
+	)
+	order by o.et asc, i.sign_date asc, start_time asc
+		limit 
+		0, 10
+
+[0210 17:49:16,982 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - {statiumId=221, pageSize=10, statusIn=[Ljava.lang.String;@3b2f1977, offset=0, order_type=BOOK_APP}
+[0210 17:49:17,655 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@312d2b53]
+[0210 17:49:17,656 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassMapper.selectByExample - ==>  Preparing: select id, statium_id, class_title, class_introduce, price, discount, discount_price, limit_price, ct, cb, et, eb, min_people, max_people, type from oa_statium_class WHERE ( statium_id = ? ) 
+[0210 17:49:17,656 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassMapper.selectByExample - ==> Parameters: 221(Integer)
+[0210 17:49:17,828 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@312d2b53]
+[0210 17:49:17,828 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:49:17,829 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 1f09c145f5cf4db6a95e70f8fe3a26dc(String)
+[0210 17:49:18,004 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@312d2b53]
+[0210 17:49:18,004 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:49:18,005 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 3dd7724365c846e6874a6dfc139dec37(String)
+[0210 17:49:18,158 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@312d2b53]
+[0210 17:49:18,158 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:49:18,159 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 443d4109657e4d38a19e4306c950894d(String)
+[0210 17:49:18,318 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@312d2b53]
+[0210 17:49:18,318 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:49:18,320 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 530c9b2610c14e47854fbd369d221bb8(String)
+[0210 17:49:18,477 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@312d2b53]
+[0210 17:49:18,477 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:49:18,477 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 5455bbf95a7b4d3d87720d8ce04e6b44(String)
+[0210 17:49:19,022 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@312d2b53]
+[0210 17:49:19,022 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:49:19,023 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), ad20972651174329adb7f2e21bb85dc0(String)
+[0210 17:49:19,669 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumInfosMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@36bd9eb4]
+[0210 17:49:19,669 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumInfosMapper.selectByExample - ==>  Preparing: select id, dg_name, dg_id, photos, remark, lng, lat, address, contact, tel, province, city, area, areacode, salecount, starttime, endtime, logo, ct, cb, et, eb, recommend, service_tel, bank_account_name, bank_account_no, bank_account_branch_name, status, grade, qr_code from oa_statium_infos WHERE ( dg_id = ? ) 
+[0210 17:49:19,670 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumInfosMapper.selectByExample - ==> Parameters: 221(Integer)
+[0210 17:49:27,064 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0210 17:49:27,065 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0210 17:49:27,657 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - {EQ_statiumId=221}
+[0210 17:49:27,665 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - select 
+	count(DISTINCT o.id) 	as cont
+from 
+	oa_order o left join oa_order_item i on o.id=i.order_id
+where 
+	o.statium_id = '221'
+	and o.orders_type in (0 , 1)
+		and o.order_type = 'BOOK_APP'
+		and o.status in 
+		(
+				'ORDER_PAIED',
+				'ORDER_SIGN'
+		)
+
+[0210 17:49:27,665 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - {statiumId=221, statusIn=[Ljava.lang.String;@ee524bd, order_type=BOOK_APP}
+[0210 17:49:27,827 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - select 
+DISTINCT
+	o.id 			as id,
+	o.ct 			as ct,
+	o.fee 			as fee,
+	o.final_fee 	as finalFee,
+	o.reason 		as reason,
+	o.order_type	as orderType,
+	o.user_id 	    as userId,
+	o.status 		as status,
+	o.et 			as et,
+	o.orders_type   as ordersType,
+	o.eb			as eb
+from 
+	oa_order o left join oa_order_item i on o.id=i.order_id
+where 
+	o.statium_id = '221'
+	and o.orders_type in (0 , 1)
+	and o.order_type = 'BOOK_APP'
+	and o.status in
+	(
+		'ORDER_PAIED',
+		'ORDER_SIGN'
+	)
+	order by o.et asc, i.sign_date asc, start_time asc
+		limit 
+		0, 10
+
+[0210 17:49:27,827 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.crm.framework.system.cardPay.service.CardPayManageService - {statiumId=221, pageSize=10, statusIn=[Ljava.lang.String;@ee524bd, offset=0, order_type=BOOK_APP}
+[0210 17:49:28,448 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@68eef86d]
+[0210 17:49:28,448 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassMapper.selectByExample - ==>  Preparing: select id, statium_id, class_title, class_introduce, price, discount, discount_price, limit_price, ct, cb, et, eb, min_people, max_people, type from oa_statium_class WHERE ( statium_id = ? ) 
+[0210 17:49:28,448 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassMapper.selectByExample - ==> Parameters: 221(Integer)
+[0210 17:49:28,611 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@68eef86d]
+[0210 17:49:28,611 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:49:28,612 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 1f09c145f5cf4db6a95e70f8fe3a26dc(String)
+[0210 17:49:28,770 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@68eef86d]
+[0210 17:49:28,770 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:49:28,771 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 3dd7724365c846e6874a6dfc139dec37(String)
+[0210 17:49:28,931 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@68eef86d]
+[0210 17:49:28,932 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:49:28,932 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 443d4109657e4d38a19e4306c950894d(String)
+[0210 17:49:29,093 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@68eef86d]
+[0210 17:49:29,093 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:49:29,093 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 530c9b2610c14e47854fbd369d221bb8(String)
+[0210 17:49:29,254 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@68eef86d]
+[0210 17:49:29,255 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:49:29,255 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), 5455bbf95a7b4d3d87720d8ce04e6b44(String)
+[0210 17:49:29,414 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@68eef86d]
+[0210 17:49:29,414 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==>  Preparing: select id, class_id, coach_id, coach_name, class_date, class_start_time, class_end_time, ct, cb, et, eb from oa_statium_class_info WHERE ( class_date = ? and class_id = ? ) order by class_start_time asc 
+[0210 17:49:29,414 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumClassInfoMapper.selectByExample - ==> Parameters: 2017-02-10(Date), ad20972651174329adb7f2e21bb85dc0(String)
+[0210 17:49:30,019 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumInfosMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@2d068602]
+[0210 17:49:30,019 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumInfosMapper.selectByExample - ==>  Preparing: select id, dg_name, dg_id, photos, remark, lng, lat, address, contact, tel, province, city, area, areacode, salecount, starttime, endtime, logo, ct, cb, et, eb, recommend, service_tel, bank_account_name, bank_account_no, bank_account_branch_name, status, grade, qr_code from oa_statium_infos WHERE ( dg_id = ? ) 
+[0210 17:49:30,020 DEBUG] [329386645@qtp-860816123-5] com.lc.zy.ball.domain.oa.mapper.StatiumInfosMapper.selectByExample - ==> Parameters: 221(Integer)

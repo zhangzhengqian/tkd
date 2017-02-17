@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lc.zy.ball.domain.oa.mapper.CrmCardLogMapper" >
+  <resultMap id="BaseResultMap" type="com.lc.zy.ball.domain.oa.po.CrmCardLog" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="statium_id" property="statiumId" jdbcType="INTEGER" />
+    <result column="card_id" property="cardId" jdbcType="VARCHAR" />
+    <result column="card_type" property="cardType" jdbcType="INTEGER" />
+    <result column="amount" property="amount" jdbcType="INTEGER" />
+    <result column="gift_amount" property="giftAmount" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="ct" property="ct" jdbcType="TIMESTAMP" />
+    <result column="cb" property="cb" jdbcType="VARCHAR" />
+    <result column="buy_type" property="buyType" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, user_id, statium_id, card_id, card_type, amount, gift_amount, type, ct, cb, buy_type
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lc.zy.ball.domain.oa.po.CrmCardLogCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from crm_card_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="mysqlOffset != null and mysqlLength != null" >
+      <![CDATA[ limit #{mysqlOffset} , #{mysqlLength} ]]>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from crm_card_log
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from crm_card_log
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lc.zy.ball.domain.oa.po.CrmCardLogCriteria" >
+    delete from crm_card_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lc.zy.ball.domain.oa.po.CrmCardLog" >
+    insert into crm_card_log (id, user_id, statium_id, card_id, card_type, amount, gift_amount, 
+      type, ct, cb, buy_type)
+    values (#{id}, #{userId}, #{statiumId}, #{cardId}, #{cardType}, #{amount}, #{giftAmount}, 
+      #{type}, #{ct}, #{cb}, #{buyType})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lc.zy.ball.domain.oa.po.CrmCardLog" >
+    insert into crm_card_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="statiumId != null" >
+        statium_id,
+      </if>
+      <if test="cardId != null" >
+        card_id,
+      </if>
+      <if test="cardType != null" >
+        card_type,
+      </if>
+      <if test="amount != null" >
+        amount,
+      </if>
+      <if test="giftAmount != null" >
+        gift_amount,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="ct != null" >
+        ct,
+      </if>
+      <if test="cb != null" >
+        cb,
+      </if>
+      <if test="buyType != null" >
+        buy_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="userId != null" >
+        #{userId},
+      </if>
+      <if test="statiumId != null" >
+        #{statiumId},
+      </if>
+      <if test="cardId != null" >
+        #{cardId},
+      </if>
+      <if test="cardType != null" >
+        #{cardType},
+      </if>
+      <if test="amount != null" >
+        #{amount},
+      </if>
+      <if test="giftAmount != null" >
+        #{giftAmount},
+      </if>
+      <if test="type != null" >
+        #{type},
+      </if>
+      <if test="ct != null" >
+        #{ct},
+      </if>
+      <if test="cb != null" >
+        #{cb},
+      </if>
+      <if test="buyType != null" >
+        #{buyType},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lc.zy.ball.domain.oa.po.CrmCardLogCriteria" resultType="java.lang.Integer" >
+    select count(*) from crm_card_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update crm_card_log
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId},
+      </if>
+      <if test="record.statiumId != null" >
+        statium_id = #{record.statiumId},
+      </if>
+      <if test="record.cardId != null" >
+        card_id = #{record.cardId},
+      </if>
+      <if test="record.cardType != null" >
+        card_type = #{record.cardType},
+      </if>
+      <if test="record.amount != null" >
+        amount = #{record.amount},
+      </if>
+      <if test="record.giftAmount != null" >
+        gift_amount = #{record.giftAmount},
+      </if>
+      <if test="record.type != null" >
+        type = #{record.type},
+      </if>
+      <if test="record.ct != null" >
+        ct = #{record.ct},
+      </if>
+      <if test="record.cb != null" >
+        cb = #{record.cb},
+      </if>
+      <if test="record.buyType != null" >
+        buy_type = #{record.buyType},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update crm_card_log
+    set id = #{record.id},
+      user_id = #{record.userId},
+      statium_id = #{record.statiumId},
+      card_id = #{record.cardId},
+      card_type = #{record.cardType},
+      amount = #{record.amount},
+      gift_amount = #{record.giftAmount},
+      type = #{record.type},
+      ct = #{record.ct},
+      cb = #{record.cb},
+      buy_type = #{record.buyType}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lc.zy.ball.domain.oa.po.CrmCardLog" >
+    update crm_card_log
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId},
+      </if>
+      <if test="statiumId != null" >
+        statium_id = #{statiumId},
+      </if>
+      <if test="cardId != null" >
+        card_id = #{cardId},
+      </if>
+      <if test="cardType != null" >
+        card_type = #{cardType},
+      </if>
+      <if test="amount != null" >
+        amount = #{amount},
+      </if>
+      <if test="giftAmount != null" >
+        gift_amount = #{giftAmount},
+      </if>
+      <if test="type != null" >
+        type = #{type},
+      </if>
+      <if test="ct != null" >
+        ct = #{ct},
+      </if>
+      <if test="cb != null" >
+        cb = #{cb},
+      </if>
+      <if test="buyType != null" >
+        buy_type = #{buyType},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lc.zy.ball.domain.oa.po.CrmCardLog" >
+    update crm_card_log
+    set user_id = #{userId},
+      statium_id = #{statiumId},
+      card_id = #{cardId},
+      card_type = #{cardType},
+      amount = #{amount},
+      gift_amount = #{giftAmount},
+      type = #{type},
+      ct = #{ct},
+      cb = #{cb},
+      buy_type = #{buyType}
+    where id = #{id}
+  </update>
+</mapper>

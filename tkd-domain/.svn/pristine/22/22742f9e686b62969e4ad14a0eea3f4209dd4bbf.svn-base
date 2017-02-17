@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lc.zy.ball.domain.oa.mapper.OpLoggingMapper" >
+  <resultMap id="BaseResultMap" type="com.lc.zy.ball.domain.oa.po.OpLogging" >
+    <id column="LOG_ID" property="logId" jdbcType="VARCHAR" />
+    <result column="ACTION_TYPE" property="actionType" jdbcType="VARCHAR" />
+    <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+    <result column="OLD_VAL" property="oldVal" jdbcType="VARCHAR" />
+    <result column="NEW_VAL" property="newVal" jdbcType="VARCHAR" />
+    <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="IP" property="ip" jdbcType="VARCHAR" />
+    <result column="MEMO" property="memo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    LOG_ID, ACTION_TYPE, DESCRIPTION, OLD_VAL, NEW_VAL, USER_ID, CREATE_TIME, IP, MEMO
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lc.zy.ball.domain.oa.po.OpLoggingCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from c_op_logging
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="mysqlOffset != null and mysqlLength != null" >
+      <![CDATA[ limit #{mysqlOffset} , #{mysqlLength} ]]>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from c_op_logging
+    where LOG_ID = #{logId}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from c_op_logging
+    where LOG_ID = #{logId}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lc.zy.ball.domain.oa.po.OpLoggingCriteria" >
+    delete from c_op_logging
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lc.zy.ball.domain.oa.po.OpLogging" >
+    insert into c_op_logging (LOG_ID, ACTION_TYPE, DESCRIPTION, OLD_VAL, NEW_VAL, USER_ID, 
+      CREATE_TIME, IP, MEMO)
+    values (#{logId}, #{actionType}, #{description}, #{oldVal}, #{newVal}, #{userId}, 
+      #{createTime}, #{ip}, #{memo})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lc.zy.ball.domain.oa.po.OpLogging" >
+    insert into c_op_logging
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="logId != null" >
+        LOG_ID,
+      </if>
+      <if test="actionType != null" >
+        ACTION_TYPE,
+      </if>
+      <if test="description != null" >
+        DESCRIPTION,
+      </if>
+      <if test="oldVal != null" >
+        OLD_VAL,
+      </if>
+      <if test="newVal != null" >
+        NEW_VAL,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="ip != null" >
+        IP,
+      </if>
+      <if test="memo != null" >
+        MEMO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="logId != null" >
+        #{logId},
+      </if>
+      <if test="actionType != null" >
+        #{actionType},
+      </if>
+      <if test="description != null" >
+        #{description},
+      </if>
+      <if test="oldVal != null" >
+        #{oldVal},
+      </if>
+      <if test="newVal != null" >
+        #{newVal},
+      </if>
+      <if test="userId != null" >
+        #{userId},
+      </if>
+      <if test="createTime != null" >
+        #{createTime},
+      </if>
+      <if test="ip != null" >
+        #{ip},
+      </if>
+      <if test="memo != null" >
+        #{memo},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lc.zy.ball.domain.oa.po.OpLoggingCriteria" resultType="java.lang.Integer" >
+    select count(*) from c_op_logging
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update c_op_logging
+    <set >
+      <if test="record.logId != null" >
+        LOG_ID = #{record.logId},
+      </if>
+      <if test="record.actionType != null" >
+        ACTION_TYPE = #{record.actionType},
+      </if>
+      <if test="record.description != null" >
+        DESCRIPTION = #{record.description},
+      </if>
+      <if test="record.oldVal != null" >
+        OLD_VAL = #{record.oldVal},
+      </if>
+      <if test="record.newVal != null" >
+        NEW_VAL = #{record.newVal},
+      </if>
+      <if test="record.userId != null" >
+        USER_ID = #{record.userId},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime},
+      </if>
+      <if test="record.ip != null" >
+        IP = #{record.ip},
+      </if>
+      <if test="record.memo != null" >
+        MEMO = #{record.memo},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update c_op_logging
+    set LOG_ID = #{record.logId},
+      ACTION_TYPE = #{record.actionType},
+      DESCRIPTION = #{record.description},
+      OLD_VAL = #{record.oldVal},
+      NEW_VAL = #{record.newVal},
+      USER_ID = #{record.userId},
+      CREATE_TIME = #{record.createTime},
+      IP = #{record.ip},
+      MEMO = #{record.memo}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lc.zy.ball.domain.oa.po.OpLogging" >
+    update c_op_logging
+    <set >
+      <if test="actionType != null" >
+        ACTION_TYPE = #{actionType},
+      </if>
+      <if test="description != null" >
+        DESCRIPTION = #{description},
+      </if>
+      <if test="oldVal != null" >
+        OLD_VAL = #{oldVal},
+      </if>
+      <if test="newVal != null" >
+        NEW_VAL = #{newVal},
+      </if>
+      <if test="userId != null" >
+        USER_ID = #{userId},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime},
+      </if>
+      <if test="ip != null" >
+        IP = #{ip},
+      </if>
+      <if test="memo != null" >
+        MEMO = #{memo},
+      </if>
+    </set>
+    where LOG_ID = #{logId}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lc.zy.ball.domain.oa.po.OpLogging" >
+    update c_op_logging
+    set ACTION_TYPE = #{actionType},
+      DESCRIPTION = #{description},
+      OLD_VAL = #{oldVal},
+      NEW_VAL = #{newVal},
+      USER_ID = #{userId},
+      CREATE_TIME = #{createTime},
+      IP = #{ip},
+      MEMO = #{memo}
+    where LOG_ID = #{logId}
+  </update>
+</mapper>

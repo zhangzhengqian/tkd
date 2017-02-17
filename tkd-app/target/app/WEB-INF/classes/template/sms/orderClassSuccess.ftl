@@ -1,0 +1,1 @@
+您已预订成功！${classDate}（${week}）(${classTime})${statiumName}，${className}，订单号${orderId}。如需退款，请提前24小时申请，申请电话010-57198965，晚于24小时不可申请退款，感谢您对我们的支持~【道馆通】

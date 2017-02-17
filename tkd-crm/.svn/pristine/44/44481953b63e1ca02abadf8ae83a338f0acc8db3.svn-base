@@ -1,0 +1,64 @@
+.wrap{
+    display: inline-block;
+    padding: 5px;
+    margin: 15px;
+    border: 1px solid #ccc;
+    -moz-box-shadow: 7px 7px 7px  #666;
+    -webkit-box-shadow: 7px 7px 7px  #666;
+    box-shadow: 7px 7px 7px  #666;
+}
+.wrap>.ball-type-title{
+    text-align: left;
+    font-size: 20px;
+    padding-left: 20px;
+    color: red;
+}
+.wrap span.btn_close{
+    float: right;
+    padding-right: 20px;
+    width: 28px;
+    height: 28px;
+    background: url("../img/close.png") no-repeat;
+    background-size: 100%;
+    text-indent: -9999px;
+    cursor: pointer;
+    margin-top: -6px;
+    margin-right: -6px;
+}
+.wrap span.btn_close:hover{
+    background: url("../img/close_hover.png") no-repeat;
+    background-size: 100%;
+}
+
+.wrap>hr{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.working-days-layer,.no-working-days-layer{
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+.user-reset{
+    margin-bottom: 0px;
+    text-align: center;
+}
+.user-reset>caption{
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+.user-reset th,.user-reset td{
+    padding: 5px !important;
+    white-space: nowrap;
+    text-align: center;
+    vertical-align: middle !important;
+    border-bottom: 1px solid #ddd !important;
+}
+.user-reset input,.user-reset select{
+    width: 60px;
+    height: 25px;
+}
+.user-reset button{
+    width: 50px;
+    height: 25px;
+}

@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lc.zy.ball.domain.oa.mapper.OrderBillMapper" >
+  <resultMap id="BaseResultMap" type="com.lc.zy.ball.domain.oa.po.OrderBill" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="bill_id" property="billId" jdbcType="VARCHAR" />
+    <result column="statium_name" property="statiumName" jdbcType="VARCHAR" />
+    <result column="area" property="area" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="order_num" property="orderNum" jdbcType="INTEGER" />
+    <result column="begin_date" property="beginDate" jdbcType="INTEGER" />
+    <result column="end_date" property="endDate" jdbcType="INTEGER" />
+    <result column="fee" property="fee" jdbcType="INTEGER" />
+    <result column="subsidy" property="subsidy" jdbcType="INTEGER" />
+    <result column="comment" property="comment" jdbcType="VARCHAR" />
+    <result column="statium_id" property="statiumId" jdbcType="VARCHAR" />
+    <result column="ct" property="ct" jdbcType="TIMESTAMP" />
+    <result column="cb" property="cb" jdbcType="VARCHAR" />
+    <result column="sport_type" property="sportType" jdbcType="VARCHAR" />
+    <result column="bank_Account_Name" property="bankAccountName" jdbcType="VARCHAR" />
+    <result column="bankAccountNo" property="bankaccountno" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, bill_id, statium_name, area, address, phone, status, order_num, begin_date, end_date, 
+    fee, subsidy, comment, statium_id, ct, cb, sport_type, bank_Account_Name, bankAccountNo, 
+    user_name
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lc.zy.ball.domain.oa.po.OrderBillCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from oa_order_bill
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="mysqlOffset != null and mysqlLength != null" >
+      <![CDATA[ limit #{mysqlOffset} , #{mysqlLength} ]]>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from oa_order_bill
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from oa_order_bill
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lc.zy.ball.domain.oa.po.OrderBillCriteria" >
+    delete from oa_order_bill
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lc.zy.ball.domain.oa.po.OrderBill" >
+    insert into oa_order_bill (id, bill_id, statium_name, area, address, phone, status, 
+      order_num, begin_date, end_date, fee, subsidy, comment, statium_id, 
+      ct, cb, sport_type, bank_Account_Name, bankAccountNo, user_name)
+    values (#{id}, #{billId}, #{statiumName}, #{area}, #{address}, #{phone}, #{status}, 
+      #{orderNum}, #{beginDate}, #{endDate}, #{fee}, #{subsidy}, #{comment}, #{statiumId}, 
+      #{ct}, #{cb}, #{sportType}, #{bankAccountName}, #{bankaccountno}, #{userName})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lc.zy.ball.domain.oa.po.OrderBill" >
+    insert into oa_order_bill
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="billId != null" >
+        bill_id,
+      </if>
+      <if test="statiumName != null" >
+        statium_name,
+      </if>
+      <if test="area != null" >
+        area,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="orderNum != null" >
+        order_num,
+      </if>
+      <if test="beginDate != null" >
+        begin_date,
+      </if>
+      <if test="endDate != null" >
+        end_date,
+      </if>
+      <if test="fee != null" >
+        fee,
+      </if>
+      <if test="subsidy != null" >
+        subsidy,
+      </if>
+      <if test="comment != null" >
+        comment,
+      </if>
+      <if test="statiumId != null" >
+        statium_id,
+      </if>
+      <if test="ct != null" >
+        ct,
+      </if>
+      <if test="cb != null" >
+        cb,
+      </if>
+      <if test="sportType != null" >
+        sport_type,
+      </if>
+      <if test="bankAccountName != null" >
+        bank_Account_Name,
+      </if>
+      <if test="bankaccountno != null" >
+        bankAccountNo,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="billId != null" >
+        #{billId},
+      </if>
+      <if test="statiumName != null" >
+        #{statiumName},
+      </if>
+      <if test="area != null" >
+        #{area},
+      </if>
+      <if test="address != null" >
+        #{address},
+      </if>
+      <if test="phone != null" >
+        #{phone},
+      </if>
+      <if test="status != null" >
+        #{status},
+      </if>
+      <if test="orderNum != null" >
+        #{orderNum},
+      </if>
+      <if test="beginDate != null" >
+        #{beginDate},
+      </if>
+      <if test="endDate != null" >
+        #{endDate},
+      </if>
+      <if test="fee != null" >
+        #{fee},
+      </if>
+      <if test="subsidy != null" >
+        #{subsidy},
+      </if>
+      <if test="comment != null" >
+        #{comment},
+      </if>
+      <if test="statiumId != null" >
+        #{statiumId},
+      </if>
+      <if test="ct != null" >
+        #{ct},
+      </if>
+      <if test="cb != null" >
+        #{cb},
+      </if>
+      <if test="sportType != null" >
+        #{sportType},
+      </if>
+      <if test="bankAccountName != null" >
+        #{bankAccountName},
+      </if>
+      <if test="bankaccountno != null" >
+        #{bankaccountno},
+      </if>
+      <if test="userName != null" >
+        #{userName},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lc.zy.ball.domain.oa.po.OrderBillCriteria" resultType="java.lang.Integer" >
+    select count(*) from oa_order_bill
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update oa_order_bill
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.billId != null" >
+        bill_id = #{record.billId},
+      </if>
+      <if test="record.statiumName != null" >
+        statium_name = #{record.statiumName},
+      </if>
+      <if test="record.area != null" >
+        area = #{record.area},
+      </if>
+      <if test="record.address != null" >
+        address = #{record.address},
+      </if>
+      <if test="record.phone != null" >
+        phone = #{record.phone},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status},
+      </if>
+      <if test="record.orderNum != null" >
+        order_num = #{record.orderNum},
+      </if>
+      <if test="record.beginDate != null" >
+        begin_date = #{record.beginDate},
+      </if>
+      <if test="record.endDate != null" >
+        end_date = #{record.endDate},
+      </if>
+      <if test="record.fee != null" >
+        fee = #{record.fee},
+      </if>
+      <if test="record.subsidy != null" >
+        subsidy = #{record.subsidy},
+      </if>
+      <if test="record.comment != null" >
+        comment = #{record.comment},
+      </if>
+      <if test="record.statiumId != null" >
+        statium_id = #{record.statiumId},
+      </if>
+      <if test="record.ct != null" >
+        ct = #{record.ct},
+      </if>
+      <if test="record.cb != null" >
+        cb = #{record.cb},
+      </if>
+      <if test="record.sportType != null" >
+        sport_type = #{record.sportType},
+      </if>
+      <if test="record.bankAccountName != null" >
+        bank_Account_Name = #{record.bankAccountName},
+      </if>
+      <if test="record.bankaccountno != null" >
+        bankAccountNo = #{record.bankaccountno},
+      </if>
+      <if test="record.userName != null" >
+        user_name = #{record.userName},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update oa_order_bill
+    set id = #{record.id},
+      bill_id = #{record.billId},
+      statium_name = #{record.statiumName},
+      area = #{record.area},
+      address = #{record.address},
+      phone = #{record.phone},
+      status = #{record.status},
+      order_num = #{record.orderNum},
+      begin_date = #{record.beginDate},
+      end_date = #{record.endDate},
+      fee = #{record.fee},
+      subsidy = #{record.subsidy},
+      comment = #{record.comment},
+      statium_id = #{record.statiumId},
+      ct = #{record.ct},
+      cb = #{record.cb},
+      sport_type = #{record.sportType},
+      bank_Account_Name = #{record.bankAccountName},
+      bankAccountNo = #{record.bankaccountno},
+      user_name = #{record.userName}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lc.zy.ball.domain.oa.po.OrderBill" >
+    update oa_order_bill
+    <set >
+      <if test="billId != null" >
+        bill_id = #{billId},
+      </if>
+      <if test="statiumName != null" >
+        statium_name = #{statiumName},
+      </if>
+      <if test="area != null" >
+        area = #{area},
+      </if>
+      <if test="address != null" >
+        address = #{address},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone},
+      </if>
+      <if test="status != null" >
+        status = #{status},
+      </if>
+      <if test="orderNum != null" >
+        order_num = #{orderNum},
+      </if>
+      <if test="beginDate != null" >
+        begin_date = #{beginDate},
+      </if>
+      <if test="endDate != null" >
+        end_date = #{endDate},
+      </if>
+      <if test="fee != null" >
+        fee = #{fee},
+      </if>
+      <if test="subsidy != null" >
+        subsidy = #{subsidy},
+      </if>
+      <if test="comment != null" >
+        comment = #{comment},
+      </if>
+      <if test="statiumId != null" >
+        statium_id = #{statiumId},
+      </if>
+      <if test="ct != null" >
+        ct = #{ct},
+      </if>
+      <if test="cb != null" >
+        cb = #{cb},
+      </if>
+      <if test="sportType != null" >
+        sport_type = #{sportType},
+      </if>
+      <if test="bankAccountName != null" >
+        bank_Account_Name = #{bankAccountName},
+      </if>
+      <if test="bankaccountno != null" >
+        bankAccountNo = #{bankaccountno},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lc.zy.ball.domain.oa.po.OrderBill" >
+    update oa_order_bill
+    set bill_id = #{billId},
+      statium_name = #{statiumName},
+      area = #{area},
+      address = #{address},
+      phone = #{phone},
+      status = #{status},
+      order_num = #{orderNum},
+      begin_date = #{beginDate},
+      end_date = #{endDate},
+      fee = #{fee},
+      subsidy = #{subsidy},
+      comment = #{comment},
+      statium_id = #{statiumId},
+      ct = #{ct},
+      cb = #{cb},
+      sport_type = #{sportType},
+      bank_Account_Name = #{bankAccountName},
+      bankAccountNo = #{bankaccountno},
+      user_name = #{userName}
+    where id = #{id}
+  </update>
+</mapper>

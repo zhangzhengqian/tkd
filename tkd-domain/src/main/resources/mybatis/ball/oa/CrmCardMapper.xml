@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lc.zy.ball.domain.oa.mapper.CrmCardMapper" >
+  <resultMap id="BaseResultMap" type="com.lc.zy.ball.domain.oa.po.CrmCard" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="card_type" property="cardType" jdbcType="INTEGER" />
+    <result column="card_amount" property="cardAmount" jdbcType="INTEGER" />
+    <result column="card_gift" property="cardGift" jdbcType="INTEGER" />
+    <result column="et" property="et" jdbcType="TIMESTAMP" />
+    <result column="eb" property="eb" jdbcType="VARCHAR" />
+    <result column="ct" property="ct" jdbcType="TIMESTAMP" />
+    <result column="cb" property="cb" jdbcType="VARCHAR" />
+    <result column="card_name" property="cardName" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="statium_id" property="statiumId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, card_type, card_amount, card_gift, et, eb, ct, cb, card_name, status, statium_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lc.zy.ball.domain.oa.po.CrmCardCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from crm_card
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="mysqlOffset != null and mysqlLength != null" >
+      <![CDATA[ limit #{mysqlOffset} , #{mysqlLength} ]]>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from crm_card
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from crm_card
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lc.zy.ball.domain.oa.po.CrmCardCriteria" >
+    delete from crm_card
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lc.zy.ball.domain.oa.po.CrmCard" >
+    insert into crm_card (id, card_type, card_amount, card_gift, et, eb, ct, cb, 
+      card_name, status, statium_id)
+    values (#{id}, #{cardType}, #{cardAmount}, #{cardGift}, #{et}, #{eb}, #{ct}, #{cb}, 
+      #{cardName}, #{status}, #{statiumId})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lc.zy.ball.domain.oa.po.CrmCard" >
+    insert into crm_card
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cardType != null" >
+        card_type,
+      </if>
+      <if test="cardAmount != null" >
+        card_amount,
+      </if>
+      <if test="cardGift != null" >
+        card_gift,
+      </if>
+      <if test="et != null" >
+        et,
+      </if>
+      <if test="eb != null" >
+        eb,
+      </if>
+      <if test="ct != null" >
+        ct,
+      </if>
+      <if test="cb != null" >
+        cb,
+      </if>
+      <if test="cardName != null" >
+        card_name,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="statiumId != null" >
+        statium_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="cardType != null" >
+        #{cardType},
+      </if>
+      <if test="cardAmount != null" >
+        #{cardAmount},
+      </if>
+      <if test="cardGift != null" >
+        #{cardGift},
+      </if>
+      <if test="et != null" >
+        #{et},
+      </if>
+      <if test="eb != null" >
+        #{eb},
+      </if>
+      <if test="ct != null" >
+        #{ct},
+      </if>
+      <if test="cb != null" >
+        #{cb},
+      </if>
+      <if test="cardName != null" >
+        #{cardName},
+      </if>
+      <if test="status != null" >
+        #{status},
+      </if>
+      <if test="statiumId != null" >
+        #{statiumId},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lc.zy.ball.domain.oa.po.CrmCardCriteria" resultType="java.lang.Integer" >
+    select count(*) from crm_card
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update crm_card
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.cardType != null" >
+        card_type = #{record.cardType},
+      </if>
+      <if test="record.cardAmount != null" >
+        card_amount = #{record.cardAmount},
+      </if>
+      <if test="record.cardGift != null" >
+        card_gift = #{record.cardGift},
+      </if>
+      <if test="record.et != null" >
+        et = #{record.et},
+      </if>
+      <if test="record.eb != null" >
+        eb = #{record.eb},
+      </if>
+      <if test="record.ct != null" >
+        ct = #{record.ct},
+      </if>
+      <if test="record.cb != null" >
+        cb = #{record.cb},
+      </if>
+      <if test="record.cardName != null" >
+        card_name = #{record.cardName},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status},
+      </if>
+      <if test="record.statiumId != null" >
+        statium_id = #{record.statiumId},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update crm_card
+    set id = #{record.id},
+      card_type = #{record.cardType},
+      card_amount = #{record.cardAmount},
+      card_gift = #{record.cardGift},
+      et = #{record.et},
+      eb = #{record.eb},
+      ct = #{record.ct},
+      cb = #{record.cb},
+      card_name = #{record.cardName},
+      status = #{record.status},
+      statium_id = #{record.statiumId}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lc.zy.ball.domain.oa.po.CrmCard" >
+    update crm_card
+    <set >
+      <if test="cardType != null" >
+        card_type = #{cardType},
+      </if>
+      <if test="cardAmount != null" >
+        card_amount = #{cardAmount},
+      </if>
+      <if test="cardGift != null" >
+        card_gift = #{cardGift},
+      </if>
+      <if test="et != null" >
+        et = #{et},
+      </if>
+      <if test="eb != null" >
+        eb = #{eb},
+      </if>
+      <if test="ct != null" >
+        ct = #{ct},
+      </if>
+      <if test="cb != null" >
+        cb = #{cb},
+      </if>
+      <if test="cardName != null" >
+        card_name = #{cardName},
+      </if>
+      <if test="status != null" >
+        status = #{status},
+      </if>
+      <if test="statiumId != null" >
+        statium_id = #{statiumId},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lc.zy.ball.domain.oa.po.CrmCard" >
+    update crm_card
+    set card_type = #{cardType},
+      card_amount = #{cardAmount},
+      card_gift = #{cardGift},
+      et = #{et},
+      eb = #{eb},
+      ct = #{ct},
+      cb = #{cb},
+      card_name = #{cardName},
+      status = #{status},
+      statium_id = #{statiumId}
+    where id = #{id}
+  </update>
+</mapper>

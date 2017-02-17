@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lc.zy.ball.domain.oa.mapper.AreaMapper" >
+  <resultMap id="BaseResultMap" type="com.lc.zy.ball.domain.oa.po.Area" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="ENGLISH" property="english" jdbcType="VARCHAR" />
+    <result column="LEVEL" property="level" jdbcType="VARCHAR" />
+    <result column="COUNTRY" property="country" jdbcType="VARCHAR" />
+    <result column="PARENT_ID" property="parentId" jdbcType="VARCHAR" />
+    <result column="AREA_CODE" property="areaCode" jdbcType="VARCHAR" />
+    <result column="ZIP_CODE" property="zipCode" jdbcType="VARCHAR" />
+    <result column="SEQ_NUM" property="seqNum" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, NAME, ENGLISH, LEVEL, COUNTRY, PARENT_ID, AREA_CODE, ZIP_CODE, SEQ_NUM
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lc.zy.ball.domain.oa.po.AreaCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from c_area
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="mysqlOffset != null and mysqlLength != null" >
+      <![CDATA[ limit #{mysqlOffset} , #{mysqlLength} ]]>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from c_area
+    where ID = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from c_area
+    where ID = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lc.zy.ball.domain.oa.po.AreaCriteria" >
+    delete from c_area
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lc.zy.ball.domain.oa.po.Area" >
+    insert into c_area (ID, NAME, ENGLISH, LEVEL, COUNTRY, PARENT_ID, AREA_CODE, 
+      ZIP_CODE, SEQ_NUM)
+    values (#{id}, #{name}, #{english}, #{level}, #{country}, #{parentId}, #{areaCode}, 
+      #{zipCode}, #{seqNum})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lc.zy.ball.domain.oa.po.Area" >
+    insert into c_area
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="english != null" >
+        ENGLISH,
+      </if>
+      <if test="level != null" >
+        LEVEL,
+      </if>
+      <if test="country != null" >
+        COUNTRY,
+      </if>
+      <if test="parentId != null" >
+        PARENT_ID,
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE,
+      </if>
+      <if test="zipCode != null" >
+        ZIP_CODE,
+      </if>
+      <if test="seqNum != null" >
+        SEQ_NUM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="name != null" >
+        #{name},
+      </if>
+      <if test="english != null" >
+        #{english},
+      </if>
+      <if test="level != null" >
+        #{level},
+      </if>
+      <if test="country != null" >
+        #{country},
+      </if>
+      <if test="parentId != null" >
+        #{parentId},
+      </if>
+      <if test="areaCode != null" >
+        #{areaCode},
+      </if>
+      <if test="zipCode != null" >
+        #{zipCode},
+      </if>
+      <if test="seqNum != null" >
+        #{seqNum},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lc.zy.ball.domain.oa.po.AreaCriteria" resultType="java.lang.Integer" >
+    select count(*) from c_area
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update c_area
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id},
+      </if>
+      <if test="record.name != null" >
+        NAME = #{record.name},
+      </if>
+      <if test="record.english != null" >
+        ENGLISH = #{record.english},
+      </if>
+      <if test="record.level != null" >
+        LEVEL = #{record.level},
+      </if>
+      <if test="record.country != null" >
+        COUNTRY = #{record.country},
+      </if>
+      <if test="record.parentId != null" >
+        PARENT_ID = #{record.parentId},
+      </if>
+      <if test="record.areaCode != null" >
+        AREA_CODE = #{record.areaCode},
+      </if>
+      <if test="record.zipCode != null" >
+        ZIP_CODE = #{record.zipCode},
+      </if>
+      <if test="record.seqNum != null" >
+        SEQ_NUM = #{record.seqNum},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update c_area
+    set ID = #{record.id},
+      NAME = #{record.name},
+      ENGLISH = #{record.english},
+      LEVEL = #{record.level},
+      COUNTRY = #{record.country},
+      PARENT_ID = #{record.parentId},
+      AREA_CODE = #{record.areaCode},
+      ZIP_CODE = #{record.zipCode},
+      SEQ_NUM = #{record.seqNum}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lc.zy.ball.domain.oa.po.Area" >
+    update c_area
+    <set >
+      <if test="name != null" >
+        NAME = #{name},
+      </if>
+      <if test="english != null" >
+        ENGLISH = #{english},
+      </if>
+      <if test="level != null" >
+        LEVEL = #{level},
+      </if>
+      <if test="country != null" >
+        COUNTRY = #{country},
+      </if>
+      <if test="parentId != null" >
+        PARENT_ID = #{parentId},
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE = #{areaCode},
+      </if>
+      <if test="zipCode != null" >
+        ZIP_CODE = #{zipCode},
+      </if>
+      <if test="seqNum != null" >
+        SEQ_NUM = #{seqNum},
+      </if>
+    </set>
+    where ID = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lc.zy.ball.domain.oa.po.Area" >
+    update c_area
+    set NAME = #{name},
+      ENGLISH = #{english},
+      LEVEL = #{level},
+      COUNTRY = #{country},
+      PARENT_ID = #{parentId},
+      AREA_CODE = #{areaCode},
+      ZIP_CODE = #{zipCode},
+      SEQ_NUM = #{seqNum}
+    where ID = #{id}
+  </update>
+</mapper>

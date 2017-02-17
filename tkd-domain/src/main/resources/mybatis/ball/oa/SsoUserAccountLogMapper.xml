@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lc.zy.ball.domain.oa.mapper.SsoUserAccountLogMapper" >
+  <resultMap id="BaseResultMap" type="com.lc.zy.ball.domain.oa.po.SsoUserAccountLog" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="amount" property="amount" jdbcType="INTEGER" />
+    <result column="balance" property="balance" jdbcType="INTEGER" />
+    <result column="order_id" property="orderId" jdbcType="VARCHAR" />
+    <result column="tradeType" property="tradetype" jdbcType="INTEGER" />
+    <result column="tradeNo" property="tradeno" jdbcType="VARCHAR" />
+    <result column="number" property="number" jdbcType="VARCHAR" />
+    <result column="attrInfo" property="attrinfo" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="ct" property="ct" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, user_id, type, amount, balance, order_id, tradeType, tradeNo, number, attrInfo, 
+    description, status, ct
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lc.zy.ball.domain.oa.po.SsoUserAccountLogCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sso_user_account_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="mysqlOffset != null and mysqlLength != null" >
+      <![CDATA[ limit #{mysqlOffset} , #{mysqlLength} ]]>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sso_user_account_log
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sso_user_account_log
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lc.zy.ball.domain.oa.po.SsoUserAccountLogCriteria" >
+    delete from sso_user_account_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lc.zy.ball.domain.oa.po.SsoUserAccountLog" >
+    insert into sso_user_account_log (id, user_id, type, amount, balance, order_id, tradeType, 
+      tradeNo, number, attrInfo, description, status, ct)
+    values (#{id}, #{userId}, #{type}, #{amount}, #{balance}, #{orderId}, #{tradetype}, 
+      #{tradeno}, #{number}, #{attrinfo}, #{description}, #{status}, #{ct})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lc.zy.ball.domain.oa.po.SsoUserAccountLog" >
+    insert into sso_user_account_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="amount != null" >
+        amount,
+      </if>
+      <if test="balance != null" >
+        balance,
+      </if>
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="tradetype != null" >
+        tradeType,
+      </if>
+      <if test="tradeno != null" >
+        tradeNo,
+      </if>
+      <if test="number != null" >
+        number,
+      </if>
+      <if test="attrinfo != null" >
+        attrInfo,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="ct != null" >
+        ct,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="userId != null" >
+        #{userId},
+      </if>
+      <if test="type != null" >
+        #{type},
+      </if>
+      <if test="amount != null" >
+        #{amount},
+      </if>
+      <if test="balance != null" >
+        #{balance},
+      </if>
+      <if test="orderId != null" >
+        #{orderId},
+      </if>
+      <if test="tradetype != null" >
+        #{tradetype},
+      </if>
+      <if test="tradeno != null" >
+        #{tradeno},
+      </if>
+      <if test="number != null" >
+        #{number},
+      </if>
+      <if test="attrinfo != null" >
+        #{attrinfo},
+      </if>
+      <if test="description != null" >
+        #{description},
+      </if>
+      <if test="status != null" >
+        #{status},
+      </if>
+      <if test="ct != null" >
+        #{ct},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lc.zy.ball.domain.oa.po.SsoUserAccountLogCriteria" resultType="java.lang.Integer" >
+    select count(*) from sso_user_account_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sso_user_account_log
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId},
+      </if>
+      <if test="record.type != null" >
+        type = #{record.type},
+      </if>
+      <if test="record.amount != null" >
+        amount = #{record.amount},
+      </if>
+      <if test="record.balance != null" >
+        balance = #{record.balance},
+      </if>
+      <if test="record.orderId != null" >
+        order_id = #{record.orderId},
+      </if>
+      <if test="record.tradetype != null" >
+        tradeType = #{record.tradetype},
+      </if>
+      <if test="record.tradeno != null" >
+        tradeNo = #{record.tradeno},
+      </if>
+      <if test="record.number != null" >
+        number = #{record.number},
+      </if>
+      <if test="record.attrinfo != null" >
+        attrInfo = #{record.attrinfo},
+      </if>
+      <if test="record.description != null" >
+        description = #{record.description},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status},
+      </if>
+      <if test="record.ct != null" >
+        ct = #{record.ct},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sso_user_account_log
+    set id = #{record.id},
+      user_id = #{record.userId},
+      type = #{record.type},
+      amount = #{record.amount},
+      balance = #{record.balance},
+      order_id = #{record.orderId},
+      tradeType = #{record.tradetype},
+      tradeNo = #{record.tradeno},
+      number = #{record.number},
+      attrInfo = #{record.attrinfo},
+      description = #{record.description},
+      status = #{record.status},
+      ct = #{record.ct}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lc.zy.ball.domain.oa.po.SsoUserAccountLog" >
+    update sso_user_account_log
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId},
+      </if>
+      <if test="type != null" >
+        type = #{type},
+      </if>
+      <if test="amount != null" >
+        amount = #{amount},
+      </if>
+      <if test="balance != null" >
+        balance = #{balance},
+      </if>
+      <if test="orderId != null" >
+        order_id = #{orderId},
+      </if>
+      <if test="tradetype != null" >
+        tradeType = #{tradetype},
+      </if>
+      <if test="tradeno != null" >
+        tradeNo = #{tradeno},
+      </if>
+      <if test="number != null" >
+        number = #{number},
+      </if>
+      <if test="attrinfo != null" >
+        attrInfo = #{attrinfo},
+      </if>
+      <if test="description != null" >
+        description = #{description},
+      </if>
+      <if test="status != null" >
+        status = #{status},
+      </if>
+      <if test="ct != null" >
+        ct = #{ct},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lc.zy.ball.domain.oa.po.SsoUserAccountLog" >
+    update sso_user_account_log
+    set user_id = #{userId},
+      type = #{type},
+      amount = #{amount},
+      balance = #{balance},
+      order_id = #{orderId},
+      tradeType = #{tradetype},
+      tradeNo = #{tradeno},
+      number = #{number},
+      attrInfo = #{attrinfo},
+      description = #{description},
+      status = #{status},
+      ct = #{ct}
+    where id = #{id}
+  </update>
+</mapper>

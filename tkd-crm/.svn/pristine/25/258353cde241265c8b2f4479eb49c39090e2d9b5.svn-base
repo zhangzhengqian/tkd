@@ -1,0 +1,16 @@
+<div ng-controller="breadcrumbCTL" class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-sm-12">
+                <h2>{{breadcrumb.title}}</h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a>首页</a>
+                    </li>
+                    <li ng-show="breadcrumb.parent">
+                        <a  ng-bind="breadcrumb.parent"></a>
+                    </li>
+                    <li class="active">
+                        <strong ng-bind="breadcrumb.title"></strong>
+                    </li>
+                </ol>
+            </div>
+        </div>

@@ -1,0 +1,1 @@
+您已成功购买！会员卡面值${cardAmount}元赠送${giftAmount}元，订单号${orderId}。如需退款，请联系${statiumName}，联系电话${tel}，感谢您对我们的支持~【道馆通】

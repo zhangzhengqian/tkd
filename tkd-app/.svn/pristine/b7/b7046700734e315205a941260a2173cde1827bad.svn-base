@@ -1,0 +1,221 @@
+package com.lc.zy.ball.app.service.activity;
+
+import com.lc.zy.ball.app.common.AbstractCacheService;
+import com.lc.zy.ball.app.common.CheckUtils;
+import com.lc.zy.ball.app.common.CommonService;
+import com.lc.zy.ball.app.service.activity.bean.StatiumActivityMemberVo;
+import com.lc.zy.ball.app.service.activity.bean.StatiumActivityVo;
+import com.lc.zy.ball.domain.oa.mapper.StatiumActivityMemberMapper;
+import com.lc.zy.ball.domain.oa.po.SsoUser;
+import com.lc.zy.ball.domain.oa.po.StatiumActivity;
+import com.lc.zy.ball.domain.oa.po.StatiumActivityMember;
+import com.lc.zy.ball.domain.oa.po.StatiumActivityMemberCriteria;
+import com.lc.zy.common.bean.CacheKeys;
+import com.lc.zy.common.util.DateUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+@Repository
+@Transactional
+public class ActivityRepository extends AbstractCacheService implements CacheKeys {
+
+	private static Logger logger = LoggerFactory.getLogger(ActivityRepository.class);
+
+	private CheckUtils checkUtils;
+
+	private StatiumActivityMemberMapper statiumActivityMemberMapper;
+
+	private CommonService commonService;
+
+	@Autowired
+	public ActivityRepository(CheckUtils checkUtils, StatiumActivityMemberMapper statiumActivityMemberMapper, CommonService commonService){
+		super();
+		this.checkUtils = checkUtils;
+		this.statiumActivityMemberMapper = statiumActivityMemberMapper;
+		this.commonService = commonService;
+	}
+
+	public ActivityRepository(){
+
+	}
+
+
+	/**
+	 *
+	 * <活动详情><功能具体实现>
+	 *
+	 * @create：2016-08-02 14:40:10
+	 * @author：sl
+	 * @param sActivityId
+	 * @return com.lc.zy.ball.app.service.activity.bean.StatiumActivityVo
+	 */
+	public StatiumActivityVo getStatiumActivityDetail(String sActivityId, String token) {
+		StatiumActivityVo statiumActivityVos = new StatiumActivityVo();
+		try {
+			// 根据活动id获取活动详情
+			StatiumActivity statiumActivity = this.selectByPrimaryKey(StatiumActivity.class, sActivityId);
+			BeanUtils.copyProperties(statiumActivity, statiumActivityVos);
+			// 价格
+			statiumActivityVos.setPrice(statiumActivity.getPrice()/100);
+			// 报名截止日期
+			statiumActivityVos.setExpiryData(DateUtils.formatDate(DateUtils.getDate(statiumActivity.getExpiryData(), "yyyy-MM-dd HH:mm"), "yyyy-MM-dd HH:mm"));
+			// 活动时间
+			String  Sdate = DateUtils.formatDate(DateUtils.getDate(statiumActivity.getStartTime(), "yyyy-MM-dd HH:mm"), "yyyy-MM-dd HH:mm");
+			String eDate = DateUtils.formatDate(DateUtils.getDate(statiumActivity.getEndTime(), "yyyy-MM-dd HH:mm"), "yyyy-MM-dd HH:mm");
+			statiumActivityVos.setsActivityTime(Sdate + "~" + eDate);
+			// 活动报名情况
+			Date now = new Date();
+			Date endDate = DateUtils.getDateTime(statiumActivity.getEndTime());
+			Calendar calendar = Calendar.getInstance();
+
+			if (now.compareTo(endDate) >= 0) {
+				statiumActivityVos.setsActivityStatusName("已结束");
+				// 不可报名
+				statiumActivityVos.setsActivityStatus(0);
+			} else if (statiumActivity.getExpiryType() == 0
+					&& now.compareTo(DateUtils.getDateTime(statiumActivity.getExpiryData())) >= 0) {
+				statiumActivityVos.setsActivityStatusName("已截止");
+				// 不可报名
+				statiumActivityVos.setsActivityStatus(0);
+			} else if (statiumActivity.getExpiryType() == 1) {
+				calendar = Calendar.getInstance();
+				calendar.setTime(DateUtils.getDateTime(statiumActivity.getEndTime()));
+				calendar.add(Calendar.HOUR_OF_DAY, -Integer.parseInt(statiumActivity.getExpiryData()));
+				if (now.compareTo(calendar.getTime()) >= 0) {
+					statiumActivityVos.setsActivityStatusName("已截止");
+					// 不可报名
+					statiumActivityVos.setsActivityStatus(0);
+				}
+			} else {
+				if (!checkUtils.checkActivity(sActivityId)) {
+					statiumActivityVos.setsActivityStatusName("已报满");
+					// 不可报名
+					statiumActivityVos.setsActivityStatus(0);
+				} else {
+					if (StringUtils.isEmpty(token)) {
+						statiumActivityVos.setsActivityStatusName("报名");
+						// 不可报名
+						statiumActivityVos.setsActivityStatus(0);
+					} else {
+						// 获取用户
+						SsoUser user = commonService.getSsoUserByToken(token);
+						if (checkUtils.checkActivitySign(sActivityId, user.getId())) {
+							// 校验是否报名
+//							if (getSActivityMemberList(sActivityId, user.getId(), 0, 0).size() > 0) {
+//								statiumActivityVos.setsActivityStatusName("已报名");
+//								// 不可报名
+//								statiumActivityVos.setsActivityStatus(0);
+//							} else {
+								statiumActivityVos.setsActivityStatusName("报名");
+								// 可报名
+								statiumActivityVos.setsActivityStatus(1);
+//							}
+						} else {
+							statiumActivityVos.setsActivityStatusName("已报名");
+							// 不可报名
+							statiumActivityVos.setsActivityStatus(0);
+						}
+					}
+				}
+			}
+			// 活动人数
+			statiumActivityVos.setsActivityNum(checkUtils.signActivityNum(sActivityId));
+			// 活动报名人员
+			// 只显示最多5个
+			int begin = 0;
+			int size = 0;
+			if (checkUtils.signActivityNum(sActivityId) > 5) {
+					size = 5;
+			}
+			List<StatiumActivityMember> statiumActivityMemberList = getSActivityMemberList(sActivityId, "", begin, size);
+			statiumActivityVos.setStatiumActivityMemberList(statiumActivityMemberList);
+		} catch (Exception e) {
+			logger.debug("活动详情", e.getMessage());
+		}
+		return statiumActivityVos;
+	}
+
+	/**
+	 *
+	 * <获取活动报名人员><功能具体实现>
+	 *
+	 * @create：2016-08-02 15:05:10
+	 * @author：sl
+	 * @param sActivityId
+	 * @return java.util.List<com.lc.zy.ball.domain.oa.po.StatiumActivityMember>
+	 */
+	public List<StatiumActivityMember> getSActivityMemberList(String sActivityId, String userId, int begin, int size) {
+		List<StatiumActivityMember> statiumActivityMembers = new ArrayList<StatiumActivityMember>();
+		try {
+			StatiumActivityMemberCriteria statiumActivityMemberCriteria = new StatiumActivityMemberCriteria();
+			StatiumActivityMemberCriteria.Criteria criteria = statiumActivityMemberCriteria.createCriteria();
+			criteria.andActivityIdEqualTo(sActivityId);
+			if (StringUtils.isNotEmpty(userId)) {
+				criteria.andUserIdEqualTo(userId);
+			}
+			if (size > 0) {
+				statiumActivityMemberCriteria.setMysqlOffset(begin);
+				statiumActivityMemberCriteria.setMysqlLength(size);
+			}
+			statiumActivityMemberCriteria.setOrderByClause("ct desc");
+			statiumActivityMembers = statiumActivityMemberMapper.selectByExample(statiumActivityMemberCriteria);
+			// 获取用户头像
+			for (StatiumActivityMember statiumActivityMember : statiumActivityMembers) {
+				SsoUser user = this.selectByPrimaryKey(SsoUser.class, statiumActivityMember.getUserId());
+				if (user.getPhoto() != null) {
+					statiumActivityMember.setPhoto(user.getPhoto());
+				}
+			}
+		} catch (Exception e) {
+			logger.debug("获取活动报名人员", e.getMessage());
+		}
+		return statiumActivityMembers;
+	}
+
+
+	/**
+	 *
+	 * <获取活动报名人员信息><功能具体实现>
+	 *
+	 * @create：2016-08-02 15:49:57
+	 * @author：sl
+	 * @param statiumActivityMemberList
+	 * @return java.util.List<com.lc.zy.ball.domain.oa.po.SsoUser>
+	 */
+	public List<StatiumActivityMemberVo> getSsouserByMember(List<StatiumActivityMember> statiumActivityMemberList) {
+		List<StatiumActivityMemberVo> sMembers = new ArrayList<StatiumActivityMemberVo>();
+		try {
+			for (StatiumActivityMember statiumActivityMember : statiumActivityMemberList) {
+				SsoUser user = this.selectByPrimaryKey(SsoUser.class, statiumActivityMember.getUserId());
+				StatiumActivityMemberVo sMemberVo = new StatiumActivityMemberVo();
+				sMemberVo.setUserId(user.getId());
+				if (StringUtils.isNotEmpty(user.getPhoto())) {
+					sMemberVo.setPhoto(user.getPhoto());
+				}
+				if (StringUtils.isNotEmpty(user.getDan())) {
+					sMemberVo.setDan(user.getDan());
+				}
+				if (StringUtils.isNotEmpty(user.getSex())) {
+					sMemberVo.setSex(user.getSex());
+				} else {
+					sMemberVo.setSex("男");
+				}
+				sMemberVo.setNickName(user.getNickName());
+				sMembers.add(sMemberVo);
+			}
+		} catch (Exception e) {
+			logger.debug("获取活动报名人员信息", e.getMessage());
+		}
+		return sMembers;
+	}
+}

@@ -1,0 +1,1 @@
+您已预订！${date}(${week})${statiumName}，${orderItem}，订单号：${orderId}，请您及时联系场馆咨询是否可预订，如需退款，请联系客服申请，电话${serviceHotline}，祝你春节快乐~ 

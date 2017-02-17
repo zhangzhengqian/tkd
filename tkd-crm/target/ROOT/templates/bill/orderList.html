@@ -1,0 +1,29 @@
+<div class="orderTipMeg">
+	<a class="addLockBtn" href="#bill/{{billId}}">返回</a>
+</p>
+</div>
+<div class="orderResult">
+	<table>
+		<tr>
+			<th>订单号</th>
+			<th>下单日期</th>
+			<th>完成日期</th>
+			<th>用户手机号</th>
+			<th>预约日期</th>
+			<th>预约时间</th>
+			<th>订单金额</th>
+			<th>状态</th>
+		</tr>
+		<tr ng-repeat="order in objs">
+			<td>{{order.id}}</td>
+			<td>{{order.ct}}</td>
+			<td>{{order.et}}</td>
+			<td>{{order.userPhone}}</td>
+			<td>{{order.orderDate}}</td>
+			<td ng-bind-html="order.orderTime|to_trusted"></td>
+			<td>{{order.fee}}</td>
+			<td>{{order.status|orderStatusFilter}}</td>
+		</tr>
+	</table>
+</div>
+<crm-pagination conf="paginationConf"></crm-pagination>

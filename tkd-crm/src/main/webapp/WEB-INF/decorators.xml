@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/WEB-INF/decorators/">
+	<excludes>
+		<pattern>/static/*</pattern>
+		<pattern>/images/*</pattern>
+		<pattern>/**/*.html*</pattern>
+		<pattern>/*?plain*</pattern>
+        <pattern>/app/*</pattern>
+         <pattern>/rest/*</pattern>
+         <pattern>/*_dlg*</pattern>
+         <pattern>/message/*</pattern>
+	</excludes>
+	
+	<decorator name="login" page="sign.jsp">
+		<pattern>/login*</pattern>
+	</decorator>
+	
+	<decorator name="default" page="main.jsp">
+		<pattern>/*</pattern>
+	</decorator>
+	
+</decorators>

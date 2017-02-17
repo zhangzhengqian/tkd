@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lc.zy.ball.domain.oa.mapper.ex.UserMapperEx" >
+  
+  <resultMap id="BaseResultMapEx" extends="com.lc.zy.ball.domain.oa.mapper.UserMapper.BaseResultMap" type="com.lc.zy.ball.domain.oa.po.ex.UserEx" >
+    <collection property="roles" ofType="role" column="USER_ID" resultMap="com.lc.zy.ball.domain.oa.mapper.RoleMapper.BaseResultMap" />
+  </resultMap>
+  <!--  
+  <resultMap type="com.lc.zy.ball.domain.oa.vo.UserStatiumVo" id="userStatiumVo">
+  	<result property="userId" column="user_id"/>
+  	<result property="loginName" column="login_name"/>
+  	<result property="nickname" column="nickname"/>
+  	<association property="statium" javaType="com.lc.zy.ball.domain.oa.po.StatiumDetail">
+  		 <result property="name" column="name"></result>
+  		 <result property="id" column="id"/>
+  		 <result property="branchName" column="branch_name"/>
+  		 <result property="ct" column="ct"/>
+  		 <result property="areaCode" column="area_code"/>
+  		 
+  		 
+  	</association>
+  	
+  </resultMap>
+  -->
+  
+  <sql id="Where_Clause" >
+    <foreach collection="filters" item="filter" >
+      <choose>
+		<when test="filter.fieldName == 'userId'" >
+		   and u.user_id <include refid="Operator_Clause"/>
+		</when>
+		<when test="filter.fieldName == 'loginName'" >
+		   and u.login_name <include refid="Operator_Clause"/>
+		</when>
+		<when test="filter.fieldName == 'nickname'" >
+		   and u.nickname <include refid="Operator_Clause"/>
+		</when>
+		<when test="filter.fieldName == 'custName'" >
+		   and c.cust_name <include refid="Operator_Clause"/>
+		</when>
+		<when test="filter.fieldName == 'roleId'" >
+		   and r.role_id <include refid="Operator_Clause"/>
+		</when>
+		<when test="filter.fieldName == 'orRoleId'" >
+		   or r.role_id <include refid="Operator_Clause"/>
+		</when>
+		<when test="filter.fieldName == 'deleteFlag'" >
+		   and u.delete_flag is null
+		</when>
+		<when test="filter.fieldName == 'name'" >
+		   and oa_statium_detail.name <include refid="Operator_Clause"/>
+		</when>	
+		<when test="filter.fieldName == 'cb'" >
+		   and c_user.cb <include refid="Operator_Clause"/>
+		</when>	
+		<when test="filter.fieldName == 'sportType'" >
+		   and oa_statium_detail.sport_type <include refid="Operator_Clause"/>
+		</when>	
+		<when test="filter.fieldName == 'login'" >
+		   and c_user.login_name <include refid="Operator_Clause"/>
+		</when>					
+      </choose>
+    </foreach>
+  </sql>
+  <sql id="Operator_Clause" >
+    <choose>
+      <when test="filter.operator.toString() == 'EQ'">  <![CDATA[ = #{filter.value} ]]></when>
+      <when test="filter.operator.toString() == 'NEQ'"> <![CDATA[ != #{filter.value} ]]></when>
+      <when test="filter.operator.toString() == 'LIKE'"><![CDATA[ LIKE CONCAT(CONCAT('%', #{filter.value}),'%') ]]></when>
+      <when test="filter.operator.toString() == 'GT'">  <![CDATA[ > #{filter.value} ]]></when>
+      <when test="filter.operator.toString() == 'GTE'"> <![CDATA[ >= #{filter.value} ]]></when>
+      <when test="filter.operator.toString() == 'LT'">  <![CDATA[ < #{filter.value} ]]></when>
+      <when test="filter.operator.toString() == 'LTE'"> <![CDATA[ <= #{filter.value} ]]></when>
+      <when test="filter.operator.toString() == 'IN'"> IN 
+        <foreach collection="filter.value" item="listItem" open="(" close=")" separator="," >#{listItem}</foreach>
+      </when>
+    </choose>
+  </sql>
+  
+  <select id="countUserEx"  resultType="java.lang.Integer" >
+    SELECT COUNT(1)
+    FROM c_user u 
+    LEFT JOIN c_user_role ur ON ur.user_id = u.user_id
+    LEFT JOIN c_role r ON r.role_id = ur.role_id    
+    WHERE u.user_id != '1'
+    <if test="filters != null ">
+      <include refid="Where_Clause" />
+    </if>
+  </select>
+  
+  <select id="findUserEx" resultMap="BaseResultMapEx" >
+	SELECT
+	    u.*, r.*
+	FROM
+	    c_user u
+	LEFT JOIN c_user_role ur ON ur.user_id = u.user_id
+	LEFT JOIN c_role r ON r.role_id = ur.role_id
+	WHERE 
+	   u.user_id != '1'
+    <if test="filters != null" >
+      <include refid="Where_Clause" />
+    </if>
+    <if test="orderBy != null" >
+      order by ${orderBy}
+    </if>
+    <if test="page != null" >
+      <![CDATA[ limit ${page.offset}, ${page.pageSize} ]]>
+    </if>
+  </select>
+  
+  <select id="selectRoleByUserId" resultMap="com.lc.zy.ball.domain.oa.mapper.RoleMapper.BaseResultMap" >
+		SELECT
+		  r.*
+		FROM
+		  c_role r
+		JOIN c_user_role ur ON ur.ROLE_ID = r.ROLE_ID 
+		WHERE user_id = #{userId}
+  </select>
+  
+
+  <select id="getUserExByFilter" resultMap="BaseResultMapEx" >
+    SELECT
+        u.*, r.*
+    FROM
+        c_user u
+    LEFT JOIN c_user_role ur ON ur.user_id = u.user_id
+    LEFT JOIN c_role r ON r.role_id = ur.role_id
+	<where>
+	    <if test="filters != null ">
+	      <include refid="Where_Clause" />
+	    </if>	
+	</where>
+  </select>
+  
+  <!--  
+  <select id="countUserStatiumByMap" resultType="java.lang.Integer">
+  	SELECT
+  		count(*)
+  	from c_user
+  	LEFT JOIN oa_user_statium ON oa_user_statium.user_id = c_user.user_id
+  	LEFT JOIN oa_statium_detail ON oa_statium_detail.id = oa_user_statium.statium_id
+  	WHERE 
+	   	c_user.cb is not null
+	 	and c_user.delete_flag is null 
+     <if test="filters != null" >
+      <include refid="Where_Clause" />
+    </if>
+  </select>
+
+  <select id="selectUserStatiumByMap" resultMap="userStatiumVo">
+  	SELECT
+  		c_user.*,oa_statium_detail.*
+  	from c_user
+  	LEFT JOIN oa_user_statium ON oa_user_statium.user_id = c_user.user_id
+  	LEFT JOIN oa_statium_detail ON oa_statium_detail.id = oa_user_statium.statium_id
+ 	WHERE 
+	   	c_user.cb is not null
+	 	and c_user.delete_flag is null
+    <if test="filters != null" >
+      <include refid="Where_Clause" />
+    </if>
+    <if test="orderBy != null" >
+      order by ${orderBy} desc
+    </if>
+    <if test="page != null" >
+      <![CDATA[ limit ${page.offset}, ${page.pageSize} ]]>
+    </if>  
+  </select>
+  
+  <select id="countUserStatiumByMap1" resultType="java.lang.Integer">
+  	SELECT
+  		count(*)
+  	from c_user
+  	LEFT JOIN oa_user_statium ON oa_user_statium.user_id = c_user.user_id
+  	LEFT JOIN oa_statium_detail ON oa_statium_detail.id = oa_user_statium.statium_id
+  	WHERE 
+	 	c_user.delete_flag is null 
+     <if test="filters != null" >
+      <include refid="Where_Clause" />
+    </if>
+  </select>
+  <select id="selectUserStatiumByMap1" resultMap="userStatiumVo">
+  	SELECT
+  		c_user.*,oa_statium_detail.*
+  	from c_user
+  	LEFT JOIN oa_user_statium ON oa_user_statium.user_id = c_user.user_id
+  	LEFT JOIN oa_statium_detail ON oa_statium_detail.id = oa_user_statium.statium_id
+ 	WHERE 
+	 	c_user.delete_flag is null
+    <if test="filters != null" >
+      <include refid="Where_Clause" />
+    </if>
+    <if test="orderBy != null" >
+      order by ${orderBy} desc
+    </if>
+    <if test="page != null" >
+      <![CDATA[ limit ${page.offset}, ${page.pageSize} ]]>
+    </if>  
+  </select>
+--> 
+  
+</mapper>

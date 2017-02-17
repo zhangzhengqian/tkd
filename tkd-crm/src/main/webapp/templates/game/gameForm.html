@@ -1,0 +1,73 @@
+<div class="formTable">
+	<input type="hidden" ng-model="game.id"/>
+	<ul>
+		<li>
+			<span class="title">赛事名称：</span>
+			<input type="text" value="{{game.surfix}}" readonly="readonly">
+		</li>
+		<li>
+			<span class="title">级别：</span>
+			<select ng-change="changeTip()" ng-model='game.gameLevel'
+			ng-options="key as value for (key,value) in gameLevelMap">
+				<option value="">请选择级别</option>
+			</select>
+			<span id="gameTip"></span><span style="margin-left:30px;">若其中一项赛事报名人数少于八人，比赛自动取消</span>
+		</li>
+		<li ng-repeat="item in game.items track by $index" class="gameBox">
+			<span class="title">{{item.name}}：</span>
+			<label class="labelCheck"><input type="checkbox"  ng-model="item.checked"></label>
+			<label class="labelCheck">报名费用：</label><input ng-if="$index==0||$index==1||$index==5" type="number" ng-model="item.fee" onkeyup="this.value=this.value.replace(/\D/g,'')">
+													  <input ng-if="$index==2||$index==3||$index==4||$index==6" type="number" placeholder="两人共计" ng-model="item.fee" onkeyup="this.value=this.value.replace(/\D/g,'')">
+			<label class="labelCheck">建议选手水平：</label>
+			<select ng-model='item.level'
+			ng-options="key as value for (key,value) in itemLevelMap">
+				<option value="">请选择</option>
+			</select>
+			<label class="labelCheck">
+			赛制：
+			</label>
+			<select ng-model='item.format'
+			ng-options="key as value for (key,value) in gameFormatMap">
+				<option value="">请选择</option>
+			</select>
+			<select ng-model='item.scoreType'
+			ng-options="key as value for (key,value) in gameScoreTypeMap">
+				<option value="">请选择</option>
+			</select>
+			<label class="labelCheck">
+			报名人数：
+			</label>
+			<select ng-model='item.numberLimit'
+			ng-options="key as value for (key,value) in gameLimitMap">
+				<option value="">请选择</option>
+			</select>
+		</li>
+		<li>
+			<span class="title">赛事开始时间：</span>
+			<input type="text" id="startTime" ng-model="game.startTime" onchange=""
+			onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:00',maxDate:'#F{$dp.$D(\'endTime\')}',minDate:'%y-%M-{%d+7}'})" readonly="readonly"/>
+		</li>
+		<li>
+			<span class="title">赛事结束时间：</span>
+			<input type="text" id="endTime" ng-model="game.endTime" value=""  onchange=""
+			onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:00',minDate:'#F{$dp.$D(\'startTime\')}'})" readonly="readonly"/>
+		</li>
+		<li>
+			<span class="title">报名截止时间：</span>
+			<input type="text" ng-model="game.expiryDate" onchange=""
+			onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:00',maxDate:'#F{$dp.$D(\'startTime\',{d:-1})}',minDate:'%y-%M-%d'})" readonly="readonly"/>
+		</li>
+		<li>
+			<span class="title">联系人：</span>
+			<input type="text" ng-model="game.chiefJudge">
+		</li>
+		<li>
+			<span class="title">联系电话：</span>
+			<input type="text" ng-model="game.tel" onkeyup="this.value=this.value.replace(/\D/g,'')">
+		</li>
+	</ul>
+	<div class="formSubDiv">
+		<a href="#game" class="saveBtnBot">返回</a>
+		<a class="saveBtnBot" href="javascript:;" ng-if="game.state==null||game.state==2||game.id==null" ng-click="submitForm()"> 保存 </a><small>保存成功后须提交后才能进入审核！</small>
+	</div>
+</div>

@@ -1,0 +1,282 @@
+[0124 10:23:49,875 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'crmFunctionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.CrmFunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0124 10:23:49,877 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'dicItemMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.DicItemMapperEx' mapperInterface. Bean already defined with the same name!
+[0124 10:23:49,877 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'functionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.FunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0124 10:23:49,877 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'operatorMapper' and 'com.lc.zy.ball.domain.oa.mapper.ex.OperatorMapper' mapperInterface. Bean already defined with the same name!
+[0124 10:23:49,877 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'organizationMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.OrganizationMapperEx' mapperInterface. Bean already defined with the same name!
+[0124 10:23:49,877 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'statisticUserMobileMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.StatisticUserMobileMapperEx' mapperInterface. Bean already defined with the same name!
+[0124 10:23:49,877 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'userMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.UserMapperEx' mapperInterface. Bean already defined with the same name!
+[0124 10:23:50,046 DEBUG] [main] com.lc.zy.common.util.SpringUtils - set application context ===> Root WebApplicationContext: startup date [Tue Jan 24 10:23:46 CST 2017]; root of context hierarchy
+[0124 10:23:50,282 INFO ] [main] com.mchange.v2.log.MLog - MLog clients using log4j logging.
+[0124 10:23:50,402 INFO ] [main] com.mchange.v2.c3p0.C3P0Registry - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+[0124 10:23:51,142 INFO ] [main] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 2880, acquireRetryDelay -> 30000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 10000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge14u9l1l8jdq41915p6o|11cf9944, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge14u9l1l8jdq41915p6o|11cf9944, idleConnectionTestPeriod -> 120, initialPoolSize -> 5, jdbcUrl -> jdbc:mysql://60.219.169.5:3306/tkd_oa?zeroDateTimeBehavior=convertToNull&useUnicode=true, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 120, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[0124 10:23:54,357 INFO ] [main] com.lc.zy.common.cache.MapperOnCacheSupport - exclude_cache_mapper ==> {OrderSms=true, OrderItem=true, OrderBill=true, Order=true, OrderBillItem=true, OrderAlarm=true, OrderLog=true}
+[0124 10:23:54,377 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheEnable = true
+[0124 10:23:54,378 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheServer = 192.168.1.219:6379
+[0124 10:23:54,383 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cachePwd = null
+[0124 10:23:54,392 ERROR] [main] com.lc.zy.common.cache.RedisPool - cache 初始化成功
+[0124 10:23:54,419 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+[0124 10:23:54,420 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:host.name=J8LZEKL1TNCFRZY
+[0124 10:23:54,420 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.version=1.7.0_67
+[0124 10:23:54,420 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.vendor=Oracle Corporation
+[0124 10:23:54,420 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.home=G:\eclipse\jre
+[0124 10:23:54,420 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.class.path=G:\eclipse\configuration\org.eclipse.osgi\858\0\.cp\lib\core-3.1.1.jar;G:\eclipse\configuration\org.eclipse.osgi\858\0\.cp\lib\jetty-6.1.26.jar;G:\eclipse\configuration\org.eclipse.osgi\858\0\.cp\lib\jetty-management-6.1.26.jar;G:\eclipse\configuration\org.eclipse.osgi\858\0\.cp\lib\jetty-util-6.1.26.jar;G:\eclipse\configuration\org.eclipse.osgi\858\0\.cp\lib\jsp-2.1.jar;G:\eclipse\configuration\org.eclipse.osgi\858\0\.cp\lib\jsp-api-2.1.jar;G:\eclipse\configuration\org.eclipse.osgi\858\0\.cp\lib\run-jetty-run-bootstrap.jar;G:\eclipse\configuration\org.eclipse.osgi\858\0\.cp\lib\servlet-api-2.5-20081211.jar
+[0124 10:23:54,420 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.library.path=G:\eclipse\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;G:/eclipse/jre/bin/server;G:/eclipse/jre/bin;G:/eclipse/jre/lib/amd64;.;C:\Program Files\Java\jdk1.7.0_51\bin;C:\Program Files (x86)\Common Files\NetSarang;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;G:\apache-maven-3.3.1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;G:\apache-maven-3.3.1\bin;G:\mysql\bin;C:\Program Files\TortoiseSVN\bin;G:\apache-maven-3.3.1\bin;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\lib;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\bin;G:\eclipse;;.
+[0124 10:23:54,420 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.io.tmpdir=C:\Users\ADMINI~1\AppData\Local\Temp\
+[0124 10:23:54,420 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.compiler=<NA>
+[0124 10:23:54,420 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.name=Windows 7
+[0124 10:23:54,420 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.arch=amd64
+[0124 10:23:54,420 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.version=6.1
+[0124 10:23:54,420 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.name=Administrator
+[0124 10:23:54,420 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.home=C:\Users\Administrator
+[0124 10:23:54,421 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.dir=G:\qzlspace4\tkd-app
+[0124 10:23:54,421 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@155cd305
+[0124 10:23:54,470 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@155cd305
+[0124 10:23:54,483 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0124 10:23:54,484 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0124 10:23:54,487 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0124 10:23:54,530 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15980ee5fd80080, negotiated timeout = 5000
+[0124 10:23:57,486 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0124 10:23:57,493 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15980ee5fd80081, negotiated timeout = 5000
+[0124 10:23:57,494 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@6b8dfe2f
+[0124 10:23:57,495 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@6b8dfe2f
+[0124 10:23:57,496 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0124 10:23:57,497 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0124 10:23:57,497 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0124 10:23:57,499 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0124 10:23:57,504 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15980ee5fd80082, negotiated timeout = 5000
+[0124 10:23:57,509 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15980ee5fd80083, negotiated timeout = 5000
+[0124 10:23:57,693 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - locCustomer was started ...
+[0124 10:23:57,694 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - brokerUrl=tcp://192.168.1.219:61616
+[0124 10:23:58,893 WARN ] [main] com.lc.zy.common.coreservice.OrdersCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0124 10:23:58,971 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - locCustomer was started ...
+[0124 10:23:58,971 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - brokerUrl=tcp://192.168.1.219:61616
+[0124 10:24:00,376 WARN ] [main] com.lc.zy.common.coreservice.FreeSpaceCounter - FreeSpaceCounter and coreServiceOrdersLicense not define
+[0124 10:24:00,380 WARN ] [main] com.lc.zy.common.coreservice.Scores - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0124 10:24:00,384 WARN ] [main] com.lc.zy.common.coreservice.UserStatiumCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0124 10:24:22,227 DEBUG] [1767086327@qtp-352244583-3] com.lc.zy.ball.app.controller.HubController - [INPUT]:body=null
+[0124 10:24:22,227 DEBUG] [1767086327@qtp-352244583-3] com.lc.zy.ball.app.controller.HubController - [INPUT]:secret=null
+[0124 10:24:22,232 DEBUG] [1767086327@qtp-352244583-3] com.lc.zy.common.util.AppRequestUtil - body = null
+[0124 10:24:22,233 ERROR] [1767086327@qtp-352244583-3] com.lc.zy.common.util.AppRequestUtil - ClientRequest 参数反序列化异常
+java.lang.NullPointerException
+	at java.io.StringReader.<init>(Unknown Source)
+	at org.codehaus.jackson.JsonFactory.createJsonParser(JsonFactory.java:636)
+	at org.codehaus.jackson.map.ObjectReader.readValue(ObjectReader.java:460)
+	at com.lc.zy.common.util.AppRequestUtil.reviceClientRequest(AppRequestUtil.java:198)
+	at com.lc.zy.ball.app.controller.HubController.request(HubController.java:86)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:685)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+[0124 10:24:22,234 ERROR] [1767086327@qtp-352244583-3] com.lc.zy.ball.app.controller.HubController - hub_error
+java.lang.Exception: ClientRequest 参数反序列化异常
+	at com.lc.zy.common.util.AppRequestUtil.reviceClientRequest(AppRequestUtil.java:204)
+	at com.lc.zy.ball.app.controller.HubController.request(HubController.java:86)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:685)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+Caused by: java.lang.NullPointerException
+	at java.io.StringReader.<init>(Unknown Source)
+	at org.codehaus.jackson.JsonFactory.createJsonParser(JsonFactory.java:636)
+	at org.codehaus.jackson.map.ObjectReader.readValue(ObjectReader.java:460)
+	at com.lc.zy.common.util.AppRequestUtil.reviceClientRequest(AppRequestUtil.java:198)
+	... 37 more
+[0124 10:24:22,239 DEBUG] [1767086327@qtp-352244583-3] com.lc.zy.common.mq.BizLog - coll=null , text={"message":"ClientRequest 参数反序列化异常","level":"error"}
+[0124 10:24:22,249 DEBUG] [Thread-13] com.lc.zy.common.mq.TopicPublisher - topic send:::>BALL_LOG_TOPIC{"message":"ClientRequest 参数反序列化异常","level":"error"}
+[0124 10:24:22,295 DEBUG] [1767086327@qtp-352244583-3] com.lc.zy.ball.app.controller.HubController - [OUTPUT]:rtn={"success":false,"entity":{"errorCode":"HUB_ERROR","reason":"后台异常:ClientRequest 参数反序列化异常","sourceVersion":"devel","localIps":["127.0.0.1","0:0:0:0:0:0:0:1","192.168.1.62","fe80:0:0:0:3dab:85fb:114c:d859%11","fe80:0:0:0:0:100:7f:fffe%12","fe80:0:0:0:0:5efe:c0a8:13e%13"]}}
+[0124 10:24:22,295 INFO ] [1767086327@qtp-352244583-3] com.lc.zy.ball.app.controller.HubController - [null.null]-68ms.
+[0124 10:24:22,366 DEBUG] [1767086327@qtp-352244583-3] com.lc.zy.common.mq.BizLog - coll=ualog , text={"dt":"2017-01-24","ua":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36","rt":68}
+[0124 10:24:22,366 DEBUG] [Thread-13] com.lc.zy.common.mq.TopicPublisher - topic send:::>BALL_LOG_TOPIC{"dt":"2017-01-24","ua":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36","rt":68,"coll":"ualog"}
+[0124 10:24:39,838 DEBUG] [1767086327@qtp-352244583-3] com.lc.zy.ball.app.controller.HubController - [INPUT]:body={}
+[0124 10:24:39,839 DEBUG] [1767086327@qtp-352244583-3] com.lc.zy.ball.app.controller.HubController - [INPUT]:secret=null
+[0124 10:24:39,899 ERROR] [1767086327@qtp-352244583-3] com.lc.zy.ball.app.controller.HubController - hub_error
+java.lang.IllegalArgumentException: 'name' must not be null
+	at org.springframework.util.Assert.notNull(Assert.java:112)
+	at org.springframework.beans.factory.BeanFactoryUtils.transformedBeanName(BeanFactoryUtils.java:72)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.transformedBeanName(AbstractBeanFactory.java:1021)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:231)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:191)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1119)
+	at com.lc.zy.common.util.SpringUtils.getBean(SpringUtils.java:25)
+	at com.lc.zy.ball.app.controller.HubController.request(HubController.java:105)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:685)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+[0124 10:24:39,900 DEBUG] [1767086327@qtp-352244583-3] com.lc.zy.common.mq.BizLog - coll=null , text={"message":"\u0027name\u0027 must not be null","level":"error"}
+[0124 10:24:39,901 DEBUG] [Thread-13] com.lc.zy.common.mq.TopicPublisher - topic send:::>BALL_LOG_TOPIC{"message":"'name' must not be null","level":"error"}
+[0124 10:24:39,901 DEBUG] [1767086327@qtp-352244583-3] com.lc.zy.ball.app.controller.HubController - [OUTPUT]:rtn={"success":false,"entity":{"errorCode":"HUB_ERROR","reason":"后台异常:\u0027name\u0027 must not be null","sourceVersion":"devel","localIps":["127.0.0.1","0:0:0:0:0:0:0:1","192.168.1.62","fe80:0:0:0:3dab:85fb:114c:d859%11","fe80:0:0:0:0:100:7f:fffe%12","fe80:0:0:0:0:5efe:c0a8:13e%13"]}}
+[0124 10:24:39,901 INFO ] [1767086327@qtp-352244583-3] com.lc.zy.ball.app.controller.HubController - [null.null]-62ms.
+[0124 10:24:39,902 DEBUG] [1767086327@qtp-352244583-3] com.lc.zy.common.mq.BizLog - coll=ualog , text={"dt":"2017-01-24","ua":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36","rt":62}
+[0124 10:24:39,905 DEBUG] [Thread-13] com.lc.zy.common.mq.TopicPublisher - topic send:::>BALL_LOG_TOPIC{"dt":"2017-01-24","ua":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36","rt":62,"coll":"ualog"}
+[0124 10:25:09,963 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.app.controller.HubController - [INPUT]:body={"sn":"04832AF7-652C-4B08-8100-9E69CED71305","method":"login","params":{"loginName":"qzl123","passWord":"111111","begin":0,"size":10},"service":"crmUser"}
+[0124 10:25:09,963 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.app.controller.HubController - [INPUT]:secret=null
+[0124 10:25:10,221 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.CrmUserMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@591c811a]
+[0124 10:25:10,224 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.CrmUserMapper.selectByExample - ==>  Preparing: select USER_ID, statium_id, CUST_ID, NICKNAME, REALNAME, LOGIN_NAME, PASSWORD, SALT, PWD_QUESTION, PWD_ANSWER, SEC_EMAIL, SEC_MOBILE, CREATE_TIME, LAST_TIME, LAST_IP, LATEST_TIME, LATEST_IP, STATUS, CB, delete_flag from crm_user WHERE ( LOGIN_NAME = ? ) 
+[0124 10:25:10,248 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.CrmUserMapper.selectByExample - ==> Parameters: qzl123(String)
+[0124 10:25:10,908 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.CrmUserMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@1201664f]
+[0124 10:25:10,909 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.CrmUserMapper.selectByExample - ==>  Preparing: select USER_ID, statium_id, CUST_ID, NICKNAME, REALNAME, LOGIN_NAME, PASSWORD, SALT, PWD_QUESTION, PWD_ANSWER, SEC_EMAIL, SEC_MOBILE, CREATE_TIME, LAST_TIME, LAST_IP, LATEST_TIME, LATEST_IP, STATUS, CB, delete_flag from crm_user WHERE ( LOGIN_NAME = ? ) 
+[0124 10:25:10,909 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.CrmUserMapper.selectByExample - ==> Parameters: qzl123(String)
+[0124 10:25:11,044 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.app.service.crmUser.CrmUserRepository - 加密后的密码def37d0808afceb9cbee507f9ee6b80573404baf
+[0124 10:25:11,044 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.app.service.crmUser.CrmUserRepository - 加密后的密码def37d0808afceb9cbee507f9ee6b80573404baf
+[0124 10:25:11,318 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.CrmUserMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@132258d9]
+[0124 10:25:11,319 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.CrmUserMapper.selectByExample - ==>  Preparing: select USER_ID, statium_id, CUST_ID, NICKNAME, REALNAME, LOGIN_NAME, PASSWORD, SALT, PWD_QUESTION, PWD_ANSWER, SEC_EMAIL, SEC_MOBILE, CREATE_TIME, LAST_TIME, LAST_IP, LATEST_TIME, LATEST_IP, STATUS, CB, delete_flag from crm_user WHERE ( LOGIN_NAME = ? ) 
+[0124 10:25:11,319 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.CrmUserMapper.selectByExample - ==> Parameters: qzl123(String)
+[0124 10:25:11,695 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@7c5dd248]
+[0124 10:25:11,695 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderMapper.selectByExample - ==>  Preparing: select id, user_id, statium_id, status, order_type, fee, final_fee, comment, ct, cb, et, eb, number, pay_type, orders_type, refund_batch_no, reason, trade_no, address, is_check, check_date, channel, handle_status, handler, verify_flag, is_comment, class_type, is_experience from oa_order WHERE ( statium_id = ? and status in ( ? , ? ) and order_type = ? ) order by ct desc limit ? , ? 
+[0124 10:25:11,696 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderMapper.selectByExample - ==> Parameters: 221(Integer), ORDER_BILLED(String), ORDER_PAIED(String), BOOK_APP(String), 0(Integer), 10(Integer)
+[0124 10:25:12,657 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@7c5dd248]
+[0124 10:25:12,657 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==>  Preparing: select id, order_id, class_id, class_info_id, class_name, activity_id, sign_date, start_time, end_time, wait_time, price, ct, cb, et, eb, orders_type, cost_price, coach_id, activity_name, active_date, card_type, card_status, card_id, card_buy_date from oa_order_item WHERE ( order_id = ? ) 
+[0124 10:25:12,658 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==> Parameters: 1000002136(String)
+[0124 10:25:13,057 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@7c5dd248]
+[0124 10:25:13,057 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==>  Preparing: select id, order_id, class_id, class_info_id, class_name, activity_id, sign_date, start_time, end_time, wait_time, price, ct, cb, et, eb, orders_type, cost_price, coach_id, activity_name, active_date, card_type, card_status, card_id, card_buy_date from oa_order_item WHERE ( order_id = ? ) 
+[0124 10:25:13,058 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==> Parameters: 1000002131(String)
+[0124 10:25:13,166 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@7c5dd248]
+[0124 10:25:13,166 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==>  Preparing: select id, order_id, class_id, class_info_id, class_name, activity_id, sign_date, start_time, end_time, wait_time, price, ct, cb, et, eb, orders_type, cost_price, coach_id, activity_name, active_date, card_type, card_status, card_id, card_buy_date from oa_order_item WHERE ( order_id = ? ) 
+[0124 10:25:13,167 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==> Parameters: 1000002114(String)
+[0124 10:25:13,351 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@7c5dd248]
+[0124 10:25:13,351 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==>  Preparing: select id, order_id, class_id, class_info_id, class_name, activity_id, sign_date, start_time, end_time, wait_time, price, ct, cb, et, eb, orders_type, cost_price, coach_id, activity_name, active_date, card_type, card_status, card_id, card_buy_date from oa_order_item WHERE ( order_id = ? ) 
+[0124 10:25:13,353 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==> Parameters: 1000002113(String)
+[0124 10:25:13,589 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@7c5dd248]
+[0124 10:25:13,590 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==>  Preparing: select id, order_id, class_id, class_info_id, class_name, activity_id, sign_date, start_time, end_time, wait_time, price, ct, cb, et, eb, orders_type, cost_price, coach_id, activity_name, active_date, card_type, card_status, card_id, card_buy_date from oa_order_item WHERE ( order_id = ? ) 
+[0124 10:25:13,590 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==> Parameters: 1000002112(String)
+[0124 10:25:14,380 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@7c5dd248]
+[0124 10:25:14,380 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==>  Preparing: select id, order_id, class_id, class_info_id, class_name, activity_id, sign_date, start_time, end_time, wait_time, price, ct, cb, et, eb, orders_type, cost_price, coach_id, activity_name, active_date, card_type, card_status, card_id, card_buy_date from oa_order_item WHERE ( order_id = ? ) 
+[0124 10:25:14,380 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==> Parameters: 1000002111(String)
+[0124 10:25:14,516 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@7c5dd248]
+[0124 10:25:14,516 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==>  Preparing: select id, order_id, class_id, class_info_id, class_name, activity_id, sign_date, start_time, end_time, wait_time, price, ct, cb, et, eb, orders_type, cost_price, coach_id, activity_name, active_date, card_type, card_status, card_id, card_buy_date from oa_order_item WHERE ( order_id = ? ) 
+[0124 10:25:14,516 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==> Parameters: 1000002109(String)
+[0124 10:25:14,638 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@7c5dd248]
+[0124 10:25:14,638 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==>  Preparing: select id, order_id, class_id, class_info_id, class_name, activity_id, sign_date, start_time, end_time, wait_time, price, ct, cb, et, eb, orders_type, cost_price, coach_id, activity_name, active_date, card_type, card_status, card_id, card_buy_date from oa_order_item WHERE ( order_id = ? ) 
+[0124 10:25:14,639 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==> Parameters: 1000002107(String)
+[0124 10:25:14,785 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumActivityMapper.2b604ad34a44481bbfd28495fe78f8c1
+[0124 10:25:14,786 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.StatiumActivityMapper.selectByPrimaryKey - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@7c5dd248]
+[0124 10:25:14,786 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.StatiumActivityMapper.selectByPrimaryKey - ==>  Preparing: select id, statium_id, activity_topic, dg_name, start_time, end_time, host_introduce, photo, amount, price, activity_introduce, ct, cb, et, eb, expiry_data, host_name, expiry_type, free from oa_statium_activity where id = ? 
+[0124 10:25:14,787 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.StatiumActivityMapper.selectByPrimaryKey - ==> Parameters: 2b604ad34a44481bbfd28495fe78f8c1(String)
+[0124 10:25:15,445 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : com.lc.zy.ball.domain.oa.po.StatiumActivity@2c46f6ad[
+  id=2b604ad34a44481bbfd28495fe78f8c1
+  statiumId=221
+  activityTopic=少年杯
+  dgName=北京乾正隆跆拳道（朝阳店）
+  startTime=2016-12-21 18:00:00
+  endTime=2016-12-24 18:00:00
+  hostIntroduce=<p>地方地方</p>
+  photo=http://7xt8bo.com2.z0.glb.qiniucdn.com/912bde9666bc4adc83953e43c8763be2.png__
+  amount=5
+  price=10000
+  activityIntroduce=<p>多发点</p>
+  ct=Wed Dec 21 18:07:45 CST 2016
+  cb=0369e6bc11e040ac997b140a41897ebd
+  et=Wed Dec 21 18:07:45 CST 2016
+  eb=0369e6bc11e040ac997b140a41897ebd
+  expiryData=2016-12-24 18:00:00
+  hostName=北京乾正隆
+  expiryType=0
+  free=1
+]
+[0124 10:25:15,446 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@7c5dd248]
+[0124 10:25:15,446 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==>  Preparing: select id, order_id, class_id, class_info_id, class_name, activity_id, sign_date, start_time, end_time, wait_time, price, ct, cb, et, eb, orders_type, cost_price, coach_id, activity_name, active_date, card_type, card_status, card_id, card_buy_date from oa_order_item WHERE ( order_id = ? ) 
+[0124 10:25:15,447 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==> Parameters: 1000002106(String)
+[0124 10:25:15,583 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ooo Using Connection [com.mchange.v2.c3p0.impl.NewProxyConnection@7c5dd248]
+[0124 10:25:15,583 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==>  Preparing: select id, order_id, class_id, class_info_id, class_name, activity_id, sign_date, start_time, end_time, wait_time, price, ct, cb, et, eb, orders_type, cost_price, coach_id, activity_name, active_date, card_type, card_status, card_id, card_buy_date from oa_order_item WHERE ( order_id = ? ) 
+[0124 10:25:15,583 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.domain.oa.mapper.OrderItemMapper.selectByExample - ==> Parameters: 1000002105(String)
+[0124 10:25:15,983 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.ball.app.controller.HubController - [OUTPUT]:rtn={"sn":"04832AF7-652C-4B08-8100-9E69CED71305","success":true,"entity":{"statiumId":221,"orderList":[{"dgId":221,"orderName":"成人班","orderId":"1000002136","statusName":"已完成","orderType":0,"status":"ORDER_BILLED","price":216,"isComment":0,"signDate":"2017-01-17","startTime":"13:00","payType":3,"signTime":"2017-01-17 13:00"},{"dgId":221,"orderName":"私教课","orderId":"1000002131","statusName":"已完成","orderType":0,"status":"ORDER_BILLED","price":123,"isComment":0,"signDate":"2017-01-13","startTime":"16:00","payType":3,"signTime":"2017-01-13 16:00"},{"dgId":221,"orderName":"竞技班","orderId":"1000002114","statusName":"已完成","orderType":0,"status":"ORDER_BILLED","price":216,"isComment":0,"signDate":"2016-12-28","startTime":"14:00","payType":3,"signTime":"2016-12-28 14:00"},{"dgId":221,"orderName":"幼儿班","orderId":"1000002113","statusName":"已完成","orderType":0,"status":"ORDER_BILLED","price":135,"isComment":0,"signDate":"2016-12-28","startTime":"18:00","payType":3,"signTime":"2016-12-28 18:00"},{"dgId":221,"orderName":"竞技班","orderId":"1000002112","statusName":"已完成","orderType":0,"status":"ORDER_BILLED","price":216,"isComment":0,"signDate":"2016-12-28","startTime":"14:00","payType":3,"signTime":"2016-12-28 14:00"},{"dgId":221,"orderName":"幼儿班","orderId":"1000002111","statusName":"已完成","orderType":0,"status":"ORDER_BILLED","price":135,"isComment":0,"signDate":"2016-12-26","startTime":"19:00","payType":3,"signTime":"2016-12-26 19:00"},{"dgId":221,"orderName":"成人班","orderId":"1000002109","statusName":"已完成","orderType":0,"status":"ORDER_BILLED","price":216,"isComment":0,"signDate":"2016-12-26","startTime":"18:00","payType":3,"signTime":"2016-12-26 18:00"},{"dgId":221,"orderName":"少年杯","orderId":"1000002107","statusName":"已完成","orderType":1,"status":"ORDER_BILLED","price":100,"isComment":0,"signDate":"2016-12-21","startTime":"18:00","payType":3,"signTime":"2016-12-21 18:00"},{"dgId":221,"orderName":"竞技班","orderId":"1000002106","statusName":"已完成","orderType":0,"status":"ORDER_BILLED","price":216,"isComment":0,"signDate":"2016-12-24","startTime":"15:00","payType":3,"signTime":"2016-12-24 15:00"},{"dgId":221,"orderName":"竞技班","orderId":"1000002105","statusName":"已完成","orderType":0,"status":"ORDER_BILLED","price":1,"isComment":0,"signDate":"2016-12-24","startTime":"14:00","payType":3,"signTime":"2016-12-24 14:00"}]}}
+[0124 10:25:15,983 INFO ] [986280920@qtp-352244583-4] com.lc.zy.ball.app.controller.HubController - [crmUser.login]-6020ms.
+[0124 10:25:15,984 DEBUG] [986280920@qtp-352244583-4] com.lc.zy.common.mq.BizLog - coll=ualog , text={"dt":"2017-01-24","service":"crmUser","ua":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36","rt":6020,"method":"login"}
+[0124 10:25:15,988 DEBUG] [Thread-13] com.lc.zy.common.mq.TopicPublisher - topic send:::>BALL_LOG_TOPIC{"dt":"2017-01-24","service":"crmUser","ua":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36","method":"login","rt":6020,"coll":"ualog"}

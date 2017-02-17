@@ -1,0 +1,34 @@
+<div class="orderNav">
+	<ul>
+		<li><a href="#userCenter">个人中心</a></li>
+		<li><a href="#statiumEdit">场馆信息</a></li>
+		<li><a href="#space">场地管理</a></li>
+		<li class="active"><a href="#user">员工管理</a></li>
+		<!-- <li><a href="#/prize/list">获奖列表</a></li> -->
+	</ul>
+</div>
+<div class="orderTipMeg">
+	<a class="addLockBtn" href="#userSave">添加员工</a>
+</p>
+</div>
+<div class="orderResult">
+	<table>
+		<tr>
+			<th>工号</th>
+			<th>昵称</th>
+			<th>姓名</th>
+			<th>手机号</th>
+			<th>操作</th>
+		</tr>
+		<tr ng-repeat="user in objs">
+			<td>{{user.custId}}</td>
+			<td>{{user.nickname}}</td>
+			<td>{{user.realname}}</td>
+			<td>{{user.loginName}}</td>
+			<td><a href="#userEdit/{{user.userId}}" class="text-navy">修改</a>
+				<small class="text-muted p-xxs">|</small> <a
+				ng-click="deleteUser($index)" href="javascript:;" class="text-navy">删除</a></td>
+		</tr>
+	</table>
+</div>
+<crm-pagination conf="paginationConf"></crm-pagination>

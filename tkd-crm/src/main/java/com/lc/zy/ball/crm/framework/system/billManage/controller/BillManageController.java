@@ -1,0 +1,150 @@
+package com.lc.zy.ball.crm.framework.system.billManage.controller;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springside.modules.web.Servlets;
+
+import com.lc.zy.ball.common.data.pageable.Page;
+import com.lc.zy.ball.common.data.pageable.PageRequest;
+import com.lc.zy.ball.crm.common.web.AbstractController;
+import com.lc.zy.ball.crm.framework.system.billManage.service.BillManageService;
+import com.lc.zy.ball.crm.framework.system.billManage.vo.BillManageVo;
+import com.lc.zy.ball.crm.framework.system.order.vo.OrderVo;
+import com.lc.zy.ball.domain.oa.mapper.OrderBillMapper;
+import com.lc.zy.ball.domain.oa.po.OrderBillItem;
+import com.lc.zy.common.util.CommonOAUtils;
+import com.lc.zy.common.web.WebUtils;
+
+/**
+ * 页面跳转
+ */
+@Controller
+@RequestMapping(value = "/billManage")
+public class BillManageController extends AbstractController{
+	
+	private static Logger logger = LoggerFactory.getLogger(BillManageController.class);
+	
+	@Autowired
+	private BillManageService billManageService;
+	
+	@Autowired
+	private OrderBillMapper orderBillMapper;
+	
+	public SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	
+	/**
+	 * 
+	 * <app订单账单列表显示><功能具体实现>
+	 *
+	 * @create：2016年12月16日 上午10:19:30
+	 * @author：zzq
+	 * @param model
+	 * @param request
+	 * @param billType
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value="/appBill")
+	public String stappBilludent(Model model, HttpServletRequest request,Integer billType) throws Exception {
+		int page = WebUtils.getPage(request);
+		int pageSize = WebUtils.getPageSize(request);
+		Page<BillManageVo> list = billManageService.list(new PageRequest(page, pageSize), 0);
+		model.addAttribute("data", list);
+		return "/billManage/appBill";
+	}
+	
+	/**
+	 * 
+	 * <卡片充值订单列表展示><功能具体实现>
+	 *
+	 * @create：2016年12月16日 上午11:00:24
+	 * @author：zzq
+	 * @param model
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value="/cardBill")
+	public String cardBill(Model model, HttpServletRequest request) throws Exception {
+		int page = WebUtils.getPage(request);
+		int pageSize = WebUtils.getPageSize(request);
+		Page<BillManageVo> list = billManageService.list(new PageRequest(page, pageSize), 1);
+		model.addAttribute("data", list);
+		return "/billManage/cardBill";
+	}
+	
+	/**
+	 * 
+	 * <这段时间内的账单详情><功能具体实现>
+	 *
+	 * @create：2016年12月16日 下午3:22:30
+	 * @author：zzq
+	 * @param model
+	 * @param request
+	 * @param billId
+	 * @param statiumId
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value="/appBillItem/{billId}/{statiumId}")
+	public String appBillItem(Model model, HttpServletRequest request,@PathVariable String billId,@PathVariable String statiumId) throws Exception {
+		logger.debug(billId+statiumId);
+		Integer st = Integer.valueOf(billId.substring(0, 8));
+		Integer ed = Integer.valueOf(billId.substring(8 ,16));
+		String type = billId.substring(16, 17);
+		
+		String orderBillId = st+ed+statiumId+type;
+		
+		int page = WebUtils.getPage(request);
+		int pageSize = WebUtils.getPageSize(request);
+		//这段时间内的账单列表
+		Page<OrderBillItem> list = billManageService.getBillItem(new PageRequest(page, pageSize),orderBillId);
+		int totalAmount = billManageService.getBillTotalAmount(orderBillId);
+		
+		if("0".equals(type)){
+			//app订单
+			model.addAttribute("type", "app");
+		}else if("1".equals(type)){
+			//充值订单
+			model.addAttribute("type", "card");
+		}
+		
+		model.addAttribute("data", list);
+		model.addAttribute("totalAmount", totalAmount);
+		return "/billManage/appBillItem";
+	}
+	
+	/**
+	 * 
+	 * <查看订单><功能具体实现>
+	 *
+	 * @create：2016年12月16日 下午4:50:18
+	 * @author：zzq
+	 * @param type
+	 * @param signDate
+	 * @param model
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value="/appList/{type}/{signDate}")
+	public String appList(HttpServletRequest request,@PathVariable("type") String type,@PathVariable("signDate") String signDate,Model model) throws Exception {
+		int page = WebUtils.getPage(request);
+		int pageSize = WebUtils.getPageSize(request);
+		Page<OrderVo> list = billManageService.findOrderList(type,signDate,new PageRequest(page, pageSize));
+		model.addAttribute("data", list);
+		model.addAttribute("type", type);
+		return "/billManage/appList";
+	}
+}

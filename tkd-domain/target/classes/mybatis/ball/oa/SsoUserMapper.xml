@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lc.zy.ball.domain.oa.mapper.SsoUserMapper" >
+  <resultMap id="BaseResultMap" type="com.lc.zy.ball.domain.oa.po.SsoUser" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="photo" property="photo" jdbcType="VARCHAR" />
+    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="identity_type" property="identityType" jdbcType="INTEGER" />
+    <result column="card_id" property="cardId" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="property" property="property" jdbcType="VARCHAR" />
+    <result column="tags" property="tags" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="tkd_no" property="tkdNo" jdbcType="VARCHAR" />
+    <result column="isAttestation" property="isattestation" jdbcType="INTEGER" />
+    <result column="sign" property="sign" jdbcType="VARCHAR" />
+    <result column="job" property="job" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="app" property="app" jdbcType="INTEGER" />
+    <result column="level" property="level" jdbcType="INTEGER" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="update_user" property="updateUser" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="cert_list" property="certList" jdbcType="VARCHAR" />
+    <result column="elegant_list" property="elegantList" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="active_state" property="activeState" jdbcType="INTEGER" />
+    <result column="regist_source" property="registSource" jdbcType="INTEGER" />
+    <result column="regist_time" property="registTime" jdbcType="TIMESTAMP" />
+    <result column="dan" property="dan" jdbcType="VARCHAR" />
+    <result column="experience" property="experience" jdbcType="INTEGER" />
+    <result column="statium_id" property="statiumId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, username, phone, password, email, photo, nick_name, sex, birthday, identity_type, 
+    card_id, age, address, property, tags, name, tkd_no, isAttestation, sign, job, price, 
+    app, level, create_user, update_user, create_time, update_time, state, cert_list, 
+    elegant_list, city, active_state, regist_source, regist_time, dan, experience, statium_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lc.zy.ball.domain.oa.po.SsoUserCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sso_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="mysqlOffset != null and mysqlLength != null" >
+      <![CDATA[ limit #{mysqlOffset} , #{mysqlLength} ]]>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sso_user
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sso_user
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lc.zy.ball.domain.oa.po.SsoUserCriteria" >
+    delete from sso_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lc.zy.ball.domain.oa.po.SsoUser" >
+    insert into sso_user (id, username, phone, password, email, photo, nick_name, 
+      sex, birthday, identity_type, card_id, age, address, property, 
+      tags, name, tkd_no, isAttestation, sign, job, price, app, 
+      level, create_user, update_user, create_time, update_time, state, 
+      cert_list, elegant_list, city, active_state, regist_source, regist_time, 
+      dan, experience, statium_id)
+    values (#{id}, #{username}, #{phone}, #{password}, #{email}, #{photo}, #{nickName}, 
+      #{sex}, #{birthday}, #{identityType}, #{cardId}, #{age}, #{address}, #{property}, 
+      #{tags}, #{name}, #{tkdNo}, #{isattestation}, #{sign}, #{job}, #{price}, #{app}, 
+      #{level}, #{createUser}, #{updateUser}, #{createTime}, #{updateTime}, #{state}, 
+      #{certList}, #{elegantList}, #{city}, #{activeState}, #{registSource}, #{registTime}, 
+      #{dan}, #{experience}, #{statiumId})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lc.zy.ball.domain.oa.po.SsoUser" >
+    insert into sso_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="photo != null" >
+        photo,
+      </if>
+      <if test="nickName != null" >
+        nick_name,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="identityType != null" >
+        identity_type,
+      </if>
+      <if test="cardId != null" >
+        card_id,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="property != null" >
+        property,
+      </if>
+      <if test="tags != null" >
+        tags,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="tkdNo != null" >
+        tkd_no,
+      </if>
+      <if test="isattestation != null" >
+        isAttestation,
+      </if>
+      <if test="sign != null" >
+        sign,
+      </if>
+      <if test="job != null" >
+        job,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="app != null" >
+        app,
+      </if>
+      <if test="level != null" >
+        level,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="updateUser != null" >
+        update_user,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="certList != null" >
+        cert_list,
+      </if>
+      <if test="elegantList != null" >
+        elegant_list,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="activeState != null" >
+        active_state,
+      </if>
+      <if test="registSource != null" >
+        regist_source,
+      </if>
+      <if test="registTime != null" >
+        regist_time,
+      </if>
+      <if test="dan != null" >
+        dan,
+      </if>
+      <if test="experience != null" >
+        experience,
+      </if>
+      <if test="statiumId != null" >
+        statium_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="username != null" >
+        #{username},
+      </if>
+      <if test="phone != null" >
+        #{phone},
+      </if>
+      <if test="password != null" >
+        #{password},
+      </if>
+      <if test="email != null" >
+        #{email},
+      </if>
+      <if test="photo != null" >
+        #{photo},
+      </if>
+      <if test="nickName != null" >
+        #{nickName},
+      </if>
+      <if test="sex != null" >
+        #{sex},
+      </if>
+      <if test="birthday != null" >
+        #{birthday},
+      </if>
+      <if test="identityType != null" >
+        #{identityType},
+      </if>
+      <if test="cardId != null" >
+        #{cardId},
+      </if>
+      <if test="age != null" >
+        #{age},
+      </if>
+      <if test="address != null" >
+        #{address},
+      </if>
+      <if test="property != null" >
+        #{property},
+      </if>
+      <if test="tags != null" >
+        #{tags},
+      </if>
+      <if test="name != null" >
+        #{name},
+      </if>
+      <if test="tkdNo != null" >
+        #{tkdNo},
+      </if>
+      <if test="isattestation != null" >
+        #{isattestation},
+      </if>
+      <if test="sign != null" >
+        #{sign},
+      </if>
+      <if test="job != null" >
+        #{job},
+      </if>
+      <if test="price != null" >
+        #{price},
+      </if>
+      <if test="app != null" >
+        #{app},
+      </if>
+      <if test="level != null" >
+        #{level},
+      </if>
+      <if test="createUser != null" >
+        #{createUser},
+      </if>
+      <if test="updateUser != null" >
+        #{updateUser},
+      </if>
+      <if test="createTime != null" >
+        #{createTime},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime},
+      </if>
+      <if test="state != null" >
+        #{state},
+      </if>
+      <if test="certList != null" >
+        #{certList},
+      </if>
+      <if test="elegantList != null" >
+        #{elegantList},
+      </if>
+      <if test="city != null" >
+        #{city},
+      </if>
+      <if test="activeState != null" >
+        #{activeState},
+      </if>
+      <if test="registSource != null" >
+        #{registSource},
+      </if>
+      <if test="registTime != null" >
+        #{registTime},
+      </if>
+      <if test="dan != null" >
+        #{dan},
+      </if>
+      <if test="experience != null" >
+        #{experience},
+      </if>
+      <if test="statiumId != null" >
+        #{statiumId},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lc.zy.ball.domain.oa.po.SsoUserCriteria" resultType="java.lang.Integer" >
+    select count(*) from sso_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sso_user
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.username != null" >
+        username = #{record.username},
+      </if>
+      <if test="record.phone != null" >
+        phone = #{record.phone},
+      </if>
+      <if test="record.password != null" >
+        password = #{record.password},
+      </if>
+      <if test="record.email != null" >
+        email = #{record.email},
+      </if>
+      <if test="record.photo != null" >
+        photo = #{record.photo},
+      </if>
+      <if test="record.nickName != null" >
+        nick_name = #{record.nickName},
+      </if>
+      <if test="record.sex != null" >
+        sex = #{record.sex},
+      </if>
+      <if test="record.birthday != null" >
+        birthday = #{record.birthday},
+      </if>
+      <if test="record.identityType != null" >
+        identity_type = #{record.identityType},
+      </if>
+      <if test="record.cardId != null" >
+        card_id = #{record.cardId},
+      </if>
+      <if test="record.age != null" >
+        age = #{record.age},
+      </if>
+      <if test="record.address != null" >
+        address = #{record.address},
+      </if>
+      <if test="record.property != null" >
+        property = #{record.property},
+      </if>
+      <if test="record.tags != null" >
+        tags = #{record.tags},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name},
+      </if>
+      <if test="record.tkdNo != null" >
+        tkd_no = #{record.tkdNo},
+      </if>
+      <if test="record.isattestation != null" >
+        isAttestation = #{record.isattestation},
+      </if>
+      <if test="record.sign != null" >
+        sign = #{record.sign},
+      </if>
+      <if test="record.job != null" >
+        job = #{record.job},
+      </if>
+      <if test="record.price != null" >
+        price = #{record.price},
+      </if>
+      <if test="record.app != null" >
+        app = #{record.app},
+      </if>
+      <if test="record.level != null" >
+        level = #{record.level},
+      </if>
+      <if test="record.createUser != null" >
+        create_user = #{record.createUser},
+      </if>
+      <if test="record.updateUser != null" >
+        update_user = #{record.updateUser},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime},
+      </if>
+      <if test="record.state != null" >
+        state = #{record.state},
+      </if>
+      <if test="record.certList != null" >
+        cert_list = #{record.certList},
+      </if>
+      <if test="record.elegantList != null" >
+        elegant_list = #{record.elegantList},
+      </if>
+      <if test="record.city != null" >
+        city = #{record.city},
+      </if>
+      <if test="record.activeState != null" >
+        active_state = #{record.activeState},
+      </if>
+      <if test="record.registSource != null" >
+        regist_source = #{record.registSource},
+      </if>
+      <if test="record.registTime != null" >
+        regist_time = #{record.registTime},
+      </if>
+      <if test="record.dan != null" >
+        dan = #{record.dan},
+      </if>
+      <if test="record.experience != null" >
+        experience = #{record.experience},
+      </if>
+      <if test="record.statiumId != null" >
+        statium_id = #{record.statiumId},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sso_user
+    set id = #{record.id},
+      username = #{record.username},
+      phone = #{record.phone},
+      password = #{record.password},
+      email = #{record.email},
+      photo = #{record.photo},
+      nick_name = #{record.nickName},
+      sex = #{record.sex},
+      birthday = #{record.birthday},
+      identity_type = #{record.identityType},
+      card_id = #{record.cardId},
+      age = #{record.age},
+      address = #{record.address},
+      property = #{record.property},
+      tags = #{record.tags},
+      name = #{record.name},
+      tkd_no = #{record.tkdNo},
+      isAttestation = #{record.isattestation},
+      sign = #{record.sign},
+      job = #{record.job},
+      price = #{record.price},
+      app = #{record.app},
+      level = #{record.level},
+      create_user = #{record.createUser},
+      update_user = #{record.updateUser},
+      create_time = #{record.createTime},
+      update_time = #{record.updateTime},
+      state = #{record.state},
+      cert_list = #{record.certList},
+      elegant_list = #{record.elegantList},
+      city = #{record.city},
+      active_state = #{record.activeState},
+      regist_source = #{record.registSource},
+      regist_time = #{record.registTime},
+      dan = #{record.dan},
+      experience = #{record.experience},
+      statium_id = #{record.statiumId}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lc.zy.ball.domain.oa.po.SsoUser" >
+    update sso_user
+    <set >
+      <if test="username != null" >
+        username = #{username},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone},
+      </if>
+      <if test="password != null" >
+        password = #{password},
+      </if>
+      <if test="email != null" >
+        email = #{email},
+      </if>
+      <if test="photo != null" >
+        photo = #{photo},
+      </if>
+      <if test="nickName != null" >
+        nick_name = #{nickName},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday},
+      </if>
+      <if test="identityType != null" >
+        identity_type = #{identityType},
+      </if>
+      <if test="cardId != null" >
+        card_id = #{cardId},
+      </if>
+      <if test="age != null" >
+        age = #{age},
+      </if>
+      <if test="address != null" >
+        address = #{address},
+      </if>
+      <if test="property != null" >
+        property = #{property},
+      </if>
+      <if test="tags != null" >
+        tags = #{tags},
+      </if>
+      <if test="name != null" >
+        name = #{name},
+      </if>
+      <if test="tkdNo != null" >
+        tkd_no = #{tkdNo},
+      </if>
+      <if test="isattestation != null" >
+        isAttestation = #{isattestation},
+      </if>
+      <if test="sign != null" >
+        sign = #{sign},
+      </if>
+      <if test="job != null" >
+        job = #{job},
+      </if>
+      <if test="price != null" >
+        price = #{price},
+      </if>
+      <if test="app != null" >
+        app = #{app},
+      </if>
+      <if test="level != null" >
+        level = #{level},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser},
+      </if>
+      <if test="updateUser != null" >
+        update_user = #{updateUser},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime},
+      </if>
+      <if test="state != null" >
+        state = #{state},
+      </if>
+      <if test="certList != null" >
+        cert_list = #{certList},
+      </if>
+      <if test="elegantList != null" >
+        elegant_list = #{elegantList},
+      </if>
+      <if test="city != null" >
+        city = #{city},
+      </if>
+      <if test="activeState != null" >
+        active_state = #{activeState},
+      </if>
+      <if test="registSource != null" >
+        regist_source = #{registSource},
+      </if>
+      <if test="registTime != null" >
+        regist_time = #{registTime},
+      </if>
+      <if test="dan != null" >
+        dan = #{dan},
+      </if>
+      <if test="experience != null" >
+        experience = #{experience},
+      </if>
+      <if test="statiumId != null" >
+        statium_id = #{statiumId},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lc.zy.ball.domain.oa.po.SsoUser" >
+    update sso_user
+    set username = #{username},
+      phone = #{phone},
+      password = #{password},
+      email = #{email},
+      photo = #{photo},
+      nick_name = #{nickName},
+      sex = #{sex},
+      birthday = #{birthday},
+      identity_type = #{identityType},
+      card_id = #{cardId},
+      age = #{age},
+      address = #{address},
+      property = #{property},
+      tags = #{tags},
+      name = #{name},
+      tkd_no = #{tkdNo},
+      isAttestation = #{isattestation},
+      sign = #{sign},
+      job = #{job},
+      price = #{price},
+      app = #{app},
+      level = #{level},
+      create_user = #{createUser},
+      update_user = #{updateUser},
+      create_time = #{createTime},
+      update_time = #{updateTime},
+      state = #{state},
+      cert_list = #{certList},
+      elegant_list = #{elegantList},
+      city = #{city},
+      active_state = #{activeState},
+      regist_source = #{registSource},
+      regist_time = #{registTime},
+      dan = #{dan},
+      experience = #{experience},
+      statium_id = #{statiumId}
+    where id = #{id}
+  </update>
+</mapper>

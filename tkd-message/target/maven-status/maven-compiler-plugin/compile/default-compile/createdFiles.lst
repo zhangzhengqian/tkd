@@ -1,0 +1,10 @@
+com\lc\zy\message\consumer\solr\UserSolr.class
+com\lc\zy\message\consumer\SyncStatiumConsumer$1.class
+com\lc\zy\message\common\AbstractCacheService.class
+com\lc\zy\message\consumer\SyncUserConsumer$1.class
+com\lc\zy\message\consumer\MessageConsumer$1.class
+com\lc\zy\message\consumer\SyncStatiumConsumer.class
+com\lc\zy\message\consumer\solr\StatiumSolr.class
+com\lc\zy\message\MessageMain.class
+com\lc\zy\message\consumer\MessageConsumer.class
+com\lc\zy\message\consumer\SyncUserConsumer.class

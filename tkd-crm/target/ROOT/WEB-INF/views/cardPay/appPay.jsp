@@ -1,0 +1,164 @@
+<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ include file="/WEB-INF/jspf/common.jsp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>刷卡管理</title>
+</head>
+<body>
+<!-- 导航 -->
+<%@include file="cardPayNav.jsp"%>
+
+<form  id="appPayForm" class="form-horizontal" action="" method="post" name="id">
+    <div class="orderSearch myVipOrderSearch">
+        <ul>
+            <li class="timeLi subSearchLi1">
+                <span style="width: 100px;">手机号：</span>
+                <input type="text" name="search_LIKE_phone" id="search_LIKE_phone" value="${param.search_LIKE_phone }">
+            </li>
+            <li class="timeLi subSearchLi1">
+                <span style="width: 100px;">订单号：</span>
+                <input type="text" name="search_LIKE_id" id="search_LIKE_id" value="${param.search_LIKE_id }">
+            </li>
+            <li class="subSearch subSearchLi1">
+                <a class="submit" href="javascript:appPaySubmit();">查询</a>
+            </li>
+        </ul>
+    </div>
+</form>
+
+<div class="orderResult">
+    <table>
+        <tr>
+            <th>No.</th>
+            <th>订单号</th>
+            <th>姓名</th>
+            <th>手机号</th>
+            <th>下单日期</th>
+            <th>类型</th>
+            <th>订单名称</th>
+            <th>原价</th>
+            <th>优惠价</th>
+            <th>预约日期/开始日期</th>
+            <th>预约时间/结束日期</th>
+            <th>操作</th>
+        </tr>
+        <c:forEach items="${data.content }" var="order" varStatus="stat">
+            <tr>
+                <td>${stat.count }</td>
+                <td>${order.id }</td>
+                <td>${order.name }</td>
+                <td>${order.phone }</td>
+                <td>
+                    <fmt:formatDate value="${order.et }" pattern="yyyy-MM-dd HH:mm:ss"/>
+                </td>
+                <td>
+                    <c:choose>
+                        <c:when test="${order.ordersType == 0}">
+                            课程
+                        </c:when>
+                        <c:when test="${order.ordersType == 1}">
+                            活动
+                        </c:when>
+                    </c:choose>
+                </td>
+                <td>${order.orderName }</td>
+                <td>
+                    <fmt:formatNumber type="number" value="${order.fee/100 }" maxFractionDigits="0"/>
+                </td>
+                <td>
+                    <fmt:formatNumber type="number" value="${order.finalFee/100 }" maxFractionDigits="0"/>
+                </td>
+                <td>
+                    <c:choose>
+                        <c:when test="${order.ordersType == 0}">
+                            <fmt:formatDate value="${order.signDate }" pattern="yyyy/MM/dd"/>
+                        </c:when>
+                    </c:choose>
+                    <c:choose>
+                        <c:when test="${order.ordersType == 1}">
+                            <fmt:formatDate value="${order.asTime }" pattern="yyyy/MM/dd HH:mm"/>
+                        </c:when>
+                    </c:choose>
+                </td>
+                <td>
+                    <c:choose>
+                        <c:when test="${order.ordersType == 0}">
+                            ${order.startTime} ~ ${order.endTime}
+                        </c:when>
+                    </c:choose>
+                    <c:choose>
+                        <c:when test="${order.ordersType == 1}">
+                            <fmt:formatDate value="${order.aeTime }" pattern="yyyy/MM/dd HH:mm"/>
+                        </c:when>
+                    </c:choose>
+                </td>
+                <td>
+                    <c:choose>
+                        <c:when test="${order.status == 'ORDER_PAIED'}">
+                            <a class="btn btn-default btn-sm" href="javascript:confirmOrder(${order.id });"><i class="glyphicon glyphicon-edit"></i> 签到</a>
+                        </c:when>
+                        <c:when test="${order.status == 'ORDER_SIGN'}">
+                            <a class="btn btn-default btn-sm" href="javascript:confirmOrder(${order.id });" style="color: #2199d7"><i class="glyphicon glyphicon-ok"></i> 已签到</a>
+                        </c:when>
+                    </c:choose>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>
+<!-- 分页 -->
+<tags:pagination page="${data}" />
+<tags:errors />
+
+<script type="text/javascript">
+    $(function() {
+        // 样式
+        $('#pay-man').addClass("active");
+        $('#APP_PAY').addClass("active");
+
+    });
+
+    // 签到信息确认
+    function confirmOrder(v) {
+        $("#myDlgBody_lg").load("${ctx}/cardPay/confirm_order_dlg/" + v, {
+        });
+        $("#myDlg_lg").modal();
+    }
+    // 查询
+    function appPaySubmit() {
+        $('#appPayForm').submit();
+    }
+
+    function captainAddCallBack(orderId) {
+        $('#loading').show();
+        $.ajax({
+            url : "${ctx }/cardPay/confirmOrderAction/" + orderId,
+            method : "POST",
+            dataType: 'json',
+            success: function(data){
+                $('#loading').hide();
+                if(data.result=='success'){
+                    swal({
+                        title: "提示",
+                        text: "签到成功",
+                        showConfirmButton: "true",
+                        confirmButtonText: "确定",
+                        animation: "slide-from-top"
+                    }, function () {
+                        location.href = "${ctx }/cardPay/appPay";
+                    })
+                } else {
+                    swal({
+                        title: "警告",
+                        text: data.data
+                    })
+                }
+            }
+        })
+    }
+
+</script>
+
+</body>
+</html>

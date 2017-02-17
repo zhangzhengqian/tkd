@@ -1,0 +1,587 @@
+<div class="orderNav">
+	<ul>
+		<li><a href="#userCenter">个人中心</a></li>
+		<li class="active"><a href="#statiumEdit">场馆信息</a></li>
+		<li><a href="#space">场地管理</a></li>
+		<li><a href="#user">员工管理</a></li>
+		<li><a href="#/prize/list">获奖列表</a></li>
+	</ul>
+</div>
+<div class="formTable">
+	<ul>
+		<li>
+			<span class="title">球馆名称：</span>
+			<input type="text" ng-model="statium.name">
+		</li>
+		<li>
+			<span class="title">球馆LOGO：</span>
+			<div class="selectLogo">
+				<input id="uploadifyLogo" ng-model="statium.logo" crm-uploadify type="file" multiple="false" />
+			</div>
+			<div class="clear"></div>
+			<img class="logoImg" ng-show="statium.logo" ng-src="{{statium.logo}}" height="100" />
+		</li>
+		<li class="timeText">
+			<span class="title">营业时间：</span>
+			<input type="text" ng-model="statium.startTime" value="" />
+			<em>至</em>
+			<input type="text" value="" ng-model="statium.endTime" />
+		</li>
+		<li>
+			<span class="title">所在地区：</span>
+			<select ng-model='provinceSel' ng-options="province as zoneMap[province] for province in provinceCodes" >
+				<option value="">请选择</option>
+			</select> 
+			<select ng-model='citySel' ng-options="province as zoneMap[province] for province in zoneCodes[provinceSel]" >
+				<option value="">请选择</option>
+			</select> 
+			<select ng-model='areaSel' ng-options="province as zoneMap[province] for province in zoneCodes[citySel]" >
+				<option value="">请选择</option>
+			</select>
+		</li>
+		<li>
+			<span class="title">场馆坐标：</span>
+			<input type="text" value="{{statium.lng}},{{statium.lat}}" id="lnglat" name="lnglat" placeholder="经度,纬度" disabled>
+			<button ng-click="showMap()" class="btn coordBtn btn-primary btn-sm" type="button">坐标/地址 识取工具</button>
+		</li>
+		<li>
+			<span class="title">详细地址：</span>
+			<input type="text" id="address" ng-model="statium.address" >
+		</li>
+		<li>
+			<div class="form-group form-group-sm" ng-show="isShow">
+				<label class="col-md-3 control-label"></label>
+				<div class="col-md-6 has-feedback form-inline">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<div class="input-group ">
+								<input type="text" class="form-control" ng-model="keyword">
+								<span class="input-group-btn">
+									<button class="btn btn-primary btn-sm"
+										ng-click="searchAddr()" type="button">搜 索</button>
+								</span>
+							</div>
+							<button type="button" ng-click="isShow=false" class="close"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="panel-body" id="allmap"></div>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li>
+			<span class="title">订场电话：</span>
+			<input type="text"  ng-model="statium.tel" value=""  />
+		</li>
+		<li>
+			<span class="title">电子邮箱：</span>
+			<input type="text" id="address" ng-model="statium.email" >
+		</li>
+		<li>
+			<span class="title">负责人姓名：</span>
+			<input type="text" id="address" ng-model="statium.masterName" >
+		</li>
+		<li>
+			<span class="title">联系电话：</span>
+			<input type="text" id="address" ng-model="statium.masterTel" >
+		</li>
+		<li>
+			<span class="title">场馆设施：</span>
+			<label class="btn btn-white" 
+				ng-class="{active:isFacilitieChecked(facilitie)!=-1}" 
+				ng-click="selectFacilitie(facilitie)" 
+				ng-repeat="facilitie in facilities"> 
+				{{facilitie}} 
+			</label>
+		</li>
+		<li>
+			<span class="title">球馆介绍：</span>
+			<textarea ng-model="statium.introduce" class="form-control" rows="4">
+			</textarea>
+		</li>
+		<li>
+			<span class="title">场馆图片：</span>
+			<div class="selectLogo">
+				<input id="uploadifyPic" ng-model="photos" crm-uploadify="{multi:true}" type="file" multiple="false" /> 
+			</div>
+			<div class="clear"></div>
+			<div class="logoImg"><img class="" ng-show="photos" style="margin-right: 1px;" ng-src="{{photo}}" ng-repeat="photo in photos" height="100" /></div>
+		</li>
+		<li>
+			<span class="title">运动类型：</span>
+			<label class="btn btn-white ball"
+					ng-class="{active:isSportTypeChecked(sportType)!=-1}"
+					ng-click="selectSportType(sportType)"
+					ng-repeat="sportType in sportTypesKey">
+					{{sportTypes[$index]}} </label>
+		</li>
+		<li>
+		<div id="contentByTemplate"></div>
+							<textarea id="template" style="display: none">
+			<!--
+			<div class="wrap" ballTypeCode="{$T.ball_type_code}">
+                <div class="ball-type-title">{$T.ball_type}<span class="btn_close">关闭</span></div>
+                <div class="working-days-layer">
+                    <table class="table table-bordered user-reset">
+                        <caption>工作日</caption>
+                        <thead>
+                        <tr>
+                            <th>时段名称</th>
+                            <th>开始时间</th>
+                            <th>结束时间</th>
+                            <th>价格</th>
+                            <th>
+                                <button class="btn_add_row">新增</button>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <input type="text" name="title" value="早"/>
+                            </td>
+                            <td>
+                                <select name="startTime" guidFlag="{$T.guidFlag_1}">
+                                    <option value="00">00:00</option>
+                                    <option value="01">01:00</option>
+                                    <option value="02">02:00</option>
+                                    <option value="03">03:00</option>
+                                    <option value="04">04:00</option>
+                                    <option value="05">05:00</option>
+                                    <option value="06">06:00</option>
+                                    <option value="07">07:00</option>
+                                    <option value="08">08:00</option>
+                                    <option value="09">09:00</option>
+                                    <option value="10">10:00</option>
+                                    <option value="11">11:00</option>
+                                    <option value="12">12:00</option>
+                                    <option value="13">13:00</option>
+                                    <option value="14">14:00</option>
+                                    <option value="15">15:00</option>
+                                    <option value="16">16:00</option>
+                                    <option value="17">17:00</option>
+                                    <option value="18">18:00</option>
+                                    <option value="19">19:00</option>
+                                    <option value="20">20:00</option>
+                                    <option value="21">21:00</option>
+                                    <option value="22">22:00</option>
+                                    <option value="23">23:00</option>
+                                    <option value="24">24:00</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="endTime" guidFlag="{$T.guidFlag_2}">
+                                    <option value="01">01:00</option>
+                                    <option value="02">02:00</option>
+                                    <option value="03">03:00</option>
+                                    <option value="04">04:00</option>
+                                    <option value="05">05:00</option>
+                                    <option value="06">06:00</option>
+                                    <option value="07">07:00</option>
+                                    <option value="08">08:00</option>
+                                    <option value="09">09:00</option>
+                                    <option value="10">10:00</option>
+                                    <option value="11">11:00</option>
+                                    <option value="12">12:00</option>
+                                    <option value="13">13:00</option>
+                                    <option value="14">14:00</option>
+                                    <option value="15">15:00</option>
+                                    <option value="16">16:00</option>
+                                    <option value="17">17:00</option>
+                                    <option value="18">18:00</option>
+                                    <option value="19">19:00</option>
+                                    <option value="20">20:00</option>
+                                    <option value="21">21:00</option>
+                                    <option value="22">22:00</option>
+                                    <option value="23">23:00</option>
+                                    <option value="24">24:00</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" name="price" value="80"/>
+                            </td>
+                            <td>
+                                <button class="btn_del_row">删除</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="title" value="中"/>
+                            </td>
+                            <td>
+                                <select name="startTime" guidFlag="{$T.guidFlag_3}">
+                                    <option value="01">01:00</option>
+                                    <option value="02">02:00</option>
+                                    <option value="03">03:00</option>
+                                    <option value="04">04:00</option>
+                                    <option value="05">05:00</option>
+                                    <option value="06">06:00</option>
+                                    <option value="07">07:00</option>
+                                    <option value="08">08:00</option>
+                                    <option value="09">09:00</option>
+                                    <option value="10">10:00</option>
+                                    <option value="11">11:00</option>
+                                    <option value="12">12:00</option>
+                                    <option value="13">13:00</option>
+                                    <option value="14">14:00</option>
+                                    <option value="15">15:00</option>
+                                    <option value="16">16:00</option>
+                                    <option value="17">17:00</option>
+                                    <option value="18">18:00</option>
+                                    <option value="19">19:00</option>
+                                    <option value="20">20:00</option>
+                                    <option value="21">21:00</option>
+                                    <option value="22">22:00</option>
+                                    <option value="23">23:00</option>
+                                    <option value="24">24:00</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="endTime" guidFlag="{$T.guidFlag_4}">
+                                    <option value="02">02:00</option>
+                                    <option value="03">03:00</option>
+                                    <option value="04">04:00</option>
+                                    <option value="05">05:00</option>
+                                    <option value="06">06:00</option>
+                                    <option value="07">07:00</option>
+                                    <option value="08">08:00</option>
+                                    <option value="09">09:00</option>
+                                    <option value="10">10:00</option>
+                                    <option value="11">11:00</option>
+                                    <option value="12">12:00</option>
+                                    <option value="13">13:00</option>
+                                    <option value="14">14:00</option>
+                                    <option value="15">15:00</option>
+                                    <option value="16">16:00</option>
+                                    <option value="17">17:00</option>
+                                    <option value="18">18:00</option>
+                                    <option value="19">19:00</option>
+                                    <option value="20">20:00</option>
+                                    <option value="21">21:00</option>
+                                    <option value="22">22:00</option>
+                                    <option value="23">23:00</option>
+                                    <option value="24">24:00</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" name="price" value="80"/>
+                            </td>
+                            <td>
+                                <button class="btn_del_row">删除</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="title" value="晚"/>
+                            </td>
+                            <td>
+                                <select name="startTime" guidFlag="{$T.guidFlag_5}">
+                                    <option value="02">02:00</option>
+                                    <option value="03">03:00</option>
+                                    <option value="04">04:00</option>
+                                    <option value="05">05:00</option>
+                                    <option value="06">06:00</option>
+                                    <option value="07">07:00</option>
+                                    <option value="08">08:00</option>
+                                    <option value="09">09:00</option>
+                                    <option value="10">10:00</option>
+                                    <option value="11">11:00</option>
+                                    <option value="12">12:00</option>
+                                    <option value="13">13:00</option>
+                                    <option value="14">14:00</option>
+                                    <option value="15">15:00</option>
+                                    <option value="16">16:00</option>
+                                    <option value="17">17:00</option>
+                                    <option value="18">18:00</option>
+                                    <option value="19">19:00</option>
+                                    <option value="20">20:00</option>
+                                    <option value="21">21:00</option>
+                                    <option value="22">22:00</option>
+                                    <option value="23">23:00</option>
+                                    <option value="24">24:00</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="endTime" guidFlag="{$T.guidFlag_6}">
+                                    <option value="03">03:00</option>
+                                    <option value="04">04:00</option>
+                                    <option value="05">05:00</option>
+                                    <option value="06">06:00</option>
+                                    <option value="07">07:00</option>
+                                    <option value="08">08:00</option>
+                                    <option value="09">09:00</option>
+                                    <option value="10">10:00</option>
+                                    <option value="11">11:00</option>
+                                    <option value="12">12:00</option>
+                                    <option value="13">13:00</option>
+                                    <option value="14">14:00</option>
+                                    <option value="15">15:00</option>
+                                    <option value="16">16:00</option>
+                                    <option value="17">17:00</option>
+                                    <option value="18">18:00</option>
+                                    <option value="19">19:00</option>
+                                    <option value="20">20:00</option>
+                                    <option value="21">21:00</option>
+                                    <option value="22">22:00</option>
+                                    <option value="23">23:00</option>
+                                    <option value="24">24:00</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" name="price" value="80"/>
+                            </td>
+                            <td>
+                                <button class="btn_del_row">删除</button>
+                            </td>
+                        </tr>
+                        <tr class="time_others_tr">
+                            <td>
+                                <input type="hidden" name="title" value="其他时段"/>其他时段
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <input type="text" name="price" value="80"/>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <hr/>
+                <div class="no-working-days-layer">
+                    <table class="table table-bordered user-reset">
+                        <caption>非工作日</caption>
+                        <thead>
+                        <tr>
+                            <th>时段名称</th>
+                            <th>开始时间</th>
+                            <th>结束时间</th>
+                            <th>价格</th>
+                            <th>
+                                <button class="btn_add_row">新增</button>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <input type="text" name="title" value="早"/>
+                            </td>
+                            <td>
+                                <select name="startTime" guidFlag="{$T.guidFlag_7}">
+                                    <option value="00">00:00</option>
+                                    <option value="01">01:00</option>
+                                    <option value="02">02:00</option>
+                                    <option value="03">03:00</option>
+                                    <option value="04">04:00</option>
+                                    <option value="05">05:00</option>
+                                    <option value="06">06:00</option>
+                                    <option value="07">07:00</option>
+                                    <option value="08">08:00</option>
+                                    <option value="09">09:00</option>
+                                    <option value="10">10:00</option>
+                                    <option value="11">11:00</option>
+                                    <option value="12">12:00</option>
+                                    <option value="13">13:00</option>
+                                    <option value="14">14:00</option>
+                                    <option value="15">15:00</option>
+                                    <option value="16">16:00</option>
+                                    <option value="17">17:00</option>
+                                    <option value="18">18:00</option>
+                                    <option value="19">19:00</option>
+                                    <option value="20">20:00</option>
+                                    <option value="21">21:00</option>
+                                    <option value="22">22:00</option>
+                                    <option value="23">23:00</option>
+                                    <option value="24">24:00</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="endTime" guidFlag="{$T.guidFlag_8}">
+                                    <option value="01">01:00</option>
+                                    <option value="02">02:00</option>
+                                    <option value="03">03:00</option>
+                                    <option value="04">04:00</option>
+                                    <option value="05">05:00</option>
+                                    <option value="06">06:00</option>
+                                    <option value="07">07:00</option>
+                                    <option value="08">08:00</option>
+                                    <option value="09">09:00</option>
+                                    <option value="10">10:00</option>
+                                    <option value="11">11:00</option>
+                                    <option value="12">12:00</option>
+                                    <option value="13">13:00</option>
+                                    <option value="14">14:00</option>
+                                    <option value="15">15:00</option>
+                                    <option value="16">16:00</option>
+                                    <option value="17">17:00</option>
+                                    <option value="18">18:00</option>
+                                    <option value="19">19:00</option>
+                                    <option value="20">20:00</option>
+                                    <option value="21">21:00</option>
+                                    <option value="22">22:00</option>
+                                    <option value="23">23:00</option>
+                                    <option value="24">24:00</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" name="price" value="80"/>
+                            </td>
+                            <td>
+                                <button class="btn_del_row">删除</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="title" value="中"/>
+                            </td>
+                            <td>
+                                <select name="startTime" guidFlag="{$T.guidFlag_9}">
+                                    <option value="01">01:00</option>
+                                    <option value="02">02:00</option>
+                                    <option value="03">03:00</option>
+                                    <option value="04">04:00</option>
+                                    <option value="05">05:00</option>
+                                    <option value="06">06:00</option>
+                                    <option value="07">07:00</option>
+                                    <option value="08">08:00</option>
+                                    <option value="09">09:00</option>
+                                    <option value="10">10:00</option>
+                                    <option value="11">11:00</option>
+                                    <option value="12">12:00</option>
+                                    <option value="13">13:00</option>
+                                    <option value="14">14:00</option>
+                                    <option value="15">15:00</option>
+                                    <option value="16">16:00</option>
+                                    <option value="17">17:00</option>
+                                    <option value="18">18:00</option>
+                                    <option value="19">19:00</option>
+                                    <option value="20">20:00</option>
+                                    <option value="21">21:00</option>
+                                    <option value="22">22:00</option>
+                                    <option value="23">23:00</option>
+                                    <option value="24">24:00</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="endTime" guidFlag="{$T.guidFlag_10}">
+                                    <option value="02">02:00</option>
+                                    <option value="03">03:00</option>
+                                    <option value="04">04:00</option>
+                                    <option value="05">05:00</option>
+                                    <option value="06">06:00</option>
+                                    <option value="07">07:00</option>
+                                    <option value="08">08:00</option>
+                                    <option value="09">09:00</option>
+                                    <option value="10">10:00</option>
+                                    <option value="11">11:00</option>
+                                    <option value="12">12:00</option>
+                                    <option value="13">13:00</option>
+                                    <option value="14">14:00</option>
+                                    <option value="15">15:00</option>
+                                    <option value="16">16:00</option>
+                                    <option value="17">17:00</option>
+                                    <option value="18">18:00</option>
+                                    <option value="19">19:00</option>
+                                    <option value="20">20:00</option>
+                                    <option value="21">21:00</option>
+                                    <option value="22">22:00</option>
+                                    <option value="23">23:00</option>
+                                    <option value="24">24:00</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" name="price" value="80"/>
+                            </td>
+                            <td>
+                                <button class="btn_del_row">删除</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="title" value="晚"/>
+                            </td>
+                            <td>
+                                <select name="startTime" guidFlag="{$T.guidFlag_11}">
+                                    <option value="02">02:00</option>
+                                    <option value="03">03:00</option>
+                                    <option value="04">04:00</option>
+                                    <option value="05">05:00</option>
+                                    <option value="06">06:00</option>
+                                    <option value="07">07:00</option>
+                                    <option value="08">08:00</option>
+                                    <option value="09">09:00</option>
+                                    <option value="10">10:00</option>
+                                    <option value="11">11:00</option>
+                                    <option value="12">12:00</option>
+                                    <option value="13">13:00</option>
+                                    <option value="14">14:00</option>
+                                    <option value="15">15:00</option>
+                                    <option value="16">16:00</option>
+                                    <option value="17">17:00</option>
+                                    <option value="18">18:00</option>
+                                    <option value="19">19:00</option>
+                                    <option value="20">20:00</option>
+                                    <option value="21">21:00</option>
+                                    <option value="22">22:00</option>
+                                    <option value="23">23:00</option>
+                                    <option value="24">24:00</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="endTime" guidFlag="{$T.guidFlag_12}">
+                                    <option value="03">03:00</option>
+                                    <option value="04">04:00</option>
+                                    <option value="05">05:00</option>
+                                    <option value="06">06:00</option>
+                                    <option value="07">07:00</option>
+                                    <option value="08">08:00</option>
+                                    <option value="09">09:00</option>
+                                    <option value="10">10:00</option>
+                                    <option value="11">11:00</option>
+                                    <option value="12">12:00</option>
+                                    <option value="13">13:00</option>
+                                    <option value="14">14:00</option>
+                                    <option value="15">15:00</option>
+                                    <option value="16">16:00</option>
+                                    <option value="17">17:00</option>
+                                    <option value="18">18:00</option>
+                                    <option value="19">19:00</option>
+                                    <option value="20">20:00</option>
+                                    <option value="21">21:00</option>
+                                    <option value="22">22:00</option>
+                                    <option value="23">23:00</option>
+                                    <option value="24">24:00</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" name="price" value="80"/>
+                            </td>
+                            <td>
+                                <button class="btn_del_row">删除</button>
+                            </td>
+                        </tr>
+                        <tr class="time_others_tr">
+                            <td>
+                                <input type="hidden" name="title" value="其他时段"/>其他时段
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <input type="text" name="price" value="80"/>
+                            </td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            -->
+		</textarea>
+		</li>
+	</ul>
+</div>

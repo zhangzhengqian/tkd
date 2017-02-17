@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lc.zy.ball.domain.oa.mapper.PmwInfoimgMapper" >
+  <resultMap id="BaseResultMap" type="com.lc.zy.ball.domain.oa.po.PmwInfoimg" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="siteid" property="siteid" jdbcType="INTEGER" />
+    <result column="classid" property="classid" jdbcType="INTEGER" />
+    <result column="parentid" property="parentid" jdbcType="INTEGER" />
+    <result column="parentstr" property="parentstr" jdbcType="VARCHAR" />
+    <result column="mainid" property="mainid" jdbcType="INTEGER" />
+    <result column="mainpid" property="mainpid" jdbcType="INTEGER" />
+    <result column="mainpstr" property="mainpstr" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="colorval" property="colorval" jdbcType="CHAR" />
+    <result column="boldval" property="boldval" jdbcType="CHAR" />
+    <result column="flag" property="flag" jdbcType="VARCHAR" />
+    <result column="source" property="source" jdbcType="VARCHAR" />
+    <result column="author" property="author" jdbcType="VARCHAR" />
+    <result column="linkurl" property="linkurl" jdbcType="VARCHAR" />
+    <result column="keywords" property="keywords" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="picurl" property="picurl" jdbcType="VARCHAR" />
+    <result column="picarr" property="picarr" jdbcType="VARCHAR" />
+    <result column="hits" property="hits" jdbcType="INTEGER" />
+    <result column="orderid" property="orderid" jdbcType="INTEGER" />
+    <result column="posttime" property="posttime" jdbcType="INTEGER" />
+    <result column="checkinfo" property="checkinfo" jdbcType="CHAR" />
+    <result column="delstate" property="delstate" jdbcType="CHAR" />
+    <result column="deltime" property="deltime" jdbcType="INTEGER" />
+    <result column="b1" property="b1" jdbcType="VARCHAR" />
+    <result column="lng" property="lng" jdbcType="VARCHAR" />
+    <result column="sheng" property="sheng" jdbcType="VARCHAR" />
+    <result column="dq" property="dq" jdbcType="VARCHAR" />
+    <result column="tel" property="tel" jdbcType="VARCHAR" />
+    <result column="dizhi" property="dizhi" jdbcType="VARCHAR" />
+    <result column="shi" property="shi" jdbcType="VARCHAR" />
+    <result column="lat" property="lat" jdbcType="VARCHAR" />
+    <result column="hydj" property="hydj" jdbcType="VARCHAR" />
+    <result column="b2" property="b2" jdbcType="VARCHAR" />
+    <result column="hy_id" property="hyId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, siteid, classid, parentid, parentstr, mainid, mainpid, mainpstr, title, colorval, 
+    boldval, flag, source, author, linkurl, keywords, description, content, picurl, picarr, 
+    hits, orderid, posttime, checkinfo, delstate, deltime, b1, lng, sheng, dq, tel, dizhi, 
+    shi, lat, hydj, b2, hy_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lc.zy.ball.domain.oa.po.PmwInfoimgCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from pmw_infoimg
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="mysqlOffset != null and mysqlLength != null" >
+      <![CDATA[ limit #{mysqlOffset} , #{mysqlLength} ]]>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from pmw_infoimg
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pmw_infoimg
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lc.zy.ball.domain.oa.po.PmwInfoimgCriteria" >
+    delete from pmw_infoimg
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lc.zy.ball.domain.oa.po.PmwInfoimg" >
+    insert into pmw_infoimg (id, siteid, classid, parentid, parentstr, mainid, mainpid, 
+      mainpstr, title, colorval, boldval, flag, source, author, 
+      linkurl, keywords, description, content, picurl, picarr, hits, 
+      orderid, posttime, checkinfo, delstate, deltime, b1, lng, 
+      sheng, dq, tel, dizhi, shi, lat, hydj, b2, hy_id)
+    values (#{id}, #{siteid}, #{classid}, #{parentid}, #{parentstr}, #{mainid}, #{mainpid}, 
+      #{mainpstr}, #{title}, #{colorval}, #{boldval}, #{flag}, #{source}, #{author}, 
+      #{linkurl}, #{keywords}, #{description}, #{content}, #{picurl}, #{picarr}, #{hits}, 
+      #{orderid}, #{posttime}, #{checkinfo}, #{delstate}, #{deltime}, #{b1}, #{lng}, 
+      #{sheng}, #{dq}, #{tel}, #{dizhi}, #{shi}, #{lat}, #{hydj}, #{b2}, #{hyId})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lc.zy.ball.domain.oa.po.PmwInfoimg" >
+    insert into pmw_infoimg
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="siteid != null" >
+        siteid,
+      </if>
+      <if test="classid != null" >
+        classid,
+      </if>
+      <if test="parentid != null" >
+        parentid,
+      </if>
+      <if test="parentstr != null" >
+        parentstr,
+      </if>
+      <if test="mainid != null" >
+        mainid,
+      </if>
+      <if test="mainpid != null" >
+        mainpid,
+      </if>
+      <if test="mainpstr != null" >
+        mainpstr,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="colorval != null" >
+        colorval,
+      </if>
+      <if test="boldval != null" >
+        boldval,
+      </if>
+      <if test="flag != null" >
+        flag,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="author != null" >
+        author,
+      </if>
+      <if test="linkurl != null" >
+        linkurl,
+      </if>
+      <if test="keywords != null" >
+        keywords,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="picurl != null" >
+        picurl,
+      </if>
+      <if test="picarr != null" >
+        picarr,
+      </if>
+      <if test="hits != null" >
+        hits,
+      </if>
+      <if test="orderid != null" >
+        orderid,
+      </if>
+      <if test="posttime != null" >
+        posttime,
+      </if>
+      <if test="checkinfo != null" >
+        checkinfo,
+      </if>
+      <if test="delstate != null" >
+        delstate,
+      </if>
+      <if test="deltime != null" >
+        deltime,
+      </if>
+      <if test="b1 != null" >
+        b1,
+      </if>
+      <if test="lng != null" >
+        lng,
+      </if>
+      <if test="sheng != null" >
+        sheng,
+      </if>
+      <if test="dq != null" >
+        dq,
+      </if>
+      <if test="tel != null" >
+        tel,
+      </if>
+      <if test="dizhi != null" >
+        dizhi,
+      </if>
+      <if test="shi != null" >
+        shi,
+      </if>
+      <if test="lat != null" >
+        lat,
+      </if>
+      <if test="hydj != null" >
+        hydj,
+      </if>
+      <if test="b2 != null" >
+        b2,
+      </if>
+      <if test="hyId != null" >
+        hy_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="siteid != null" >
+        #{siteid},
+      </if>
+      <if test="classid != null" >
+        #{classid},
+      </if>
+      <if test="parentid != null" >
+        #{parentid},
+      </if>
+      <if test="parentstr != null" >
+        #{parentstr},
+      </if>
+      <if test="mainid != null" >
+        #{mainid},
+      </if>
+      <if test="mainpid != null" >
+        #{mainpid},
+      </if>
+      <if test="mainpstr != null" >
+        #{mainpstr},
+      </if>
+      <if test="title != null" >
+        #{title},
+      </if>
+      <if test="colorval != null" >
+        #{colorval},
+      </if>
+      <if test="boldval != null" >
+        #{boldval},
+      </if>
+      <if test="flag != null" >
+        #{flag},
+      </if>
+      <if test="source != null" >
+        #{source},
+      </if>
+      <if test="author != null" >
+        #{author},
+      </if>
+      <if test="linkurl != null" >
+        #{linkurl},
+      </if>
+      <if test="keywords != null" >
+        #{keywords},
+      </if>
+      <if test="description != null" >
+        #{description},
+      </if>
+      <if test="content != null" >
+        #{content},
+      </if>
+      <if test="picurl != null" >
+        #{picurl},
+      </if>
+      <if test="picarr != null" >
+        #{picarr},
+      </if>
+      <if test="hits != null" >
+        #{hits},
+      </if>
+      <if test="orderid != null" >
+        #{orderid},
+      </if>
+      <if test="posttime != null" >
+        #{posttime},
+      </if>
+      <if test="checkinfo != null" >
+        #{checkinfo},
+      </if>
+      <if test="delstate != null" >
+        #{delstate},
+      </if>
+      <if test="deltime != null" >
+        #{deltime},
+      </if>
+      <if test="b1 != null" >
+        #{b1},
+      </if>
+      <if test="lng != null" >
+        #{lng},
+      </if>
+      <if test="sheng != null" >
+        #{sheng},
+      </if>
+      <if test="dq != null" >
+        #{dq},
+      </if>
+      <if test="tel != null" >
+        #{tel},
+      </if>
+      <if test="dizhi != null" >
+        #{dizhi},
+      </if>
+      <if test="shi != null" >
+        #{shi},
+      </if>
+      <if test="lat != null" >
+        #{lat},
+      </if>
+      <if test="hydj != null" >
+        #{hydj},
+      </if>
+      <if test="b2 != null" >
+        #{b2},
+      </if>
+      <if test="hyId != null" >
+        #{hyId},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lc.zy.ball.domain.oa.po.PmwInfoimgCriteria" resultType="java.lang.Integer" >
+    select count(*) from pmw_infoimg
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update pmw_infoimg
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.siteid != null" >
+        siteid = #{record.siteid},
+      </if>
+      <if test="record.classid != null" >
+        classid = #{record.classid},
+      </if>
+      <if test="record.parentid != null" >
+        parentid = #{record.parentid},
+      </if>
+      <if test="record.parentstr != null" >
+        parentstr = #{record.parentstr},
+      </if>
+      <if test="record.mainid != null" >
+        mainid = #{record.mainid},
+      </if>
+      <if test="record.mainpid != null" >
+        mainpid = #{record.mainpid},
+      </if>
+      <if test="record.mainpstr != null" >
+        mainpstr = #{record.mainpstr},
+      </if>
+      <if test="record.title != null" >
+        title = #{record.title},
+      </if>
+      <if test="record.colorval != null" >
+        colorval = #{record.colorval},
+      </if>
+      <if test="record.boldval != null" >
+        boldval = #{record.boldval},
+      </if>
+      <if test="record.flag != null" >
+        flag = #{record.flag},
+      </if>
+      <if test="record.source != null" >
+        source = #{record.source},
+      </if>
+      <if test="record.author != null" >
+        author = #{record.author},
+      </if>
+      <if test="record.linkurl != null" >
+        linkurl = #{record.linkurl},
+      </if>
+      <if test="record.keywords != null" >
+        keywords = #{record.keywords},
+      </if>
+      <if test="record.description != null" >
+        description = #{record.description},
+      </if>
+      <if test="record.content != null" >
+        content = #{record.content},
+      </if>
+      <if test="record.picurl != null" >
+        picurl = #{record.picurl},
+      </if>
+      <if test="record.picarr != null" >
+        picarr = #{record.picarr},
+      </if>
+      <if test="record.hits != null" >
+        hits = #{record.hits},
+      </if>
+      <if test="record.orderid != null" >
+        orderid = #{record.orderid},
+      </if>
+      <if test="record.posttime != null" >
+        posttime = #{record.posttime},
+      </if>
+      <if test="record.checkinfo != null" >
+        checkinfo = #{record.checkinfo},
+      </if>
+      <if test="record.delstate != null" >
+        delstate = #{record.delstate},
+      </if>
+      <if test="record.deltime != null" >
+        deltime = #{record.deltime},
+      </if>
+      <if test="record.b1 != null" >
+        b1 = #{record.b1},
+      </if>
+      <if test="record.lng != null" >
+        lng = #{record.lng},
+      </if>
+      <if test="record.sheng != null" >
+        sheng = #{record.sheng},
+      </if>
+      <if test="record.dq != null" >
+        dq = #{record.dq},
+      </if>
+      <if test="record.tel != null" >
+        tel = #{record.tel},
+      </if>
+      <if test="record.dizhi != null" >
+        dizhi = #{record.dizhi},
+      </if>
+      <if test="record.shi != null" >
+        shi = #{record.shi},
+      </if>
+      <if test="record.lat != null" >
+        lat = #{record.lat},
+      </if>
+      <if test="record.hydj != null" >
+        hydj = #{record.hydj},
+      </if>
+      <if test="record.b2 != null" >
+        b2 = #{record.b2},
+      </if>
+      <if test="record.hyId != null" >
+        hy_id = #{record.hyId},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update pmw_infoimg
+    set id = #{record.id},
+      siteid = #{record.siteid},
+      classid = #{record.classid},
+      parentid = #{record.parentid},
+      parentstr = #{record.parentstr},
+      mainid = #{record.mainid},
+      mainpid = #{record.mainpid},
+      mainpstr = #{record.mainpstr},
+      title = #{record.title},
+      colorval = #{record.colorval},
+      boldval = #{record.boldval},
+      flag = #{record.flag},
+      source = #{record.source},
+      author = #{record.author},
+      linkurl = #{record.linkurl},
+      keywords = #{record.keywords},
+      description = #{record.description},
+      content = #{record.content},
+      picurl = #{record.picurl},
+      picarr = #{record.picarr},
+      hits = #{record.hits},
+      orderid = #{record.orderid},
+      posttime = #{record.posttime},
+      checkinfo = #{record.checkinfo},
+      delstate = #{record.delstate},
+      deltime = #{record.deltime},
+      b1 = #{record.b1},
+      lng = #{record.lng},
+      sheng = #{record.sheng},
+      dq = #{record.dq},
+      tel = #{record.tel},
+      dizhi = #{record.dizhi},
+      shi = #{record.shi},
+      lat = #{record.lat},
+      hydj = #{record.hydj},
+      b2 = #{record.b2},
+      hy_id = #{record.hyId}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lc.zy.ball.domain.oa.po.PmwInfoimg" >
+    update pmw_infoimg
+    <set >
+      <if test="siteid != null" >
+        siteid = #{siteid},
+      </if>
+      <if test="classid != null" >
+        classid = #{classid},
+      </if>
+      <if test="parentid != null" >
+        parentid = #{parentid},
+      </if>
+      <if test="parentstr != null" >
+        parentstr = #{parentstr},
+      </if>
+      <if test="mainid != null" >
+        mainid = #{mainid},
+      </if>
+      <if test="mainpid != null" >
+        mainpid = #{mainpid},
+      </if>
+      <if test="mainpstr != null" >
+        mainpstr = #{mainpstr},
+      </if>
+      <if test="title != null" >
+        title = #{title},
+      </if>
+      <if test="colorval != null" >
+        colorval = #{colorval},
+      </if>
+      <if test="boldval != null" >
+        boldval = #{boldval},
+      </if>
+      <if test="flag != null" >
+        flag = #{flag},
+      </if>
+      <if test="source != null" >
+        source = #{source},
+      </if>
+      <if test="author != null" >
+        author = #{author},
+      </if>
+      <if test="linkurl != null" >
+        linkurl = #{linkurl},
+      </if>
+      <if test="keywords != null" >
+        keywords = #{keywords},
+      </if>
+      <if test="description != null" >
+        description = #{description},
+      </if>
+      <if test="content != null" >
+        content = #{content},
+      </if>
+      <if test="picurl != null" >
+        picurl = #{picurl},
+      </if>
+      <if test="picarr != null" >
+        picarr = #{picarr},
+      </if>
+      <if test="hits != null" >
+        hits = #{hits},
+      </if>
+      <if test="orderid != null" >
+        orderid = #{orderid},
+      </if>
+      <if test="posttime != null" >
+        posttime = #{posttime},
+      </if>
+      <if test="checkinfo != null" >
+        checkinfo = #{checkinfo},
+      </if>
+      <if test="delstate != null" >
+        delstate = #{delstate},
+      </if>
+      <if test="deltime != null" >
+        deltime = #{deltime},
+      </if>
+      <if test="b1 != null" >
+        b1 = #{b1},
+      </if>
+      <if test="lng != null" >
+        lng = #{lng},
+      </if>
+      <if test="sheng != null" >
+        sheng = #{sheng},
+      </if>
+      <if test="dq != null" >
+        dq = #{dq},
+      </if>
+      <if test="tel != null" >
+        tel = #{tel},
+      </if>
+      <if test="dizhi != null" >
+        dizhi = #{dizhi},
+      </if>
+      <if test="shi != null" >
+        shi = #{shi},
+      </if>
+      <if test="lat != null" >
+        lat = #{lat},
+      </if>
+      <if test="hydj != null" >
+        hydj = #{hydj},
+      </if>
+      <if test="b2 != null" >
+        b2 = #{b2},
+      </if>
+      <if test="hyId != null" >
+        hy_id = #{hyId},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lc.zy.ball.domain.oa.po.PmwInfoimg" >
+    update pmw_infoimg
+    set siteid = #{siteid},
+      classid = #{classid},
+      parentid = #{parentid},
+      parentstr = #{parentstr},
+      mainid = #{mainid},
+      mainpid = #{mainpid},
+      mainpstr = #{mainpstr},
+      title = #{title},
+      colorval = #{colorval},
+      boldval = #{boldval},
+      flag = #{flag},
+      source = #{source},
+      author = #{author},
+      linkurl = #{linkurl},
+      keywords = #{keywords},
+      description = #{description},
+      content = #{content},
+      picurl = #{picurl},
+      picarr = #{picarr},
+      hits = #{hits},
+      orderid = #{orderid},
+      posttime = #{posttime},
+      checkinfo = #{checkinfo},
+      delstate = #{delstate},
+      deltime = #{deltime},
+      b1 = #{b1},
+      lng = #{lng},
+      sheng = #{sheng},
+      dq = #{dq},
+      tel = #{tel},
+      dizhi = #{dizhi},
+      shi = #{shi},
+      lat = #{lat},
+      hydj = #{hydj},
+      b2 = #{b2},
+      hy_id = #{hyId}
+    where id = #{id}
+  </update>
+</mapper>

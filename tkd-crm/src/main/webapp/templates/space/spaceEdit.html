@@ -1,0 +1,37 @@
+<div class="orderNav">
+	<ul>
+		<li><a href="#userCenter">个人中心</a></li>
+		<li><a href="#statiumEdit">场馆信息</a></li>
+		<li class="active"><a href="#space">场地管理</a></li>
+		<li><a href="#user">员工管理</a></li>
+		<li><a href="#/prize/list">获奖列表</a></li>
+	</ul>
+</div>
+<div class="formTable">
+	<ul>
+		<li>
+			<span class="title">场地类型</span>
+			<input type="text" disabled="disabled" value="{{space.sportType|transSportType}}">
+		</li>
+		<li>
+			<span class="title">场地编号</span>
+			<input type="text" disabled="disabled"  value="{{space.spaceCode}}">
+		</li>
+		<li>
+			<span class="title">场地名称</span>
+			<input type="text" disabled="disabled" ng-model="space.spaceName">
+		</li>
+		<li>
+			<span class="title">场地备注</span>
+			<input type="text" disabled="disabled" ng-model="space.comment">
+		</li>
+		<li>
+			<div id="contentByTemplate"></div>
+		</li>
+	</ul>
+	<div class="formSubDiv">
+      	<a href="#space" class="saveBtnBot">返回</a>
+    	<a class="saveBtnBot" ng-click="saveSpace()">保存</a>
+    </div>
+	
+</div>

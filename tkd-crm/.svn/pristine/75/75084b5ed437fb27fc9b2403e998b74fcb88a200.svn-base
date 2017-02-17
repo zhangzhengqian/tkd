@@ -1,0 +1,54 @@
+<div class="orderNav">
+	<ul>
+		<li><a href="#/mall/goods">订货</a></li>
+		<li class="active"><a href="#/mall/orders">订单管理</a></li>
+		<li><a href="#/mall/storageSize">库存管理</a></li>
+		<li><a href="#/mall/storageLogs">出入库明细</a></li>
+	</ul>
+</div>
+<div class="orderSearch">
+	<ul>
+		<li><span>订单状态</span> <select ng-model='searcher.status'
+			ng-options="key as value for (key,value) in statusMap">
+				<option value="">请选择</option>
+		</select></li>
+		<li class="subSearch">
+			<a class="submit" href="javascript:;" ng-click="search(5)">查询</a>
+			<a class="reset"  href="javascript:;" ng-click="reset(5)">重置</a>
+		</li>
+	</ul>
+</div>
+<div class="mallOrderResult">
+	<table>
+		<tr>
+			<th width="25%">商品</th>
+			<th width="15%">数量</th>
+			<th width="20%">总价</th>
+			<th width="15%">状态</th>
+			<th width="25%">操作</th>
+		</tr>
+		<tr ng-repeat="order in objs">
+			<td id="clas" colspan="5">
+				 <span class="order_info">订单编号：{{order.id}}&nbsp;&nbsp;&nbsp;&nbsp;{{order.createDate}}</span>
+				 	<table class="itemOrderResult">
+				 		<tr ng-repeat="item in order.items">
+				 			<td class="good_img">
+				 				<div><img src="{{item.photo}}bigPicture" style="width: 80px;height: 80px;" alt="通用的占位符缩略图"></div>
+								<div><p>{{item.price|currency:'￥'}}</p><p>{{item.goodName}} {{item.bulk}}*{{item.amount}} 整{{item.unit}}</p></div>
+							</td>
+				 			<td class="good_num">{{item.amounts}}</td>
+				 			<td class="good_fee" ng-if="$index==0" rowspan="{{order.goodNum}}">{{order.feeView|currency:'￥'}}</td>
+				 			<td class="good_status" ng-if="$index==0" rowspan="{{order.goodNum}}">{{order.status|mallOrderFilter}}</td>
+				 			<td class="good_op" ng-if="$index==0" rowspan="{{order.goodNum}}">
+				 				<a class="pay_btn" ng-if="order.status==0" href="javascript:;" ng-click="pay(order.id)">付款</a>
+				 				<a class="pay_btn" ng-if="order.status==2" href="javascript:;" ng-click="verify(order.id)">确认收货</a>
+								<a class="info_btn" href="javascript:;" ng-click="orderInfo(order.id)">订单详情</a>
+								<a class="cancel_btn" href="javascript:;" ng-if="order.status==0" ng-click="cancelOrder(order.id)">取消订单</a>
+							</td>
+				 		</tr>
+				 	</table>
+			</td>
+		</tr>
+	</table>
+</div>
+<crm-pagination conf="paginationConf"></crm-pagination>
