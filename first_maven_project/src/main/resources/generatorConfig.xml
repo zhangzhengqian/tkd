@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- ojdbc的jar包 -->
+    <classPathEntry
+        location="C:/Users/Administrator/.m2/repository/mysql/mysql-connector-java/5.1.21/mysql-connector-java-5.1.21.jar" />
+    <context id="my" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="false" />
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <!-- 数据库连接信息 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+            connectionURL="jdbc:mysql://60.219.169.5:3306/tkd_oa" userId="root"
+            password="tkd2016data" />
+            <!-- model生成路径 -->
+        <!-- <javaModelGenerator targetPackage="com.luo.domain.po"
+            targetProject="C:/Users/Administrator/Desktop/first_maven_project/src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator> -->
+        <javaModelGenerator targetPackage="com.lc.zy.ball.domain.oa.po" targetProject="G:/qzlspace4/tkd-domain/src/main/java" />
+		<sqlMapGenerator targetPackage="mybatis.ball.oa" targetProject="G:/qzlspace4/tkd-domain/src/main/resources" />
+		<javaClientGenerator targetPackage="com.lc.zy.ball.domain.oa.mapper" targetProject="G:/qzlspace4/tkd-domain/src/main/java" type="XMLMAPPER" />
+        <!-- 映射xml文件生成路径 -->
+        <!-- <sqlMapGenerator targetPackage="com.luo.domain.xml"
+            targetProject="C:/Users/Administrator/Desktop/first_maven_project/src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator> -->
+        <!-- 和xml文件关联的dao生成路径（生成文件名默认是***Mapper.java，习惯将其改名成 ***Dao.java） -->
+       <!--  <javaClientGenerator targetPackage="com.luo.domain.mapper"
+            targetProject="C:/Users/Administrator/Desktop/first_maven_project/src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator> -->
+
+        <!-- 目标表，如果有多个表就将此段拷贝分别配置 -->
+        <!-- <table tableName="t_user" domainObjectName="TUser"
+            enableCountByExample="false" enableUpdateByExample="false"
+            enableDeleteByExample="false" enableSelectByExample="false"
+            selectByExampleQueryId="false">
+        </table> -->
+        <table domainObjectName="OaContestActivity" tableName="oa_contest_activity"/>
+    </context>
+</generatorConfiguration>
