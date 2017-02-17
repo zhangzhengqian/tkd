@@ -10,7 +10,7 @@ public class Test {
 	public static void main(String[] args) {
 		Map<String,Object> root = new HashMap<String,Object>();
 		root.put("orderid", "foo-bar");
-		String s = new FreeMarkerUtils("/template/refund_message.ftl",root).getText();
-		System.out.println(s);
+		String sss = new FreeMarkerUtils("/template/refund_message.ftl",root).getText();
+		System.out.println(sss);
 	}
 }
