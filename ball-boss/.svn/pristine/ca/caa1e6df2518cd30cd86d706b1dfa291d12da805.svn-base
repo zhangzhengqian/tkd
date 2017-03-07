@@ -1,0 +1,191 @@
+<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ include file="/WEB-INF/jspf/common.jsp"%>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>用户管理</title>
+</head>
+<body>
+	<div class="panel panel-default">
+
+		<div class="panel-heading">
+			<!-- 右侧标题 -->
+			<ul class="breadcrumb">
+				<li><span class="glyphicon glyphicon-home"></span> 用户管理</li>
+				<li class="active">网协账户管理</li>
+			</ul>
+		</div>
+		<!-- / 右侧标题 -->
+		<div class="panel-body">
+			<!-- 右侧主体内容 -->
+			<div class="row">
+				<!-- 查询条件 -->
+				<div class="col-md-12">
+					<form id="cta_form" class="form-horizontal"
+						action="${ctx}/ssouser/cta" method="post">
+						<div class="form-group form-group-sm">
+							<div class="col-md-5">
+								<input type="text" class="form-control input-sm"
+									id="search_LIKE_loginName" name="search_LIKE_loginName"
+									value="${param.search_LIKE_loginName}" placeholder="按网协账户名称查询">
+							</div>
+						</div>
+						<div class="form-group form-group-sm">
+							<div class="col-md-12 text-center">
+								<button type="reset" class="btn btn-default btn-sm">
+									<span class="glyphicon glyphicon-refresh"></span> 重 置
+								</button>
+								&nbsp;&nbsp;
+								<button type="submit" class="btn btn-primary btn-sm">
+									<span class="glyphicon glyphicon-search"></span> 搜 索
+								</button>
+							</div>
+						</div>
+						<input type="hidden" name="search_EQ_state" id="search_EQ_state" value="${param.search_EQ_state}" >
+					</form>
+				</div>
+			</div>
+			<!-- /查询条件 -->
+			<div class="row">
+				<!-- 操作按钮组 -->
+				<div class="col-md-12">
+					<div class="btn-group-sm pull-right mtb10">
+						<shiro:hasPermission name="cta:create">
+							<a class="btn btn-primary btn-sm" href="${ctx}/ssouser/cta/create?action=create"><span
+								class="glyphicon glyphicon-plus"></span> 添加账户</a>
+						</shiro:hasPermission>
+					</div>
+				</div>
+			</div>
+			<!-- /操作按钮组 -->
+			<br>
+
+			<div class="row">
+				<div class="col-table col-md-12"><form id="actionForm" class="form-horizontal"  method="post">	
+					<table id="contentTable"
+						class="table table-bordered table-condensed table-hover">
+						<thead class="thead">
+							<tr>
+								<th class="text-center">序号</th>
+								<th>城市</th>
+								<th>登录账号</th>
+								<th>创建时间</th>
+								<th>联系人手机号 </th>
+								<th>状态</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${data.content}" var="info" varStatus="stat">
+							  <c:set var="status_class" value="" />
+								<c:if test="${event.state == 0}">
+									<c:set var="status_class" value="warning" />
+								</c:if>
+								<c:if test="${event.state == 1}">
+									<c:set var="status_class" value="success" />
+								</c:if>
+								<c:if test="${event.state == 2}">
+									<c:set var="status_class" value="info" />
+								</c:if>
+								<tr class="${status_class }" >
+									<input type="hidden" id="eventId_${stat.count}"
+										value="${event.id }" />
+									<td class="text-center">${stat.count}</td>
+								<td>${info.province}-${info.city}</td>
+								<td>
+									 ${info.loginName}
+								</td>
+								
+								<td ><fmt:formatDate value="${info.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+
+								<td>
+									 ${info.secMobile}
+								</td>
+								<td>
+									 ${info.status}
+								</td>
+										
+										<td>
+										<a href="${ctx}/ssouser/cta/view/${info.userId}?action=view"
+											class="btn btn-default btn-sm" id="editLink-${info.userId}">查看</a>
+											<span class="cutline"></span> 
+												<a href="${ctx}/ssouser/cta/edit/${info.userId}?action=edit"
+											class="btn btn-default btn-sm"  id="editLink-${info.userId}">修改</a>
+											<span class="cutline"></span>
+											<a href="${ctx}/ssouser/cta/delete/${info.userId}?action==delete"
+											class="btn btn-default btn-sm" id="removeLink-${info.userId}" onclick="deleteById('${info.userId}')">删除</a>
+											<span class="cutline"></span>
+										</td>
+									</tr>
+							</c:forEach>
+						</tbody>
+					</table></form>
+				</div>
+				<!-- end col-table -->
+			</div>
+			<!-- end row -->
+				<tags:pagination page="${data}" />
+    <form id="actionForm" action="" method="post">
+       <input type="hidden" id="ids" name="ids">
+    </form>
+		</div>
+		<!-- /右侧主体内容 -->
+	</div>
+	<script src="${ctx}/static/js/utils.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			if("${message}" != null && "${message}" != ""){
+				myAlert("${message}");
+			}
+			menu.active('#cta-man');
+			$('#adminFooter').hide();
+			
+			  /* 按状态查询 */
+			  $(".searchStatus").click(function(){
+				  var v = $(this).val();
+				  $("#search_EQ_state").val(v);
+				  $("#cta_form").submit();
+			  });
+
+			$("button[type=reset]").click(
+							function() {
+								$(this).closest("form").find("input").attr(
+										"value", "");
+								$(this).closest("form").find(
+										"select option:selected").attr(
+										"selected", false);
+								$(this).closest("form").find(
+										"select option:first").attr("selected",
+										true);
+			});
+
+		});
+
+		function getSelected() {
+			var ids = [];
+			var checked = $('input:checked');
+			if (checked.length) {
+				checked.each(function() {
+					if ($(this).attr('name') != 'chk_all') {
+						ids.push($(this).val());
+					}
+				});
+			}
+			return ids;
+		}
+		
+			  // 删除
+			function deleteById(id) {
+				  var $form = $('#actionForm');
+				  $form.attr('action', '${ctx}/ssouser/cta/delete/' +id);
+				  bootbox.confirm('您是否确认删除此条用户记录？', function(result) {
+				    if(result) {
+				      $form[0].submit(); 
+				    }
+				  });
+				  return false;
+			} 
+	</script>
+</body>
+</html>

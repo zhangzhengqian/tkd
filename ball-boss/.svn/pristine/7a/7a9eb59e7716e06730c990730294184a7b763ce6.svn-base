@@ -1,0 +1,383 @@
+package com.lc.zy.ball.boss.framework.orders.vo;
+
+import java.util.List;
+
+import com.lc.zy.ball.domain.oa.po.Order;
+import com.lc.zy.ball.domain.oa.po.OrderItem;
+
+@SuppressWarnings("serial")
+public class OrderVo extends Order {
+	
+	private String userName;//会员名称
+	private String userPhone;//联系电话
+	List<OrderItemVo> orderItemVoList;
+	List<OrderVo> relatedOrders;
+	private String statiumName;//场馆名称
+	private String areaStr;//所在地区 北京-海淀区
+	private Double couponAmount;//优惠券金额
+	private String phone;
+	private String username;
+	private int cooperateNum;
+	private String handleName;
+	private String payTypeStr;
+	private String ordersTypeStr;
+	private Integer subAmount;
+	private int PeriodNum;
+	private String orderDate;
+	private String orderTime;
+	private String sportType;
+	private String name;
+	private int costPrice;
+	private String handleStatusStr;
+	private Integer qiuyouFee;
+	private String enjoyName;
+	private String startTime;
+	private String endTime;
+	private String gameLevel; 
+	private String gameType;
+	private int gameBonus;
+	private String pname;
+	private String pnum;
+	private String pcard;
+	private String pphone;
+	private String pct;
+	private Integer bmFee;
+	private Integer cdFee;
+	private Integer srFee;
+	private Integer acountFee;
+	private Integer bounsAccountFee;
+	private Integer cityHoldTimes;
+	private String statusStr;
+	private String ctStr;
+
+	public String getStatusStr() {
+		return statusStr;
+	}
+
+	public void setStatusStr(String statusStr) {
+		this.statusStr = statusStr;
+	}
+
+	public Integer getAcountFee() {
+		return acountFee;
+	}
+
+	public void setAcountFee(Integer acountFee) {
+		this.acountFee = acountFee;
+	}
+
+	public Integer getBounsAccountFee() {
+		return bounsAccountFee;
+	}
+
+	public void setBounsAccountFee(Integer bounsAccountFee) {
+		this.bounsAccountFee = bounsAccountFee;
+	}
+
+	public String getCtStr() {
+		return ctStr;
+	}
+
+	public void setCtStr(String ctStr) {
+		this.ctStr = ctStr;
+	}
+
+	public Integer getBmFee() {
+		return bmFee;
+	}
+
+	public void setBmFee(Integer bmFee) {
+		this.bmFee = bmFee;
+	}
+
+	public Integer getCdFee() {
+		return cdFee;
+	}
+
+	public void setCdFee(Integer cdFee) {
+		this.cdFee = cdFee;
+	}
+
+	public int getPeriodNum() {
+		return PeriodNum;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setPeriodNum(int periodNum) {
+		PeriodNum = periodNum;
+	}
+
+	public Double getCouponAmount() {
+		return couponAmount;
+	}
+
+	public void setCouponAmount(Double couponAmount) {
+		this.couponAmount = couponAmount;
+	}
+
+	public String getAreaStr() {
+		return areaStr;
+	}
+
+	public void setAreaStr(String areaStr) {
+		this.areaStr = areaStr;
+	}
+
+	public String getEnjoyName() {
+		return enjoyName;
+	}
+
+	public void setEnjoyName(String enjoyName) {
+		this.enjoyName = enjoyName;
+	}
+
+	public String getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+
+	public String getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+	
+	public String getGameLevel() {
+		return gameLevel;
+	}
+
+	public void setGameLevel(String gameLevel) {
+		this.gameLevel = gameLevel;
+	}
+
+	public String getGameType() {
+		return gameType;
+	}
+
+	public void setGameType(String gameType) {
+		this.gameType = gameType;
+	}
+
+	public int getGameBonus() {
+		return gameBonus;
+	}
+
+	public void setGameBonus(int gameBonus) {
+		this.gameBonus = gameBonus;
+	}
+
+	public String getStatiumName() {
+		return statiumName;
+	}
+
+	public void setStatiumName(String statiumName) {
+		this.statiumName = statiumName;
+	}
+	public List<OrderItemVo> getOrderItemVoList() {
+		return orderItemVoList;
+	}
+
+	public void setOrderItemVoList(List<OrderItemVo> orderItemVoList) {
+		this.orderItemVoList = orderItemVoList;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getUserPhone() {
+		return userPhone;
+	}
+
+	public void setUserPhone(String userPhone) {
+		this.userPhone = userPhone;
+	}
+
+	public OrderVo() {
+	}
+
+	public List<OrderVo> getRelatedOrders() {
+		return relatedOrders;
+	}
+
+	public void setRelatedOrders(List<OrderVo> relatedOrders) {
+		this.relatedOrders = relatedOrders;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public int getCooperateNum() {
+		return cooperateNum;
+	}
+
+	public void setCooperateNum(int cooperateNum) {
+		this.cooperateNum = cooperateNum;
+	}
+
+	public String getPayTypeStr() {
+		return payTypeStr;
+	}
+
+	public void setPayTypeStr(String payTypeStr) {
+		this.payTypeStr = payTypeStr;
+	}
+
+	public Integer getSubAmount() {
+		return subAmount;
+	}
+
+	public void setSubAmount(Integer subAmount) {
+		this.subAmount = subAmount;
+	}
+
+	public String getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(String orderDate) {
+		this.orderDate = orderDate;
+	}
+
+	public String getOrderTime() {
+		return orderTime;
+	}
+
+	public void setOrderTime(String orderTime) {
+		this.orderTime = orderTime;
+	}
+
+	public String getSportType() {
+		return sportType;
+	}
+
+	public void setSportType(String sportType) {
+		this.sportType = sportType;
+	}
+
+	public int getCostPrice() {
+		return costPrice;
+	}
+
+	public void setCostPrice(int costPrice) {
+		this.costPrice = costPrice;
+	}
+
+	public String getOrdersTypeStr() {
+		return ordersTypeStr;
+	}
+
+	public void setOrdersTypeStr(String ordersTypeStr) {
+		this.ordersTypeStr = ordersTypeStr;
+	}
+
+	public String getHandleStatusStr() {
+		return handleStatusStr;
+	}
+
+	public void setHandleStatusStr(String handleStatusStr) {
+		this.handleStatusStr = handleStatusStr;
+	}
+
+	public String getHandleName() {
+		return handleName;
+	}
+
+	public void setHandleName(String handleName) {
+		this.handleName = handleName;
+	}
+
+	public Integer getQiuyouFee() {
+		return qiuyouFee;
+	}
+
+	public void setQiuyouFee(Integer qiuyouFee) {
+		this.qiuyouFee = qiuyouFee;
+	}
+
+	public String getPname() {
+		return pname;
+	}
+
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
+
+	public String getPnum() {
+		return pnum;
+	}
+
+	public void setPnum(String pnum) {
+		this.pnum = pnum;
+	}
+
+	public String getPcard() {
+		return pcard;
+	}
+
+	public void setPcard(String pcard) {
+		this.pcard = pcard;
+	}
+
+	public String getPphone() {
+		return pphone;
+	}
+
+	public void setPphone(String pphone) {
+		this.pphone = pphone;
+	}
+
+	public String getPct() {
+		return pct;
+	}
+
+	public void setPct(String pct) {
+		this.pct = pct;
+	}
+
+	public Integer getSrFee() {
+		return srFee;
+	}
+
+	public void setSrFee(Integer srFee) {
+		this.srFee = srFee;
+	}
+
+	public Integer getCityHoldTimes() {
+		return cityHoldTimes;
+	}
+
+	public void setCityHoldTimes(Integer cityHoldTimes) {
+		this.cityHoldTimes = cityHoldTimes;
+	}
+
+}

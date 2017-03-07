@@ -1,0 +1,850 @@
+package com.lc.zy.ball.boss.framework.statistic.controller;
+
+import java.io.BufferedOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.math.BigDecimal;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFCellStyle;
+import org.apache.poi.hssf.usermodel.HSSFFont;
+import org.apache.poi.hssf.usermodel.HSSFRichTextString;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springside.modules.web.Servlets;
+
+import com.lc.zy.ball.boss.common.Constants;
+import com.lc.zy.ball.boss.common.SessionUtil;
+import com.lc.zy.ball.boss.common.web.AbstractController;
+import com.lc.zy.ball.boss.framework.orders.service.OrderService;
+import com.lc.zy.ball.boss.framework.statistic.service.StatisticRegisterUserService;
+import com.lc.zy.ball.boss.framework.statistic.vo.ChartBean;
+import com.lc.zy.ball.boss.framework.statistic.vo.Dataset;
+import com.lc.zy.ball.boss.framework.statistic.vo.StatisticUserMobileVo;
+import com.lc.zy.ball.boss.framework.statistic.vo.regUserVo;
+import com.lc.zy.ball.boss.framework.system.service.RoleService;
+import com.lc.zy.ball.common.data.pageable.Page;
+import com.lc.zy.ball.common.data.pageable.PageRequest;
+import com.lc.zy.ball.domain.oa.mapper.OrderMapper;
+import com.lc.zy.ball.domain.oa.po.ex.StatisticActiveUserIpVo;
+import com.lc.zy.ball.domain.oa.po.ex.StatisticRegisterUserEx;
+import com.lc.zy.common.cache.RedisPool;
+import com.lc.zy.common.util.DateUtil;
+import com.lc.zy.common.util.DateUtils;
+import com.lc.zy.common.util.ExportExcelUtil;
+import com.lc.zy.common.util.FreeMarkerUtils;
+import com.lc.zy.common.util.UUID;
+import com.lc.zy.common.util.wxap.util.MD5Util;
+import com.lc.zy.common.web.WebUtils;
+
+/**
+ * 注册用户分析
+ * 
+ * @author bhg
+ */
+@Controller
+@RequestMapping(value = "/statisticRegisterUser")
+public class StatisticRegisterUserController extends AbstractController {
+
+	private static Logger logger = LoggerFactory.getLogger(StatisticRegisterUserController.class);
+	
+	@Resource(name = "oaJdbcTemplate")
+	private JdbcTemplate jdbcTemplate;
+
+	@Autowired
+	private RedisPool redisPool = null;
+	
+	@Autowired
+	private OrderMapper orderMapper = null;
+	
+	@Autowired
+	private StatisticRegisterUserService statisticRegisterUserService;
+	
+	@Autowired
+	private OrderService orderService; 
+
+	//bhg 定义10组颜色，用于曲线图里注册渠道图例
+	private String[] colorList = {"#90EE90;rgba(144,238,144,0.6)",
+								  "#8B0000;rgba(139, 0, 0,0.6)",
+								  "#008B8B;rgba(0, 139, 139,0.6)",
+								  "#FFAEB9;rgba(255, 174, 185,0.6)",
+								  "#00008B;rgba(0, 0, 139,0.6)",
+								  "#FFFF00;rgba(255, 255, 0,0.6)",
+								  "#7FFF00;rgba(127, 255, 0,0.6)",
+								  "#FF00FF;rgba(255, 0, 255,0.6)",
+								  "#87CEFF;rgba(135, 206, 255,0.6)",
+								  "#FFA500;rgba(255, 165, 0,0.6)",
+								  "#CCCCCC;rgba(204,204,204,0.6)"
+								  };
+	
+	// 图用RGB
+	private	Map<String,String> channelColor = new HashMap<String,String>();
+	
+	@Autowired
+	private RoleService roleService = null;;
+	
+	/**
+	 * 
+	 * 表格数据
+	 *
+	 * @create：09-14
+	 * @author： bhg
+	 * @param model
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value = "registerList")
+	public String registerList(HttpServletRequest request,Model model)
+			throws Exception {
+		 if(roleService.getRole(SessionUtil.currentUserRole()).getRoleCode().equals("channel")){
+			 String channel = SessionUtil.currentUsername();
+				// 根据查询条件查询数据
+				Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
+				searchParams.put("EQ_channel", channel);
+				//bhg 时间参数直接传递回去，不做类型转变
+				model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
+
+				// 分页
+				int page = WebUtils.getPage(request);
+				int size = 50;
+				
+				int flagType = 2;
+				//全部
+				if("allChannel".equals(channel)){
+					searchParams.clear();
+					flagType = 4;
+				}
+				
+				logger.debug(searchParams.toString());
+				Page<StatisticRegisterUserEx> statisticRegisterUserPage = null;
+				try {
+					statisticRegisterUserPage = statisticRegisterUserService.findRegUserListByChannel(new PageRequest(page, size), searchParams, true, true, flagType);
+				} catch (Exception e) {
+					e.printStackTrace();
+					logger.error("regUserListForChannel error:" + e.getMessage());
+				}
+				model.addAttribute("data", statisticRegisterUserPage);
+				
+				return "/regUserForChannel";
+		 }else{
+			// 根据查询条件查询数据
+			Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
+	
+			//bhg 时间参数直接传递回去，不做类型转变
+			model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
+			
+			// 分页
+			int page = WebUtils.getPage(request);
+	//		int size = WebUtils.getPageSize(request);
+			int size = 50;
+			
+			//search_EQ_version
+			if(searchParams.get("EQ_ct")==null){
+				searchParams.put("EQ_ct", DateUtils.formatDate(DateUtils.minusDaysToday(1)));
+			}
+			logger.debug(searchParams.toString());
+			Page<StatisticRegisterUserEx> statisticRegisterUserPage = null;
+			StatisticRegisterUserEx ruTotal = null;
+			try {
+				statisticRegisterUserPage = statisticRegisterUserService.findRegUserList(new PageRequest(page, size), searchParams, true, true);
+				ruTotal = statisticRegisterUserService.findRegUserTotal(searchParams);
+			} catch (Exception e) {
+				e.printStackTrace();
+				logger.error("ssoUserList error:" + e.getMessage());
+			}
+			model.addAttribute("totalData", ruTotal);
+			model.addAttribute("data", statisticRegisterUserPage);
+			
+			// 页面用16#
+			Date from = DateUtils.now();
+			Date to = DateUtils.minusDays(from, 10);
+			Map<String, Object> root = new HashMap<String, Object>();
+			root.put("from", from);
+			root.put("to", to);
+			String sql = FreeMarkerUtils.format("/template/statistic/regUserChartColorSql.ftl",root);
+			List<Map<String,Object>> channelList = jdbcTemplate.queryForList(sql);
+			Map<String,String> channelColorPage = new LinkedHashMap<String,String>();
+			int i = 0;
+			for(Map<String,Object> sm :channelList){
+				
+				channelColor.put(sm.get("channel").toString(),colorList[i].split(";")[1]);
+				channelColorPage.put(sm.get("channel").toString(), colorList[i].split(";")[0]);
+				i++;
+			}
+			if(i==10){
+				channelColor.put("OTHER", colorList[i]);
+				channelColorPage.put("OTHER", colorList[i]);
+			}
+			
+	//		int i = 0;
+	//		for(StatisticRegisterUserEx sr :statisticRegisterUserPage.getContent()){
+	//			channelColor.put(sr.getChannel(), colorList[i].split(";")[1]);
+	//			channelColorPage.put(sr.getChannel(), colorList[i].split(";")[0]);
+	//			i++;
+	//		}
+			model.addAttribute("channelColorPage", channelColorPage);
+			return "/statistic/regUserStatistic";
+		 }
+	}
+	
+	/**
+	 * 统计7天或30天用户注册数
+	 * @param request
+	 * @param model
+	 * @return
+	 * @throws Exception
+	 * @author yankefei
+	 */
+	@RequestMapping(value = "registerListEx")
+	public String registerListEx(HttpServletRequest request,Model model)
+			throws Exception {
+		// 分页
+		int page = WebUtils.getPage(request);
+//		int size = WebUtils.getPageSize(request);
+		int size = 50;
+		
+		//获取截止日期
+		String end = DateUtils.formatDate(DateUtils.minusDays(new Date(), 1));
+		//获取起始日期
+		String start = DateUtils.formatDate(DateUtils.minusDays(new Date(), 7));
+		String days = request.getParameter("queryDays");
+		if(days==null || "".equals(days)){
+			//默认查询近7天
+			days="7";
+		}else{
+			start = DateUtils.formatDate(DateUtils.minusDays(new Date(), Integer.parseInt(days)));
+		}
+		model.addAttribute("queryDays", days);
+		
+		// 根据查询条件查询数据
+		Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
+		searchParams.put("GTE_ct", start);
+		searchParams.put("LTE_ct", end);
+		
+		logger.debug(searchParams.toString());
+		Page<StatisticRegisterUserEx> statisticRegisterUserPage = null;
+		StatisticRegisterUserEx ruTotal = null;
+		try {
+			statisticRegisterUserPage = statisticRegisterUserService.findRegUserListEX(new PageRequest(page, size), searchParams, true, true);
+			ruTotal = statisticRegisterUserService.findRegUserTotalEx(searchParams);
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error("ssoUserList error:" + e.getMessage());
+		}
+		model.addAttribute("data", statisticRegisterUserPage);
+		model.addAttribute("totalData", ruTotal);
+		
+		return "/statistic/regUserStatisticEx";
+	}
+	
+	/**
+	 * 从当前时间往前推，比如取7天的数据，则参数 days=7
+	 * @param days
+	 * @return
+	 */
+	@RequestMapping(value = "regUserForChart", method = RequestMethod.POST)
+	@ResponseBody
+	public String regUserForChart(Integer days) {
+		Date from = DateUtils.now();
+		Date to = DateUtils.minusDays(from, days);
+		Map<String, Object> root = new HashMap<String, Object>();
+		root.put("from", from);
+		root.put("to", to);
+		String sql = FreeMarkerUtils.format("/template/statistic/regUserChartDaySql.ftl", root);
+		logger.debug(sql);
+		String key = MD5Util.MD5Encode(sql, "utf-8");
+		logger.debug("key={}",key);
+		String rtn = redisPool.getStr(key);
+		if(rtn!=null&&!"".equals(rtn)){
+			logger.debug("data from cache.");
+			return rtn;
+		}
+		List<Map<String,Object>> xysList = jdbcTemplate.queryForList(sql);
+		// 来源 与 xy 的映射，这样可以取出每个来源类型的列表
+		Map<String,List<Map<String,Object>>> xyMap = new HashMap<String,List<Map<String,Object>>>();
+		for( Map<String,Object> xys : xysList ){
+			String channel = xys.get("channel").toString();
+			List<Map<String,Object>> xyList = null;
+			if( xyMap.get(channel) != null ){
+				xyList = xyMap.get(channel);
+			} else {
+				xyList = new ArrayList<Map<String,Object>>();
+			}
+			xyList.add(xys);
+			xyMap.put(channel, xyList);
+		}
+		
+		List<String> xList = new ArrayList<String>();
+		//10 天 填满 x 轴
+		for( int i=days ; i>0 ; i--  ){
+			Date x = DateUtils.minusDays(from, i);
+			String s = DateUtils.formatDate(x);
+			xList.add(s);
+		}
+		
+		List<Dataset> datasets = new ArrayList<Dataset>();
+		Set<String> xySet = xyMap.keySet();
+		for( String k : xySet ){
+			String color = channelColor.get(k);
+			List<Map<String,Object>> xyList = xyMap.get(k);
+			List<Integer> yList = new ArrayList<Integer>();
+			// 库中的时间数量映射
+			Map<String,Integer> xMap = new HashMap<String,Integer>();
+			for(Map<String,Object> xy : xyList){
+				logger.debug(color+" ; "+xy.toString());
+				String x = xy.get("x").toString();
+				String y = xy.get("y").toString();
+				xMap.put(x, Integer.parseInt(y));
+			}
+			// 填满 y 轴，库中没有的填 0
+			for( String x : xList ){
+				if(xMap.get(x)==null){
+					yList.add(0);
+				}else{
+					yList.add(xMap.get(x));
+				}
+			}
+
+			Dataset d = new Dataset(yList);
+			d.setLabel(k);
+			
+//			d.setFillColor(color);
+			d.setStrokeColor(color);
+//			d.setHighlightFill(color);
+//			d.setHighlightStroke(color);
+			
+			d.setPointColor(color);
+			d.setPointHighlightStroke(color);
+			datasets.add(d);
+		}
+		ChartBean data = new ChartBean(xList, datasets);
+		String j = data.toString();
+		logger.debug(j);
+		redisPool.setStr(key, j);
+		return j;
+	}
+
+	@RequestMapping(value = "queryByChannel/{channel}", method = RequestMethod.GET)
+	public String queryByChannel(@PathVariable String channel,HttpServletRequest request,Model model) throws Exception {
+				// 根据查询条件查询数据
+				Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
+				searchParams.put("EQ_channel", channel);
+				//bhg 时间参数直接传递回去，不做类型转变
+				model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
+
+				// 分页
+				int page = WebUtils.getPage(request);
+				int size = 50;
+				
+				int flagType = 2;
+				//全部
+				if("allChannel".equals(channel)){
+					searchParams.clear();
+					flagType = 4;
+				}
+				
+				logger.debug(searchParams.toString());
+				Page<StatisticRegisterUserEx> statisticRegisterUserPage = null;
+				try {
+					statisticRegisterUserPage = statisticRegisterUserService.findRegUserListByChannel(new PageRequest(page, size), searchParams, true, true, flagType);
+				} catch (Exception e) {
+					e.printStackTrace();
+					logger.error("regUserListForChannel error:" + e.getMessage());
+				}
+				model.addAttribute("data", statisticRegisterUserPage);
+				model.addAttribute("channel",channel);
+				return "/statistic/regUserForChannel";
+	}
+	
+	@RequestMapping(value = "exportByChannel/{channel}", method = RequestMethod.GET)
+	public void exportByChannel(@PathVariable String channel,HttpServletRequest request,HttpServletResponse response,Model model) throws Exception {
+				// 根据查询条件查询数据
+				Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
+				searchParams.put("EQ_channel", channel);
+				//bhg 时间参数直接传递回去，不做类型转变
+				model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
+
+				// 分页
+				int page = WebUtils.getPage(request);
+				
+				int size = 50;
+				
+				int flagType = 2;
+				//全部
+				if("allChannel".equals(channel)){
+					flagType = 4;
+					searchParams.remove("EQ_channel");
+				}
+					//按日和按月查询不需要+时分秒数据
+					// 日期String+时分秒
+				String lte_ct = (String)searchParams.get("LTE_ct");
+				String gte_ct = (String)searchParams.get("GTE_ct");
+				try {
+					parseStringForReg(searchParams, "GTE_ct");
+					parseStringForReg(searchParams, "LTE_ct");
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				logger.debug(searchParams.toString());
+				Page<StatisticRegisterUserEx> statisticRegisterUserPage = null;
+				try {
+					statisticRegisterUserPage = statisticRegisterUserService.findRegUserListByChannel(new PageRequest(page, size), searchParams, false, false, flagType);
+				} catch (Exception e) {
+					e.printStackTrace();
+					logger.error("regUserListForChannel error:" + e.getMessage());
+				}
+				List<StatisticRegisterUserEx> statistics = statisticRegisterUserPage.getContent();
+				if("allChannel".equals(channel)){
+					List<Map<String,Object>> orderStastics = orderService.orderDays(lte_ct, gte_ct);
+					Map<String,Map<String,Object>> orderMap = new HashMap<String, Map<String,Object>>();
+					for(Map<String,Object> map : orderStastics){
+						orderMap.put((String)map.get("ct"), map);
+					}
+					List<Map<String,Object>> uvConts = statisticRegisterUserService.uvCounts(lte_ct, gte_ct);
+					List<Map<String,Object>> pvConts = statisticRegisterUserService.pvCounts(lte_ct, gte_ct);
+					Map<String,Map<String,Object>> uvMap = new HashMap<String, Map<String,Object>>();
+					Map<String,Map<String,Object>> pvMap = new HashMap<String, Map<String,Object>>();
+					for(Map<String,Object> map : uvConts){
+						uvMap.put((String)map.get("ct"), map);
+					}
+					for(Map<String,Object> map : pvConts){
+						pvMap.put((String)map.get("ct"), map);
+					}
+					writeExcel(response,statistics,orderMap,uvMap,pvMap,channel);
+					return;
+				}
+				writeExcel(response,statistics,new HashMap<String, Map<String,Object>>(),new HashMap<String, Map<String,Object>>(),new HashMap<String, Map<String,Object>>(),channel);
+	}
+	
+	
+	/**
+     * 定义导出Excel的样式
+     * @param response
+     * @param voList
+     * @throws Exception
+     */
+	public Map<String,Object> writeExcel(HttpServletResponse response, List<StatisticRegisterUserEx> statistics,Map<String,Map<String,Object>> orderMap,Map<String,Map<String,Object>> uvMap,Map<String,Map<String,Object>> pvMap,String channel) throws Exception{
+		Map<String, Object> map = new HashMap<String,Object>();
+		String uuid = UUID.get();
+		String fileName = uuid+".xls";
+        fileName = new String(fileName.getBytes("GBK"), "iso8859-1");  
+        response.reset();  
+        response.setHeader("Content-Disposition", "attachment;filename="  
+                + fileName);// 指定下载的文件名  
+        response.setContentType("application/vnd.ms-excel");  
+        response.setHeader("Pragma", "no-cache");  
+        response.setHeader("Cache-Control", "no-cache");  
+        response.setDateHeader("Expires", 0);  
+        OutputStream output = response.getOutputStream();  
+        BufferedOutputStream bufferedOutPut = new BufferedOutputStream(output);  
+  
+        // 定义单元格报头  
+        String worksheetTitle = "统计(" + DateUtil.formatDate(new Date(), "yyyy-MM-dd") + ")";  
+  
+        HSSFWorkbook wb = new HSSFWorkbook();  
+  
+        // 创建单元格样式  
+        HSSFCellStyle cellStyleTitle = wb.createCellStyle();  
+        // 指定单元格居中对齐  
+        cellStyleTitle.setAlignment(HSSFCellStyle.ALIGN_CENTER);  
+        // 指定单元格垂直居中对齐  
+        cellStyleTitle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);  
+        // 指定当单元格内容显示不下时自动换行  
+        cellStyleTitle.setWrapText(true);  
+        // ------------------------------------------------------------------  
+        HSSFCellStyle cellStyle = wb.createCellStyle();  
+        // 指定单元格居中对齐  
+        cellStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);  
+        // 指定单元格垂直居中对齐  
+        cellStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);  
+        // 指定当单元格内容显示不下时自动换行  
+        cellStyle.setWrapText(true);  
+        // ------------------------------------------------------------------  
+        // 设置单元格字体  
+        HSSFFont font = wb.createFont();  
+        font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);  
+        font.setFontName("宋体");  
+        font.setFontHeight((short) 200);
+        cellStyleTitle.setFont(font);  
+  
+        // 工作表名  
+        String sequence = "序号"; 
+        String channelName = "注册来源";
+        String regeditTime = "注册时间";
+        String regeditCont = "注册数";  
+        String activeCont = "激活数";
+        String convertRate = "转化率";
+        String orderCont ="订单数";
+        String orderFee = "订单总额";  
+        String profitFee = "毛利润总额";
+        String subsidyFee = "补贴总额";
+        String couponFee = "优惠券总额";
+        String uvCont = "日活";
+        String pvCont = "pv";
+  
+        HSSFSheet sheet = wb.createSheet();  
+        ExportExcelUtil exportExcel = new ExportExcelUtil(wb, sheet);  
+        // 创建报表头部  
+        exportExcel.createNormalHead(worksheetTitle, 8);  
+        // 定义第一行  
+        HSSFRow row1 = sheet.createRow(1);  
+        HSSFCell cell1 = row1.createCell(0);  
+  
+        //第一行第1列  
+        cell1.setCellStyle(cellStyleTitle);  
+        cell1.setCellValue(new HSSFRichTextString(sequence));  
+        
+        //第一行第2列  
+        cell1 = row1.createCell(1);  
+        cell1.setCellStyle(cellStyleTitle);  
+        cell1.setCellValue(new HSSFRichTextString(channelName));
+        
+        //第一行第2列  
+        cell1 = row1.createCell(2);  
+        cell1.setCellStyle(cellStyleTitle);  
+        cell1.setCellValue(new HSSFRichTextString(regeditTime));  
+  
+        //第一行第3列  
+        cell1 = row1.createCell(3);  
+        cell1.setCellStyle(cellStyleTitle);  
+        cell1.setCellValue(new HSSFRichTextString(regeditCont));  
+        
+        //第一行第4列  
+        cell1 = row1.createCell(4);  
+        cell1.setCellStyle(cellStyleTitle);  
+        cell1.setCellValue(new HSSFRichTextString(activeCont)); 
+        
+        //第一行第5列  
+        cell1 = row1.createCell(5);  
+        cell1.setCellStyle(cellStyleTitle);  
+        cell1.setCellValue(new HSSFRichTextString(convertRate));
+        if("allChannel".equals(channel)){
+        	//第一行第6列  
+            cell1 = row1.createCell(6);  
+            cell1.setCellStyle(cellStyleTitle);  
+            cell1.setCellValue(new HSSFRichTextString(orderCont));  
+      
+            //第一行第7列  
+            cell1 = row1.createCell(7);  
+            cell1.setCellStyle(cellStyleTitle);  
+            cell1.setCellValue(new HSSFRichTextString(orderFee));  
+      
+            //第一行第8列  
+            cell1 = row1.createCell(8);  
+            cell1.setCellStyle(cellStyleTitle);  
+            cell1.setCellValue(new HSSFRichTextString(profitFee));  
+            
+            //第一行第9列  
+            cell1 = row1.createCell(9);  
+            cell1.setCellStyle(cellStyleTitle);  
+            cell1.setCellValue(new HSSFRichTextString(subsidyFee));  
+            
+            //第一行第10列  
+            cell1 = row1.createCell(10);  
+            cell1.setCellStyle(cellStyleTitle);  
+            cell1.setCellValue(new HSSFRichTextString(couponFee));  
+            
+          //第一行第10列  
+            cell1 = row1.createCell(11);  
+            cell1.setCellStyle(cellStyleTitle);  
+            cell1.setCellValue(new HSSFRichTextString(uvCont)); 
+            
+          //第一行第10列  
+            cell1 = row1.createCell(12);  
+            cell1.setCellStyle(cellStyleTitle);  
+            cell1.setCellValue(new HSSFRichTextString(pvCont));  
+        }
+          
+        //定义第二行  
+        HSSFRow row = sheet.createRow(2);  
+        HSSFCell cell = row.createCell(1);
+        HSSFCellStyle dateCellStyle=wb.createCellStyle();
+        short df=wb.createDataFormat().getFormat("yyyy-mm-dd HH:mm:ss"); 
+        dateCellStyle.setDataFormat(df);
+        HSSFCellStyle dateCellStyle_=wb.createCellStyle();
+        short df_=wb.createDataFormat().getFormat("yyyy-mm-dd"); 
+        dateCellStyle_.setDataFormat(df_);
+        for(int i = 0;i<statistics.size();i++){
+        	StatisticRegisterUserEx register = statistics.get(i);
+        	String ct = register.getCt();
+            row = sheet.createRow(i+2);
+            cell = row.createCell(0);  
+            cell.setCellValue(new HSSFRichTextString(i+""));  
+            cell.setCellStyle(cellStyle);
+            
+            cell = row.createCell(1);  
+            cell.setCellStyle(cellStyle);
+        	cell.setCellValue(new HSSFRichTextString(channel));
+        	
+        	cell = row.createCell(2);  
+            cell.setCellStyle(cellStyle);
+        	cell.setCellValue(new HSSFRichTextString(ct));
+        	
+        	cell = row.createCell(3);  
+            cell.setCellStyle(cellStyle);
+        	cell.setCellValue(register.getCounter()==null?0:register.getCounter());
+        	
+        	cell = row.createCell(4);  
+            cell.setCellStyle(cellStyle);
+        	cell.setCellValue(new HSSFRichTextString(StringUtils.isBlank(register.getAvcounter())?"0":register.getAvcounter()));
+        	
+        	cell = row.createCell(5);  
+            cell.setCellStyle(cellStyle);
+            if(StringUtils.isNotBlank(register.getConvertrate())){
+            	BigDecimal decimal1 = new BigDecimal(register.getConvertrate()).multiply(new BigDecimal(100));
+            	cell.setCellValue(new HSSFRichTextString(decimal1.setScale(2, BigDecimal.ROUND_HALF_UP).toString()+"%"));
+            }else{
+            	cell.setCellValue(new HSSFRichTextString(""));
+            }
+        	
+        	if("allChannel".equals(channel)){
+        		Map<String,Object> order = orderMap.get(ct);
+        		if(order!=null){
+        			int orderCount = ((Long)order.get("orderCount")).intValue();
+        			int fee = ((BigDecimal)order.get("fee")).intValue();
+        			int profit = ((BigDecimal)order.get("profit")).intValue();
+        			int subsidies = ((BigDecimal)order.get("subsidies")).intValue();
+        			int subamount = ((BigDecimal)order.get("subamount")).intValue();
+        			cell = row.createCell(6);  
+                    cell.setCellStyle(cellStyle);
+                	cell.setCellValue(orderCount);
+                	
+                	cell = row.createCell(7);  
+                    cell.setCellStyle(cellStyle);
+                	cell.setCellValue(fee/100);
+                	
+                	cell = row.createCell(8);  
+                    cell.setCellStyle(cellStyle);
+                	cell.setCellValue(profit/100);
+                	
+                	cell = row.createCell(9);  
+                    cell.setCellStyle(cellStyle);
+                	cell.setCellValue(subsidies/100);
+                	
+                	cell = row.createCell(10);  
+                    cell.setCellStyle(cellStyle);
+                	cell.setCellValue(subamount/100);
+        		}
+        		Map<String,Object> uv = uvMap.get(ct);
+        		if(uv!=null){
+        			int cont = (Integer)uv.get("cont");
+                	cell = row.createCell(11);  
+                    cell.setCellStyle(cellStyle);
+                	cell.setCellValue(cont);
+        		}
+        		Map<String,Object> pv = pvMap.get(ct);
+        		if(pv!=null){
+        			int cont = ((BigDecimal)pv.get("cont")).intValue();
+                	cell = row.createCell(12);  
+                    cell.setCellStyle(cellStyle);
+                	cell.setCellValue(cont);
+        		}
+        	}
+      
+        }
+        try {  
+            bufferedOutPut.flush();  
+            wb.write(bufferedOutPut);
+            return null;
+        }
+        catch (IOException e) { 
+        	e.printStackTrace();
+            logger.error(e.getMessage());
+            map.put(Constants.Result.RESULT, "false");
+            map.put(Constants.Result.REASON, "导出Excel失败,请再试一次");
+            return map;
+        } finally {
+        	bufferedOutPut.close();
+        }
+	}
+	
+	
+	
+	@RequestMapping(value = "queryByChannelDay/{channel}", method = RequestMethod.GET)
+	public String queryByChannelDay(@PathVariable String channel,HttpServletRequest request,Model model) {
+				// 根据查询条件查询数据
+				Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
+				searchParams.put("EQ_channel", channel);
+				//bhg 时间参数直接传递回去，不做类型转变
+				model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
+
+				// 分页
+				int page = WebUtils.getPage(request);
+				int size = 50;
+				
+				//按日和按月查询不需要+时分秒数据
+					// 日期String+时分秒
+				try {
+					parseStringForReg(searchParams, "GTE_ct");
+					parseStringForReg(searchParams, "LTE_ct");
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				int flagType = 1;
+				//全部
+				if("allChannel".equals(channel)){
+					searchParams.remove("EQ_channel");
+					flagType = 5;
+				}
+				logger.debug(searchParams.toString());
+				Page<StatisticRegisterUserEx> statisticRegisterUserPage = null;
+				try {
+					statisticRegisterUserPage = statisticRegisterUserService.findRegUserListByChannel(new PageRequest(page, size), searchParams, true, true,flagType);
+				} catch (Exception e) {
+					e.printStackTrace();
+					logger.error("regUserListForChannel error:" + e.getMessage());
+				}
+				model.addAttribute("data", statisticRegisterUserPage);
+				model.addAttribute("channel", channel);
+				
+				return "/statistic/regUserForChannelDay";
+	}
+	
+	/**
+	 * <根据ip统计地区激活数><功能具体实现>
+	 * @param request
+	 * @param model
+	 * @return
+	 * @author yankefei
+	 * @date 2015年11月12日 下午2:41:53
+	 */
+	@RequestMapping(value = "activityAreaStatistic", method = RequestMethod.GET)
+	public String activityAreaStatistic(HttpServletRequest request, Model model) {
+		// 根据查询条件查询数据
+		Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
+		model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
+		if(searchParams.get("EQ_date")!=null){
+			String date = (String) searchParams.get("EQ_date");
+			if(date!=null && !"".equals(date)){
+				searchParams.put("GTE_ct", date+" 00");
+				searchParams.put("LTE_ct", date+" 23");
+			}
+			searchParams.remove("EQ_date");
+		}
+		// 分页
+		int page = WebUtils.getPage(request);
+		int size = WebUtils.getPageSize(request);
+		
+		logger.info(searchParams.toString());
+		Page<StatisticActiveUserIpVo> activityAreaVoPage = null;
+		try {
+			activityAreaVoPage = statisticRegisterUserService.activityAreaQuery(new PageRequest(page, size), searchParams);
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error("activityAreaStatistic error:" + e.getMessage());
+		}
+		model.addAttribute("data", activityAreaVoPage);
+		
+		return "/statistic/activityAreaStatistic";
+	}
+	
+	/**
+	 * <渠道订单数统计><功能具体实现>
+	 * @param request
+	 * @param model
+	 * @return
+	 * @author yankefei
+	 * @date 2015年11月12日 下午6:09:16
+	 */
+	@RequestMapping(value = "statisticChannelOrders", method = RequestMethod.GET)
+	public String statisticChannelOrders(HttpServletRequest request, Model model) {
+		// 根据查询条件查询数据
+		Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
+		model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
+		String date = (String) searchParams.get("EQ_date");
+		// 分页
+		int page = WebUtils.getPage(request);
+		int size = WebUtils.getPageSize(request);
+		
+		logger.info(searchParams.toString());
+		Page<StatisticUserMobileVo> activityAreaVoPage = null;
+		try {
+			activityAreaVoPage = statisticRegisterUserService.channelOrdersQuery(new PageRequest(page, size), date);
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error("activityAreaStatistic error:" + e.getMessage());
+		}
+		model.addAttribute("data", activityAreaVoPage);
+		
+		return "/statistic/channelOrdersStatistic";    
+	}
+	
+	@RequestMapping(value = "queryByCityAll")
+	public String queryByCityAll(HttpServletRequest request,Model model){
+		List<regUserVo> list  = null;
+		try {
+			list = statisticRegisterUserService.queryByCityAll();
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error("queryByCity error:" + e.getMessage());
+		}
+		model.addAttribute("data", list);
+		return "/statistic/regUserAllCity";
+	}
+	
+	
+	@RequestMapping(value = "queryByCity/{province}/{city}")
+	public String queryByCity(@PathVariable String province,@PathVariable String city,HttpServletRequest request,Model model){
+		// 根据查询条件查询数据
+		Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
+		model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
+		String date = (String) searchParams.get("EQ_ct");
+		model.addAttribute("province", province);
+		model.addAttribute("city", city);
+		if(StringUtils.isBlank(date)){
+			date = DateUtils.getTodayStr().substring(0,7);
+			logger.info("nowMonth={}",date);
+		}
+		model.addAttribute("date", date);
+		if(StringUtils.isBlank(city)){
+			city = province;
+		}
+		//按月份统计指定城市的注册、激活数，默认当月
+		List<regUserVo> list  = null;
+		int actTotal = 0;
+		int regTotal = 0;
+		try {
+			list = statisticRegisterUserService.queryByCity(province,city,date,false);
+			List<regUserVo> totalList = statisticRegisterUserService.queryByCity(province,city,null,true);
+			if(CollectionUtils.isNotEmpty(totalList)){
+				actTotal = totalList.get(0).getActNum();
+				regTotal = totalList.get(0).getRegNum();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error("queryByCity error:" + e.getMessage());
+		}
+		model.addAttribute("data", list);
+		model.addAttribute("acttotal", actTotal);
+		model.addAttribute("regTotal", regTotal);
+
+		return "/statistic/regUserCity";
+	}
+}

@@ -1,0 +1,161 @@
+<%
+	for(var gameType in schedules.groups){
+%>
+<div>
+	<legend style="margin:20px 0px 10px 20px;">
+		<small>
+		<%
+			if(gameType==1){
+		%>
+			男子单打
+		<%
+			}else if(gameType==2){
+		%>
+			女子单打
+		<%
+			}else if(gameType==3){
+		%>
+			男子双打
+		<%
+			}else if(gameType==4){
+		%>
+			女子双打
+		<%
+			}else if(gameType==5){
+		%>
+			混合双打
+		<%
+			}else if(gameType==6){
+		%>
+			混合单打
+		<%
+			}
+		%>
+		</small>
+	</legend>
+		<%if(schedules.groups[gameType].hasOwnProperty("groupSchedule")){ %>
+		
+			<%
+				for(var groupSchedule in schedules.groups[gameType]["groupSchedule"]){
+			%>
+				<div class="gameSchedule">
+					<table>
+						<tr>
+							<th><%=groupSchedule%>组</th>
+						<tr>
+						<%
+							schedules.groups[gameType]["groupSchedule"][groupSchedule].forEach(function(player){
+						%>
+							<tr>
+								<td><%=player.name%>
+									<%
+										if(player.titel){
+									%>
+										<span>
+											(<%=player.titel%>)
+										</span>
+									<%
+										}
+									%>
+								</td>
+							</tr>
+						<%
+							})
+						%>
+					</table>
+				</div>
+				
+			<%
+				}
+			%>
+			
+		
+		<%
+			}
+		%>
+		
+		<%if(schedules.groups[gameType].hasOwnProperty("treeSchedule")){ %>
+		<div class="wrapper">
+			<div class="gameTree">
+				<%
+					var treeData = schedules.groups[gameType]["treeSchedule"];
+					var temp = new EJS(
+						{
+							url : '/static/template/treeNode.ejs?ver='+ Math.random()
+						});
+					$("#gameTree").gameTree(temp,treeData);
+				%>
+				<%=$("#gameTree").html()%>
+			</div>
+			</div>
+		<%
+			}
+		%>
+</div>
+<%
+	}
+%>
+
+<%
+	if(schedules.fileds){
+%>
+<legend style="margin:20px 0px 10px 20px;">
+		<small>
+		整体场地编排
+		</small>
+	</legend>
+<%
+	for(var fieldno in schedules.fileds){
+%>
+	<div class="gameSchedule">
+	<table>
+		<tr>
+			<th colspan="4"><%=fieldno%>号场地</th>
+		<tr>
+		<%
+			schedules.fileds[fieldno].forEach(function(gamePoint){
+		%>
+			<tr>
+				<td>
+				<%
+					if(gamePoint.gameType==1){
+				%>
+					男子单打
+				<%
+					}else if(gamePoint.gameType==2){
+				%>
+					女子单打
+				<%
+					}else if(gamePoint.gameType==3){
+				%>
+					男子双打
+				<%
+					}else if(gamePoint.gameType==4){
+				%>
+					女子双打
+				<%
+					}else if(gamePoint.gameType==5){
+				%>
+					混合双打
+				<%
+					}else if(gamePoint.gameType==6){
+				%>
+					混合单打
+				<%
+					}
+				%>
+				<%=gamePoint.groupId%>组<%=gamePoint.turn%>轮</td><td><%=gamePoint.p1%> </td><td>VS</td><td> <%=gamePoint.p2%></td>
+			</tr>
+		<%
+			})
+		%>
+	</table>
+</div>
+
+
+<%
+	}
+%>
+<%
+	}
+%>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<!-- 系统静态资源配置 开发时，值取自 properties，测试和生产时，值取自 pom.profiles -->
+	<bean id="configs" class="java.util.HashMap">
+		<constructor-arg>
+			<map>
+				<entry key="zoo.server" value="192.168.1.214" />
+				<entry key="redis.server" value="192.168.1.214:6379" />
+				<entry key="fileserver.baseurl" value="http://fileserver.qiuyouzone.com/fileserver/" />
+				<entry key="brokerUrl">
+					<value><![CDATA[tcp://192.168.1.214:61616]]></value>
+				</entry>
+				<!-- mongo 中的 日志查询服务 coreService -->
+				<entry key="mlogHost" value="fileserver.qiuyouzone.com:9028" />
+				<entry key="mlogLicense" value="bb8abxx8cf1a460axx7c3c5a17c77fe0" />
+				<entry key="coreServiceOrdersHost" value="192.168.1.214:9027" />
+				<entry key="coreServiceOrdersLicense" value="558ab798cf1a460axx7c3c57f7c77fe0" />
+				
+				<!-- 微信/微信公众平台退款证书路径 -->
+				<entry key="certPath">
+					<value><![CDATA[/root/.ssh/]]></value>
+				</entry>
+				
+				<entry key="url.refund">
+					<value><![CDATA[https://api.mch.weixin.qq.com/secapi/pay/refund]]></value>
+				</entry>
+				
+				<entry key="app_id">
+					<value><![CDATA[http://180.76.153.246/app/request]]></value>
+				</entry>
+				
+				<entry key="services.solr_server" >
+					<value><![CDATA[http://192.168.1.214:8081/solr/]]></value>
+				</entry>
+				
+				<entry key="weixinDomain">
+					<value>http://weixin.qiuyouzone.com/</value>
+				</entry>
+				<entry key="data.server">
+					<value>http://180.76.153.246</value>
+				</entry>
+				<entry key="wepay.merchant.rsaPrivateKey">
+					<value><![CDATA[MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAKquiOYs5jyGsbiC01wo3rq6dTpN+taZTfORasCgozPDH+J3iyoChWbcqUpRWA6MPuKohJLXvr/g0drcoyctJccLI6etOfkg9h/YQ6oGdZ8O7SEF2MntdbiLN5E8n4Lf2G+e7Y+HSY7XH7G4ErDjfnARKU6MQdM1cSDdyOX6zdinAgMBAAECgYEAkl6+0/WpNDqmaf73Vs9NwoBoS6nX9PTfXoNUMwEPNDKfQ00VMN+cm0ucejkr9L3cp++wUWVnFZGtJa2U1OHoxE40nFmq5VZMbcs6B7CtaxvmXA+0n4dpg3YzVXaRj0kYpPJ883SakQZvrvgR7O6Gy0a4WMJm/6qN2seJxazB0EECQQD8LzLNOPAoGy8CtrDzOUN+BZm2RZbvnNY1GsC8W0Fw2dXjckosv293axREeB9jhepJ/T42wlRr3zGkEIjYYYKXAkEArUOlr2Mue0sQ8HsKUTAUEJVbSCywGVh03zk2O5mUmtddEqV8pO6B3dbcuxFQBjeJjUCi9LlAmHEo5P6kU6DscQJBAJPyXKtpK/tbd0jwRP9sKNxWDMeSK+qG6GRfPZNDNjEumvzEoB+Ab7RvbYR9tGx+s+SUXVtixoRCfKzzxlSrYCECQQCi2bg69v/TRqTvQtZZpNTXGWqolcgWqnt+6+k7b4irWMzUH9Lduoc5mR/ye705eq3ApAYF+rDqF0IWqfiN2e0hAkBLGdZW39E4AdenmidmSmShogXartM9bDtMvIPzobzAiKDN8FwHUE8fNLLN6Ugp3KvAcWeapBD8vCUYUrr9WDjI]]></value>
+				</entry>
+				<entry key="wepay.merchant.desKey">
+					<value><![CDATA[cLATnoBPOCrQKX8CTLrH9I8LJibLkr8V]]></value>
+				</entry>
+				<entry key="wepay.jd.rsaPublicKey">
+					<value><![CDATA[MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCKE5N2xm3NIrXON8Zj19GNtLZ8xwEQ6uDIyrS3S03UhgBJMkGl4msfq4Xuxv6XUAN7oU1XhV3/xtabr9rXto4Ke3d6WwNbxwXnK5LSgsQc1BhT5NcXHXpGBdt7P8NMez5qGieOKqHGvT0qvjyYnYA29a8Z4wzNR7vAVHp36uD5RwIDAQAB]]></value>
+				</entry>
+				<entry key="jdrefundurl">
+					<value><![CDATA[http://paygate.jd.com/service/refund]]></value>
+				</entry>
+				<entry key="lx_api">
+					<value><![CDATA[https://www.royyun.info/healthy/api/hessian/]]></value>
+				</entry>
+				<entry key="lx_appid">
+					<value>QIUYOU_ZONE</value>
+				</entry>
+				<entry key="lx_pk">
+					<value>ec34537a7f094cce</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="version" class="java.lang.String" >
+    	<constructor-arg index="0" value="${prefix.revision}" />
+    </bean>
+	
+</beans>

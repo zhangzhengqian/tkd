@@ -1,0 +1,487 @@
+html{font-size:62.5%}
+body{font-family:"微软雅黑";color:#131313;font-size:62.5%;}
+html,body{-webkit-user-select:none;
+    -o-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+     -webkit-text-size-adjust:none;
+     -o-text-size-adjust:none;
+     -ms-text-size-adjust:none;
+    text-size-adjust:none;
+     display:box;
+    display:-webkit-box;
+    display:-o-box;
+    display:-moz-box;
+    display:-ms-box;
+    -webkit-box-flex:1;
+    -o-box-flex:1;
+    -ms-box-flex:1;
+    box-flex:1;
+    -webkit-box-orient: vertical;
+    -o-box-orient: vertical;
+    -ms-box-orient: vertical;
+    box-orient: vertical;
+    height: 100%;
+     width: 100%;
+    overflow: hidden;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    }
+.wrapper{
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -o-box;
+    -webkit-box-flex:1;
+    -o-box-flex:1;
+    -webkit-box-orient:vertical;
+    -o-box-orient:vertical;
+    font-size: 1.3rem;
+}
+.h_top{
+    width: 100%;
+    height: 35px;
+    position: relative;
+    background: #b02929;
+}
+.h_top a{
+    display: inline-block;
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    line-height: 20px;
+    background-size:100% auto; 
+    top: 10px;
+    left: 6px;
+    color: #fff;
+    padding-left: 25px;
+    background: url(../images/btn_whiteback.png) no-repeat left center;
+    background-size: 50% auto;
+}
+.h_top h1{
+    text-align: center;
+    line-height: 35px;
+    font-size: 1.6rem;
+    letter-spacing: 0.1rem;
+    color: #fff;
+}
+.h_top p{
+    width: 50px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    position: absolute;
+    top: 0px;
+    right: 0;
+    font-size: 1.4rem;
+    color: #fff;
+    background: url(../images/share.png) no-repeat center center;
+}
+section{  
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    display:-webkit-box;
+    -webkit-box-flex:1;
+    -webkit-box-orient:vertical;
+    position:relative;
+}
+.scrollBox{
+    widows: 100%;
+    
+}
+.match{
+    width: 95%;
+    height: 165px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-top: 5px;
+    margin-left: 2.5%;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+.times{
+    color: #000;
+    height: 30px;
+    width: 95%;
+    border-bottom: 1px solid #ccc;
+    padding-left: 5%;
+    font-weight: bold;
+}
+.times>p{
+    width: 33%;
+    height: 100%;
+    float: left;
+    line-height: 30px;
+}
+.week{
+    padding-left: 3%;
+    box-sizing:border-box;
+}
+.time em{
+    display: inline-block;
+    width: 34px;
+    height: 22px;
+    border-radius: 7px;
+    background: #b02929;
+    color: #fff;
+    line-height: 22px;
+    text-align: center;
+    margin-left: 16px;
+}
+.gameScore{
+    height: 105px;
+    width: 100%;
+}
+.gameScore dl{
+    width: 100%;
+    height: 50%;
+}
+.gameScore dl dt{
+    width: 20%;
+    height: 90%;
+    margin-left: 3%;
+    float: left;
+}
+.gameScore dl dt img{
+    width: auto;
+    height: 80%;
+    margin-top: .5rem;
+}
+.gameScore dl dd{
+    width: 77%;
+    float: left;
+    line-height: 50px;
+}
+.gameScore dl dd p span{
+    display: inline-block;
+    width: 70%;
+    padding-left: 10%
+}
+.gameScore dl dd p b{
+    display: inline-block;
+    width: 20%;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.gameFoot{
+    height: 30px;
+    width: 95%;
+    background: rgba(0,0,0,0.4);
+    padding-left: 5%;
+    position: relative;
+    z-index: -1;
+    color: #fff;
+}
+.gameFoot>p{
+    float: left;
+    line-height: 30px;
+}
+.adress{
+    width: 70%;
+}
+.distance{
+    width: 30%;
+}
+.palyer{
+    width: 100%;
+    height: 126px;
+}
+.player>div{
+    width: 100%;
+    height: 36px;
+    background: #eee;
+    margin-bottom: 4px;
+    line-height: 36px;
+}
+.player>div h4{
+    width: 25%;
+    height: 100%;
+    float: left;
+    margin-left: 5%;
+}
+.player>div p{
+    width: 70%;
+    height: 100%;
+    float: left;   
+}
+.gameRule h3{
+    height: 36px;
+    line-height: 36px;
+    width: 100%;
+    background: #eee;
+    padding-left: 5%;
+}
+.gameRule{
+    width: 100%;
+}
+.rules{
+    width: 90%;
+    margin: 0 auto;
+    line-height: 26px;
+}
+.zanList{
+    width: 100%;
+    height: 44px;
+    border-top: 1px solid #ccc;
+    line-height: 45px;
+}
+.zanList img{
+    display: inline-block;
+    float: left;
+    width: auto;
+    height: 100%;
+    margin-left: 5%;
+}
+.zanList p{
+    width: 15%;
+    float: left;
+}
+.lists{
+    width: 70%;
+    height: 100%;
+    float: left;
+    background: url(../images/right_arrow.png) no-repeat right center;
+}
+.lists img{
+    border-radius: 50%;
+    height: 73%;
+    margin-top: 6px;
+}
+.gameComments{
+    width: 100%;
+    height:100%;
+}
+.gameComments h3{
+    width: 100%;
+    height: 30px;
+    color: #000;
+    line-height: 30px;
+    background: #ccc;
+    position: relative;
+}
+.gameComments h3 p{
+    display: inline-block;
+    width: 30%;
+   position: absolute;
+   left: 5%;
+}
+.userComments{
+    width: 90%;
+    margin-left: 5%;
+}
+.commentsTop{
+    width: 100%;
+    height: 46px;
+    line-height: 46px;
+    
+}
+.commentsTop img{
+    
+    height: 80%;
+    border-radius: 50%;
+    margin-top: .7rem;
+}
+.commentsTop em{
+    float: right;
+    margin-right: 1rem;
+}
+.commentsMain{
+    width: 100%;
+   
+}
+.commentsMain p{
+    line-height: 30px;
+}
+.commentsMain .pics{
+    width: 100%;
+    min-height: 100px;
+}
+.pics img{
+    width: 50%;
+    height:auto;
+}
+.commentsFoot{
+    width: 100%;
+    
+}
+footer{
+    width: 100%;
+    height: 46px;
+    background: #6d6b6b;
+}
+footer>div{
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+footer>div img{
+    height: 100%;
+    margin-left: 40%;
+}
+.shareBox{
+    width: 100%;
+    height: 0;
+    background: #fff;
+    
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+.shareBox>div{
+    width: 33%;
+    height: 60px;
+    float: left;
+}
+.shareBox>div img{
+    height: 80%;
+    margin: 1rem auto 1rem 30%;
+}
+.shareBox p{
+    color: #f00;
+    text-align: center;
+    margin-top: 80px;
+    font-size: 2rem;
+}
+.zanBox{
+    width: 100%;
+    height: 0;
+    
+}
+.topTitle{
+    height: 40px;
+    width: 100%;
+    background: #b02929;
+    line-height: 40px;
+    color: #fff;
+}
+.topTitle h2{
+    width: 40%;
+    margin-left: 35%;
+    float: left;
+    font-size: 1.4rem;
+}
+.topTitle b{
+    display: inline-block;
+    float: right;
+    margin-right: 10px;
+}
+.zanBoxTop,.zanBottom{
+    height: 30%;
+    width: 100%;
+    display: box;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: -o-box;
+    -webkit-box-flex:1;
+    -moz-box-flex:1;
+    -ms-box-flex:1;
+    -o-box-flex:1;
+}
+.zanBoxTop>dl{
+    width: 35%;
+    height: 100%;
+}
+.zanBoxTop>h1{
+    width: 30%;
+    color: #b02929;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: .7rem;
+}
+.zanBoxTop>dl dt{
+    height: 50%;
+    position: relative;
+}
+.zanBoxTop>dl:first-child dt img{
+    height: 80%;
+    margin: 1rem auto 0 1rem;
+}
+.zanBoxTop>dl:last-child dt img{
+    height: 80%;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+.zanBoxTop>dl dd p{
+    width: 100%;
+    text-align: center;
+}
+.zanBottom>div{
+    width: 50%;
+}
+.zanBottom>div img{
+    padding-left: 35%;
+}
+.zanBottom>div dl dt span{
+    color: #f00;
+    display: none;
+}
+.zanBottom>div dl dd{
+    text-align: center;
+}
+
+/* 评论 */
+.commentsBox{
+    width: 100%;
+    height: 0;
+}
+.headImg{
+    width: 20%;
+    height: 4rem;
+    border-radius: 50%;
+    margin: 1rem .5rem auto 1rem;
+    float: left;
+}
+.headImg img{
+    height: 100%;
+    border-radius: 50%;
+}
+.comContainer{
+    width: 70%;
+    height: 17rem;
+    border:1px solid #eee;
+    float: left;
+    margin-top: 1rem;
+    border-radius: 8px;
+}
+.file{width: 100%; height:100%;position: relative;}
+.file li{height: 60px;width: 100%; margin-bottom: 30px;}
+.file li input{border:none;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+
+.label input{
+    display:inline-block;
+    width:3.5rem; 
+    height:3.5rem;
+    position:absolute;
+    bottom:20px;
+    right: 20px;
+    opacity: 0;filter:alpha(opacity=0); 
+}
+.label span{
+    display:inline-block;
+    height:3.5rem; 
+    width: 3.5rem;
+    text-align: center;
+    line-height: 35px;
+    color: #ccc;
+    font-size:4rem;
+    font-weight: 300;
+    border:1px dotted #000;
+    position: absolute;
+    bottom:20px;
+    right: 20px;
+    z-index: -1;}
+.form1 a{
+    display: inline-block;
+    float: right;
+    margin-right: 10px;
+    padding-left: 20px;
+    background: url(../images/arrow.png) no-repeat left center;
+}
+/* 点赞列表 */
+.zanBoxList{
+    width: 95%;
+    padding-left: 5%;
+}

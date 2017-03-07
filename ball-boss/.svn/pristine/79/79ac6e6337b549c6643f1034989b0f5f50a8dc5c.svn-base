@@ -1,0 +1,558 @@
+<fieldset id="01">
+	<div class="col-md-offset-2">
+		<strong>
+			男子单打
+		</strong>
+		<%
+		if(!data.hasOwnProperty("01")){
+			data["01"] = [{name:"",sex:"",card:""},{name:"",sex:"",card:""}]
+		}
+		%>
+	</div>
+	<div class="grp1">
+	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>姓名:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="name" value="<%=data["01"][0]["name"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>性别:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="sex" value="<%=data["01"][0]["sex"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>身份证号:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="card" value="<%=data["01"][0]["card"]%>"/>
+	     </div>
+ 	</div>
+ 	</div>
+ 	<div class="grp2">
+ 	<div class="col-md-offset-2"><strong>替补（非必填）</strong></div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>姓名:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="name" value="<%=data["01"][1]["name"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>性别:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="sex" value="<%=data["01"][1]["sex"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>身份证号:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="card" value="<%=data["01"][1]["card"]%>"/>
+	     </div>
+ 	</div>
+ 	</div>
+</fieldset>
+<hr>
+<fieldset id="02">
+	<div class="col-md-offset-2">
+		<strong>
+			女子单打
+		</strong>
+	</div>
+	<%
+		if(!data.hasOwnProperty("02")){
+			data["02"] = [{name:"",sex:"",card:""},{name:"",sex:"",card:""}]
+		}
+	%>
+	<div class="grp1">
+	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>姓名:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="name" value="<%=data["02"][0]["name"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>性别:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="sex" value="<%=data["02"][0]["sex"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>身份证号:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="card" value="<%=data["02"][0]["card"]%>"/>
+	     </div>
+ 	</div>
+ 	</div>
+ 	<div class="grp2">
+ 	<div class="col-md-offset-2"><strong>替补（非必填）</strong></div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>姓名:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="name" value="<%=data["02"][1]["name"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>性别:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="sex" value="<%=data["02"][1]["sex"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>身份证号:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="card" value="<%=data["02"][1]["card"]%>"/>
+	     </div>
+ 	</div>
+ 	</div>
+</fieldset>
+<hr>
+<fieldset id="03">
+	<div class="col-md-offset-2">
+		<strong>
+			男子双打
+		</strong>
+	</div>
+	<%
+		if(!data.hasOwnProperty("03")){
+			data["03"] = [{name:"",sex:"",card:"",name1:"",sex1:"",card1:""},{name:"",sex:"",card:"",name1:"",sex1:"",card1:""}]
+		}
+	%>
+	<div class="grp1">
+	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>姓名:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="name" value="<%=data["03"][0]["name"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>性别:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="sex" value="<%=data["03"][0]["sex"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>身份证号:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="card" value="<%=data["03"][0]["card"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>姓名:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="name1" value="<%=data["03"][0]["name1"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>性别:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="sex1" value="<%=data["03"][0]["sex1"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>身份证号:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="card1" value="<%=data["03"][0]["card1"]%>"/>
+	     </div>
+ 	</div>
+ 	</div>
+ 	<div class="grp2">
+ 	<div class="col-md-offset-2"><strong>替补（非必填）</strong></div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>姓名:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="name" value="<%=data["03"][1]["name"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>性别:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="sex" value="<%=data["03"][1]["sex"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>身份证号:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="card" value="<%=data["03"][1]["card"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>姓名:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="name1" value="<%=data["03"][1]["name1"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>性别:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="sex1" value="<%=data["03"][1]["sex1"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>身份证号:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="card1" value="<%=data["03"][1]["card1"]%>"/>
+	     </div>
+ 	</div>
+ 	</div>
+</fieldset>
+<hr>
+<fieldset id="04">
+	<div class="col-md-offset-2">
+		<strong>
+			女子双打
+		</strong>
+	</div>
+	<%
+		if(!data.hasOwnProperty("04")){
+			data["04"] = [{name:"",sex:"",card:"",name1:"",sex1:"",card1:""},{name:"",sex:"",card:"",name1:"",sex1:"",card1:""}]
+		}
+	%>
+	<div class="grp1">
+	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>姓名:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="name" value="<%=data["04"][0]["name"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>性别:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="sex" value="<%=data["04"][0]["sex"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>身份证号:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="card" value="<%=data["04"][0]["card"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>姓名:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="name1" value="<%=data["04"][0]["name1"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>性别:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="sex1" value="<%=data["04"][0]["sex1"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>身份证号:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="card1" value="<%=data["04"][0]["card1"]%>"/>
+	     </div>
+ 	</div>
+ 	</div>
+ 	<div class="grp2">
+ 	<div class="col-md-offset-2"><strong>替补（非必填）</strong></div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>姓名:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="name" value="<%=data["04"][1]["name"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>性别:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="sex" value="<%=data["04"][1]["sex"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>身份证号:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="card" value="<%=data["04"][1]["card"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>姓名:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="name1" value="<%=data["04"][1]["name1"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>性别:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="sex1" value="<%=data["04"][1]["sex1"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>身份证号:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="card1" value="<%=data["04"][1]["card1"]%>"/>
+	     </div>
+ 	</div>
+ 	</div>
+</fieldset>
+<hr>
+<fieldset id="05">
+	<div class="col-md-offset-2">
+		<strong>
+			混合双打
+		</strong>
+	</div>
+	<%
+		if(!data.hasOwnProperty("05")){
+			data["05"] = [{name:"",sex:"",card:"",name1:"",sex1:"",card1:""},{name:"",sex:"",card:"",name1:"",sex1:"",card1:""}]
+		}
+	%>
+	<div class="grp1">
+	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>姓名:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="name" value="<%=data["05"][0]["name"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>性别:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="sex" value="<%=data["05"][0]["sex"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>身份证号:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="card" value="<%=data["05"][0]["card"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>姓名:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="name1" value="<%=data["05"][0]["name1"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>性别:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="sex1" value="<%=data["05"][0]["sex1"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>身份证号:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="card1" value="<%=data["05"][0]["card1"]%>"/>
+	     </div>
+ 	</div>
+ 	</div>
+ 	<div class="grp2">
+ 	<div class="col-md-offset-2"><strong>替补（非必填）</strong></div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>姓名:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="name" value="<%=data["05"][1]["name"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>性别:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="sex" value="<%=data["05"][1]["sex"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>身份证号:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="card" value="<%=data["05"][1]["card"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>姓名:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="name1" value="<%=data["05"][1]["name1"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>性别:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="sex1" value="<%=data["05"][1]["sex1"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>身份证号:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="card1" value="<%=data["05"][1]["card1"]%>"/>
+	     </div>
+ 	</div>
+ 	</div>
+</fieldset>
+<hr>
+<fieldset id="06">
+	<div class="col-md-offset-2">
+		<strong>
+			企业家双打
+		</strong>
+	</div>
+	<%
+		if(!data.hasOwnProperty("06")){
+			data["06"] = [{name:"",sex:"",card:"",name1:"",sex1:"",card1:""},{name:"",sex:"",card:"",name1:"",sex1:"",card1:""}]
+		}
+	%>
+	<div class="grp1">
+	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>姓名:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="name" value="<%=data["06"][0]["name"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>性别:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="sex" value="<%=data["06"][0]["sex"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>身份证号:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="card" value="<%=data["06"][0]["card"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>姓名:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="name1" value="<%=data["06"][0]["name1"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>性别:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="sex1" value="<%=data["06"][0]["sex1"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>身份证号:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="card1" value="<%=data["06"][0]["card1"]%>"/>
+	     </div>
+ 	</div>
+ 	</div>
+	<div class="grp2">
+ 	<div class="col-md-offset-2"><strong>替补（非必填）</strong></div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>姓名:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="name" value="<%=data["06"][1]["name"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>性别:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="sex" value="<%=data["06"][1]["sex"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>身份证号:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="card" value="<%=data["06"][1]["card"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>姓名:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="name1" value="<%=data["06"][1]["name1"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>性别:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="sex1" value="<%=data["06"][1]["sex1"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>身份证号:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="card1" value="<%=data["06"][1]["card1"]%>"/>
+	     </div>
+ 	</div>
+ 	</div>
+</fieldset>
+<hr>
+<fieldset id="07">
+	<div class="col-md-offset-2">
+		<strong>
+			领导干部双打
+		</strong>
+	</div>
+	<%
+		if(!data.hasOwnProperty("07")){
+			data["07"] = [{name:"",sex:"",card:"",name1:"",sex1:"",card1:""},{name:"",sex:"",card:"",name1:"",sex1:"",card1:""}]
+		}
+	%>
+	<div class="grp1">
+	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>姓名:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="name" value="<%=data["07"][0]["name"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>性别:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="sex" value="<%=data["07"][0]["sex"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>身份证号:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="card" value="<%=data["07"][0]["card"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>姓名:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="name1" value="<%=data["07"][0]["name1"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>性别:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="sex1" value="<%=data["07"][0]["sex1"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>身份证号:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="card1" value="<%=data["07"][0]["card1"]%>"/>
+	     </div>
+ 	</div>
+ 	</div>
+ 	<div class="grp2">
+ 	<div class="col-md-offset-2"><strong>替补（非必填）</strong></div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>姓名:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="name" value="<%=data["07"][1]["name"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>性别:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="sex" value="<%=data["07"][1]["sex"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>身份证号:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="card" value="<%=data["07"][1]["card"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>姓名:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="name1" value="<%=data["07"][1]["name1"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>性别:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="sex1" value="<%=data["07"][1]["sex1"]%>"/>
+	     </div>
+ 	</div>
+ 	<div class="form-group form-group-sm">
+	     <label for="logoFile" class="col-md-3 control-label"><span class="text-red"></span>身份证号:</label>
+	     <div class="col-md-3 has-feedback">
+			<input type="text" class="form-control" attr="card1" value="<%=data["07"][1]["card1"]%>"/>
+	     </div>
+ 	</div>
+ 	</div>
+</fieldset>
+<hr>

@@ -1,0 +1,17 @@
+<div class="row">
+	<div class="col-md-12">
+		<table class="table table-bordered table-condensed table-hover">
+			<tbody id="tasks">
+				<% for(var i=0;i<statiums.length;i++){ 
+					var statium = statiums[i];
+				%>
+	  					<tr>
+	  						<td><%=statium%></td>
+	  					</tr>
+				<%
+					}
+				%>
+			</tbody>
+		</table>
+	</div>
+</div>

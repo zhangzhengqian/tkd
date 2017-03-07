@@ -1,0 +1,35 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+  <bean id="oAuthApi" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+    <property name="serviceUrl">
+    	<value><![CDATA[https://www.royyun.info/healthy/api/hessian/oauthApi]]></value>
+    </property>
+    <property name="serviceInterface" value="com.cntaiping.tp.healthy.oauth.api.OAuthApi" />
+	<property name="overloadEnabled" value="false" />
+  </bean>
+  
+  <bean id="lxBillApi" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+    <property name="serviceUrl">
+    	<value><![CDATA[https://www.royyun.info/healthy/api/hessian/billApi]]></value>
+    </property>
+    <property name="serviceInterface" value="com.cntaiping.tp.healthy.api.LxBillApi" />
+	<property name="overloadEnabled" value="false" />
+  </bean>
+  
+  <bean id="lxLemiTradeApi" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+    <property name="serviceUrl">
+    	<value><![CDATA[https://www.royyun.info/healthy/api/hessian/lemiTradeApi]]></value>
+    </property>
+    <property name="serviceInterface" value="com.cntaiping.tp.healthy.api.LxLemiTradeApi" />
+	<property name="overloadEnabled" value="false" />
+  </bean>
+  
+  <bean id="taipingService" class="com.lc.zy.common.taiping.TaipingService">
+  	<property name="oAuthApi" ref="oAuthApi"></property>
+  	<property name="lxBillApi" ref="lxBillApi"></property>
+  	<property name="lxLemiTradeApi" ref="lxLemiTradeApi"></property>
+  	<property name="configs" ref="configs"></property>
+  </bean>
+</beans>

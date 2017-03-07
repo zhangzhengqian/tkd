@@ -1,0 +1,1 @@
+您收到一张来自球友圈的优惠券，请查收！n iOS应用下载地址：http://dwz.cn/10ZkYi；nAndroid应用下载地址：http://dwz.cn/10ZzjLn

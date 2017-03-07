@@ -1,0 +1,63 @@
+<table border="1"  class="stats" style="margin-bottom:10px;" types="<%=code%>">
+  <tr bgcolor="#ccc">
+    <th style="padding:10px;" nowrap="nowrap">优惠券类型(<%=name%>)</th>
+    <th style="padding:10px;" nowrap="nowrap">优惠券面值(元)</th>
+    <th style="padding:10px;" nowrap="nowrap">分享赠送面值(元)</th>
+    <th style="padding:10px;" nowrap="nowrap">下单成功分享(元)</th>
+    <th style="padding:10px;" nowrap="nowrap">优惠券数量(张)</th>
+    <th style="padding:10px;" nowrap="nowrap">总金额</th>
+  </tr>
+  <% couponTypes.forEach(function(couponType){ %>
+  <tr>
+  	<td>
+		<%
+	  		if(couponInfos!=null&&couponInfos[couponType["t"]]!=null){
+	  	%>
+	    	<input type="checkbox" checked="checked"/>
+		<%
+	  		}
+	  		if(couponInfos==null||couponInfos[couponType["t"]]==null){
+	  	%>
+	    	<input type="checkbox"/>
+		<%
+	  		}
+	  	%>
+	<%=couponType["v"]%></td>
+    <td style="display:none;"><%=couponType["t"]%></td>
+    <%
+	  	if(couponInfos!=null&&couponInfos[couponType["t"]]!=null){
+	%>
+    <td style="text-align:center"><%=couponInfos[couponType["t"]]["couponValue"]%></td>
+    <td style="text-align:center"><%=couponInfos[couponType["t"]]["giveValue"]%></td>
+    <td style="text-align:center"><%=couponInfos[couponType["t"]]["orderValue"]%></td>
+    <td style="text-align:center"><%=couponInfos[couponType["t"]]["couponCount"]%></td>
+    <td style="display:none;"><%=couponInfos[couponType["t"]]["id"]%></td>
+    <%
+  		}
+  		if(couponInfos==null||couponInfos[couponType["t"]]==null){
+  	%>
+    <td style="text-align:center"></td>
+    <td style="text-align:center"></td>
+    <td style="text-align:center"></td>
+    <td style="text-align:center"></td>
+    <td style="display:none;"></td>
+    <%
+  		}
+  	%>
+    <%
+    	if(couponInfos==null||couponInfos[couponType["t"]]==null||couponInfos[couponType["t"]]["couponCount"]==null){
+    %>
+    	<td style="text-align:center"></td>
+    <%
+    	}
+    %>
+    <%
+    	if(couponInfos!=null&&couponInfos[couponType["t"]]!=null&&couponInfos[couponType["t"]]["couponCount"]!=null){
+    %>
+    	<td style="text-align:center"><%=(couponInfos[couponType["t"]]["couponValue"]+couponInfos[couponType["t"]]["giveValue"]+couponInfos[couponType["t"]]["orderValue"])*couponInfos[couponType["t"]]["couponCount"]%></td>
+    <%
+    	}
+    %>
+  </tr>
+  <% }) %>
+</table>

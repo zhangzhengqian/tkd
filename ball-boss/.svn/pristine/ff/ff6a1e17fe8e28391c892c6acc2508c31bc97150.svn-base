@@ -1,0 +1,8 @@
+<tr>
+	<td><img width="40" height="36" src="<%=item.logo%>"></td>
+	<td><%=item.name%></td>
+	<td><%=item.sex%></td>
+	<td><%=item.age%></td>
+	<td><%=item.phone%></td>
+	<td><a href="javascript:;" onclick="removeMember(this);">删除</a></td>
+</tr>

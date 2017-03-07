@@ -1,0 +1,27 @@
+<% for (var key in items) {   %>
+<%	
+	var item = items[key];
+%>
+	
+	<div class="gameSchedule">
+	    <table>
+	    	<th>报名人</th>
+	        <th>胜</th>
+	        <th>平</th>
+	        <th>负</th>
+	        <th>积分</th>
+	        <% for(var j=0;j<item.length;j++){ %>
+			<%
+				var it = item[j];
+			%>
+				<tr>
+					 <td><%=it.name%></td>
+					 <td><%=it.win%></td> 				
+					 <td><%=it.draw%></td>
+					 <td><%=it.loss%></td>
+					 <td><%=it.integ%></td>
+				</tr>
+			<% } %>
+		</table>
+	</div>
+<% } %>

@@ -1,0 +1,1 @@
+您已成功报名${activityName}!${activityTime}!地址：${address}，订单号：${orderId}，感谢您的支持。

@@ -1,0 +1,274 @@
+<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ include file="/WEB-INF/jspf/common.jsp"%>
+<%@page import="com.lc.zy.ball.boss.common.SessionUtil" %>
+<%String id = SessionUtil.currentUserId(); %>  
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>网协账户</title>
+<script type="text/javascript"
+	src="${ctx}/static/js/jquery/jquery-ztree/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript"
+	src="${ctx}/static/js/jquery.ztree.helper.js"></script>
+<script src="${ctx}/static/js/bootstrap-validation/validate.js"
+	type="text/javascript"></script>
+<script src="${ctx}/static/js/bootstrap-validation/messages_zh.js"
+	type="text/javascript"></script>
+<script type="text/javascript"
+	src="${ctx}/static/ueditor/ueditor.config.js"></script>
+<script type="text/javascript"
+	src="${ctx}/static/ueditor/ueditor.all.js"></script>
+</head>
+
+<body>
+
+	<div class="panel panel-default">
+
+		<div class="panel-heading">
+			<!-- 右侧标题 -->
+			<ul class="breadcrumb">
+				<li><span class="glyphicon glyphicon-home"></span> 用户管理</li>
+				<li>网协账户管理</li>
+				<c:choose>
+					<c:when
+						test="${param.action == 'edit' || param.action == 'create' || param.action=='view'}">
+						<c:set var="disable" value="false" />
+						<li class="active"><c:if test='${empty ctaUser.userId}'> 新建网协账户</c:if>
+							<c:if test='${!empty ctaUser.userId}'> 修改网协账户</c:if>
+							<c:if test='${!empty ctaUser.userId}'> 查看网协账户</c:if></li>
+					</c:when>
+					<c:otherwise>
+						<c:set var="disable" value="true" />
+						<c:set var="readonly" value="readonly='readonly'" />
+						<li class="active">查看网协账户信息</li>
+					</c:otherwise>
+				</c:choose>
+
+			</ul>
+		</div>
+		<!-- / 右侧标题 -->
+		<c:choose>
+			<c:when test="${param.action == 'edit' || param.action == 'create' || param.action == 'view'}">
+				<c:set var="disable" value="false" />
+			</c:when>
+			<c:otherwise>
+				<c:set var="disable" value="true" />
+				<c:set var="readonly" value="readonly='readonly'" />
+			</c:otherwise>
+		</c:choose>
+		<form id="inputForm" action="${ctx}/ssouser/cta/save" method="post"
+			class="form-horizontal" enctype="multipart/form-data">
+			<input id="id" name="userId" value="${ctaUser.userId}" type="hidden" />
+			<div class="panel-body">
+				<!-- 右侧主体内容 -->
+				<fieldset>
+					<legend>
+						<small>网协账户基本信息</small>
+					</legend>
+					<div class="row">
+						<div class="form-group form-group-sm">
+							<label for="name" class="col-md-3 control-label">LOGO:</label>
+							<div class="col-md-6 has-feedback" style="width: 125px;">
+							<c:choose>
+							<c:when test="${empty readonly }">
+								<input id="logoFile" type="file" multiple="false" />
+							</c:when>
+							</c:choose>
+								<!-- 保存图片 -->
+								<input id="logo" name="logo" type="hidden" value="${ctaUser.imageUrl}" />
+								<!-- 显示图片 -->
+								<img alt=""
+									style="<c:if test='${!empty ctaUser.imageUrl}'>width:128px;height:128px;</c:if>"
+									src="${ctaUser.imageUrl}" id="logo_img">
+							</div>
+						</div>
+						
+						<div class="form-group form-group-sm">
+	         				<label for="areaCode" class="col-md-3 control-label"><span class="text-red">* </span>所在地区:</label>
+	        				 <div id="div_areaCode" class="col-md-6 has-feedback form-inline" >
+	         				<c:choose>
+				  				<c:when test="${empty readonly }">
+				  					<tags:zone id="code" name="code" value="${ctaUser.code }"  disabled="${disable }" />
+				  				</c:when>
+				  			<c:otherwise>
+								<tags:zonemap code="${ctaUsre.code }" />
+				  			</c:otherwise>
+				  			</c:choose>  
+				
+	         				</div>
+	     					 </div>
+						
+						
+						<div class="form-group form-group-sm">
+							<label for="name" class="col-md-3 control-label"><span
+								class="text-red">* </span>登录名:</label>
+							<div class="col-md-6 has-feedback">
+								<input ${readonly } type="text" class="form-control"
+									placeholder="请输入用户名" id="loginName" name="loginName"
+									value="${ctaUser.loginName}">
+							</div>
+						</div>
+						<div class="form-group form-group-sm">
+							<label for="password" class="col-md-3 control-label"><span
+								class="text-red">* </span>登录密码:</label>
+							<div class="col-md-6 has-feedback">
+								<input ${readonly } type="text" class="form-control"
+									placeholder="请输入密码" id="password" name="password"
+									value="${ctaUser.password}">
+							</div>
+						</div>
+						<div class="form-group form-group-sm">
+							<label for="email" class="col-md-3 control-label"><span
+								class="text-red">* </span>用户:</label>
+							<div class="col-md-6 has-feedback">
+								<input type="text" class="form-control" id="linkMan" name="nickname"  ${readonly } 
+									value="${ctaUser.nickname }" placeholder="请输入联系人" />
+							</div>
+						</div>
+						<div class="form-group form-group-sm">
+							<label for="tel" class="col-md-3 control-label"><span
+								class="text-red">* </span>联系人手机:</label>
+							<div class="col-md-6 has-feedback">
+								<input type="text" class="form-control" id="secMobile" name="secMobile"  ${readonly } 
+									value="${ctaUser.secMobile }" placeholder="请输入联系人手机" />
+							</div>
+						</div>
+						
+					</div>
+			<div class="form-group">
+				<hr>
+				<div class="col-md-offset-3 col-md-2">
+					<a class="btn btn-default btn-block" href="${ctx}/ssouser/cta"><span
+						class="glyphicon glyphicon-remove"></span> 取消</a>
+				</div>
+				<c:choose>
+					<c:when test="${empty readonly }">
+						<div class="col-md-3">
+							<button type="submit" id="submit_btn"
+								class="btn btn-primary btn-block">保存</button>
+						</div>
+					</c:when>
+				</c:choose>
+			</div>
+			</fieldset>
+		</form>
+	</div>
+
+	<script src="${ctx}/static/js/bootstrap-validation/validate.js"
+		type="text/javascript"></script>
+	<script src="${ctx}/static/js/bootstrap-validation/messages_zh.js"
+		type="text/javascript"></script>
+	<script type="text/javascript"
+		src="http://api.map.baidu.com/api?ak=89jrTPxQwh49QGwzQe1g6azM&v=2.0"></script>
+	<script src="${ctx}/static/js/jquery-jtemplates.js"></script>
+	<script src="${ctx}/static/js/project_js.js"></script>
+	<script src="${ctx}/static/js/utils.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			menu.active('#cta-man');
+			$('#adminFooter').hide();
+			$('#inputForm').validate({
+				ignore : "", // 开启hidden验证， 1.9版本后默认关闭
+				submitHandler : function(form) {
+					app.disabled("#submit_btn");
+					//提交表单
+					form.submit();
+				},
+				rules : {
+					"code" : {
+						required : true
+					},
+					"loginName":{
+						required:true,
+						minlength:2,
+						maxlength:6
+					},
+					"password" : {
+						required : true,
+						minlength:2,
+						maxlength:6
+					},
+					"linkMan" : {
+						required : true,
+						minlength : 2,
+						maxlength : 50
+					},
+					"secMobile" : {
+						required : true,
+						integer : true,
+						isMobile : true
+
+					},
+					
+				},
+				messages: {
+					loginName: {
+						maxlength:"不多于6个汉字",
+						minlength:"不小于2个汉字"
+					},
+					secMobile: {
+						remote: '电话格式不正确，请重新输入！'
+					},
+					password: {
+						maxlength:"不多于6个字母",
+						minlength:"不小于2个字母"
+					}
+				}
+			});
+			
+		   if ('${info.id }') {
+				$("#logoFile").parent().parent().find("label span").html("");
+			} else {
+				$("#logoFile").addClass("required");
+			}
+		   upload({
+				'id' : 'logoFile',
+				'icon_img' : 'logo_img',
+				'icon' : 'logo'
+			}); // LOGO
+
+		});
+
+		/**
+		 *	option.id            上传元素id
+		 *	option.icon_img      显示图片id
+		 *	option.icon          保存图片的url的id
+		 *	option.width         显示图片的宽度
+		 *	option.height        显示图片的高度
+		 */
+		function upload(option) {
+			var id = option.id || "icon_upload";
+			var height = option.height || 40;
+			var width = option.width || 120;
+			var icon_img = option.icon_img || "icon_img";
+			var icon = option.icon || "icon";
+			$("#" + id).uploadify({
+				//文件提交到 controller 里的文件对象的 key 
+				fileObjName : 'upfile',
+				//按钮名称
+				buttonText : '选择图片',
+				height : 30,
+				multi : false,
+				swf : ctx + '/static/uploadify/uploadify.swf',
+				//提交到指定的 controller,写死即可，已封装
+				uploader : ctx + '/uploader',
+				width : 100,
+				fileTypeExts : '*.gif;*.jpg;*.jpeg;*.png',
+				//上传成功后回调此函数
+				onUploadSuccess : function(file, data, response) {
+					//分析返回值，json格式：{"success":true/false,"id":"文件id","url":"文件url"}
+					data = JSON.parse(data);
+					if (data.success == true) {
+						$('#' + icon_img).attr('src', data.url).css({
+							width : '100px',
+							height : '100px;'
+						});
+						$('#' + icon).val(data.url);
+					}
+				}
+			});
+		}
+		
+		</script>
+</body>
+</html>

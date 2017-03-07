@@ -1,0 +1,35 @@
+<% if (items.length) { %>
+	<% for(var i=0;i<items.length;i++){ %>
+	<%	
+		var item = items[i];
+	%>
+		<tr user_id="<%=item.id%>">
+			 <td><%=i+1%></td>
+			 <td><%=item.qiuyouno%></td>
+			 <td><%=item.nickName%></td> 				
+			 <td><%=item.sex%></td>
+			 <td><%=item.phone%></td>
+			 <td><%=item.property%></td>
+			 <td>
+			 
+			 <% if (item.state == '1') { %>
+			 	正常
+			 <% } %>
+			 <% if (item.state == '3') { %>
+			 	冻结
+			 <% } %>
+			 </td>
+			 <td><%=item.registTime%></td>
+			 <td>
+			 	<% if (item.activeState == '0') { %>
+			 	未激活
+			 <% } %>
+			 <% if (item.activeState == '1') { %>
+			 	已激活
+			 <% } %>
+			</td>
+			 <td><%=item.createTime%></td>
+			 <td><a href="javascript:selUser('<%=item.id%>','<%=item.nickName%>')">添加</a></td>
+		</tr>
+    <% } %>
+ <% } %>

@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.lc.zy</groupId>
+		<artifactId>ball-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>ball-boss</artifactId>
+	<packaging>war</packaging>
+	<name>ball-boss</name>
+	<properties>
+		<cxf.version>2.6.3</cxf.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.lc.zy</groupId>
+			<artifactId>ball-parent-jar</artifactId>
+			<version>${project.parent.version}</version>
+			<type>pom</type>
+		</dependency>
+
+		<dependency>
+			<groupId>com.lc.zy</groupId>
+			<artifactId>ball-domain</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.lc.zy</groupId>
+			<artifactId>ball-commons</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+		  <groupId>com.lc.zy</groupId>
+		  <artifactId>cmbJava</artifactId>
+		  <version>1.0.0</version>
+		</dependency>
+		<dependency>
+		  <groupId>com.caucho</groupId>
+		  <artifactId>hessian</artifactId>
+		  <version>4.0.38</version>
+		</dependency>
+		<dependency>
+		  <groupId>com.cntaiping</groupId>
+		  <artifactId>authapi</artifactId>
+		  <version>1.0</version>
+		</dependency>
+		<dependency>
+		  <groupId>com.cntaiping</groupId>
+		  <artifactId>serviceapi</artifactId>
+		  <version>1.0</version>
+		</dependency>
+
+		<!-- cxf -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>${cxf.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-ws-security</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
+			<version>${cxf.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-web</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>${cxf.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-web</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>core</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.thoughtworks.xstream</groupId>
+		    <artifactId>xstream</artifactId>
+		    <version>1.4.9</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>com.jd.jr</groupId>
+		  <artifactId>pay-gate-signature</artifactId>
+		  <version>1.0.0</version>
+		</dependency>
+	</dependencies>
+
+
+
+	<build>
+		<finalName>ROOT</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+			</plugin>
+
+			<!-- compiler -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+
+			<!-- test插件, 仅测试名称为*Test的类,使用支持分组测试的surefire-junit47 driver -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<!-- forkCount=1/reuseForks=false executes each test class in its own 
+						JVM process, one after another. 必须配置为reuseForks=false，否则测试会报错. -->
+					<!--
+					<forkCount>1C</forkCount>
+					<reuseForks>false</reuseForks>
+					-->
+					<argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
+					<excludes>
+						<exclude>**/Abstract*.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<!-- 7.6.8.v20121106 -->
+				<version>${jetty.version}</version>
+				<configuration>
+					<stopKey>exit</stopKey>
+					<stopPort>9090</stopPort>
+					<systemProperties>
+						<systemProperty>
+							<name>spring.profiles.active</name>
+							<value>development</value>
+						</systemProperty>
+					</systemProperties>
+					<useTestClasspath>true</useTestClasspath>
+					<reload>automatic</reload>
+					<webAppConfig>
+						<contextPath>/</contextPath>
+					</webAppConfig>
+				</configuration>
+			</plugin>
+
+			<plugin>  
+			    <groupId>com.google.code.maven-svn-revision-number-plugin</groupId>  
+			    <artifactId>maven-svn-revision-number-plugin</artifactId>  
+			</plugin>
+
+		</plugins>
+	</build>
+
+
+	<!-- 环境配置 -->
+	<profiles>
+		<profile>
+			<!-- 测试环境: mvn package -Dmaven.test.skip=true -Ptest -->
+			<id>test</id>
+			<properties>
+
+				<jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
+				<jdbc.url><![CDATA[jdbc:mysql://ball.db:3306/oa?zeroDateTimeBehavior=convertToNull&useUnicode=true]]></jdbc.url>
+				<jdbc.username>app</jdbc.username>
+				<jdbc.password>qiuyouZone</jdbc.password>
+				<lx_api><![CDATA[https://intest.life.cntaiping.com/healthy/api/hessian/]]></lx_api>
+				<lx_appid>QIUYOU_ZONE</lx_appid>
+				<lx_pk>ec34537a7f094cce</lx_pk>
+				<!-- 文件服务器和solr配置 -->
+				<fileserver.baseurl><![CDATA[http://fileserver.qiuyouzone.com/fileserver/]]></fileserver.baseurl>
+				<!-- Redis、Zookeeper、ActiveMQ -->
+				<redis.server><![CDATA[192.168.0.4:6379]]></redis.server>
+				<zoo.server><![CDATA[192.168.0.4]]></zoo.server>
+				<brokerUrl><![CDATA[tcp://192.168.0.4:61616]]></brokerUrl>
+				<weixin_domain><![CDATA[http://weixin.qiuyouzone.com/]]></weixin_domain>
+				<!-- ball-log query service -->
+				<mlogHost><![CDATA[192.168.0.6:9028]]></mlogHost>
+				<mlogLicense><![CDATA[bb8abxx8cf1a460axx7c3c5a17c77fe0]]></mlogLicense>
+				<coreServiceOrdersHost>192.168.0.7:9027</coreServiceOrdersHost>
+				<coreServiceOrdersLicense>558ab798cf1a460axx7c3c57f7c77fe0</coreServiceOrdersLicense>
+				<appId><![CDATA[http://180.76.153.246/app/request]]></appId>
+				<!-- 微信/微信公众平台退款证书路径 -->
+				<certPath><![CDATA[/root/.ssh/]]></certPath>
+				<services.solr_server><![CDATA[http://192.168.0.4:8081/solr/]]></services.solr_server>
+				<!-- app接口 -->
+				<data.server><![CDATA[http://192.168.0.4]]></data.server>
+				<wepay.merchant.rsaPrivateKey><![CDATA[MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAKquiOYs5jyGsbiC01wo3rq6dTpN+taZTfORasCgozPDH+J3iyoChWbcqUpRWA6MPuKohJLXvr/g0drcoyctJccLI6etOfkg9h/YQ6oGdZ8O7SEF2MntdbiLN5E8n4Lf2G+e7Y+HSY7XH7G4ErDjfnARKU6MQdM1cSDdyOX6zdinAgMBAAECgYEAkl6+0/WpNDqmaf73Vs9NwoBoS6nX9PTfXoNUMwEPNDKfQ00VMN+cm0ucejkr9L3cp++wUWVnFZGtJa2U1OHoxE40nFmq5VZMbcs6B7CtaxvmXA+0n4dpg3YzVXaRj0kYpPJ883SakQZvrvgR7O6Gy0a4WMJm/6qN2seJxazB0EECQQD8LzLNOPAoGy8CtrDzOUN+BZm2RZbvnNY1GsC8W0Fw2dXjckosv293axREeB9jhepJ/T42wlRr3zGkEIjYYYKXAkEArUOlr2Mue0sQ8HsKUTAUEJVbSCywGVh03zk2O5mUmtddEqV8pO6B3dbcuxFQBjeJjUCi9LlAmHEo5P6kU6DscQJBAJPyXKtpK/tbd0jwRP9sKNxWDMeSK+qG6GRfPZNDNjEumvzEoB+Ab7RvbYR9tGx+s+SUXVtixoRCfKzzxlSrYCECQQCi2bg69v/TRqTvQtZZpNTXGWqolcgWqnt+6+k7b4irWMzUH9Lduoc5mR/ye705eq3ApAYF+rDqF0IWqfiN2e0hAkBLGdZW39E4AdenmidmSmShogXartM9bDtMvIPzobzAiKDN8FwHUE8fNLLN6Ugp3KvAcWeapBD8vCUYUrr9WDjI]]></wepay.merchant.rsaPrivateKey>
+				<wepay.merchant.desKey><![CDATA[cLATnoBPOCrQKX8CTLrH9I8LJibLkr8V]]></wepay.merchant.desKey>				
+				<wepay.jd.rsaPublicKey><![CDATA[MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCKE5N2xm3NIrXON8Zj19GNtLZ8xwEQ6uDIyrS3S03UhgBJMkGl4msfq4Xuxv6XUAN7oU1XhV3/xtabr9rXto4Ke3d6WwNbxwXnK5LSgsQc1BhT5NcXHXpGBdt7P8NMez5qGieOKqHGvT0qvjyYnYA29a8Z4wzNR7vAVHp36uD5RwIDAQAB]]></wepay.jd.rsaPublicKey>				
+				<jdrefundurl><![CDATA[http://paygate.jd.com/service/refund]]></jdrefundurl>
+			</properties>
+		</profile>
+
+		<profile>
+			<!-- 生产环境: mvn package -Dmaven.test.skip=true -Ppro -->
+			<id>pro</id>
+			<properties>
+
+				<jdbc.driver>com.mysql.jdbc.ReplicationDriver</jdbc.driver>
+				<!-- <jdbc.url><![CDATA[jdbc:mysql:replication://192.168.0.5:3306,192.168.0.7:3306/oa?zeroDateTimeBehavior=convertToNull&useUnicode=true]]></jdbc.url> -->
+				<jdbc.url><![CDATA[jdbc:mysql://192.168.0.5:3306/oa?zeroDateTimeBehavior=convertToNull&useUnicode=true]]></jdbc.url>
+				<jdbc.username>oa</jdbc.username>
+				<jdbc.password>qiuyouZone</jdbc.password>
+				<lx_api><![CDATA[https://yyfw.life.cntaiping.com/healthy/api/hessian/]]></lx_api>
+				<lx_appid>QIUYOU_ZONE</lx_appid>
+				<lx_pk>ec34537a7f094cce</lx_pk>
+				<!-- 文件服务器和solr配置 -->
+				<fileserver.baseurl><![CDATA[http://fileserver.qiuyouzone.com/fileserver/]]></fileserver.baseurl>
+				<!-- Redis、Zookeeper、ActiveMQ -->
+				<redis.server><![CDATA[192.168.0.5:6380]]></redis.server>
+				<zoo.server><![CDATA[192.168.0.5,192.168.0.6,192.168.0.7]]></zoo.server>
+				<brokerUrl><![CDATA[tcp://192.168.0.5:61616]]></brokerUrl>
+				<weixin_domain><![CDATA[http://oss.qiuyouzone.com/]]></weixin_domain>
+				<!-- ball-log query service -->
+				<mlogHost><![CDATA[192.168.0.6:9028]]></mlogHost>
+				<mlogLicense><![CDATA[bb8abxx8cf1a460axx7c3c5a17c77fe0]]></mlogLicense>
+				<coreServiceOrdersHost>192.168.0.6:9027</coreServiceOrdersHost>
+				<coreServiceOrdersLicense>558ab798cf1a460axx7c3c57f7c77fe0</coreServiceOrdersLicense>
+				<appId><![CDATA[http://oss.qiuyouzone.com/app/request]]></appId>
+				<services.solr_server><![CDATA[http://192.168.0.5:8081/solr/]]></services.solr_server>
+				<wepay.merchant.rsaPrivateKey><![CDATA[MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAKquiOYs5jyGsbiC01wo3rq6dTpN+taZTfORasCgozPDH+J3iyoChWbcqUpRWA6MPuKohJLXvr/g0drcoyctJccLI6etOfkg9h/YQ6oGdZ8O7SEF2MntdbiLN5E8n4Lf2G+e7Y+HSY7XH7G4ErDjfnARKU6MQdM1cSDdyOX6zdinAgMBAAECgYEAkl6+0/WpNDqmaf73Vs9NwoBoS6nX9PTfXoNUMwEPNDKfQ00VMN+cm0ucejkr9L3cp++wUWVnFZGtJa2U1OHoxE40nFmq5VZMbcs6B7CtaxvmXA+0n4dpg3YzVXaRj0kYpPJ883SakQZvrvgR7O6Gy0a4WMJm/6qN2seJxazB0EECQQD8LzLNOPAoGy8CtrDzOUN+BZm2RZbvnNY1GsC8W0Fw2dXjckosv293axREeB9jhepJ/T42wlRr3zGkEIjYYYKXAkEArUOlr2Mue0sQ8HsKUTAUEJVbSCywGVh03zk2O5mUmtddEqV8pO6B3dbcuxFQBjeJjUCi9LlAmHEo5P6kU6DscQJBAJPyXKtpK/tbd0jwRP9sKNxWDMeSK+qG6GRfPZNDNjEumvzEoB+Ab7RvbYR9tGx+s+SUXVtixoRCfKzzxlSrYCECQQCi2bg69v/TRqTvQtZZpNTXGWqolcgWqnt+6+k7b4irWMzUH9Lduoc5mR/ye705eq3ApAYF+rDqF0IWqfiN2e0hAkBLGdZW39E4AdenmidmSmShogXartM9bDtMvIPzobzAiKDN8FwHUE8fNLLN6Ugp3KvAcWeapBD8vCUYUrr9WDjI]]></wepay.merchant.rsaPrivateKey>
+				<wepay.merchant.desKey><![CDATA[cLATnoBPOCrQKX8CTLrH9I8LJibLkr8V]]></wepay.merchant.desKey>		
+				<wepay.jd.rsaPublicKey><![CDATA[MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCKE5N2xm3NIrXON8Zj19GNtLZ8xwEQ6uDIyrS3S03UhgBJMkGl4msfq4Xuxv6XUAN7oU1XhV3/xtabr9rXto4Ke3d6WwNbxwXnK5LSgsQc1BhT5NcXHXpGBdt7P8NMez5qGieOKqHGvT0qvjyYnYA29a8Z4wzNR7vAVHp36uD5RwIDAQAB]]></wepay.jd.rsaPublicKey>
+				<jdrefundurl><![CDATA[http://paygate.jd.com/service/refund]]></jdrefundurl>
+				<!-- 微信/微信公众平台退款证书路径 -->
+				<certPath><![CDATA[/root/.ssh/]]></certPath>
+				<!-- app接口 -->
+				<data.server><![CDATA[http://192.168.0.6]]></data.server>
+			</properties>
+		</profile>
+
+
+		<profile>
+			<!-- 开发环境:默认 -->
+			<id>dev</id>
+			<properties>
+				<!-- jdbc -->
+				<jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
+				<jdbc.url><![CDATA[jdbc:mysql://ball.db:3306/oa?zeroDateTimeBehavior=convertToNull&useUnicode=true]]></jdbc.url>
+				<jdbc.username>app</jdbc.username>
+				<jdbc.password>qiuyouZone</jdbc.password>
+				<lx_api><![CDATA[https://www.royyun.info/healthy/api/hessian/]]></lx_api>
+				<lx_appid>QIUYOU_ZONE</lx_appid>
+				<lx_pk>ec34537a7f094cce</lx_pk>
+				<weixin_domain><![CDATA[http://weixin.qiuyouzone.com/]]></weixin_domain>
+				<!-- 文件服务器和solr配置 -->
+				<fileserver.baseurl><![CDATA[http://fileserver.qiuyouzone.com/fileserver/]]></fileserver.baseurl>
+				<!-- Redis、Zookeeper、ActiveMQ -->
+				<redis.server><![CDATA[192.168.1.214:6379]]></redis.server>
+				<zoo.server><![CDATA[192.168.1.214]]></zoo.server>
+				<brokerUrl><![CDATA[tcp://192.168.1.214:61616]]></brokerUrl>
+				<!-- ball-log query service -->
+				<mlogHost><![CDATA[fileserver.qiuyouzone.com:9028]]></mlogHost>
+				<mlogLicense><![CDATA[bb8abxx8cf1a460axx7c3c5a17c77fe0]]></mlogLicense>
+				
+				<coreServiceOrdersHost>192.168.1.214:9027</coreServiceOrdersHost>
+				<coreServiceOrdersLicense>558ab798cf1a460axx7c3c57f7c77fe0</coreServiceOrdersLicense>
+				<appId><![CDATA[http://180.76.153.246/app/request]]></appId>
+				<!-- 微信/微信公众平台退款证书路径 -->
+				<certPath><![CDATA[/root/.ssh/]]></certPath>
+				<services.solr_server><![CDATA[http://192.168.1.214:8081/solr/]]></services.solr_server>
+				<!-- app接口 -->
+				<data.server><![CDATA[http://180.76.153.246]]></data.server>
+				<wepay.merchant.rsaPrivateKey><![CDATA[MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAKquiOYs5jyGsbiC01wo3rq6dTpN+taZTfORasCgozPDH+J3iyoChWbcqUpRWA6MPuKohJLXvr/g0drcoyctJccLI6etOfkg9h/YQ6oGdZ8O7SEF2MntdbiLN5E8n4Lf2G+e7Y+HSY7XH7G4ErDjfnARKU6MQdM1cSDdyOX6zdinAgMBAAECgYEAkl6+0/WpNDqmaf73Vs9NwoBoS6nX9PTfXoNUMwEPNDKfQ00VMN+cm0ucejkr9L3cp++wUWVnFZGtJa2U1OHoxE40nFmq5VZMbcs6B7CtaxvmXA+0n4dpg3YzVXaRj0kYpPJ883SakQZvrvgR7O6Gy0a4WMJm/6qN2seJxazB0EECQQD8LzLNOPAoGy8CtrDzOUN+BZm2RZbvnNY1GsC8W0Fw2dXjckosv293axREeB9jhepJ/T42wlRr3zGkEIjYYYKXAkEArUOlr2Mue0sQ8HsKUTAUEJVbSCywGVh03zk2O5mUmtddEqV8pO6B3dbcuxFQBjeJjUCi9LlAmHEo5P6kU6DscQJBAJPyXKtpK/tbd0jwRP9sKNxWDMeSK+qG6GRfPZNDNjEumvzEoB+Ab7RvbYR9tGx+s+SUXVtixoRCfKzzxlSrYCECQQCi2bg69v/TRqTvQtZZpNTXGWqolcgWqnt+6+k7b4irWMzUH9Lduoc5mR/ye705eq3ApAYF+rDqF0IWqfiN2e0hAkBLGdZW39E4AdenmidmSmShogXartM9bDtMvIPzobzAiKDN8FwHUE8fNLLN6Ugp3KvAcWeapBD8vCUYUrr9WDjI]]></wepay.merchant.rsaPrivateKey>
+				<wepay.merchant.desKey><![CDATA[cLATnoBPOCrQKX8CTLrH9I8LJibLkr8V]]></wepay.merchant.desKey>
+				<wepay.jd.rsaPublicKey><![CDATA[MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCKE5N2xm3NIrXON8Zj19GNtLZ8xwEQ6uDIyrS3S03UhgBJMkGl4msfq4Xuxv6XUAN7oU1XhV3/xtabr9rXto4Ke3d6WwNbxwXnK5LSgsQc1BhT5NcXHXpGBdt7P8NMez5qGieOKqHGvT0qvjyYnYA29a8Z4wzNR7vAVHp36uD5RwIDAQAB]]></wepay.jd.rsaPublicKey>
+				<jdrefundurl><![CDATA[http://paygate.jd.com/service/refund]]></jdrefundurl>
+			</properties>
+			<!-- 默认激活本环境 -->
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+	</profiles>
+</project>

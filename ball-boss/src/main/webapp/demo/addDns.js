@@ -1,0 +1,83 @@
+
+function turnRecord(type){
+	debugger;
+	var record=$('#record').val();
+	if('recordDiv'==type){
+		$('#recordDiv').show();
+		$('#mainmachDiv').hide();
+		$('#lineDiv').hide();
+		$('#AIpDomainDiv').hide();
+		$('#CNameIpDomainDiv').hide();
+		$('#maxDiv').hide();
+		$('#timeDiv').hide();
+		$('#MXIpDomainDiv').hide();
+	}if('mainmachDiv'==type){
+		$('#mainmachDiv').show();
+		$('#recordDiv').hide();
+		$('#lineDiv').hide();
+		$('#AIpDomainDiv').hide();
+		$('#CNameIpDomainDiv').hide();
+		$('#maxDiv').hide();
+		$('#timeDiv').hide();
+		$('#MXIpDomainDiv').hide();
+	}if('lineDiv'==type){
+		$('#mainmachDiv').hide();
+		$('#recordDiv').hide();
+		$('#lineDiv').show();
+		$('#AIpDomainDiv').hide();
+		$('#CNameIpDomainDiv').hide();
+		$('#maxDiv').hide();
+		$('#timeDiv').hide();
+		$('#MXIpDomainDiv').hide();
+	}if(('IpDomainDiv'==type)&&('CNAME'==record)){
+		$('#mainmachDiv').hide();
+		$('#recordDiv').hide();
+		$('#lineDiv').hide();
+		$('#AIpDomainDiv').hide();
+		$('#CNameIpDomainDiv').show();
+		$('#maxDiv').hide();
+		$('#timeDiv').hide();
+		$('#MXIpDomainDiv').hide();
+	}if(('IpDomainDiv'==type)&&('A'==record)){
+		$('#mainmachDiv').hide();
+		$('#recordDiv').hide();
+		$('#lineDiv').hide();
+		$('#AIpDomainDiv').show();
+		$('#CNameIpDomainDiv').hide();
+		$('#maxDiv').hide();
+		$('#timeDiv').hide();
+		$('#MXIpDomainDiv').hide();
+	}if(('IpDomainDiv'==type)&&('MX'==record)){
+		$('#mainmachDiv').hide();
+		$('#recordDiv').hide();
+		$('#lineDiv').hide();
+		$('#AIpDomainDiv').hide();
+		$('#MXIpDomainDiv').show();
+		$('#CNameIpDomainDiv').hide();
+		$('#maxDiv').hide();
+		$('#timeDiv').hide();
+	}
+	
+	if('maxDiv'==type){
+		$('#mainmachDiv').hide();
+		$('#recordDiv').hide();
+		$('#lineDiv').hide();
+		$('#AIpDomainDiv').hide();
+		$('#CNameIpDomainDiv').hide();
+		$('#maxDiv').show();
+		$('#timeDiv').hide();
+		$('#MXIpDomainDiv').hide();
+	}if('timeDiv'==type){
+		$('#mainmachDiv').hide();
+		$('#recordDiv').hide();
+		$('#lineDiv').hide();
+		$('#AIpDomainDiv').hide();
+		$('#CNameIpDomainDiv').hide();
+		$('#maxDiv').hide();
+		$('#timeDiv').show();
+		$('#MXIpDomainDiv').hide();
+	}
+	
+	
+	
+}

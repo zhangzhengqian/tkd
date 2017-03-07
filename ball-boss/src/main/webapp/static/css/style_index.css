@@ -1,0 +1,271 @@
+html,body{font-size: 62.5%;}
+
+.top{
+	width: 100%;
+}
+.top>div{
+	width: 100%;
+}
+.top_t{
+	height: 50px;
+	background: #c03435;
+}
+.top_t img{
+	display: inline-block;
+	float: left;
+	margin-left: 10%;
+	margin-top: 3px;
+}
+.top_t p{
+	color: #fff;
+	font-weight: bold;
+	font-family: "黑体";
+	font-size: 40px;
+	float: left;
+	line-height: 50px;
+}
+.top_b{
+	height: 40px;
+	background: #2e2e2e;
+}
+.banner{
+	height: auto;
+	width: 100%;
+	background: #ececec;
+	position: relative;
+}
+.banner img{
+	height: auto;
+	width: 100%;
+}
+.btniPhone,.btnAndroid{
+	width: 17%;
+	height: auto;
+	position: absolute;
+	bottom: 5%;
+}
+.btniPhone{
+	left: 40%;
+}
+.btnAndroid{
+	left: 66%;
+}
+.btniPhone img,.btnAndroid img{
+	width: 100%;
+	height: 100%;
+}
+.rounds{
+	width: 40px;
+	height: 210px;
+	background-color: rgba(0,0,0,0.5);
+	position: fixed;
+	top: 30%;
+	right: 5px;
+}
+.rounds>a{
+	display: block;
+	width: 10px;
+	height: 10px;
+	background: #fff;
+	border-radius: 50%;
+	margin: 23px auto;
+}
+.rounds a:hover{
+	background: #bf3434;
+}
+.rounds a.high{
+	background: #bf3434;
+	
+}
+.orderBox{
+	/*height: 950px;*/
+	width: 100%;	
+}
+.words{
+	height: auto;
+	width: 100%;
+	text-align: center;
+	padding-top: 9rem;
+}
+.words h2{
+	font-size: 3.6rem;
+	line-height: 58px;
+}
+.words p{
+	font-size: 2.2rem;
+	line-height: 40px;
+}
+.mapBox{
+	margin-top: 45px;
+	width: 100%;
+	height: auto;	
+	background: #ebebeb;
+}
+.mapBox img{
+	margin: 30px 0;
+	width: 100%;
+	height: auto;
+}
+.yueBall{
+	/*height: 870px;*/
+}
+.bannerBox{
+	margin-top: 20px;
+}
+.bannerBox img{
+	height: auto;
+	width: 100%;
+}
+.partner{
+	/* height: 646px; */
+}
+.game{
+	/* height: 560px; */
+}
+.careUs{
+	/* height: 520px; */
+}
+.careUs h2{
+	line-height: 220px;
+	font-size: 3.6rem;
+	text-align: center;
+}
+.dlList{
+	height: 300px;
+	width: 100%;
+	
+}
+.dlList dl{
+	width: 24%;
+	display: inline-block;
+	text-align: center;
+}
+.dlList dl:nth-child(1){
+	margin-left: 2%;
+}
+.dlList dl dd{
+	font-size: 1.6rem;
+	font-weight: bold;
+	line-height: 36px;
+}
+@media screen and (max-width:761px){
+	.btniPhone,.btnAndroid{
+		bottom: 2%;
+	} 
+	.dlList{
+		width: 100%;
+	}
+	.dlList dl{
+		width: 23%;
+	}
+	.dlList dl dt{
+		width: 100%;
+	}
+	.dlList dl dt img{
+		width: 100%;
+	}
+	.dlList dl dd p{
+		font-size: .8rem;
+	}
+	.words{
+		padding-top: 3rem;
+	}
+	.words h2{
+		font-size: 2.4em;
+	}
+	.words p{
+		font-size: 1.8em;
+	}
+	.careUs h2{	
+		line-height: 6rem;
+		padding-top: 2rem;
+		font-size: 2.6em;
+	}
+	.rounds{
+		width: 30px;
+		height: 130px;
+		top: 30%;
+	}
+	.rounds>a{
+		width: 6px;
+		height: 6px;
+		background: #fff;
+		border-radius: 50%;
+		margin: 12px auto;
+	}
+	.navRight{
+		display: none;
+	}
+	
+}
+@media screen and (min-width: 281px){
+	.msg h3{
+		width: 260px;
+	}
+	.msg p{
+		width: 200px;
+	}
+}
+.foot_t{
+	background: #f90000;
+}
+.foot_t p{font-size: 4em;}
+.foot_t p em{
+	font-size: .8rem;
+	font-weight: normal;
+}
+.foot_b{
+	width: 100%;
+	height: 232px;
+	background:#2e2e2e;
+	position: relative;
+}
+.msg{
+	width: 30%;
+	height: 100%;
+	margin-left: 10%;
+	padding-top: 44px;	
+	color: #fff;	
+}
+.msg h3{
+	font-size: 1.6rem;
+	line-height: 45px;
+}
+.msg p{
+	font-size: 1.4rem;
+	line-height: 40px;
+}
+.msg p a{
+	color: #fff;
+	font-size: 1.4rem;	
+}
+.navRight{
+	width: 60%;
+	height: 100%;
+	position: absolute;
+	left: 40%;
+	top: 0;
+}
+.bottomNav{
+	width: 33%;
+	height: 100%;
+	float: left;
+}
+.bottomNav h3{
+	width: 60%;
+	height: 40px;
+	color: #fff;
+	line-height: 40px;
+	text-align: center;
+	font-size: 1.6rem;
+	border-bottom: 2px solid #f90000;
+}
+.bottomNav ul li{
+	width: 60%;
+	text-align: center;
+}
+.bottomNav ul li a{
+	color: #f90000;
+	line-height: 38px;
+	font-size: 1.4rem;
+}

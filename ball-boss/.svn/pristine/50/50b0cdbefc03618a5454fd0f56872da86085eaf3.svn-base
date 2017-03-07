@@ -1,0 +1,212 @@
+<div class="panel panel-default">
+  <div class="panel-heading">当前订单<a style="float:right;margin-left:10px;" href="javascript:selNear('<%=order.id%>')">查询附近场馆</a><input class="form-control" style="width:150px;float:right;margin-top:-7px;" type="text" value=5 placeholder="输入查询距离" id="distance"/></div>
+  <div class="panel-body">
+    <div class="row">
+    	<div class="col-md-3 text-right">订单号：</div>
+  		<div class="col-md-6"><%=order.id%></div>
+    </div>
+    <div class="row">
+    	<div class="col-md-3 text-right">订单状态：</div>
+  		<div class="col-md-6">
+  			<%=order.status%>
+  		</div>
+    </div>
+    <div class="row">
+    	<div class="col-md-3 text-right">订单类型：</div>
+  		<div class="col-md-6">
+  			<%=order.orderType%>
+  		</div>
+    </div>
+    <div class="row">
+    	<div class="col-md-3 text-right">订单金额：</div>
+  		<div class="col-md-6"><%=order.fee%>元</div>
+    </div>
+    <div class="row">
+    	<div class="col-md-3 text-right">优惠券抵扣：</div>
+  		<div class="col-md-6">
+  			<%=order.amount%>元
+  		</div>
+    </div>
+    <div class="row">
+    	<div class="col-md-3 text-right">实付金额：</div>
+  		<div class="col-md-6"><%=order.finalFee%>元</div>
+    </div>
+    <div class="row">
+    	<div class="col-md-3 text-right">成本金额：</div>
+  		<div class="col-md-6"><%=order.costPrice%>元</div>
+    </div>
+    <div class="row">
+    	<div class="col-md-3 text-right">订单创建时间：</div>
+  		<div class="col-md-6"><%=order.ct%></div>
+    </div>
+    <div class="row">
+    	<div class="col-md-3 text-right">付款人：</div>
+  		<div class="col-md-6"><%=order.username%></div>
+    </div>
+    <div class="row">
+    	<div class="col-md-3 text-right">付款人联系电话：</div>
+  		<div class="col-md-6"><b class="text-danger phone"><%=order.userphone%></b></div>
+    </div>
+    <div class="row">
+    	<div class="col-md-3 text-right">支付方式：</div>
+  		<div class="col-md-6">
+  			<%=order.payType%>
+  		</div>
+    </div>
+    <div class="row">
+    	<div class="col-md-3 text-right">处理状态：</div>
+  		<div class="col-md-6" id="hs_<%=order.id%>">
+  			<%
+  				if(order.handleStatus==null){
+  			%>
+  				<%="待处理"%>
+  			<%
+  				}else{
+  			%>
+  				<%="稍后处理"%><%="（"+order.reason+"）"%>
+  			<%
+  				}
+  			%>
+  		</div>
+    </div>
+    <div class="row">
+    &nbsp;
+    </div>
+    <table class="table table-bordered table-condensed table-hover">
+    <% if (order.item.length) { %>
+		    <thead>
+				<tr>
+					<th style="border-bottom-width: 0px;">预订场号</th>
+					<th style="border-bottom-width: 0px;">预约时间</th>
+					<th style="border-bottom-width: 0px;">球馆联系电话</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% order.item.forEach(function(item_){ %>
+					<tr>
+					<td><%=item_.spaceName%>【<%=item_.spaceCode%>】</td>
+					<td><%=item_.orderTime%></td>
+					<td class="phone"><b class="text-danger"><%=order.tel%></b></td>
+					</tr>
+				<% }) %>
+			</tbody>
+	<%	} %>
+	</table>
+  </div>
+  <div class="panel-footer">
+		<div class="row" >
+			<div class="col-sm-12 text-right" id="handle_button">
+				<a class="btn btn-primary btn-default " id="v_<%=order.id %>" href="javascript:simpVerify('<%=order.id%>')"><span class="glyphicon glyphicon-check"></span> 确认</a>
+				<a class="btn btn-info btn-default " id="h_<%=order.id %>" href="javascript:simpHandling('<%=order.id%>')"><span class="glyphicon glyphicon-check"></span> 稍后处理</a>
+			</div>
+		</div>	
+</div>
+</div>
+<% if (order.relItem.length) { %>
+	<% order.relItem.forEach(function(rel){ %>
+		<div class="panel panel-default">
+  <div class="panel-heading">相关订单</div>
+  <div class="panel-body">
+    <div class="row">
+    	<div class="col-md-3 text-right">订单号：</div>
+  		<div class="col-md-6"><%=rel.id%></div>
+    </div>
+    <div class="row">
+    	<div class="col-md-3 text-right">订单状态：</div>
+  		<div class="col-md-6">
+  			<%=rel.status%>
+  		</div>
+    </div>
+    <div class="row">
+    	<div class="col-md-3 text-right">订单类型：</div>
+  		<div class="col-md-6">
+  			<%=rel.orderType%>
+  		</div>
+    </div>
+    <div class="row">
+    	<div class="col-md-3 text-right">订单金额：</div>
+  		<div class="col-md-6"><%=rel.fee%>元</div>
+    </div>
+    <div class="row">
+    	<div class="col-md-3 text-right">优惠券抵扣：</div>
+  		<div class="col-md-6">
+  			<%=rel.amount%>元
+  		</div>
+    </div>
+    <div class="row">
+    	<div class="col-md-3 text-right">实付金额：</div>
+  		<div class="col-md-6"><%=rel.finalFee%>元</div>
+    </div>
+    <div class="row">
+    	<div class="col-md-3 text-right">成本金额：</div>
+  		<div class="col-md-6"><%=rel.costPrice%>元</div>
+    </div>
+    <div class="row">
+    	<div class="col-md-3 text-right">订单创建时间：</div>
+  		<div class="col-md-6"><%=rel.ct%></div>
+    </div>
+    <div class="row">
+    	<div class="col-md-3 text-right">付款人：</div>
+  		<div class="col-md-6"><%=rel.username%></div>
+    </div>
+    <div class="row">
+    	<div class="col-md-3 text-right">付款人联系电话：</div>
+  		<div class="col-md-6"><b class="text-danger phone"><%=rel.userphone%></b></div>
+    </div>
+    <div class="row">
+    	<div class="col-md-3 text-right">支付方式：</div>
+  		<div class="col-md-6">
+  			<%=rel.payType%>
+  		</div>
+    </div>
+    <div class="row">
+    	<div class="col-md-3 text-right">处理状态：</div>
+  		<div class="col-md-6" id="hs_<%=rel.id%>">
+  			<%
+  				if(rel.handleStatus==null){
+  			%>
+  				<%="待处理"%>
+  			<%
+  				}else{
+  			%>
+  				<%="稍后处理"%><%="（"+rel.reason+"）"%>
+  			<%
+  				}
+  			%>
+  		</div>
+    </div>
+    <div class="row">
+    &nbsp;
+    </div>
+    <table class="table table-bordered table-condensed table-hover">
+    <% if (rel.item.length) { %>
+		    <thead>
+				<tr>
+					<th style="border-bottom-width: 0px;">预订场号</th>
+					<th style="border-bottom-width: 0px;">预约时间</th>
+					<th style="border-bottom-width: 0px;">球馆联系电话</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% rel.item.forEach(function(relI){ %>
+					<tr>
+					<td><%=relI.spaceName%>【<%=relI.spaceCode%>】</td>
+					<td><%=relI.orderTime%></td>
+					<td class="phone"><b class="text-danger"><%=order.tel%></b></td>
+					</tr>
+				<% }) %>
+			</tbody>
+	<%	} %>
+	</table>
+  </div>
+  <div class="panel-footer">
+		<div class="row" >
+			<div class="col-sm-12 text-right" id="handle_button">
+				<a class="btn btn-primary btn-default " id="v_<%=rel.id %>" href="javascript:simpVerify('<%=rel.id%>')"><span class="glyphicon glyphicon-check"></span> 确认</a>
+				<a class="btn btn-info btn-default " id="h_<%=rel.id %>" href="javascript:simpHandling('<%=rel.id%>')"><span class="glyphicon glyphicon-check"></span> 稍后处理</a>
+			</div>
+		</div>	
+</div>
+</div>
+	<% }) %>
+<%	} %>
