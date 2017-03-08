@@ -1,0 +1,12 @@
+SELECT
+	id,username,password,cnname,birth_year,birth_month,
+	birth_day,astro,bloodtype,trade,live_prov,live_city,
+	live_country,home_prov,home_city,home_country,cardtype,
+	address_prov,address_city,address_country,expval,integral,
+	regtime,logintime,loginip,haoduan,huiyuan,aboutus,contactus,
+	a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,trainnums,studentnums,yyzz,
+	swdjzh,trainname,traintel,idnums,xydw,trainlevel,question,enname,
+	user_money,frozen_moner,checkuser_tinyint,login_type,login_type_ck,
+	zwpj,daoguan_id,pid,orderid,pstr,infotype,gldaoguan,kq_fl,fl_money
+FROM
+	pmw_member

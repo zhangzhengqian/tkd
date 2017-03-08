@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.lc.zy</groupId>
+		<artifactId>tkd-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>tkd-timer</artifactId>
+	<packaging>jar</packaging>
+	<name>tkd-timer</name>
+	
+	<properties>
+		<cxf.version>2.6.3</cxf.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.lc.zy</groupId>
+			<artifactId>tkd-core-service-client</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		<!-- test begin -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.easymock</groupId>
+			<artifactId>easymock</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.lc.zy</groupId>
+			<artifactId>tkd-commons</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.lc.zy</groupId>
+			<artifactId>tkd-domain</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>org.mongodb</groupId>
+    		<artifactId>mongodb-driver</artifactId>
+    	<version>3.1.0</version>
+    	
+</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>tkd-timer</finalName>
+		<resources>
+			<resource>
+		        <directory>src/main/resources</directory>  
+		        <filtering>true</filtering>  
+		    </resource>  
+		</resources>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>  
+			    <groupId>org.apache.maven.plugins</groupId>  
+			    <artifactId>maven-dependency-plugin</artifactId>  
+			    <executions>  
+			    <execution>  
+			    <id>copy</id>  
+			    <phase>install</phase>  
+			    <goals>  
+			        <goal>copy-dependencies</goal>  
+			    </goals>  
+			    <configuration>  
+			    <outputDirectory>target/lib</outputDirectory>
+			    </configuration>  
+			    </execution>  
+			    </executions>  
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- 环境配置 -->
+	<profiles>
+        <profile>
+            <!-- 生产环境: mvn package -Dmaven.test.skip=true -Ptest -->
+            <id>test</id>
+            <properties>
+
+				<jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
+				<jdbc.url><![CDATA[jdbc:mysql://tkd.db:3306/tkd_oa?zeroDateTimeBehavior=convertToNull&useUnicode=true]]></jdbc.url>
+				<jdbc.username>root</jdbc.username>
+				<jdbc.password>tkd2016data</jdbc.password>
+
+				<brokerUrl><![CDATA[tcp://192.168.0.11:61616]]></brokerUrl>
+				<redis.server><![CDATA[192.168.0.11:6379]]></redis.server>
+				<zoo.server><![CDATA[192.168.0.11]]></zoo.server>
+				<!-- <coreServiceOrdersHost>192.168.0.7:9027</coreServiceOrdersHost>
+				<coreServiceOrdersLicense>558ab798cf1a460axx7c3c57f7c77fe0</coreServiceOrdersLicense> -->
+				<services.solr_server><![CDATA[http://192.168.0.11:8081/solr/]]></services.solr_server>
+				<!-- <mHost><![CDATA[192.168.0.6:27017]]></mHost> -->
+			</properties>
+        </profile>
+        
+        <profile>
+            <!-- 生产环境: mvn package -Dmaven.test.skip=true -Ppro -->
+            <id>pro</id>
+            <properties>
+
+				<jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
+				<jdbc.url><![CDATA[jdbc:mysql://tkd.db:3306/tkd_oa?zeroDateTimeBehavior=convertToNull&useUnicode=true]]></jdbc.url>
+				<jdbc.username>root</jdbc.username>
+				<jdbc.password>tkd2016data</jdbc.password>
+
+				<brokerUrl><![CDATA[tcp://192.168.0.2:61616]]></brokerUrl>
+				<redis.server><![CDATA[192.168.0.2:6379]]></redis.server>
+				<zoo.server><![CDATA[192.168.0.2]]></zoo.server>
+				<services.solr_server><![CDATA[http://192.168.0.2:8081/solr/]]></services.solr_server>
+				<!-- <coreServiceOrdersHost>192.168.0.6:9027</coreServiceOrdersHost>
+				<coreServiceOrdersLicense>558ab798cf1a460axx7c3c57f7c77fe0</coreServiceOrdersLicense>
+				<mHost><![CDATA[192.168.0.6:27017]]></mHost> -->
+			</properties>
+        </profile>
+
+        <profile>
+            <!-- 生产环境: mvn package -Dmaven.test.skip=true -Ptest -->
+            <id>dev</id>
+            <properties>
+
+				<jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
+				<jdbc.url><![CDATA[jdbc:mysql://tkd.db:3306/tkd_oa?zeroDateTimeBehavior=convertToNull&useUnicode=true]]></jdbc.url>
+				<jdbc.username>root</jdbc.username>
+				<jdbc.password>tkd2016data</jdbc.password>
+
+				<brokerUrl><![CDATA[tcp://192.168.1.219:61616]]></brokerUrl>
+				<redis.server><![CDATA[192.168.1.219:6379]]></redis.server>
+				<zoo.server><![CDATA[192.168.0.196]]></zoo.server>
+				<!-- <coreServiceOrdersHost>192.168.0.213:9027</coreServiceOrdersHost>
+				<coreServiceOrdersLicense>558ab798cf1a460axx7c3c57f7c77fe0</coreServiceOrdersLicense>
+				<mHost><![CDATA[192.168.0.213:27017]]></mHost> -->
+			</properties>
+        </profile>
+        
+    </profiles>
+
+</project>
