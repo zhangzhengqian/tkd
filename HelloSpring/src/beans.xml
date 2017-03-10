@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/context  
+                http://www.springframework.org/schema/context/spring-context-2.5.xsd"
+    >
+   <context:annotation-config/>
+   <bean id="helloWorld" class="com.tutorialspoint.HelloWorld" scope="prototype" init-method="init" destroy-method="destory">
+       <property name="message" value="Hello World!"/>
+       <property name="message2" value="Hello Second World!"/>
+   </bean>
+	
+	<bean id="person" class="com.entity.Person" init-method="init" destroy-method="destory">
+		<property name="name" value="zhangsan"></property>
+		<property name="grade" value="100"></property>
+		<property name="car" ref="car"></property>
+	</bean>	
+	
+	<bean id="car" class="com.entity.Car">
+	</bean>
+	
+	<bean id="textEditor" class="com.tutorialspoint.TextEditor">
+	</bean>
+	
+	<bean id="spellCheck1" class="com.tutorialspoint.SpellCheck">
+	</bean>
+	
+</beans>
