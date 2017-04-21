@@ -1,0 +1,304 @@
+html{font-size:62.5%}
+body{font-family:"微软雅黑";color:#999;font-size:62.5%}
+html,body{-webkit-user-select:none;
+    -o-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+     -webkit-text-size-adjust:none;
+     -o-text-size-adjust:none;
+     -ms-text-size-adjust:none;
+    text-size-adjust:none;
+     display:box;
+    display:-webkit-box;
+    display:-o-box;
+    display:-moz-box;
+    display:-ms-box;
+    -webkit-box-flex:1;
+    -o-box-flex:1;
+    -ms-box-flex:1;
+    box-flex:1;
+    -webkit-box-orient: vertical;
+    -o-box-orient: vertical;
+    -ms-box-orient: vertical;
+    box-orient: vertical;
+    height: 100%;
+     width: 100%;
+    background: #F5F6F5;
+    overflow: hidden;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    }
+b,strong{
+    font-weight: normal;
+}
+.wrapper{
+    width: 100%;
+    height: 100%;
+     display: -webkit-box;
+    display: -o-box;
+    -webkit-box-flex:1;
+    -o-box-flex:1;
+    -webkit-box-orient:vertical;
+    -o-box-orient:vertical;
+    font-size: 1.3rem;
+}
+/*头部*/
+.h_top{
+    width: 100%;
+    height: 35px;
+    position: relative;
+    background: #b02929
+}
+.h_top a.return{
+    display: inline-block;
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    line-height: 20px;
+    background-size:100% auto; 
+    top: 10px;
+    left: 6px;
+    color: #fff;
+    padding-left: 25px;
+    background: url(../images/btn_whiteback.png) no-repeat left center;
+    background-size: 50% auto;
+}
+.h_section{
+    text-align: center;
+    line-height: 35px;
+}
+.h_section>li{
+    border-radius: 10px;
+    width: 100px;
+    height: 20px;
+    display: inline-block;
+    background: #fff;
+    line-height: 20px;
+}
+.h_section>li a{
+    display: inline-block;
+    width: 50px;
+    height: 20px;
+    line-height: 20px; 
+}
+.h_section>li a.high{
+    background: #a01212;
+    color: #fff;
+    border-radius: 9px;
+}
+.h_top>p{
+    width: 26px;
+    height: 26px;
+    text-align: center;
+    line-height: 26px;
+    position: absolute;
+    top: 8px;
+    right: 0;
+    background: url(../images/u4061_normal.png) no-repeat left center;
+    background-size:100% auto; 
+}
+.balls_header{
+    width: 100%;
+    height: 35px;
+    position: relative;
+    background: #b02929;
+}
+.balls_header h1{
+    text-align: center;
+    line-height: 35px;
+    font-size: 1.4rem;
+    letter-spacing: 0.1rem;
+    color: #fff;
+}
+.balls_header p{
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.4rem;
+    color:#fff;
+}
+.searchBox{
+    width: 100%;
+    height: 27px;
+    border-bottom: 1px solid #ccc;
+}
+.search{
+    width: 100%;
+    height: 27px;
+    border: none;
+    text-align: center;
+    background: none;
+    outline: none;
+    background: url(../images/search.png) no-repeat 42% center;
+    background-size:17px auto; 
+}
+.wrapper>section{  
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    display:-webkit-box;
+    -webkit-box-flex:1;
+    -webkit-box-orient:vertical;
+    position:relative;
+}
+/*竞赛*/
+.match{
+    width: 100%; 
+}
+.matchBox{
+    width: 95%;
+    height: 40%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-top: 5px;
+    margin-left: 2.5%;
+}
+.times{
+    width: 100%;
+    height: 30px;
+    display:box;
+    display:-webkit-box;
+    display:-o-box;
+    display:-moz-box;
+    display:-ms-box;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+}
+.times>p{
+    -webkit-box-flex:1;
+    -o-box-flex:1;
+    -ms-box-flex:1;
+    box-flex:1;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #403f3f;
+}
+.times>p>em{
+    display: inline-block;
+    width: 33px;
+    height: 22px;
+    background: #b02929;
+    border-radius: 7px;
+    color: #fff;
+    text-align: center;
+    line-height: 22px;
+    margin-left: 15px;
+}
+.competition{
+     width: 100%;
+    display:box;
+    display:-webkit-box;
+    display:-o-box;
+    display:-moz-box;
+    display:-ms-box;
+    margin: 0.8rem auto;
+    height: 90px;
+}
+.competition li{
+    -webkit-box-flex:1;
+    -o-box-flex:1;
+    -ms-box-flex:1;
+    box-flex:1;
+    text-align: center;
+    line-height: 2.6rem;
+}
+.competition li ol{
+    width: 65px;
+    height: auto;
+    margin-left: 11%;
+}
+.competition li:first-child ol li:first-child img{
+    width: 65pxauto;
+    height: 65px;
+    text-align: center;
+}
+.competition li:last-child ol li:first-child img{
+    width: auto;
+    height: 65px;
+    text-align: center;
+}
+.competition li ol li:last-child{
+    text-align: center;
+}
+.competition li:nth-child(2) a{
+    display: inline-block;
+    margin-top: 1.2rem;
+    font-size: 5rem;
+    font-weight: 300;
+    color: #b02929;
+}
+.area{
+    width: 100%;
+    height: 30px;
+    display:box;
+    display:-webkit-box;
+    display:-o-box;
+    display:-moz-box;
+    display:-ms-box;
+    border-top: 1px solid #ccc;
+}
+.area p{
+    width: 50%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #403f3f;
+}
+/*选择球类*/
+.mark{
+   position: fixed;
+    top: 0; bottom: 0; left: 0; right: 0;
+    background: rgba(228,228,228,0.90);
+    z-index: 100;
+    height:100%;
+    display: none;
+}
+.balls{
+    width: 100%;
+    height: 100%;
+}
+.tab1{
+    width: 95%;
+    height: 75px;
+    border: solid 1px #fff;
+    border-collapse: collapse;
+    text-align: center;
+    margin: 45px auto 10px auto;
+}
+.tab1 tr td{
+    border: solid 1px #fff;
+}
+.tab1 tr td.balls_high{
+    color: #b02929;
+}
+.choice_time h2{
+    padding-left: 2.5%;
+}
+.tab2{
+    width: 95%;
+    height: 27px;
+    border: solid 1px #fff;
+    border-collapse: collapse;
+    text-align: center;
+    margin: 5px auto;
+}
+.tab2 tr td{
+    border: solid 1px #fff;
+}
+.tab2 tr td.balls_high{
+    color: #b02929;
+}
+button{
+    width: 60%;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    margin: 10% 20%;
+    background: #b02929;
+    outline: none;
+    color: #fff;
+}

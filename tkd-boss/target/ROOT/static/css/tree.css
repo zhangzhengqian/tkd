@@ -1,0 +1,117 @@
+* {margin: 0; padding: 0;}
+.gameTree {
+	overflow: hidden;
+}
+.gameTree ul {
+ padding-top: 20px; position: relative;
+ 
+ transition: all 0.5s;
+ -webkit-transition: all 0.5s;
+ -moz-transition: all 0.5s;
+}
+
+.gameTree li {
+ float: left; text-align: center;
+ list-style-type: none;
+ position: relative;
+ padding: 20px 5px 0 5px;
+ 
+ transition: all 0.5s;
+ -webkit-transition: all 0.5s;
+ -moz-transition: all 0.5s;
+}
+
+/*We will use ::before and ::after to draw the connectors*/
+
+.gameTree li::before, .gameTree li::after{
+ content: '';
+ position: absolute; top: 0; right: 50%;
+ border-top: 1px solid #ccc;
+ width:50%; height: 20px;
+}
+.gameTree li::after{
+ right: auto; left: 50%;
+ border-left: 1px solid #ccc;
+}
+
+/*We need to remove left-right connectors from elements without 
+any siblings*/
+.gameTree li:only-child::after, .gameTree li:only-child::before {
+ display: none;
+}
+
+/*Remove space from the top of single children*/
+.gameTree li:only-child{ padding-top: 0;}
+
+/*Remove left connector from first child and 
+right connector from last child*/
+.gameTree li:first-child::before, .gameTree li:last-child::after{
+ border: 0 none;
+}
+/*Adding back the vertical connector to the last nodes*/
+.gameTree li:last-child::before{
+ border-right: 1px solid #ccc;
+ border-radius: 0 5px 0 0;
+ -webkit-border-radius: 0 5px 0 0;
+ -moz-border-radius: 0 5px 0 0;
+}
+.gameTree li:first-child::after{
+ -webkit-border-radius: 5px 0 0 0;
+ -moz-border-radius: 5px 0 0 0;
+}
+
+/*Time to add downward connectors from parents*/
+.gameTree ul ul::before{
+ content: '';
+ position: absolute; top: 0; left: 50%;
+ border-left: 1px solid #ccc;
+ width: 0; height: 20px;
+}
+
+.gameTree li a{
+ border: 1px solid #ccc;
+ padding: 1em 1em;
+ text-decoration: none;
+ color: #666;
+ font-family: arial, verdana, tahoma;
+ font-size: 11px;
+ display: inline-block;
+ background-color:#fff;
+ border-radius: 5px;
+ -webkit-border-radius: 5px;
+ -moz-border-radius: 5px;
+ 
+ transition: all 0.5s;
+ -webkit-transition: all 0.5s;
+ -moz-transition: all 0.5s;
+}
+
+/*Time for some hover effects*/
+/*We will apply the hover effect the the lineage of the element also*/
+.gameTree li a:hover, .gameTree li a:hover+ul li a {
+ background: #c8e4f8; color: #000; border: 1px solid #94a0b4;
+}
+/*Connector styles on hover*/
+.gameTree li a:hover+ul li::after, 
+.gameTree li a:hover+ul li::before, 
+.gameTree li a:hover+ul::before, 
+.gameTree li a:hover+ul ul::before{
+ border-color:  #94a0b4;
+}
+
+.gameSchedule{margin-top:18px; border:1px solid #d4d4d4;float:left;margin-right:10px;}
+.gameSchedule table{min-width: 200px;}
+.gameSchedule table th{text-align:center;background-color:#d9e2ee; font-size:16px; height:40px;  vertical-align: middle; line-height:40px; font-weight: normal;}
+.gameSchedule table td{text-align:center; vertical-align: middle; font-size:14px; padding:0px 6px;line-height:40px; border-top:1px solid #ddd;}
+.gameSchedule table td input{border:1px solid #b5b5b5; border-radius: 5px;line-height:30px;}
+.gameSchedule table td .gameTime{width:130px;}
+.gameSchedule table td .gameScore{width:50px;}
+.gameSchedule table tr:nth-child(odd){background-color:#fdfdfd;}
+.gameScheduleClear{clear:both}
+
+.vs{
+		background-image:url(../img/vs.jpg);
+		background-repeat:no-repeat;
+		background-position:center;
+		background-size:10px 10px;
+	}

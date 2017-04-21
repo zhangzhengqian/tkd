@@ -1,0 +1,129 @@
+
+.container-fluid {
+	min-width:1170px;
+}
+.container{
+	min-width:1170px;
+}
+/* Nav Navbar */
+.collapse {
+  display: block;
+  visibility: visible;
+}
+
+.nav > li {
+	display:inline-block;
+}
+.navbar-nav {
+    float: left;
+    margin: 0;
+  }
+.navbar-nav > li {
+	float: left;
+}
+.navbar-nav > li > a {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.navbar-text {
+    float: left;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+.navbar-left {
+	float: left !important;
+}
+.navbar-right {
+	float: right !important;
+	margin-right: -15px;
+}
+.navbar-right ~ .navbar-right {
+	margin-right: 0;
+}
+.navbar {
+	border-radius:0;
+	margin-bottom:0;
+}
+.navbar-default {
+	background-color:#202e37;
+	border-color:transparent;
+	border-width:0;
+}
+
+.navbar-default .navbar-nav > li > a{
+	color:#fff;
+	font-size:16px;
+	font-weight:bold;
+}
+.navbar-default .navbar-nav > li > a:focus, 
+.navbar-default .navbar-nav > li > a:hover  {
+	color:#fff;
+	background-color:#2d3e48;
+}
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:focus, 
+.navbar-default .navbar-nav > .active > a:hover {
+	color:#fff;
+	background-color:#2d3e48;
+}
+.navbar-brand {
+	padding-top:10px;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+	border-width:0;
+	border-color: #202e37;
+	box-shadow:none;
+}
+
+
+/* Banner */
+.banner{
+	/*min-width:1200px;*/
+	height:365px;
+	overflow:hidden;
+}
+.banner-level2{
+	height:150px;
+	margin-bottom:20px;
+}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  display: block;
+  width: 100% \9;
+  max-width: 100%;
+  height: 365px;
+}
+.carousel-control{
+	height:365px;
+}
+.carousel-control.right, .carousel-control.left{
+	margin-top:140px;
+	width:60px;
+	height:60px;
+	border-radius:30px;
+	background:#202e37;
+}
+.carousel-control.left{
+	left:15px;
+}
+.carousel-control.right{
+	right:15px;
+}
+.carousel-control.left{
+	background:#202e37 url(../img/ico_prev.png) center center no-repeat;
+	
+}
+.carousel-control.right{
+	background:#202e37 url(../img/ico_next.png) center center no-repeat;
+	
+}
+
+.list-group {
+	list-style-type:none;
+}
+
+/* Form */
+.form-control {
+  display: inline-block;
+}

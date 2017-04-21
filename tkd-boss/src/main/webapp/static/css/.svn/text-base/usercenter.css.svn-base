@@ -1,0 +1,156 @@
+@charset "utf-8";
+
+
+
+.memberinfobox{
+	display:block;
+	clear:both;
+	padding:3px;
+	margin-bottom:20px;
+	height:143px;
+	border:1px solid #bce8f1;
+	background:#d9edf7;
+	overflow:hidden;
+}
+.memberinfo{
+	display:block;
+	height:135px;
+	border:1px solid #bce8f1;
+	background:#fff;
+	overflow:hidden;
+}
+.member{
+	margin:15px auto;
+}
+.member > li {
+	display:inline-block;
+	float:left;
+	padding:0 15px;
+	height:105px;
+	border-right:1px solid #ddd;
+}
+.member > li:last-child{
+	border-right:0;
+}
+.member > li .member-photo{
+	display:inline-block;
+	float:left;
+	margin-right:15px;
+	width:80px;
+	height:80px;
+	color:#ccc;
+	text-align:center;
+	line-height:80px;
+	font-size:18px;
+	background:#f2f2f2;
+	overflow:hidden;
+}
+.member > li .member-photo .img{
+	width:80px;
+	height:80px;
+}
+.member > li .member-body{
+	display:inline-block;
+	float:left;
+	
+}
+.member-name{
+	font-size:14px;
+	font-weight:bold;
+}
+.member-mail{
+	color:#999;
+}
+.member-operate-btn{
+	clear:both;
+	display:block;
+}
+.member-operate-btn a {
+	margin-right:10px;
+}
+
+.member-operate-btn span{
+	margin-right:15px;
+}
+.member-operate-btn strong{
+	font-size:14px;
+}
+.member-product > li.active > a > strong {
+	color:#428bca;
+	}
+
+.guide-box{
+	clear:both;
+}
+.guide-box .panel-body{
+	padding:0;
+}
+.guide-box .panel-body .col-md-3{
+	/*background:#fcf8e3;*/
+	border-left:1px solid #bce8f1;
+	height:320px;
+	background:#f7f7f7;
+	
+}
+.guide-box .panel-body .col-md-2,
+.guide-box .panel-body .col-md-7{
+	height:320px;
+}
+
+
+.guide{
+	margin:30px 0 20px 0;
+}
+
+.guide p{
+	color:#999;
+	font-size:13px;
+	line-height:24px;
+}
+
+.guide p a{
+	}
+
+.guide h6{
+	color:#666;
+	font-size:13px;
+	font-weight:bold;
+}
+
+.nav-tabs-guide{
+	position:absolute;
+	z-index:100;
+	left:0;
+	margin-top:-42px;
+	margin-left:150px;
+	border-bottom: 1px solid #bce8f1;
+}
+
+.nav-tabs-guide > li > a {
+	border-radius:0;
+	padding: 12px 15px 10px 15px;
+	}
+
+.nav-tabs-guide > li.active > a, 
+.nav-tabs-guide > li.active > a:hover, 
+.nav-tabs-guide > li.active > a:focus{
+	color: #555;
+	cursor: default;
+	background-color: #fff;
+	border: 1px solid #bce8f1;
+	border-bottom-color: transparent;
+	border-top-color: transparent;
+}
+
+
+.telephone .col-sm-1{
+	padding:0;
+	width:20px;
+	text-align:center;
+	margin-left:-10px;
+}
+.telephone .col-sm-2{
+}
+.telephone .col-sm-4{
+	padding-left:5px;
+}

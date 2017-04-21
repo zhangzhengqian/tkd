@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.0"
+		xmlns="http://java.sun.com/xml/ns/j2ee"  
+    	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance 
+    				http://www.springmodules.org/schema/cache/springmodules-cache.xsd 
+    				http://www.springmodules.org/schema/cache/springmodules-ehcache.xsd"
+    	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+    				http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+<!-- <taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+		version="2.0" > -->
+
+	<description>LC ZY boss-core JSP Tag Library</description>
+	<tlib-version>1.0</tlib-version>
+	<short-name>lf</short-name>
+	<uri>http://www.longcai.com/function-tags</uri>
+	
+	<function>
+		<name>user</name>
+		<function-class>com.lc.zy.ball.boss.common.web.FunctionTag</function-class>
+		<function-signature>java.lang.Object getCurrentUser()</function-signature>
+		<description>获取当前用户</description>
+	</function>
+	
+    <function>
+        <name>currentUserRoles</name>
+        <function-class>com.lc.zy.ball.boss.common.web.FunctionTag</function-class>
+        <function-signature>java.util.List getCurrentUserRoles()</function-signature>
+        <description>获取当前用户的角色</description>
+    </function>
+    
+	<function>
+		<name>getUser</name>
+		<function-class>com.lc.zy.ball.boss.common.web.FunctionTag</function-class>
+		<function-signature>java.lang.Object getUser(java.lang.String)</function-signature>
+		<description>根据id获取用户信息</description>
+	</function>
+	
+    
+    <function>
+        <name>dicItems</name>
+        <function-class>com.lc.zy.ball.boss.common.web.FunctionTag</function-class>
+        <function-signature>java.util.List getDicItems(java.lang.String)</function-signature>
+        <description>按类型查询字典</description>
+    </function>
+    
+    <function>
+        <name>dicItem</name>
+        <function-class>com.lc.zy.ball.boss.common.web.FunctionTag</function-class>
+        <function-signature>java.lang.Object getDicItem(java.lang.String)</function-signature>
+        <description>按编码查询字典</description>
+    </function>
+    
+   
+    <function>
+        <name>minuteOfDay</name>
+        <function-class>com.lc.zy.ball.boss.common.web.FunctionTag</function-class>
+        <function-signature>int getMinutesOfDay(long)</function-signature>
+        <description>时间戳在当天的分钟数</description>
+    </function>
+    
+    <function>
+        <name>customer</name>
+        <function-class>com.lc.zy.ball.boss.common.web.FunctionTag</function-class>
+        <function-signature>java.lang.Object getCustomer(java.lang.String)</function-signature>
+        <description>按id查询会员信息</description>
+    </function>
+    
+    <function>
+        <name>formatMoney</name>
+        <function-class>com.lc.zy.ball.boss.common.web.FunctionTag</function-class>
+        <function-signature>java.lang.String formatMoney(int)</function-signature>
+        <description>格式化金额</description>
+    </function>
+    
+    <function>
+        <name>formatTimeSpan</name>
+        <function-class>com.lc.zy.ball.boss.common.web.FunctionTag</function-class>
+        <function-signature>java.lang.String formatTimeSpan(int)</function-signature>
+        <description>格式化时间段</description>
+    </function>
+ 
+    
+    <function>
+        <name>hours</name>
+        <function-class>com.lc.zy.ball.boss.common.web.FunctionTag</function-class>
+        <function-signature>java.util.list getHours(int, int)</function-signature>
+        <description>获时间列表</description>
+    </function>
+
+      <function>
+        <name>getSsouserNameById</name>
+        <function-class>com.lc.zy.ball.boss.common.web.FunctionTag</function-class>
+        <function-signature>java.lang.Object getSsouserNameById(java.lang.String)</function-signature>
+        <description>用户昵称</description>
+    </function>
+    
+    <function>
+        <name>getSsouserNameAndQiuyouNo</name>
+        <function-class>com.lc.zy.ball.boss.common.web.FunctionTag</function-class>
+        <function-signature>java.lang.Object getSsouserNameAndQiuyouNo(java.lang.String)</function-signature>
+        <description>用户昵称</description>
+    </function>
+    <function>
+        <name>checkMarkeUser</name>
+        <function-class>com.lc.zy.ball.boss.common.web.FunctionTag</function-class>
+        <function-signature>java.lang.Object checkMarkeUser(java.lang.String)</function-signature>
+        <description>查看营销账号是否绑定</description>
+    </function>
+    <function>
+        <name>getStatusNames</name>
+        <function-class>com.lc.zy.ball.boss.common.web.FunctionTag</function-class>
+        <function-signature>java.lang.Object getStatusNames(int,int,int,int)</function-signature>
+        <description>根据流程、审核状态、处理角色获取订单显示状态</description>
+    </function>
+</taglib>

@@ -1,0 +1,1487 @@
+[0410 10:27:45,157 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'crmFunctionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.CrmFunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0410 10:27:45,158 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'dicItemMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.DicItemMapperEx' mapperInterface. Bean already defined with the same name!
+[0410 10:27:45,158 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'functionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.FunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0410 10:27:45,158 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'operatorMapper' and 'com.lc.zy.ball.domain.oa.mapper.ex.OperatorMapper' mapperInterface. Bean already defined with the same name!
+[0410 10:27:45,158 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'organizationMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.OrganizationMapperEx' mapperInterface. Bean already defined with the same name!
+[0410 10:27:45,158 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'statisticUserMobileMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.StatisticUserMobileMapperEx' mapperInterface. Bean already defined with the same name!
+[0410 10:27:45,158 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'userMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.UserMapperEx' mapperInterface. Bean already defined with the same name!
+[0410 10:27:45,673 INFO ] [main] com.mchange.v2.log.MLog - MLog clients using log4j logging.
+[0410 10:27:45,729 INFO ] [main] com.mchange.v2.c3p0.C3P0Registry - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+[0410 10:27:46,571 INFO ] [main] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 2880, acquireRetryDelay -> 30000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 10000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge14u9nnrx21u1jg229j|659718b5, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge14u9nnrx21u1jg229j|659718b5, idleConnectionTestPeriod -> 120, initialPoolSize -> 5, jdbcUrl -> jdbc:mysql://60.219.169.5:3306/tkd_oa?zeroDateTimeBehavior=convertToNull&useUnicode=true, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 120, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[0410 10:27:48,629 INFO ] [main] org.apache.shiro.realm.AuthorizingRealm - No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+[0410 10:27:48,725 INFO ] [main] org.apache.shiro.cache.ehcache.EhCacheManager - Cache with name 'com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache' does not yet exist.  Creating now.
+[0410 10:27:48,751 INFO ] [main] org.apache.shiro.cache.ehcache.EhCacheManager - Added EhCache named [com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache]
+[0410 10:27:48,901 INFO ] [main] com.lc.zy.common.cache.MapperOnCacheSupport - exclude_cache_mapper ==> {OrderSms=true, OrderItem=true, OrderBill=true, Order=true, OrderBillItem=true, OrderAlarm=true, OrderLog=true}
+[0410 10:27:48,929 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheEnable = true
+[0410 10:27:48,929 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheServer = 192.168.1.219:6379
+[0410 10:27:48,934 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cachePwd = null
+[0410 10:27:48,947 ERROR] [main] com.lc.zy.common.cache.RedisPool - cache 初始化成功
+[0410 10:27:49,116 DEBUG] [main] com.lc.zy.common.util.SpringUtils - set application context ===> Root WebApplicationContext: startup date [Mon Apr 10 10:27:43 CST 2017]; root of context hierarchy
+[0410 10:27:49,298 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+[0410 10:27:49,298 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:host.name=J8LZEKL1TNCFRZY
+[0410 10:27:49,298 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.version=1.7.0_51
+[0410 10:27:49,298 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.vendor=Oracle Corporation
+[0410 10:27:49,298 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.home=C:\Program Files\Java\jdk1.7.0_51\jre
+[0410 10:27:49,299 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.class.path=G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-util-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jsp-api-2.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\run-jetty-run-bootstrap.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jsp-2.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-management-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\core-3.1.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\servlet-api-2.5-20081211.jar
+[0410 10:27:49,299 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.library.path=C:\Program Files\Java\jdk1.7.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Java\jdk1.7.0_51\jre\bin;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/bin/server;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/bin;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/lib/amd64;.;C:\Program Files\Java\jdk1.7.0_51\bin;C:\Program Files (x86)\Common Files\NetSarang;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;G:\apache-maven-3.3.1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;G:\apache-maven-3.3.1\bin;G:\mysql\bin;C:\Program Files\TortoiseSVN\bin;G:\apache-maven-3.3.1\bin;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\lib;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\bin;C:\Program Files\VisualSVN Server\bin;G:\eclipse-jee-mars-2-win32-x86_64\eclipse;;.
+[0410 10:27:49,299 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.io.tmpdir=C:\Users\ADMINI~1\AppData\Local\Temp\
+[0410 10:27:49,299 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.compiler=<NA>
+[0410 10:27:49,299 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.name=Windows 7
+[0410 10:27:49,299 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.arch=amd64
+[0410 10:27:49,299 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.version=6.1
+[0410 10:27:49,299 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.name=Administrator
+[0410 10:27:49,299 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.home=C:\Users\Administrator
+[0410 10:27:49,299 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.dir=G:\qzlspace6\tkd-boss
+[0410 10:27:49,300 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@6725bd38
+[0410 10:27:49,321 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@6725bd38
+[0410 10:27:49,326 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0410 10:27:49,326 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0410 10:27:49,328 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0410 10:27:49,328 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0410 10:27:49,334 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b5552be1b0041, negotiated timeout = 5000
+[0410 10:27:49,334 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b5552be1b0040, negotiated timeout = 5000
+[0410 10:27:49,336 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@49c237ca
+[0410 10:27:49,337 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@49c237ca
+[0410 10:27:49,338 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0410 10:27:49,339 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0410 10:27:49,339 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0410 10:27:49,340 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0410 10:27:49,343 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b5552be1b0042, negotiated timeout = 5000
+[0410 10:27:49,343 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b5552be1b0043, negotiated timeout = 5000
+[0410 10:27:49,460 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - locCustomer was started ...
+[0410 10:27:49,460 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - brokerUrl=tcp://192.168.1.219:61616
+[0410 10:27:49,934 WARN ] [main] com.lc.zy.common.coreservice.FreeSpaceCounter - FreeSpaceCounter and coreServiceOrdersLicense not define
+[0410 10:27:49,937 WARN ] [main] com.lc.zy.common.coreservice.OrdersCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0410 10:27:49,939 WARN ] [main] com.lc.zy.common.coreservice.Scores - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0410 10:27:49,942 WARN ] [main] com.lc.zy.common.coreservice.UserStatiumCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0410 10:27:49,957 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - locCustomer was started ...
+[0410 10:27:49,957 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - brokerUrl=tcp://192.168.1.219:61616
+[0410 10:27:58,637 INFO ] [291516717@qtp-1776357122-2] org.apache.shiro.session.mgt.AbstractValidatingSessionManager - Enabling session validation scheduler...
+[0410 10:28:02,475 INFO ] [291516717@qtp-1776357122-2] com.lc.zy.ball.boss.common.security.CaptchaFormAuthenticationFilter - tkd1登录成功
+[0410 10:28:02,713 DEBUG] [291516717@qtp-1776357122-2] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.User
+[0410 10:28:02,713 DEBUG] [291516717@qtp-1776357122-2] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : User
+[0410 10:28:02,866 DEBUG] [291516717@qtp-1776357122-2] com.lc.zy.ball.boss.framework.system.service.FunctionProvider - ===>> Load data from database...
+[0410 10:28:03,009 DEBUG] [291516717@qtp-1776357122-2] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/userinfo', 需要权限: null
+[0410 10:28:06,497 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0410 10:28:06,497 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0410 10:28:06,804 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.45b8925c7b1d4c0392f16a751b658861
+[0410 10:28:06,836 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:28:06,869 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.f8fd38c203fb4094aa85502543c3a055
+[0410 10:28:06,901 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:28:06,936 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.1d0ac9c69900487185a29b427b9c814e
+[0410 10:28:06,968 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:28:07,003 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.0b74e460021542d5b9d402e0c8dd61c0
+[0410 10:28:07,036 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:28:07,038 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.dd2ab99e9ca842ac834fc871cb087925
+[0410 10:28:07,070 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:28:07,072 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.ef708c34e916489ebb8d628d78659813
+[0410 10:28:07,410 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:28:07,414 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.8d8e59130a3b4c1f8d63d531c0744083
+[0410 10:28:07,450 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:28:07,453 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.84c2f8305e6e4d8ea89ed43e7a65edb2
+[0410 10:28:07,486 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:28:07,488 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.f9d69e85ad914be28328a3c39854e6b3
+[0410 10:28:07,523 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:28:07,525 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.3e29f7215155440795a786e972804592
+[0410 10:28:07,558 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:28:07,649 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000016
+[0410 10:28:07,835 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000003
+[0410 10:28:08,261 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=232
+[0410 10:28:08,680 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000005
+[0410 10:28:09,101 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=240
+[0410 10:28:09,224 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=235
+[0410 10:28:09,354 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=465
+[0410 10:28:09,482 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=223
+[0410 10:28:09,907 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=523
+[0410 10:28:10,032 DEBUG] [213435865@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=411
+[0410 10:28:10,240 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0410 10:28:10,241 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0410 10:28:10,377 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.45b8925c7b1d4c0392f16a751b658861
+[0410 10:28:10,411 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:28:10,449 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.f8fd38c203fb4094aa85502543c3a055
+[0410 10:28:10,481 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:28:10,514 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.1d0ac9c69900487185a29b427b9c814e
+[0410 10:28:10,546 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:28:10,583 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.0b74e460021542d5b9d402e0c8dd61c0
+[0410 10:28:10,616 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:28:10,617 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.dd2ab99e9ca842ac834fc871cb087925
+[0410 10:28:10,648 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:28:10,650 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.ef708c34e916489ebb8d628d78659813
+[0410 10:28:10,682 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:28:10,685 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.8d8e59130a3b4c1f8d63d531c0744083
+[0410 10:28:10,716 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:28:10,718 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.84c2f8305e6e4d8ea89ed43e7a65edb2
+[0410 10:28:10,750 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:28:10,753 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.f9d69e85ad914be28328a3c39854e6b3
+[0410 10:28:10,786 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:28:10,787 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.3e29f7215155440795a786e972804592
+[0410 10:28:10,819 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:28:10,908 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000016
+[0410 10:28:11,040 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000003
+[0410 10:28:11,163 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=232
+[0410 10:28:11,524 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000005
+[0410 10:28:11,647 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=240
+[0410 10:28:11,774 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=235
+[0410 10:28:11,903 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=465
+[0410 10:28:12,027 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=223
+[0410 10:28:12,150 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=523
+[0410 10:28:12,273 DEBUG] [1162434220@qtp-1776357122-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=411
+[0410 10:28:15,451 WARN ] [1162434220@qtp-1776357122-5] org.springframework.web.servlet.handler.SimpleMappingExceptionResolver - Handler execution resulted in exception
+org.mortbay.jetty.EofException
+	at org.mortbay.jetty.HttpGenerator.flush(HttpGenerator.java:791)
+	at org.mortbay.jetty.HttpGenerator.complete(HttpGenerator.java:678)
+	at org.mortbay.jetty.HttpConnection.commitResponse(HttpConnection.java:653)
+	at org.mortbay.jetty.HttpConnection$Output.sendContent(HttpConnection.java:1099)
+	at org.mortbay.jetty.servlet.DefaultServlet.sendData(DefaultServlet.java:715)
+	at org.mortbay.jetty.servlet.DefaultServlet.doGet(DefaultServlet.java:454)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:401)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:224)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler.handleRequest(DefaultServletHttpRequestHandler.java:120)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:49)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:65)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+Caused by: java.io.IOException: 您的主机中的软件中止了一个已建立的连接。
+	at sun.nio.ch.SocketDispatcher.write0(Native Method)
+	at sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:51)
+	at sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:93)
+	at sun.nio.ch.IOUtil.write(IOUtil.java:51)
+	at sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:487)
+	at org.mortbay.io.nio.ChannelEndPoint.flush(ChannelEndPoint.java:170)
+	at org.mortbay.io.nio.SelectChannelEndPoint.flush(SelectChannelEndPoint.java:221)
+	at org.mortbay.io.nio.ChannelEndPoint.flush(ChannelEndPoint.java:287)
+	at org.mortbay.io.nio.SelectChannelEndPoint.flush(SelectChannelEndPoint.java:211)
+	at org.mortbay.jetty.HttpGenerator.flush(HttpGenerator.java:717)
+	... 60 more
+[0410 10:28:59,261 WARN ] [1162434220@qtp-1776357122-5] org.springframework.web.servlet.handler.SimpleMappingExceptionResolver - Handler execution resulted in exception
+java.lang.RuntimeException: Value for dgId cannot be null
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$GeneratedCriteria.addCriterion(StatiumInfosCriteria.java:144)
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$GeneratedCriteria.andDgIdNotEqualTo(StatiumInfosCriteria.java:312)
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$Criteria.andDgIdNotEqualTo(StatiumInfosCriteria.java:1)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService.checkTel(StatiumOaInfoService.java:660)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService$$FastClassBySpringCGLIB$$ece5a429.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:150)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:96)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:260)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:94)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:172)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:633)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService$$EnhancerBySpringCGLIB$$3eaa6cd7.checkTel(<generated>)
+	at com.lc.zy.ball.boss.framework.statium.controller.StatiumOaController.checkPhone(StatiumOaController.java:439)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:685)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.obtainContent(SiteMeshFilter.java:129)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:77)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+[0410 10:28:59,361 ERROR] [1162434220@qtp-1776357122-5] 500.jsp - Value for dgId cannot be null
+java.lang.RuntimeException: Value for dgId cannot be null
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$GeneratedCriteria.addCriterion(StatiumInfosCriteria.java:144)
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$GeneratedCriteria.andDgIdNotEqualTo(StatiumInfosCriteria.java:312)
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$Criteria.andDgIdNotEqualTo(StatiumInfosCriteria.java:1)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService.checkTel(StatiumOaInfoService.java:660)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService$$FastClassBySpringCGLIB$$ece5a429.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:150)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:96)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:260)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:94)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:172)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:633)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService$$EnhancerBySpringCGLIB$$3eaa6cd7.checkTel(<generated>)
+	at com.lc.zy.ball.boss.framework.statium.controller.StatiumOaController.checkPhone(StatiumOaController.java:439)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:685)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.obtainContent(SiteMeshFilter.java:129)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:77)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+[0410 10:31:55,096 WARN ] [705149508@qtp-1776357122-6] org.springframework.web.servlet.handler.SimpleMappingExceptionResolver - Handler execution resulted in exception
+java.lang.RuntimeException: Value for dgId cannot be null
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$GeneratedCriteria.addCriterion(StatiumInfosCriteria.java:144)
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$GeneratedCriteria.andDgIdNotEqualTo(StatiumInfosCriteria.java:312)
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$Criteria.andDgIdNotEqualTo(StatiumInfosCriteria.java:1)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService.checkTel(StatiumOaInfoService.java:660)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService$$FastClassBySpringCGLIB$$ece5a429.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:150)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:96)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:260)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:94)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:172)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:633)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService$$EnhancerBySpringCGLIB$$3eaa6cd7.checkTel(<generated>)
+	at com.lc.zy.ball.boss.framework.statium.controller.StatiumOaController.checkPhone(StatiumOaController.java:439)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:685)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.obtainContent(SiteMeshFilter.java:129)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:77)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+[0410 10:31:55,100 ERROR] [705149508@qtp-1776357122-6] 500.jsp - Value for dgId cannot be null
+java.lang.RuntimeException: Value for dgId cannot be null
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$GeneratedCriteria.addCriterion(StatiumInfosCriteria.java:144)
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$GeneratedCriteria.andDgIdNotEqualTo(StatiumInfosCriteria.java:312)
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$Criteria.andDgIdNotEqualTo(StatiumInfosCriteria.java:1)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService.checkTel(StatiumOaInfoService.java:660)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService$$FastClassBySpringCGLIB$$ece5a429.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:150)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:96)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:260)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:94)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:172)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:633)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService$$EnhancerBySpringCGLIB$$3eaa6cd7.checkTel(<generated>)
+	at com.lc.zy.ball.boss.framework.statium.controller.StatiumOaController.checkPhone(StatiumOaController.java:439)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:685)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.obtainContent(SiteMeshFilter.java:129)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:77)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+[0410 10:34:43,989 WARN ] [333624863@qtp-1776357122-3] org.springframework.web.servlet.handler.SimpleMappingExceptionResolver - Handler execution resulted in exception
+java.lang.RuntimeException: Value for dgId cannot be null
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$GeneratedCriteria.addCriterion(StatiumInfosCriteria.java:144)
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$GeneratedCriteria.andDgIdNotEqualTo(StatiumInfosCriteria.java:312)
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$Criteria.andDgIdNotEqualTo(StatiumInfosCriteria.java:1)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService.checkTel(StatiumOaInfoService.java:660)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService$$FastClassBySpringCGLIB$$ece5a429.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:150)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:96)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:260)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:94)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:172)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:633)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService$$EnhancerBySpringCGLIB$$3eaa6cd7.checkTel(<generated>)
+	at com.lc.zy.ball.boss.framework.statium.controller.StatiumOaController.checkPhone(StatiumOaController.java:439)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:685)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.obtainContent(SiteMeshFilter.java:129)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:77)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+[0410 10:34:43,992 ERROR] [333624863@qtp-1776357122-3] 500.jsp - Value for dgId cannot be null
+java.lang.RuntimeException: Value for dgId cannot be null
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$GeneratedCriteria.addCriterion(StatiumInfosCriteria.java:144)
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$GeneratedCriteria.andDgIdNotEqualTo(StatiumInfosCriteria.java:312)
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$Criteria.andDgIdNotEqualTo(StatiumInfosCriteria.java:1)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService.checkTel(StatiumOaInfoService.java:660)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService$$FastClassBySpringCGLIB$$ece5a429.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:150)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:96)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:260)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:94)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:172)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:633)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService$$EnhancerBySpringCGLIB$$3eaa6cd7.checkTel(<generated>)
+	at com.lc.zy.ball.boss.framework.statium.controller.StatiumOaController.checkPhone(StatiumOaController.java:439)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:685)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.obtainContent(SiteMeshFilter.java:129)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:77)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+[0410 10:37:55,563 WARN ] [762380357@qtp-1776357122-14] org.springframework.web.servlet.handler.SimpleMappingExceptionResolver - Handler execution resulted in exception
+java.lang.RuntimeException: Value for dgId cannot be null
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$GeneratedCriteria.addCriterion(StatiumInfosCriteria.java:144)
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$GeneratedCriteria.andDgIdNotEqualTo(StatiumInfosCriteria.java:312)
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$Criteria.andDgIdNotEqualTo(StatiumInfosCriteria.java:1)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService.checkTel(StatiumOaInfoService.java:660)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService$$FastClassBySpringCGLIB$$ece5a429.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:150)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:96)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:260)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:94)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:172)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:633)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService$$EnhancerBySpringCGLIB$$3eaa6cd7.checkTel(<generated>)
+	at com.lc.zy.ball.boss.framework.statium.controller.StatiumOaController.checkPhone(StatiumOaController.java:439)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:685)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.obtainContent(SiteMeshFilter.java:129)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:77)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+[0410 10:37:55,565 ERROR] [762380357@qtp-1776357122-14] 500.jsp - Value for dgId cannot be null
+java.lang.RuntimeException: Value for dgId cannot be null
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$GeneratedCriteria.addCriterion(StatiumInfosCriteria.java:144)
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$GeneratedCriteria.andDgIdNotEqualTo(StatiumInfosCriteria.java:312)
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$Criteria.andDgIdNotEqualTo(StatiumInfosCriteria.java:1)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService.checkTel(StatiumOaInfoService.java:660)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService$$FastClassBySpringCGLIB$$ece5a429.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:150)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:96)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:260)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:94)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:172)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:633)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService$$EnhancerBySpringCGLIB$$3eaa6cd7.checkTel(<generated>)
+	at com.lc.zy.ball.boss.framework.statium.controller.StatiumOaController.checkPhone(StatiumOaController.java:439)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:685)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.obtainContent(SiteMeshFilter.java:129)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:77)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+[0410 10:37:57,177 WARN ] [347903466@qtp-1776357122-11] org.springframework.web.servlet.handler.SimpleMappingExceptionResolver - Handler execution resulted in exception
+java.lang.RuntimeException: Value for dgId cannot be null
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$GeneratedCriteria.addCriterion(StatiumInfosCriteria.java:144)
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$GeneratedCriteria.andDgIdNotEqualTo(StatiumInfosCriteria.java:312)
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$Criteria.andDgIdNotEqualTo(StatiumInfosCriteria.java:1)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService.checkTel(StatiumOaInfoService.java:660)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService$$FastClassBySpringCGLIB$$ece5a429.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:150)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:96)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:260)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:94)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:172)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:633)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService$$EnhancerBySpringCGLIB$$3eaa6cd7.checkTel(<generated>)
+	at com.lc.zy.ball.boss.framework.statium.controller.StatiumOaController.checkPhone(StatiumOaController.java:439)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:685)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.obtainContent(SiteMeshFilter.java:129)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:77)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+[0410 10:37:57,179 ERROR] [347903466@qtp-1776357122-11] 500.jsp - Value for dgId cannot be null
+java.lang.RuntimeException: Value for dgId cannot be null
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$GeneratedCriteria.addCriterion(StatiumInfosCriteria.java:144)
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$GeneratedCriteria.andDgIdNotEqualTo(StatiumInfosCriteria.java:312)
+	at com.lc.zy.ball.domain.oa.po.StatiumInfosCriteria$Criteria.andDgIdNotEqualTo(StatiumInfosCriteria.java:1)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService.checkTel(StatiumOaInfoService.java:660)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService$$FastClassBySpringCGLIB$$ece5a429.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:150)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:96)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:260)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:94)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:172)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:633)
+	at com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService$$EnhancerBySpringCGLIB$$3eaa6cd7.checkTel(<generated>)
+	at com.lc.zy.ball.boss.framework.statium.controller.StatiumOaController.checkPhone(StatiumOaController.java:439)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:685)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.obtainContent(SiteMeshFilter.java:129)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:77)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+[0410 10:39:51,509 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'crmFunctionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.CrmFunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0410 10:39:51,510 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'dicItemMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.DicItemMapperEx' mapperInterface. Bean already defined with the same name!
+[0410 10:39:51,510 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'functionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.FunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0410 10:39:51,510 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'operatorMapper' and 'com.lc.zy.ball.domain.oa.mapper.ex.OperatorMapper' mapperInterface. Bean already defined with the same name!
+[0410 10:39:51,510 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'organizationMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.OrganizationMapperEx' mapperInterface. Bean already defined with the same name!
+[0410 10:39:51,510 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'statisticUserMobileMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.StatisticUserMobileMapperEx' mapperInterface. Bean already defined with the same name!
+[0410 10:39:51,510 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'userMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.UserMapperEx' mapperInterface. Bean already defined with the same name!
+[0410 10:39:52,033 INFO ] [main] com.mchange.v2.log.MLog - MLog clients using log4j logging.
+[0410 10:39:52,087 INFO ] [main] com.mchange.v2.c3p0.C3P0Registry - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+[0410 10:39:52,928 INFO ] [main] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 2880, acquireRetryDelay -> 30000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 10000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge14u9nnscmignhm4on|62455eba, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge14u9nnscmignhm4on|62455eba, idleConnectionTestPeriod -> 120, initialPoolSize -> 5, jdbcUrl -> jdbc:mysql://60.219.169.5:3306/tkd_oa?zeroDateTimeBehavior=convertToNull&useUnicode=true, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 120, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[0410 10:39:55,077 INFO ] [main] org.apache.shiro.realm.AuthorizingRealm - No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+[0410 10:39:55,181 INFO ] [main] org.apache.shiro.cache.ehcache.EhCacheManager - Cache with name 'com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache' does not yet exist.  Creating now.
+[0410 10:39:55,207 INFO ] [main] org.apache.shiro.cache.ehcache.EhCacheManager - Added EhCache named [com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache]
+[0410 10:39:55,351 INFO ] [main] com.lc.zy.common.cache.MapperOnCacheSupport - exclude_cache_mapper ==> {OrderSms=true, OrderItem=true, OrderBill=true, Order=true, OrderBillItem=true, OrderAlarm=true, OrderLog=true}
+[0410 10:39:55,374 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheEnable = true
+[0410 10:39:55,375 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheServer = 192.168.1.219:6379
+[0410 10:39:55,379 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cachePwd = null
+[0410 10:39:55,392 ERROR] [main] com.lc.zy.common.cache.RedisPool - cache 初始化成功
+[0410 10:39:55,578 DEBUG] [main] com.lc.zy.common.util.SpringUtils - set application context ===> Root WebApplicationContext: startup date [Mon Apr 10 10:39:50 CST 2017]; root of context hierarchy
+[0410 10:39:55,758 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+[0410 10:39:55,758 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:host.name=J8LZEKL1TNCFRZY
+[0410 10:39:55,758 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.version=1.7.0_51
+[0410 10:39:55,758 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.vendor=Oracle Corporation
+[0410 10:39:55,758 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.home=C:\Program Files\Java\jdk1.7.0_51\jre
+[0410 10:39:55,758 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.class.path=G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-util-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jsp-api-2.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\run-jetty-run-bootstrap.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jsp-2.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-management-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\core-3.1.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\servlet-api-2.5-20081211.jar
+[0410 10:39:55,759 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.library.path=C:\Program Files\Java\jdk1.7.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Java\jdk1.7.0_51\jre\bin;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/bin/server;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/bin;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/lib/amd64;.;C:\Program Files\Java\jdk1.7.0_51\bin;C:\Program Files (x86)\Common Files\NetSarang;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;G:\apache-maven-3.3.1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;G:\apache-maven-3.3.1\bin;G:\mysql\bin;C:\Program Files\TortoiseSVN\bin;G:\apache-maven-3.3.1\bin;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\lib;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\bin;C:\Program Files\VisualSVN Server\bin;G:\eclipse-jee-mars-2-win32-x86_64\eclipse;;.
+[0410 10:39:55,759 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.io.tmpdir=C:\Users\ADMINI~1\AppData\Local\Temp\
+[0410 10:39:55,759 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.compiler=<NA>
+[0410 10:39:55,759 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.name=Windows 7
+[0410 10:39:55,759 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.arch=amd64
+[0410 10:39:55,759 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.version=6.1
+[0410 10:39:55,759 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.name=Administrator
+[0410 10:39:55,759 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.home=C:\Users\Administrator
+[0410 10:39:55,759 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.dir=G:\qzlspace6\tkd-boss
+[0410 10:39:55,760 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@7f390ee3
+[0410 10:39:55,787 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@7f390ee3
+[0410 10:39:55,792 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0410 10:39:55,792 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0410 10:39:55,795 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0410 10:39:55,798 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0410 10:39:55,810 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b5552be1b004c, negotiated timeout = 5000
+[0410 10:39:55,811 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b5552be1b004d, negotiated timeout = 5000
+[0410 10:39:55,812 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@482bbdf1
+[0410 10:39:55,814 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0410 10:39:55,814 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@482bbdf1
+[0410 10:39:55,816 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0410 10:39:55,817 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0410 10:39:55,818 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0410 10:39:55,823 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b5552be1b004e, negotiated timeout = 5000
+[0410 10:39:55,876 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b5552be1b004f, negotiated timeout = 5000
+[0410 10:39:56,031 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - locCustomer was started ...
+[0410 10:39:56,031 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - brokerUrl=tcp://192.168.1.219:61616
+[0410 10:39:56,528 WARN ] [main] com.lc.zy.common.coreservice.FreeSpaceCounter - FreeSpaceCounter and coreServiceOrdersLicense not define
+[0410 10:39:56,531 WARN ] [main] com.lc.zy.common.coreservice.OrdersCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0410 10:39:56,533 WARN ] [main] com.lc.zy.common.coreservice.Scores - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0410 10:39:56,536 WARN ] [main] com.lc.zy.common.coreservice.UserStatiumCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0410 10:39:56,552 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - locCustomer was started ...
+[0410 10:39:56,552 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - brokerUrl=tcp://192.168.1.219:61616
+[0410 10:40:00,224 INFO ] [131486814@qtp-1776357122-0] org.apache.shiro.session.mgt.AbstractValidatingSessionManager - Enabling session validation scheduler...
+[0410 10:40:05,688 INFO ] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.common.security.CaptchaFormAuthenticationFilter - tkd1登录成功
+[0410 10:40:06,812 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.User
+[0410 10:40:06,813 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : User
+[0410 10:41:04,635 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.controller.StatiumController - 保存道馆
+[0410 10:41:04,734 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.StatiumAuditLog
+[0410 10:41:04,734 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : StatiumAuditLog
+[0410 10:41:04,791 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.StatiumInfos
+[0410 10:41:04,791 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : StatiumInfos
+[0410 10:41:05,579 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCacheSupport - 缓存 insertSelective 方法异常 : null
+[0410 10:41:05,580 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCacheSupport - param : mapper=statiumInfosMapper ; cacheKey=statiumInfosMapper.5797e5b150b748e9a3937b42000add87
+[0410 10:41:05,581 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - OA道馆信息保存:null
+[0410 10:41:06,140 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.45b8925c7b1d4c0392f16a751b658861
+[0410 10:41:06,174 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:41:06,212 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.f8fd38c203fb4094aa85502543c3a055
+[0410 10:41:06,248 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:41:06,288 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.1d0ac9c69900487185a29b427b9c814e
+[0410 10:41:06,322 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:41:06,358 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.0b74e460021542d5b9d402e0c8dd61c0
+[0410 10:41:06,393 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:41:06,398 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.dd2ab99e9ca842ac834fc871cb087925
+[0410 10:41:06,432 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:41:06,433 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.ef708c34e916489ebb8d628d78659813
+[0410 10:41:06,467 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:41:06,468 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.8d8e59130a3b4c1f8d63d531c0744083
+[0410 10:41:06,500 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:41:06,504 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.84c2f8305e6e4d8ea89ed43e7a65edb2
+[0410 10:41:06,538 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:41:06,541 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.f9d69e85ad914be28328a3c39854e6b3
+[0410 10:41:06,582 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:41:06,586 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.3e29f7215155440795a786e972804592
+[0410 10:41:06,618 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:41:06,710 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000016
+[0410 10:41:07,194 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000003
+[0410 10:41:07,322 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=232
+[0410 10:41:07,448 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000005
+[0410 10:41:07,578 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=240
+[0410 10:41:07,706 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=235
+[0410 10:41:07,834 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=465
+[0410 10:41:07,958 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=223
+[0410 10:41:08,090 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=523
+[0410 10:41:08,216 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=411
+[0410 10:41:24,527 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0410 10:41:24,527 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0410 10:41:31,419 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0410 10:41:31,420 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0410 10:41:31,520 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.1d0ac9c69900487185a29b427b9c814e
+[0410 10:41:31,551 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:41:31,587 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.435ff5c1f6f8439cae5cdd1e9ea98707
+[0410 10:41:31,621 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:41:31,711 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=232
+[0410 10:41:31,833 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=224
+[0410 10:41:38,364 WARN ] [1826907065@qtp-1776357122-4] org.springframework.web.servlet.handler.SimpleMappingExceptionResolver - Handler execution resulted in exception
+org.mortbay.jetty.EofException
+	at org.mortbay.jetty.HttpGenerator.flush(HttpGenerator.java:791)
+	at org.mortbay.jetty.HttpGenerator.complete(HttpGenerator.java:678)
+	at org.mortbay.jetty.HttpConnection.commitResponse(HttpConnection.java:653)
+	at org.mortbay.jetty.HttpConnection$Output.sendContent(HttpConnection.java:1099)
+	at org.mortbay.jetty.servlet.DefaultServlet.sendData(DefaultServlet.java:715)
+	at org.mortbay.jetty.servlet.DefaultServlet.doGet(DefaultServlet.java:454)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:401)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:224)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler.handleRequest(DefaultServletHttpRequestHandler.java:120)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:49)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:65)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+Caused by: java.io.IOException: 您的主机中的软件中止了一个已建立的连接。
+	at sun.nio.ch.SocketDispatcher.write0(Native Method)
+	at sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:51)
+	at sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:93)
+	at sun.nio.ch.IOUtil.write(IOUtil.java:51)
+	at sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:487)
+	at org.mortbay.io.nio.ChannelEndPoint.flush(ChannelEndPoint.java:170)
+	at org.mortbay.io.nio.SelectChannelEndPoint.flush(SelectChannelEndPoint.java:221)
+	at org.mortbay.io.nio.ChannelEndPoint.flush(ChannelEndPoint.java:287)
+	at org.mortbay.io.nio.SelectChannelEndPoint.flush(SelectChannelEndPoint.java:211)
+	at org.mortbay.jetty.HttpGenerator.flush(HttpGenerator.java:717)
+	... 60 more
+[0410 10:41:59,980 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.controller.StatiumController - 保存道馆
+[0410 10:42:00,016 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.StatiumAuditLog
+[0410 10:42:00,017 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : StatiumAuditLog
+[0410 10:42:00,286 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.StatiumInfos
+[0410 10:42:00,287 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : StatiumInfos
+[0410 10:42:00,609 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCacheSupport - 缓存 insertSelective 方法异常 : null
+[0410 10:42:00,609 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCacheSupport - param : mapper=statiumInfosMapper ; cacheKey=statiumInfosMapper.0b5500495f594f4c99eead1b28c727d2
+[0410 10:42:00,611 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - OA道馆信息保存:null
+[0410 10:42:00,902 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.45b8925c7b1d4c0392f16a751b658861
+[0410 10:42:00,933 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:42:00,967 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.f8fd38c203fb4094aa85502543c3a055
+[0410 10:42:00,998 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:42:01,038 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.1d0ac9c69900487185a29b427b9c814e
+[0410 10:42:01,073 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:42:01,109 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.0b74e460021542d5b9d402e0c8dd61c0
+[0410 10:42:01,143 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:42:01,145 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.dd2ab99e9ca842ac834fc871cb087925
+[0410 10:42:01,178 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:42:01,181 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.ef708c34e916489ebb8d628d78659813
+[0410 10:42:01,214 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:42:01,217 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.8d8e59130a3b4c1f8d63d531c0744083
+[0410 10:42:01,250 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:42:01,252 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.84c2f8305e6e4d8ea89ed43e7a65edb2
+[0410 10:42:01,286 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:42:01,290 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.f9d69e85ad914be28328a3c39854e6b3
+[0410 10:42:01,323 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:42:01,324 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.3e29f7215155440795a786e972804592
+[0410 10:42:01,358 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:42:01,448 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000016
+[0410 10:42:02,007 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000003
+[0410 10:42:03,294 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=232
+[0410 10:42:04,027 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000005
+[0410 10:42:04,173 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=240
+[0410 10:42:04,305 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=235
+[0410 10:42:05,784 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=465
+[0410 10:42:05,910 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=223
+[0410 10:42:06,342 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=523
+[0410 10:42:06,711 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=411
+[0410 10:43:25,782 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0410 10:43:25,782 DEBUG] [1826907065@qtp-1776357122-4] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0410 10:44:25,799 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'crmFunctionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.CrmFunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0410 10:44:25,799 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'dicItemMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.DicItemMapperEx' mapperInterface. Bean already defined with the same name!
+[0410 10:44:25,799 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'functionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.FunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0410 10:44:25,799 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'operatorMapper' and 'com.lc.zy.ball.domain.oa.mapper.ex.OperatorMapper' mapperInterface. Bean already defined with the same name!
+[0410 10:44:25,799 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'organizationMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.OrganizationMapperEx' mapperInterface. Bean already defined with the same name!
+[0410 10:44:25,800 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'statisticUserMobileMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.StatisticUserMobileMapperEx' mapperInterface. Bean already defined with the same name!
+[0410 10:44:25,800 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'userMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.UserMapperEx' mapperInterface. Bean already defined with the same name!
+[0410 10:44:26,272 INFO ] [main] com.mchange.v2.log.MLog - MLog clients using log4j logging.
+[0410 10:44:26,327 INFO ] [main] com.mchange.v2.c3p0.C3P0Registry - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+[0410 10:44:27,155 INFO ] [main] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 2880, acquireRetryDelay -> 30000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 10000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge14u9nnsii4816gn9y4|6972975c, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge14u9nnsii4816gn9y4|6972975c, idleConnectionTestPeriod -> 120, initialPoolSize -> 5, jdbcUrl -> jdbc:mysql://60.219.169.5:3306/tkd_oa?zeroDateTimeBehavior=convertToNull&useUnicode=true, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 120, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[0410 10:44:29,127 INFO ] [main] org.apache.shiro.realm.AuthorizingRealm - No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+[0410 10:44:29,222 INFO ] [main] org.apache.shiro.cache.ehcache.EhCacheManager - Cache with name 'com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache' does not yet exist.  Creating now.
+[0410 10:44:29,247 INFO ] [main] org.apache.shiro.cache.ehcache.EhCacheManager - Added EhCache named [com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache]
+[0410 10:44:29,392 INFO ] [main] com.lc.zy.common.cache.MapperOnCacheSupport - exclude_cache_mapper ==> {OrderSms=true, OrderItem=true, OrderBill=true, Order=true, OrderBillItem=true, OrderAlarm=true, OrderLog=true}
+[0410 10:44:29,414 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheEnable = true
+[0410 10:44:29,414 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheServer = 192.168.1.219:6379
+[0410 10:44:29,419 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cachePwd = null
+[0410 10:44:29,430 ERROR] [main] com.lc.zy.common.cache.RedisPool - cache 初始化成功
+[0410 10:44:29,574 DEBUG] [main] com.lc.zy.common.util.SpringUtils - set application context ===> Root WebApplicationContext: startup date [Mon Apr 10 10:44:24 CST 2017]; root of context hierarchy
+[0410 10:44:29,751 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+[0410 10:44:29,751 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:host.name=J8LZEKL1TNCFRZY
+[0410 10:44:29,752 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.version=1.7.0_51
+[0410 10:44:29,752 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.vendor=Oracle Corporation
+[0410 10:44:29,752 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.home=C:\Program Files\Java\jdk1.7.0_51\jre
+[0410 10:44:29,752 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.class.path=G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-util-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jsp-api-2.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\run-jetty-run-bootstrap.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jsp-2.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-management-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\core-3.1.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\servlet-api-2.5-20081211.jar
+[0410 10:44:29,752 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.library.path=C:\Program Files\Java\jdk1.7.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Java\jdk1.7.0_51\jre\bin;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/bin/server;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/bin;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/lib/amd64;.;C:\Program Files\Java\jdk1.7.0_51\bin;C:\Program Files (x86)\Common Files\NetSarang;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;G:\apache-maven-3.3.1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;G:\apache-maven-3.3.1\bin;G:\mysql\bin;C:\Program Files\TortoiseSVN\bin;G:\apache-maven-3.3.1\bin;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\lib;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\bin;C:\Program Files\VisualSVN Server\bin;G:\eclipse-jee-mars-2-win32-x86_64\eclipse;;.
+[0410 10:44:29,752 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.io.tmpdir=C:\Users\ADMINI~1\AppData\Local\Temp\
+[0410 10:44:29,752 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.compiler=<NA>
+[0410 10:44:29,752 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.name=Windows 7
+[0410 10:44:29,752 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.arch=amd64
+[0410 10:44:29,752 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.version=6.1
+[0410 10:44:29,752 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.name=Administrator
+[0410 10:44:29,752 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.home=C:\Users\Administrator
+[0410 10:44:29,752 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.dir=G:\qzlspace6\tkd-boss
+[0410 10:44:29,753 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@be7500f
+[0410 10:44:29,776 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@be7500f
+[0410 10:44:29,781 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0410 10:44:29,781 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0410 10:44:29,783 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0410 10:44:29,783 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0410 10:44:29,791 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b5552be1b0051, negotiated timeout = 5000
+[0410 10:44:29,791 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b5552be1b0050, negotiated timeout = 5000
+[0410 10:44:29,793 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@482bbdf1
+[0410 10:44:29,795 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@482bbdf1
+[0410 10:44:29,795 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0410 10:44:29,796 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0410 10:44:29,797 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0410 10:44:29,799 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0410 10:44:29,799 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b5552be1b0052, negotiated timeout = 5000
+[0410 10:44:29,801 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b5552be1b0053, negotiated timeout = 5000
+[0410 10:44:29,935 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - locCustomer was started ...
+[0410 10:44:29,935 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - brokerUrl=tcp://192.168.1.219:61616
+[0410 10:44:30,405 WARN ] [main] com.lc.zy.common.coreservice.FreeSpaceCounter - FreeSpaceCounter and coreServiceOrdersLicense not define
+[0410 10:44:30,408 WARN ] [main] com.lc.zy.common.coreservice.OrdersCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0410 10:44:30,410 WARN ] [main] com.lc.zy.common.coreservice.Scores - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0410 10:44:30,413 WARN ] [main] com.lc.zy.common.coreservice.UserStatiumCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0410 10:44:30,428 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - locCustomer was started ...
+[0410 10:44:30,429 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - brokerUrl=tcp://192.168.1.219:61616
+[0410 10:44:39,466 INFO ] [500242152@qtp-1829574210-2] org.apache.shiro.session.mgt.AbstractValidatingSessionManager - Enabling session validation scheduler...
+[0410 10:44:42,722 INFO ] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.common.security.CaptchaFormAuthenticationFilter - tkd1登录成功
+[0410 10:44:43,325 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.User
+[0410 10:44:43,325 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : User
+[0410 10:44:43,505 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0410 10:44:43,505 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0410 10:44:50,396 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.45b8925c7b1d4c0392f16a751b658861
+[0410 10:44:50,428 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:44:50,463 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.f8fd38c203fb4094aa85502543c3a055
+[0410 10:44:50,496 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:44:50,533 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.1d0ac9c69900487185a29b427b9c814e
+[0410 10:44:50,569 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:44:50,611 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.0b74e460021542d5b9d402e0c8dd61c0
+[0410 10:44:50,645 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:44:50,648 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.dd2ab99e9ca842ac834fc871cb087925
+[0410 10:44:50,686 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:44:50,689 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.ef708c34e916489ebb8d628d78659813
+[0410 10:44:50,722 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:44:50,723 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.8d8e59130a3b4c1f8d63d531c0744083
+[0410 10:44:50,757 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:44:50,758 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.84c2f8305e6e4d8ea89ed43e7a65edb2
+[0410 10:44:50,791 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:44:50,793 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.f9d69e85ad914be28328a3c39854e6b3
+[0410 10:44:50,828 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:44:50,830 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.3e29f7215155440795a786e972804592
+[0410 10:44:50,862 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:44:53,571 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000016
+[0410 10:44:53,733 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000003
+[0410 10:44:53,863 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=232
+[0410 10:44:53,989 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000005
+[0410 10:44:54,114 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=240
+[0410 10:44:54,240 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=235
+[0410 10:44:54,368 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=465
+[0410 10:44:54,792 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=223
+[0410 10:44:54,926 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=523
+[0410 10:44:55,050 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=411
+[0410 10:45:27,413 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.controller.StatiumController - 保存道馆
+[0410 10:45:48,383 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.StatiumAuditLog
+[0410 10:45:48,383 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : StatiumAuditLog
+[0410 10:45:49,914 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.StatiumInfos
+[0410 10:45:49,914 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : StatiumInfos
+[0410 10:45:50,460 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCacheSupport - 缓存 insertSelective 方法异常 : null
+[0410 10:45:50,460 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCacheSupport - param : mapper=statiumInfosMapper ; cacheKey=statiumInfosMapper.3758b76606d44deaac6957a93bd9ec76
+[0410 10:49:52,662 DEBUG] [Thread-16] com.lc.zy.common.mq.QueueProducer - send:::>SYNC_STATIUM_QUEUE1000005
+[0410 10:49:53,275 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.45b8925c7b1d4c0392f16a751b658861
+[0410 10:49:53,358 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:49:53,395 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.f8fd38c203fb4094aa85502543c3a055
+[0410 10:49:53,427 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:49:53,460 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.1d0ac9c69900487185a29b427b9c814e
+[0410 10:49:53,491 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:49:53,525 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.0b74e460021542d5b9d402e0c8dd61c0
+[0410 10:49:53,557 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:49:53,559 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.dd2ab99e9ca842ac834fc871cb087925
+[0410 10:49:53,590 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:49:53,592 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.ef708c34e916489ebb8d628d78659813
+[0410 10:49:53,626 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:49:53,629 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.8d8e59130a3b4c1f8d63d531c0744083
+[0410 10:49:53,661 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:49:53,663 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.84c2f8305e6e4d8ea89ed43e7a65edb2
+[0410 10:49:53,694 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:49:53,696 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.f9d69e85ad914be28328a3c39854e6b3
+[0410 10:49:53,728 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:49:53,730 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.3e29f7215155440795a786e972804592
+[0410 10:49:53,762 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:49:53,851 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000016
+[0410 10:49:54,003 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000003
+[0410 10:49:54,501 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=232
+[0410 10:49:54,624 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000005
+[0410 10:49:54,750 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=240
+[0410 10:49:54,879 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=235
+[0410 10:49:55,024 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=465
+[0410 10:49:55,165 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=223
+[0410 10:49:55,294 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=523
+[0410 10:49:55,416 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=411
+[0410 10:51:39,695 WARN ] [1008689198@qtp-1829574210-5] org.springframework.web.servlet.handler.SimpleMappingExceptionResolver - Handler execution resulted in exception
+org.mortbay.jetty.EofException
+	at org.mortbay.jetty.HttpGenerator.flush(HttpGenerator.java:791)
+	at org.mortbay.jetty.HttpGenerator.complete(HttpGenerator.java:678)
+	at org.mortbay.jetty.HttpConnection.commitResponse(HttpConnection.java:653)
+	at org.mortbay.jetty.HttpConnection$Output.sendContent(HttpConnection.java:1099)
+	at org.mortbay.jetty.servlet.DefaultServlet.sendData(DefaultServlet.java:715)
+	at org.mortbay.jetty.servlet.DefaultServlet.doGet(DefaultServlet.java:454)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:401)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:224)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler.handleRequest(DefaultServletHttpRequestHandler.java:120)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:49)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:65)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+Caused by: java.io.IOException: 您的主机中的软件中止了一个已建立的连接。
+	at sun.nio.ch.SocketDispatcher.write0(Native Method)
+	at sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:51)
+	at sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:93)
+	at sun.nio.ch.IOUtil.write(IOUtil.java:51)
+	at sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:487)
+	at org.mortbay.io.nio.ChannelEndPoint.flush(ChannelEndPoint.java:170)
+	at org.mortbay.io.nio.SelectChannelEndPoint.flush(SelectChannelEndPoint.java:221)
+	at org.mortbay.io.nio.ChannelEndPoint.flush(ChannelEndPoint.java:287)
+	at org.mortbay.io.nio.SelectChannelEndPoint.flush(SelectChannelEndPoint.java:211)
+	at org.mortbay.jetty.HttpGenerator.flush(HttpGenerator.java:717)
+	... 60 more
+[0410 10:52:07,812 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.controller.StatiumController - 保存道馆
+[0410 10:52:09,415 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.StatiumAuditLog
+[0410 10:52:09,415 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : StatiumAuditLog
+[0410 10:52:16,265 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.StatiumInfos
+[0410 10:52:16,266 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : StatiumInfos
+[0410 10:52:19,429 DEBUG] [Thread-16] com.lc.zy.common.mq.QueueProducer - send:::>SYNC_STATIUM_QUEUE1000006
+[0410 10:52:22,178 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.d6e7526d28b64c9caf575f17490707b1
+[0410 10:52:22,252 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:52:22,285 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.45b8925c7b1d4c0392f16a751b658861
+[0410 10:52:22,316 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:52:22,351 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.f8fd38c203fb4094aa85502543c3a055
+[0410 10:52:22,382 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:52:22,416 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.1d0ac9c69900487185a29b427b9c814e
+[0410 10:52:22,494 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:52:22,495 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.0b74e460021542d5b9d402e0c8dd61c0
+[0410 10:52:22,531 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:52:22,533 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.dd2ab99e9ca842ac834fc871cb087925
+[0410 10:52:22,565 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:52:22,567 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.ef708c34e916489ebb8d628d78659813
+[0410 10:52:22,849 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:52:22,852 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.8d8e59130a3b4c1f8d63d531c0744083
+[0410 10:52:22,885 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:52:22,888 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.84c2f8305e6e4d8ea89ed43e7a65edb2
+[0410 10:52:22,923 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:52:22,926 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.f9d69e85ad914be28328a3c39854e6b3
+[0410 10:52:22,962 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:52:23,053 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000006
+[0410 10:52:24,012 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000016
+[0410 10:52:24,217 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000003
+[0410 10:52:24,339 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=232
+[0410 10:52:24,465 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000005
+[0410 10:52:24,588 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=240
+[0410 10:52:24,708 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=235
+[0410 10:52:24,834 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=465
+[0410 10:52:24,956 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=223
+[0410 10:52:25,082 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=523
+[0410 10:52:35,968 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 删除缓存 deleteByPrimaryKey : k=statiumInfosMapper.d6e7526d28b64c9caf575f17490707b1
+[0410 10:52:36,167 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 删除数据 deleteByPrimaryKey : pk=d6e7526d28b64c9caf575f17490707b1
+[0410 10:52:36,174 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - 删除道馆课程:For input string: "d6e7526d28b64c9caf575f17490707b1"
+[0410 10:52:36,647 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0410 10:52:36,648 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0410 10:52:36,777 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.45b8925c7b1d4c0392f16a751b658861
+[0410 10:52:36,808 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:52:36,840 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.f8fd38c203fb4094aa85502543c3a055
+[0410 10:52:36,872 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:52:36,905 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.1d0ac9c69900487185a29b427b9c814e
+[0410 10:52:36,938 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:52:36,977 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.0b74e460021542d5b9d402e0c8dd61c0
+[0410 10:52:37,010 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:52:37,013 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.dd2ab99e9ca842ac834fc871cb087925
+[0410 10:52:37,046 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:52:37,049 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.ef708c34e916489ebb8d628d78659813
+[0410 10:52:37,082 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:52:37,088 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.8d8e59130a3b4c1f8d63d531c0744083
+[0410 10:52:37,122 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:52:37,124 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.84c2f8305e6e4d8ea89ed43e7a65edb2
+[0410 10:52:37,158 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:52:37,160 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.f9d69e85ad914be28328a3c39854e6b3
+[0410 10:52:37,193 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:52:37,196 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.3e29f7215155440795a786e972804592
+[0410 10:52:37,228 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:52:37,318 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000016
+[0410 10:52:37,747 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000003
+[0410 10:52:37,870 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=232
+[0410 10:52:38,297 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000005
+[0410 10:52:38,423 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=240
+[0410 10:52:38,547 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=235
+[0410 10:52:38,672 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=465
+[0410 10:52:38,797 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=223
+[0410 10:52:38,925 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=523
+[0410 10:52:39,045 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=411
+[0410 10:53:07,750 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.controller.StatiumController - 保存道馆
+[0410 10:53:07,789 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.StatiumAuditLog
+[0410 10:53:07,790 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : StatiumAuditLog
+[0410 10:53:07,850 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.StatiumInfos
+[0410 10:53:07,851 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : StatiumInfos
+[0410 10:53:08,028 DEBUG] [Thread-16] com.lc.zy.common.mq.QueueProducer - send:::>SYNC_STATIUM_QUEUE1000007
+[0410 10:53:08,352 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.8cc0ec53e7ee41d8b91fc5e99d1d7e09
+[0410 10:53:08,388 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:53:08,425 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.45b8925c7b1d4c0392f16a751b658861
+[0410 10:53:08,458 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:53:08,491 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.f8fd38c203fb4094aa85502543c3a055
+[0410 10:53:08,522 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:53:08,555 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.1d0ac9c69900487185a29b427b9c814e
+[0410 10:53:08,586 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:53:08,588 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.0b74e460021542d5b9d402e0c8dd61c0
+[0410 10:53:08,619 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:53:08,621 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.dd2ab99e9ca842ac834fc871cb087925
+[0410 10:53:08,652 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:53:08,654 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.ef708c34e916489ebb8d628d78659813
+[0410 10:53:08,980 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:53:08,983 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.8d8e59130a3b4c1f8d63d531c0744083
+[0410 10:53:09,015 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:53:09,017 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.84c2f8305e6e4d8ea89ed43e7a65edb2
+[0410 10:53:09,049 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:53:09,053 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.f9d69e85ad914be28328a3c39854e6b3
+[0410 10:53:09,086 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:53:10,376 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000007
+[0410 10:53:10,497 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000016
+[0410 10:53:10,620 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000003
+[0410 10:53:11,047 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=232
+[0410 10:53:11,171 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000005
+[0410 10:53:11,298 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=240
+[0410 10:53:11,559 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=235
+[0410 10:53:11,688 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=465
+[0410 10:53:11,813 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=223
+[0410 10:53:11,937 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=523
+[0410 10:53:18,924 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 删除缓存 deleteByPrimaryKey : k=statiumInfosMapper.8cc0ec53e7ee41d8b91fc5e99d1d7e09
+[0410 10:53:18,962 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 删除数据 deleteByPrimaryKey : pk=8cc0ec53e7ee41d8b91fc5e99d1d7e09
+[0410 10:53:18,964 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - 删除道馆课程:For input string: "8cc0ec53e7ee41d8b91fc5e99d1d7e09"
+[0410 10:53:19,054 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0410 10:53:19,054 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0410 10:53:19,236 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.45b8925c7b1d4c0392f16a751b658861
+[0410 10:53:19,274 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:53:19,312 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.f8fd38c203fb4094aa85502543c3a055
+[0410 10:53:19,344 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:53:19,378 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.1d0ac9c69900487185a29b427b9c814e
+[0410 10:53:19,410 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:53:19,445 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.0b74e460021542d5b9d402e0c8dd61c0
+[0410 10:53:19,477 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:53:19,481 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.dd2ab99e9ca842ac834fc871cb087925
+[0410 10:53:19,513 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:53:19,514 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.ef708c34e916489ebb8d628d78659813
+[0410 10:53:19,546 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:53:19,548 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.8d8e59130a3b4c1f8d63d531c0744083
+[0410 10:53:19,580 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:53:19,582 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.84c2f8305e6e4d8ea89ed43e7a65edb2
+[0410 10:53:19,613 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:53:19,617 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.f9d69e85ad914be28328a3c39854e6b3
+[0410 10:53:19,652 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:53:19,655 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.3e29f7215155440795a786e972804592
+[0410 10:53:19,689 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0410 10:53:19,781 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000016
+[0410 10:53:19,905 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000003
+[0410 10:53:20,157 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=232
+[0410 10:53:20,279 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000005
+[0410 10:53:20,403 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=240
+[0410 10:53:20,526 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=235
+[0410 10:53:20,655 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=465
+[0410 10:53:20,781 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=223
+[0410 10:53:20,908 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=523
+[0410 10:53:21,332 DEBUG] [1008689198@qtp-1829574210-5] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=411

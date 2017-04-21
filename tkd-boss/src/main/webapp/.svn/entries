@@ -1,0 +1,77 @@
+10
+
+dir
+2902
+svn://60.219.169.5/tkd-service/tkd-boss/src/main/webapp
+svn://60.219.169.5
+
+
+
+2017-04-18T09:50:38.796477Z
+2902
+zzq
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e17fb043-18cf-44bc-ac00-38d8c88cbd66
+
+META-INF
+dir
+
+WEB-INF
+dir
+
+demo
+dir
+
+favicon.ico
+file
+
+
+
+
+2017-04-07T06:20:06.763000Z
+5176b007d4178128fc4d24a8ed0fd981
+2017-02-15T08:20:08.446026Z
+2292
+zzq
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1711
+
+logs
+dir
+
+static
+dir
+

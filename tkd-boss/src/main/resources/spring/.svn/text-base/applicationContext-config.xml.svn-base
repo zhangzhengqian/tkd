@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<!-- 系统静态资源配置 开发时，值取自 properties，测试和生产时，值取自 pom.profiles -->
+	<bean id="configs" class="java.util.HashMap">
+		<constructor-arg>
+			<map>
+				<entry key="zoo.server" value="${zoo.server}" />
+				<entry key="redis.server" value="${redis.server}" />
+				<!-- <entry key="fileserver.baseurl" value="${fileserver.baseurl}" /> -->
+				
+				<entry key="brokerUrl">
+					<value><![CDATA[${brokerUrl}]]></value>
+				</entry>
+				<!-- mongo 中的 日志查询服务 coreService -->
+				<!-- <entry key="mlogHost" value="${mlogHost}" />
+				<entry key="mlogLicense" value="${mlogLicense}" />
+				<entry key="coreServiceOrdersHost" value="${coreServiceOrdersHost}" />
+				<entry key="coreServiceOrdersLicense" value="${coreServiceOrdersLicense}" /> -->
+				
+				<!-- 微信/微信公众平台退款证书路径 -->
+			  	<entry key="certPath">
+					<value><![CDATA[${certPath}]]></value>
+				</entry>
+
+				<entry key="url.refund">
+					<value><![CDATA[https://api.mch.weixin.qq.com/secapi/pay/refund]]></value>
+				</entry>
+				<entry key="app_id">
+					<value><![CDATA[${appId}]]></value>
+				</entry>
+				
+				<entry key="services.solr_server" >
+					<value><![CDATA[${services.solr_server}]]></value>
+				</entry>
+				
+				<entry key="weixinDomain">
+					<value>${weixin_domain}</value>
+				</entry>
+				
+				<!-- 七牛云服务器 -->
+				<entry key="fileserver.access_key">
+					<value>${fileserver.access_key}</value>
+				</entry>
+				<entry key="fileserver.secret_key">
+					<value>${fileserver.secret_key}</value>
+				</entry>
+				<entry key="fileserver.bucketname">
+					<value>${fileserver.bucketname}</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="version" class="java.lang.String" >
+    	<constructor-arg index="0" value="${prefix.revision}" />
+    </bean>
+	
+</beans>

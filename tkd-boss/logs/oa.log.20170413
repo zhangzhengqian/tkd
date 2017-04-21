@@ -1,0 +1,534 @@
+[0413 11:17:28,676 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'crmFunctionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.CrmFunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0413 11:17:28,680 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'dicItemMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.DicItemMapperEx' mapperInterface. Bean already defined with the same name!
+[0413 11:17:28,681 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'functionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.FunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0413 11:17:28,681 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'operatorMapper' and 'com.lc.zy.ball.domain.oa.mapper.ex.OperatorMapper' mapperInterface. Bean already defined with the same name!
+[0413 11:17:28,681 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'organizationMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.OrganizationMapperEx' mapperInterface. Bean already defined with the same name!
+[0413 11:17:28,681 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'statisticUserMobileMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.StatisticUserMobileMapperEx' mapperInterface. Bean already defined with the same name!
+[0413 11:17:28,681 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'userMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.UserMapperEx' mapperInterface. Bean already defined with the same name!
+[0413 11:17:29,370 INFO ] [main] com.mchange.v2.log.MLog - MLog clients using log4j logging.
+[0413 11:17:29,431 INFO ] [main] com.mchange.v2.c3p0.C3P0Registry - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+[0413 11:17:30,299 INFO ] [main] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 2880, acquireRetryDelay -> 30000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 10000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge14u9ns40kae1naqqxs|ff224ab, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge14u9ns40kae1naqqxs|ff224ab, idleConnectionTestPeriod -> 120, initialPoolSize -> 5, jdbcUrl -> jdbc:mysql://60.219.169.5:3306/tkd_oa?zeroDateTimeBehavior=convertToNull&useUnicode=true, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 120, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[0413 11:17:32,306 INFO ] [main] org.apache.shiro.realm.AuthorizingRealm - No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+[0413 11:17:32,409 INFO ] [main] org.apache.shiro.cache.ehcache.EhCacheManager - Cache with name 'com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache' does not yet exist.  Creating now.
+[0413 11:17:32,436 INFO ] [main] org.apache.shiro.cache.ehcache.EhCacheManager - Added EhCache named [com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache]
+[0413 11:17:32,594 INFO ] [main] com.lc.zy.common.cache.MapperOnCacheSupport - exclude_cache_mapper ==> {OrderSms=true, OrderItem=true, OrderBill=true, Order=true, OrderBillItem=true, OrderAlarm=true, OrderLog=true}
+[0413 11:17:32,621 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheEnable = true
+[0413 11:17:32,621 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheServer = 192.168.1.219:6379
+[0413 11:17:32,626 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cachePwd = null
+[0413 11:17:32,642 ERROR] [main] com.lc.zy.common.cache.RedisPool - cache 初始化成功
+[0413 11:17:32,815 DEBUG] [main] com.lc.zy.common.util.SpringUtils - set application context ===> Root WebApplicationContext: startup date [Thu Apr 13 11:17:26 CST 2017]; root of context hierarchy
+[0413 11:17:32,997 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+[0413 11:17:32,997 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:host.name=J8LZEKL1TNCFRZY
+[0413 11:17:32,997 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.version=1.7.0_51
+[0413 11:17:32,997 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.vendor=Oracle Corporation
+[0413 11:17:32,997 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.home=C:\Program Files\Java\jdk1.7.0_51\jre
+[0413 11:17:32,997 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.class.path=G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-util-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jsp-api-2.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\run-jetty-run-bootstrap.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jsp-2.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-management-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\core-3.1.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\servlet-api-2.5-20081211.jar
+[0413 11:17:32,997 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.library.path=C:\Program Files\Java\jdk1.7.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Java\jdk1.7.0_51\jre\bin;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/bin/server;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/bin;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/lib/amd64;.;C:\Program Files\Java\jdk1.7.0_51\bin;C:\Program Files (x86)\Common Files\NetSarang;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;G:\apache-maven-3.3.1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;G:\apache-maven-3.3.1\bin;G:\mysql\bin;C:\Program Files\TortoiseSVN\bin;G:\apache-maven-3.3.1\bin;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\lib;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\bin;C:\Program Files\VisualSVN Server\bin;G:\eclipse-jee-mars-2-win32-x86_64\eclipse;;.
+[0413 11:17:32,997 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.io.tmpdir=C:\Users\ADMINI~1\AppData\Local\Temp\
+[0413 11:17:32,997 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.compiler=<NA>
+[0413 11:17:32,997 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.name=Windows 7
+[0413 11:17:32,997 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.arch=amd64
+[0413 11:17:32,997 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.version=6.1
+[0413 11:17:32,998 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.name=Administrator
+[0413 11:17:32,998 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.home=C:\Users\Administrator
+[0413 11:17:32,998 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.dir=G:\qzlspace6\tkd-boss
+[0413 11:17:32,999 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@34d24c94
+[0413 11:17:33,022 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@34d24c94
+[0413 11:17:33,026 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0413 11:17:33,026 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0413 11:17:33,028 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0413 11:17:33,030 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0413 11:17:33,042 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b64c072a40029, negotiated timeout = 5000
+[0413 11:17:33,042 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b64c072a40028, negotiated timeout = 5000
+[0413 11:17:33,044 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@16257bf6
+[0413 11:17:33,046 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@16257bf6
+[0413 11:17:33,046 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0413 11:17:33,047 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0413 11:17:33,047 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0413 11:17:33,049 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0413 11:17:33,053 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b64c072a4002a, negotiated timeout = 5000
+[0413 11:17:33,058 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b64c072a4002b, negotiated timeout = 5000
+[0413 11:17:33,179 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - locCustomer was started ...
+[0413 11:17:33,179 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - brokerUrl=tcp://192.168.1.219:61616
+[0413 11:17:33,653 WARN ] [main] com.lc.zy.common.coreservice.FreeSpaceCounter - FreeSpaceCounter and coreServiceOrdersLicense not define
+[0413 11:17:33,656 WARN ] [main] com.lc.zy.common.coreservice.OrdersCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0413 11:17:33,658 WARN ] [main] com.lc.zy.common.coreservice.Scores - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0413 11:17:33,661 WARN ] [main] com.lc.zy.common.coreservice.UserStatiumCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0413 11:17:33,678 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - locCustomer was started ...
+[0413 11:17:33,678 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - brokerUrl=tcp://192.168.1.219:61616
+[0413 11:17:50,856 INFO ] [2095814993@qtp-1982889724-4] org.apache.shiro.session.mgt.AbstractValidatingSessionManager - Enabling session validation scheduler...
+[0413 11:18:06,135 INFO ] [622668920@qtp-1982889724-6] com.lc.zy.ball.boss.common.security.CaptchaFormAuthenticationFilter - tkd1登录成功
+[0413 11:18:06,989 DEBUG] [622668920@qtp-1982889724-6] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.User
+[0413 11:18:06,990 DEBUG] [622668920@qtp-1982889724-6] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : User
+[0413 11:18:07,225 DEBUG] [622668920@qtp-1982889724-6] com.lc.zy.ball.boss.framework.system.service.FunctionProvider - ===>> Load data from database...
+[0413 11:18:07,802 DEBUG] [622668920@qtp-1982889724-6] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/userinfo', 需要权限: null
+[0413 11:18:25,550 DEBUG] [2095814993@qtp-1982889724-4] com.lc.zy.ball.boss.framework.ssouser.controller.SsoUserController - {}
+[0413 11:18:25,553 DEBUG] [2095814993@qtp-1982889724-4] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0413 11:18:25,553 DEBUG] [2095814993@qtp-1982889724-4] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0413 11:18:33,415 WARN ] [2095814993@qtp-1982889724-4] org.springframework.web.servlet.handler.SimpleMappingExceptionResolver - Handler execution resulted in exception
+org.mortbay.jetty.EofException
+	at org.mortbay.jetty.HttpGenerator.flush(HttpGenerator.java:791)
+	at org.mortbay.jetty.HttpGenerator.complete(HttpGenerator.java:678)
+	at org.mortbay.jetty.HttpConnection.commitResponse(HttpConnection.java:653)
+	at org.mortbay.jetty.HttpConnection$Output.sendContent(HttpConnection.java:1099)
+	at org.mortbay.jetty.servlet.DefaultServlet.sendData(DefaultServlet.java:715)
+	at org.mortbay.jetty.servlet.DefaultServlet.doGet(DefaultServlet.java:454)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:401)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:224)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler.handleRequest(DefaultServletHttpRequestHandler.java:120)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:49)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:65)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+Caused by: java.io.IOException: 您的主机中的软件中止了一个已建立的连接。
+	at sun.nio.ch.SocketDispatcher.write0(Native Method)
+	at sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:51)
+	at sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:93)
+	at sun.nio.ch.IOUtil.write(IOUtil.java:51)
+	at sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:487)
+	at org.mortbay.io.nio.ChannelEndPoint.flush(ChannelEndPoint.java:170)
+	at org.mortbay.io.nio.SelectChannelEndPoint.flush(SelectChannelEndPoint.java:221)
+	at org.mortbay.io.nio.ChannelEndPoint.flush(ChannelEndPoint.java:287)
+	at org.mortbay.io.nio.SelectChannelEndPoint.flush(SelectChannelEndPoint.java:211)
+	at org.mortbay.jetty.HttpGenerator.flush(HttpGenerator.java:717)
+	... 60 more
+[0413 11:18:45,701 DEBUG] [1035718756@qtp-1982889724-7] com.lc.zy.ball.boss.common.web.UploaderController - -------------->upfile
+[0413 11:18:45,702 DEBUG] [1035718756@qtp-1982889724-7] com.lc.zy.ball.boss.common.web.UploaderController - -----------------------------------
+[0413 11:18:45,702 DEBUG] [1035718756@qtp-1982889724-7] com.lc.zy.ball.boss.common.web.UploaderController - file_key : upfile
+[0413 11:18:45,702 DEBUG] [1035718756@qtp-1982889724-7] com.lc.zy.ball.boss.common.web.UploaderController - name : upfile
+[0413 11:18:45,702 DEBUG] [1035718756@qtp-1982889724-7] com.lc.zy.ball.boss.common.web.UploaderController - size : 7065
+[0413 11:18:45,702 DEBUG] [1035718756@qtp-1982889724-7] com.lc.zy.ball.boss.common.web.UploaderController - contentType : application/octet-stream
+[0413 11:18:45,702 DEBUG] [1035718756@qtp-1982889724-7] com.lc.zy.ball.boss.common.web.UploaderController - originalFilename : 下载.png
+[0413 11:18:45,702 DEBUG] [1035718756@qtp-1982889724-7] com.lc.zy.ball.boss.common.web.UploaderController - -----------------------------------
+[0413 11:18:46,019 WARN ] [1035718756@qtp-1982889724-7] org.apache.commons.httpclient.HttpMethodBase - Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+[0413 11:18:46,072 WARN ] [1035718756@qtp-1982889724-7] org.apache.commons.httpclient.HttpMethodBase - Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+[0413 11:18:46,073 DEBUG] [1035718756@qtp-1982889724-7] com.lc.zy.ball.boss.common.web.UploaderController - upFile.id=5c3483c35aab4ac5959c80887a5fb2de
+[0413 11:18:46,075 DEBUG] [1035718756@qtp-1982889724-7] com.lc.zy.ball.boss.common.web.UploaderController - {"success":true,"url":"http://fileserver.qiuyouzone.com/fileserver/get/5c3483c35aab4ac5959c80887a5fb2de"}
+[0413 11:19:00,858 WARN ] [1035718756@qtp-1982889724-7] org.springframework.web.servlet.handler.SimpleMappingExceptionResolver - Handler execution resulted in exception
+org.mortbay.jetty.EofException
+	at org.mortbay.jetty.HttpGenerator.flush(HttpGenerator.java:791)
+	at org.mortbay.jetty.HttpGenerator.complete(HttpGenerator.java:678)
+	at org.mortbay.jetty.HttpConnection.commitResponse(HttpConnection.java:653)
+	at org.mortbay.jetty.HttpConnection$Output.sendContent(HttpConnection.java:1099)
+	at org.mortbay.jetty.servlet.DefaultServlet.sendData(DefaultServlet.java:715)
+	at org.mortbay.jetty.servlet.DefaultServlet.doGet(DefaultServlet.java:454)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:401)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:224)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler.handleRequest(DefaultServletHttpRequestHandler.java:120)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:49)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:65)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+Caused by: java.io.IOException: 您的主机中的软件中止了一个已建立的连接。
+	at sun.nio.ch.SocketDispatcher.write0(Native Method)
+	at sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:51)
+	at sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:93)
+	at sun.nio.ch.IOUtil.write(IOUtil.java:51)
+	at sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:487)
+	at org.mortbay.io.nio.ChannelEndPoint.flush(ChannelEndPoint.java:170)
+	at org.mortbay.io.nio.SelectChannelEndPoint.flush(SelectChannelEndPoint.java:221)
+	at org.mortbay.io.nio.ChannelEndPoint.flush(ChannelEndPoint.java:287)
+	at org.mortbay.io.nio.SelectChannelEndPoint.flush(SelectChannelEndPoint.java:211)
+	at org.mortbay.jetty.HttpGenerator.flush(HttpGenerator.java:717)
+	... 60 more
+[0413 11:19:00,879 WARN ] [1035718756@qtp-1982889724-7] org.springframework.web.servlet.handler.SimpleMappingExceptionResolver - Handler execution resulted in exception
+org.mortbay.jetty.EofException
+	at org.mortbay.jetty.HttpGenerator.flush(HttpGenerator.java:791)
+	at org.mortbay.jetty.HttpGenerator.complete(HttpGenerator.java:678)
+	at org.mortbay.jetty.HttpConnection.commitResponse(HttpConnection.java:653)
+	at org.mortbay.jetty.HttpConnection$Output.sendContent(HttpConnection.java:1099)
+	at org.mortbay.jetty.servlet.DefaultServlet.sendData(DefaultServlet.java:715)
+	at org.mortbay.jetty.servlet.DefaultServlet.doGet(DefaultServlet.java:454)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:401)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:224)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler.handleRequest(DefaultServletHttpRequestHandler.java:120)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:49)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:65)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+Caused by: java.io.IOException: 您的主机中的软件中止了一个已建立的连接。
+	at sun.nio.ch.SocketDispatcher.write0(Native Method)
+	at sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:51)
+	at sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:93)
+	at sun.nio.ch.IOUtil.write(IOUtil.java:51)
+	at sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:487)
+	at org.mortbay.io.nio.ChannelEndPoint.flush(ChannelEndPoint.java:170)
+	at org.mortbay.io.nio.SelectChannelEndPoint.flush(SelectChannelEndPoint.java:221)
+	at org.mortbay.io.nio.ChannelEndPoint.flush(ChannelEndPoint.java:287)
+	at org.mortbay.io.nio.SelectChannelEndPoint.flush(SelectChannelEndPoint.java:211)
+	at org.mortbay.jetty.HttpGenerator.flush(HttpGenerator.java:717)
+	... 60 more
+[0413 11:25:13,531 DEBUG] [1035718756@qtp-1982889724-7] com.lc.zy.ball.boss.common.web.UploaderController - -------------->upfile
+[0413 11:25:13,531 DEBUG] [1035718756@qtp-1982889724-7] com.lc.zy.ball.boss.common.web.UploaderController - -----------------------------------
+[0413 11:25:13,531 DEBUG] [1035718756@qtp-1982889724-7] com.lc.zy.ball.boss.common.web.UploaderController - file_key : upfile
+[0413 11:25:13,531 DEBUG] [1035718756@qtp-1982889724-7] com.lc.zy.ball.boss.common.web.UploaderController - name : upfile
+[0413 11:25:13,531 DEBUG] [1035718756@qtp-1982889724-7] com.lc.zy.ball.boss.common.web.UploaderController - size : 14725
+[0413 11:25:13,532 DEBUG] [1035718756@qtp-1982889724-7] com.lc.zy.ball.boss.common.web.UploaderController - contentType : application/octet-stream
+[0413 11:25:13,532 DEBUG] [1035718756@qtp-1982889724-7] com.lc.zy.ball.boss.common.web.UploaderController - originalFilename : 221道馆二维码.png
+[0413 11:25:13,532 DEBUG] [1035718756@qtp-1982889724-7] com.lc.zy.ball.boss.common.web.UploaderController - -----------------------------------
+[0413 11:25:13,808 WARN ] [1035718756@qtp-1982889724-7] org.apache.commons.httpclient.HttpMethodBase - Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+[0413 11:25:13,859 WARN ] [1035718756@qtp-1982889724-7] org.apache.commons.httpclient.HttpMethodBase - Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+[0413 11:25:13,859 DEBUG] [1035718756@qtp-1982889724-7] com.lc.zy.ball.boss.common.web.UploaderController - upFile.id=a673f5ebadca4e04a5f3179c297b512b
+[0413 11:25:13,859 DEBUG] [1035718756@qtp-1982889724-7] com.lc.zy.ball.boss.common.web.UploaderController - {"success":true,"url":"http://fileserver.qiuyouzone.com/fileserver/get/a673f5ebadca4e04a5f3179c297b512b"}
+[0413 12:23:51,154 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'crmFunctionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.CrmFunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0413 12:23:51,155 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'dicItemMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.DicItemMapperEx' mapperInterface. Bean already defined with the same name!
+[0413 12:23:51,155 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'functionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.FunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0413 12:23:51,155 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'operatorMapper' and 'com.lc.zy.ball.domain.oa.mapper.ex.OperatorMapper' mapperInterface. Bean already defined with the same name!
+[0413 12:23:51,155 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'organizationMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.OrganizationMapperEx' mapperInterface. Bean already defined with the same name!
+[0413 12:23:51,156 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'statisticUserMobileMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.StatisticUserMobileMapperEx' mapperInterface. Bean already defined with the same name!
+[0413 12:23:51,156 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'userMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.UserMapperEx' mapperInterface. Bean already defined with the same name!
+[0413 12:23:51,753 INFO ] [main] com.mchange.v2.log.MLog - MLog clients using log4j logging.
+[0413 12:23:51,819 INFO ] [main] com.mchange.v2.c3p0.C3P0Registry - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+[0413 12:23:52,652 INFO ] [main] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 2880, acquireRetryDelay -> 30000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 10000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge14u9ns6dx451qfyvdb|2a66b0df, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge14u9ns6dx451qfyvdb|2a66b0df, idleConnectionTestPeriod -> 120, initialPoolSize -> 5, jdbcUrl -> jdbc:mysql://60.219.169.5:3306/tkd_oa?zeroDateTimeBehavior=convertToNull&useUnicode=true, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 120, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[0413 12:23:54,644 INFO ] [main] org.apache.shiro.realm.AuthorizingRealm - No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+[0413 12:23:54,773 INFO ] [main] org.apache.shiro.cache.ehcache.EhCacheManager - Cache with name 'com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache' does not yet exist.  Creating now.
+[0413 12:23:54,800 INFO ] [main] org.apache.shiro.cache.ehcache.EhCacheManager - Added EhCache named [com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache]
+[0413 12:23:54,957 INFO ] [main] com.lc.zy.common.cache.MapperOnCacheSupport - exclude_cache_mapper ==> {OrderSms=true, OrderItem=true, OrderBill=true, Order=true, OrderBillItem=true, OrderAlarm=true, OrderLog=true}
+[0413 12:23:54,987 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheEnable = true
+[0413 12:23:54,987 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheServer = 192.168.1.219:6379
+[0413 12:23:54,992 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cachePwd = null
+[0413 12:23:55,005 ERROR] [main] com.lc.zy.common.cache.RedisPool - cache 初始化成功
+[0413 12:23:55,227 DEBUG] [main] com.lc.zy.common.util.SpringUtils - set application context ===> Root WebApplicationContext: startup date [Thu Apr 13 12:23:49 CST 2017]; root of context hierarchy
+[0413 12:23:55,481 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+[0413 12:23:55,481 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:host.name=J8LZEKL1TNCFRZY
+[0413 12:23:55,481 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.version=1.7.0_51
+[0413 12:23:55,481 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.vendor=Oracle Corporation
+[0413 12:23:55,481 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.home=C:\Program Files\Java\jdk1.7.0_51\jre
+[0413 12:23:55,481 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.class.path=G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-util-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jsp-api-2.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\run-jetty-run-bootstrap.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jsp-2.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-management-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\core-3.1.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\servlet-api-2.5-20081211.jar
+[0413 12:23:55,481 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.library.path=C:\Program Files\Java\jdk1.7.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Java\jdk1.7.0_51\jre\bin;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/bin/server;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/bin;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/lib/amd64;.;C:\Program Files\Java\jdk1.7.0_51\bin;C:\Program Files (x86)\Common Files\NetSarang;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;G:\apache-maven-3.3.1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;G:\apache-maven-3.3.1\bin;G:\mysql\bin;C:\Program Files\TortoiseSVN\bin;G:\apache-maven-3.3.1\bin;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\lib;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\bin;C:\Program Files\VisualSVN Server\bin;G:\eclipse-jee-mars-2-win32-x86_64\eclipse;;.
+[0413 12:23:55,481 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.io.tmpdir=C:\Users\ADMINI~1\AppData\Local\Temp\
+[0413 12:23:55,481 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.compiler=<NA>
+[0413 12:23:55,481 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.name=Windows 7
+[0413 12:23:55,482 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.arch=amd64
+[0413 12:23:55,482 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.version=6.1
+[0413 12:23:55,482 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.name=Administrator
+[0413 12:23:55,482 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.home=C:\Users\Administrator
+[0413 12:23:55,482 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.dir=G:\qzlspace6\tkd-boss
+[0413 12:23:55,483 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@4848ab42
+[0413 12:23:55,505 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@4848ab42
+[0413 12:23:55,509 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0413 12:23:55,509 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0413 12:23:55,512 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0413 12:23:55,512 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0413 12:23:55,701 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b64c072a40031, negotiated timeout = 5000
+[0413 12:23:55,701 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b64c072a40030, negotiated timeout = 5000
+[0413 12:23:55,708 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@6a233503
+[0413 12:23:55,712 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@6a233503
+[0413 12:23:55,712 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0413 12:23:55,717 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0413 12:23:55,717 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0413 12:23:55,719 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0413 12:23:56,054 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b64c072a40032, negotiated timeout = 5000
+[0413 12:23:57,104 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b64c072a40033, negotiated timeout = 5000
+[0413 12:23:57,250 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - locCustomer was started ...
+[0413 12:23:57,250 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - brokerUrl=tcp://192.168.1.219:61616
+[0413 12:23:57,711 WARN ] [main] com.lc.zy.common.coreservice.FreeSpaceCounter - FreeSpaceCounter and coreServiceOrdersLicense not define
+[0413 12:23:57,714 WARN ] [main] com.lc.zy.common.coreservice.OrdersCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0413 12:23:57,716 WARN ] [main] com.lc.zy.common.coreservice.Scores - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0413 12:23:57,719 WARN ] [main] com.lc.zy.common.coreservice.UserStatiumCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0413 12:23:57,735 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - locCustomer was started ...
+[0413 12:23:57,735 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - brokerUrl=tcp://192.168.1.219:61616
+[0413 12:24:06,704 INFO ] [1113085303@qtp-1176729623-3] org.apache.shiro.session.mgt.AbstractValidatingSessionManager - Enabling session validation scheduler...
+[0413 12:24:10,477 INFO ] [1371878595@qtp-1176729623-2] com.lc.zy.ball.boss.common.security.CaptchaFormAuthenticationFilter - tkd1登录成功
+[0413 12:24:10,707 DEBUG] [1371878595@qtp-1176729623-2] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.User
+[0413 12:24:10,707 DEBUG] [1371878595@qtp-1176729623-2] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : User
+[0413 12:24:10,854 DEBUG] [1371878595@qtp-1176729623-2] com.lc.zy.ball.boss.framework.system.service.FunctionProvider - ===>> Load data from database...
+[0413 12:24:10,953 DEBUG] [1371878595@qtp-1176729623-2] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/userinfo', 需要权限: null
+[0413 12:24:17,382 DEBUG] [1371878595@qtp-1176729623-2] com.lc.zy.ball.boss.framework.ssouser.controller.SsoUserController - {}
+[0413 12:24:17,385 DEBUG] [1371878595@qtp-1176729623-2] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0413 12:24:17,386 DEBUG] [1371878595@qtp-1176729623-2] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0413 12:24:22,458 WARN ] [1371878595@qtp-1176729623-2] org.springframework.web.servlet.handler.SimpleMappingExceptionResolver - Handler execution resulted in exception
+org.mortbay.jetty.EofException
+	at org.mortbay.jetty.HttpGenerator.flush(HttpGenerator.java:791)
+	at org.mortbay.jetty.HttpGenerator.complete(HttpGenerator.java:678)
+	at org.mortbay.jetty.HttpConnection.commitResponse(HttpConnection.java:653)
+	at org.mortbay.jetty.HttpConnection$Output.sendContent(HttpConnection.java:1099)
+	at org.mortbay.jetty.servlet.DefaultServlet.sendData(DefaultServlet.java:715)
+	at org.mortbay.jetty.servlet.DefaultServlet.doGet(DefaultServlet.java:454)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:401)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:224)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler.handleRequest(DefaultServletHttpRequestHandler.java:120)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:49)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:65)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+Caused by: java.io.IOException: 您的主机中的软件中止了一个已建立的连接。
+	at sun.nio.ch.SocketDispatcher.write0(Native Method)
+	at sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:51)
+	at sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:93)
+	at sun.nio.ch.IOUtil.write(IOUtil.java:51)
+	at sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:487)
+	at org.mortbay.io.nio.ChannelEndPoint.flush(ChannelEndPoint.java:170)
+	at org.mortbay.io.nio.SelectChannelEndPoint.flush(SelectChannelEndPoint.java:221)
+	at org.mortbay.io.nio.ChannelEndPoint.flush(ChannelEndPoint.java:287)
+	at org.mortbay.io.nio.SelectChannelEndPoint.flush(SelectChannelEndPoint.java:211)
+	at org.mortbay.jetty.HttpGenerator.flush(HttpGenerator.java:717)
+	... 60 more
+[0413 12:24:25,446 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Client session timed out, have not heard from server in 3333ms for sessionid 0x15b64c072a40033, closing socket connection and attempting reconnect
+[0413 12:24:25,520 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Client session timed out, have not heard from server in 3333ms for sessionid 0x15b64c072a40030, closing socket connection and attempting reconnect
+[0413 12:24:25,522 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Client session timed out, have not heard from server in 3333ms for sessionid 0x15b64c072a40031, closing socket connection and attempting reconnect
+[0413 12:24:25,712 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Client session timed out, have not heard from server in 3333ms for sessionid 0x15b64c072a40032, closing socket connection and attempting reconnect
+[0413 12:24:26,833 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0413 12:24:27,359 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0413 12:24:27,419 DEBUG] [1113085303@qtp-1176729623-3] com.lc.zy.ball.boss.common.web.UploaderController - -------------->upfile
+[0413 12:24:27,419 DEBUG] [1113085303@qtp-1176729623-3] com.lc.zy.ball.boss.common.web.UploaderController - -----------------------------------
+[0413 12:24:27,419 DEBUG] [1113085303@qtp-1176729623-3] com.lc.zy.ball.boss.common.web.UploaderController - file_key : upfile
+[0413 12:24:27,419 DEBUG] [1113085303@qtp-1176729623-3] com.lc.zy.ball.boss.common.web.UploaderController - name : upfile
+[0413 12:24:27,419 DEBUG] [1113085303@qtp-1176729623-3] com.lc.zy.ball.boss.common.web.UploaderController - size : 14725
+[0413 12:24:27,419 DEBUG] [1113085303@qtp-1176729623-3] com.lc.zy.ball.boss.common.web.UploaderController - contentType : application/octet-stream
+[0413 12:24:27,419 DEBUG] [1113085303@qtp-1176729623-3] com.lc.zy.ball.boss.common.web.UploaderController - originalFilename : 221道馆二维码.png
+[0413 12:24:27,419 DEBUG] [1113085303@qtp-1176729623-3] com.lc.zy.ball.boss.common.web.UploaderController - -----------------------------------
+[0413 12:24:27,608 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0413 12:24:27,727 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0413 12:24:27,727 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0413 12:24:27,727 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0413 12:24:27,731 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b64c072a40033, negotiated timeout = 5000
+[0413 12:24:27,732 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b64c072a40031, negotiated timeout = 5000
+[0413 12:24:27,733 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b64c072a40030, negotiated timeout = 5000
+[0413 12:24:27,735 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0413 12:24:27,736 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0413 12:24:27,738 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b64c072a40032, negotiated timeout = 5000
+[0413 12:24:30,851 WARN ] [1113085303@qtp-1176729623-3] org.apache.commons.httpclient.HttpMethodBase - Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+[0413 12:24:30,894 WARN ] [1113085303@qtp-1176729623-3] org.apache.commons.httpclient.HttpMethodBase - Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+[0413 12:24:30,894 DEBUG] [1113085303@qtp-1176729623-3] com.lc.zy.ball.boss.common.web.UploaderController - upFile.id=0690f12eee65443b90db7940c37c8ef0
+[0413 12:24:47,770 DEBUG] [1113085303@qtp-1176729623-3] com.lc.zy.ball.boss.common.web.UploaderController - {"success":true,"url":"http://fileserver.qiuyouzone.com/fileserver/get/0690f12eee65443b90db7940c37c8ef0"}
+[0413 12:26:22,565 DEBUG] [613703753@qtp-1176729623-4] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.SsoUser
+[0413 12:26:22,565 DEBUG] [613703753@qtp-1176729623-4] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : SsoUser
+[0413 12:26:23,227 DEBUG] [613703753@qtp-1176729623-4] com.lc.zy.ball.boss.framework.ssouser.controller.SsoUserController - {}
+[0413 12:26:23,228 DEBUG] [613703753@qtp-1176729623-4] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0413 12:26:23,228 DEBUG] [613703753@qtp-1176729623-4] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0413 12:26:33,272 DEBUG] [613703753@qtp-1176729623-4] com.lc.zy.ball.boss.framework.ssouser.controller.SsoUserController - {EQ_activeState=, EQ_level=, EQ_registSource=, EQ_sex=, EQ_state=, GTE_createTime=, GTE_registTime=, LIKE_cardId=, LIKE_city=, LIKE_nickName=ceshi, LIKE_phone=, LIKE_tkdNo=, LTE_createTime=, LTE_registTime=}
+[0413 12:26:33,273 DEBUG] [613703753@qtp-1176729623-4] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0413 12:26:33,273 DEBUG] [613703753@qtp-1176729623-4] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0413 12:26:40,966 DEBUG] [613703753@qtp-1176729623-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = ssoUserMapper.6ba8428bebfd47b6b984715c89673309
+[0413 12:26:41,042 DEBUG] [613703753@qtp-1176729623-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : com.lc.zy.ball.domain.oa.po.SsoUser@6e6ccf9d[
+  id=6ba8428bebfd47b6b984715c89673309
+  username=
+  phone=13521832729
+  password=<null>
+  email=
+  photo=http://fileserver.qiuyouzone.com/fileserver/get/0690f12eee65443b90db7940c37c8ef0
+  nickName=ceshi
+  sex=男
+  birthday=<null>
+  identityType=<null>
+  cardId=123123
+  age=<null>
+  address=雪宫北38
+  property=普通
+  tags=<null>
+  name=ceshi123
+  tkdNo=10000087
+  isattestation=0
+  sign=<null>
+  job=<null>
+  price=<null>
+  app=<null>
+  level=0
+  createUser=<null>
+  updateUser=<null>
+  createTime=<null>
+  updateTime=<null>
+  state=1
+  certList=<null>
+  elegantList=<null>
+  city=110101
+  activeState=0
+  registSource=<null>
+  registTime=Thu Apr 13 00:00:00 CST 2017
+  dan=<null>
+  experience=0
+  statiumId=<null>
+]

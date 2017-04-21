@@ -1,0 +1,783 @@
+[0407 14:22:30,267 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'crmFunctionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.CrmFunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0407 14:22:30,268 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'dicItemMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.DicItemMapperEx' mapperInterface. Bean already defined with the same name!
+[0407 14:22:30,268 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'functionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.FunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0407 14:22:30,268 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'operatorMapper' and 'com.lc.zy.ball.domain.oa.mapper.ex.OperatorMapper' mapperInterface. Bean already defined with the same name!
+[0407 14:22:30,268 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'organizationMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.OrganizationMapperEx' mapperInterface. Bean already defined with the same name!
+[0407 14:22:30,268 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'statisticUserMobileMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.StatisticUserMobileMapperEx' mapperInterface. Bean already defined with the same name!
+[0407 14:22:30,268 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'userMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.UserMapperEx' mapperInterface. Bean already defined with the same name!
+[0407 14:22:30,799 INFO ] [main] com.mchange.v2.log.MLog - MLog clients using log4j logging.
+[0407 14:22:30,862 INFO ] [main] com.mchange.v2.c3p0.C3P0Registry - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+[0407 14:22:31,729 INFO ] [main] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 2880, acquireRetryDelay -> 30000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 10000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge14u9njpze7it14432|266d2a46, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge14u9njpze7it14432|266d2a46, idleConnectionTestPeriod -> 120, initialPoolSize -> 5, jdbcUrl -> jdbc:mysql://60.219.169.5:3306/tkd_oa?zeroDateTimeBehavior=convertToNull&useUnicode=true, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 120, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[0407 14:22:33,823 INFO ] [main] org.apache.shiro.realm.AuthorizingRealm - No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+[0407 14:22:33,933 INFO ] [main] org.apache.shiro.cache.ehcache.EhCacheManager - Cache with name 'com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache' does not yet exist.  Creating now.
+[0407 14:22:33,961 INFO ] [main] org.apache.shiro.cache.ehcache.EhCacheManager - Added EhCache named [com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache]
+[0407 14:22:34,145 INFO ] [main] com.lc.zy.common.cache.MapperOnCacheSupport - exclude_cache_mapper ==> {OrderSms=true, OrderItem=true, OrderBill=true, Order=true, OrderBillItem=true, OrderAlarm=true, OrderLog=true}
+[0407 14:22:34,168 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheEnable = true
+[0407 14:22:34,169 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheServer = 192.168.1.219:6379
+[0407 14:22:34,174 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cachePwd = null
+[0407 14:22:34,186 ERROR] [main] com.lc.zy.common.cache.RedisPool - cache 初始化成功
+[0407 14:22:34,389 DEBUG] [main] com.lc.zy.common.util.SpringUtils - set application context ===> Root WebApplicationContext: startup date [Fri Apr 07 14:22:29 CST 2017]; root of context hierarchy
+[0407 14:22:34,545 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+[0407 14:22:34,546 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:host.name=J8LZEKL1TNCFRZY
+[0407 14:22:34,546 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.version=1.7.0_51
+[0407 14:22:34,546 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.vendor=Oracle Corporation
+[0407 14:22:34,546 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.home=C:\Program Files\Java\jdk1.7.0_51\jre
+[0407 14:22:34,546 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.class.path=G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-util-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jsp-api-2.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\run-jetty-run-bootstrap.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jsp-2.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-management-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\core-3.1.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\servlet-api-2.5-20081211.jar
+[0407 14:22:34,546 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.library.path=C:\Program Files\Java\jdk1.7.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Java\jdk1.7.0_51\jre\bin;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/bin/server;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/bin;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/lib/amd64;.;C:\Program Files\Java\jdk1.7.0_51\bin;C:\Program Files (x86)\Common Files\NetSarang;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;G:\apache-maven-3.3.1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;G:\apache-maven-3.3.1\bin;G:\mysql\bin;C:\Program Files\TortoiseSVN\bin;G:\apache-maven-3.3.1\bin;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\lib;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\bin;C:\Program Files\VisualSVN Server\bin;G:\eclipse-jee-mars-2-win32-x86_64\eclipse;;.
+[0407 14:22:34,546 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.io.tmpdir=C:\Users\ADMINI~1\AppData\Local\Temp\
+[0407 14:22:34,546 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.compiler=<NA>
+[0407 14:22:34,547 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.name=Windows 7
+[0407 14:22:34,547 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.arch=amd64
+[0407 14:22:34,547 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.version=6.1
+[0407 14:22:34,547 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.name=Administrator
+[0407 14:22:34,547 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.home=C:\Users\Administrator
+[0407 14:22:34,547 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.dir=G:\qzlspace6\tkd-boss
+[0407 14:22:34,549 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@12256c4b
+[0407 14:22:34,576 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@12256c4b
+[0407 14:22:34,580 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0407 14:22:34,580 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0407 14:22:34,584 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0407 14:22:34,592 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b45e9029c0038, negotiated timeout = 5000
+[0407 14:22:37,579 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0407 14:22:37,585 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b45e9029c0039, negotiated timeout = 5000
+[0407 14:22:37,586 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@4c56f4ac
+[0407 14:22:37,587 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@4c56f4ac
+[0407 14:22:37,587 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0407 14:22:37,589 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0407 14:22:37,589 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0407 14:22:37,590 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0407 14:22:37,595 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b45e9029c003a, negotiated timeout = 5000
+[0407 14:22:37,598 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b45e9029c003b, negotiated timeout = 5000
+[0407 14:22:37,723 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - locCustomer was started ...
+[0407 14:22:37,724 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - brokerUrl=tcp://192.168.1.219:61616
+[0407 14:22:38,203 WARN ] [main] com.lc.zy.common.coreservice.FreeSpaceCounter - FreeSpaceCounter and coreServiceOrdersLicense not define
+[0407 14:22:38,206 WARN ] [main] com.lc.zy.common.coreservice.OrdersCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0407 14:22:38,209 WARN ] [main] com.lc.zy.common.coreservice.Scores - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0407 14:22:38,211 WARN ] [main] com.lc.zy.common.coreservice.UserStatiumCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0407 14:22:38,228 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - locCustomer was started ...
+[0407 14:22:38,228 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - brokerUrl=tcp://192.168.1.219:61616
+[0407 14:25:45,527 INFO ] [1078577841@qtp-1117868538-0] org.apache.shiro.session.mgt.AbstractValidatingSessionManager - Enabling session validation scheduler...
+[0407 14:25:49,143 INFO ] [1078577841@qtp-1117868538-0] com.lc.zy.ball.boss.common.security.CaptchaFormAuthenticationFilter - tkd1登录成功
+[0407 14:25:49,557 DEBUG] [1078577841@qtp-1117868538-0] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.User
+[0407 14:25:49,557 DEBUG] [1078577841@qtp-1117868538-0] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : User
+[0407 14:25:49,740 DEBUG] [1078577841@qtp-1117868538-0] com.lc.zy.ball.boss.framework.system.service.FunctionProvider - ===>> Load data from database...
+[0407 14:25:49,813 DEBUG] [1078577841@qtp-1117868538-0] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/userinfo', 需要权限: null
+[0407 14:25:51,178 DEBUG] [291544287@qtp-1117868538-3] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/userinfo', 需要权限: null
+[0407 14:27:05,485 DEBUG] [1078577841@qtp-1117868538-0] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func', 需要权限: func
+[0407 14:27:05,683 DEBUG] [1490521071@qtp-1117868538-4] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:27:05,774 DEBUG] [1490521071@qtp-1117868538-4] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:27:06,394 DEBUG] [1490521071@qtp-1117868538-4] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:27:06,396 DEBUG] [1078577841@qtp-1117868538-0] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:27:06,402 DEBUG] [407296306@qtp-1117868538-5] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:27:06,405 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:27:06,407 DEBUG] [1853160388@qtp-1117868538-7] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:27:06,414 DEBUG] [291544287@qtp-1117868538-3] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:27:06,540 DEBUG] [1078577841@qtp-1117868538-0] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:27:06,556 DEBUG] [1490521071@qtp-1117868538-4] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:27:16,585 DEBUG] [291544287@qtp-1117868538-3] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/form', 需要权限: null
+[0407 14:27:29,044 DEBUG] [291544287@qtp-1117868538-3] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/checkName', 需要权限: null
+[0407 14:27:51,657 DEBUG] [291544287@qtp-1117868538-3] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/save', 需要权限: null
+[0407 14:27:51,765 DEBUG] [291544287@qtp-1117868538-3] com.lc.zy.ball.boss.framework.system.service.FunctionProvider - ===>> Load data from database...
+[0407 14:27:51,871 DEBUG] [291544287@qtp-1117868538-3] com.lc.zy.ball.boss.common.security.ShiroCacheManager - isAuthenticationCachingEnabled = false
+[0407 14:27:51,871 DEBUG] [291544287@qtp-1117868538-3] com.lc.zy.ball.boss.common.security.ShiroCacheManager - isAuthorizationCachingEnabled = true
+[0407 14:27:51,871 DEBUG] [291544287@qtp-1117868538-3] com.lc.zy.ball.boss.common.security.ShiroCacheManager - AuthorizationCacheName = com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache
+[0407 14:27:52,010 DEBUG] [1853160388@qtp-1117868538-7] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func', 需要权限: func
+[0407 14:27:52,262 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:27:52,325 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:27:54,404 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:27:54,406 DEBUG] [407296306@qtp-1117868538-5] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:27:54,412 DEBUG] [1078577841@qtp-1117868538-0] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:27:54,415 DEBUG] [1853160388@qtp-1117868538-7] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:27:54,421 DEBUG] [1490521071@qtp-1117868538-4] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:27:54,422 DEBUG] [1485904506@qtp-1117868538-8] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:27:54,647 DEBUG] [1485904506@qtp-1117868538-8] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:27:55,541 DEBUG] [407296306@qtp-1117868538-5] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:28:16,178 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/form', 需要权限: null
+[0407 14:28:17,756 DEBUG] [1078577841@qtp-1117868538-0] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/form', 需要权限: null
+[0407 14:28:31,982 DEBUG] [1078577841@qtp-1117868538-0] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/checkName', 需要权限: null
+[0407 14:28:33,050 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.common.cache.MapperOnCache - cacheKey = functionMapper.f1ebf6db0073484c8ccc621e8a9a4f4f
+[0407 14:28:33,103 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : com.lc.zy.ball.domain.oa.po.Function@6934e052[
+  funcId=f1ebf6db0073484c8ccc621e8a9a4f4f
+  funcName=商城管理
+  parentId=0
+  action=/goods
+  permission=mallOrders:man
+  isMenu=0
+  seqNum=65
+]
+[0407 14:28:33,355 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.common.cache.MapperOnCache - cacheKey = functionMapper.f1ebf6db0073484c8ccc621e8a9a4f4f
+[0407 14:28:33,357 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"funcId":"f1ebf6db0073484c8ccc621e8a9a4f4f","funcName":"商城管理","parentId":"0","action":"/goods","permission":"mallOrders:man","isMenu":0,"seqNum":65}
+[0407 14:30:21,141 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/form', 需要权限: null
+[0407 14:30:21,189 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.common.cache.MapperOnCache - cacheKey = functionMapper.f1ebf6db0073484c8ccc621e8a9a4f4f
+[0407 14:30:21,189 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"funcId":"f1ebf6db0073484c8ccc621e8a9a4f4f","funcName":"商城管理","parentId":"0","action":"/goods","permission":"mallOrders:man","isMenu":0,"seqNum":65}
+[0407 14:30:21,293 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.common.cache.MapperOnCache - cacheKey = functionMapper.f1ebf6db0073484c8ccc621e8a9a4f4f
+[0407 14:30:21,294 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"funcId":"f1ebf6db0073484c8ccc621e8a9a4f4f","funcName":"商城管理","parentId":"0","action":"/goods","permission":"mallOrders:man","isMenu":0,"seqNum":65}
+[0407 14:30:36,616 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/checkName', 需要权限: null
+[0407 14:30:56,683 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/form', 需要权限: null
+[0407 14:30:56,720 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.common.cache.MapperOnCache - cacheKey = functionMapper.bd61c186ca294d84910460c3a1b45c90
+[0407 14:30:56,759 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : com.lc.zy.ball.domain.oa.po.Function@331c1811[
+  funcId=bd61c186ca294d84910460c3a1b45c90
+  funcName=用户管理
+  parentId=0
+  action=/ssouser
+  permission=ssouseradmin
+  isMenu=0
+  seqNum=10
+]
+[0407 14:30:56,863 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.common.cache.MapperOnCache - cacheKey = functionMapper.bd61c186ca294d84910460c3a1b45c90
+[0407 14:30:56,864 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"funcId":"bd61c186ca294d84910460c3a1b45c90","funcName":"用户管理","parentId":"0","action":"/ssouser","permission":"ssouseradmin","isMenu":0,"seqNum":10}
+[0407 14:33:38,939 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/form', 需要权限: null
+[0407 14:33:39,500 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.common.cache.MapperOnCache - cacheKey = functionMapper.05c279de713144fdba6890de50e10a60
+[0407 14:33:39,502 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"funcId":"05c279de713144fdba6890de50e10a60","funcName":"运营管理","parentId":"0","action":"/operation","permission":"operation:list","isMenu":0,"seqNum":1}
+[0407 14:33:39,655 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.common.cache.MapperOnCache - cacheKey = functionMapper.05c279de713144fdba6890de50e10a60
+[0407 14:33:39,655 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"funcId":"05c279de713144fdba6890de50e10a60","funcName":"运营管理","parentId":"0","action":"/operation","permission":"operation:list","isMenu":0,"seqNum":1}
+[0407 14:33:57,592 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/role', 需要权限: role:list
+[0407 14:33:58,365 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0407 14:33:58,365 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0407 14:34:00,171 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/role/perms/1001', 需要权限: role:perms
+[0407 14:34:00,920 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/role/perms/1001/json', 需要权限: null
+[0407 14:34:01,639 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:01,697 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:02,228 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:02,230 DEBUG] [1163102142@qtp-1117868538-11] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:02,243 DEBUG] [307646057@qtp-1117868538-12] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:02,243 DEBUG] [563891785@qtp-1117868538-13] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:02,243 DEBUG] [1907088754@qtp-1117868538-14] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:02,244 DEBUG] [1703487143@qtp-1117868538-10] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:02,461 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:02,465 DEBUG] [1163102142@qtp-1117868538-11] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:02,494 DEBUG] [563891785@qtp-1117868538-13] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:02,996 DEBUG] [307646057@qtp-1117868538-12] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:03,514 DEBUG] [1907088754@qtp-1117868538-14] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:03,962 DEBUG] [1907088754@qtp-1117868538-14] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:04,434 DEBUG] [1907088754@qtp-1117868538-14] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:04,478 DEBUG] [563891785@qtp-1117868538-13] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:04,731 DEBUG] [307646057@qtp-1117868538-12] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:04,899 DEBUG] [1907088754@qtp-1117868538-14] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:04,992 DEBUG] [1703487143@qtp-1117868538-10] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:05,034 DEBUG] [307646057@qtp-1117868538-12] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:05,215 DEBUG] [1163102142@qtp-1117868538-11] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:05,247 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:20,227 DEBUG] [1907088754@qtp-1117868538-14] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func', 需要权限: func
+[0407 14:34:20,355 DEBUG] [1907088754@qtp-1117868538-14] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:20,397 DEBUG] [1907088754@qtp-1117868538-14] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:20,621 DEBUG] [1907088754@qtp-1117868538-14] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:20,627 DEBUG] [1163102142@qtp-1117868538-11] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:20,628 DEBUG] [307646057@qtp-1117868538-12] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:20,631 DEBUG] [563891785@qtp-1117868538-13] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:20,631 DEBUG] [1703487143@qtp-1117868538-10] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:20,633 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:20,837 DEBUG] [307646057@qtp-1117868538-12] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:20,837 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:23,350 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/form', 需要权限: null
+[0407 14:34:23,402 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.common.cache.MapperOnCache - cacheKey = functionMapper.f1ebf6db0073484c8ccc621e8a9a4f4f
+[0407 14:34:23,402 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"funcId":"f1ebf6db0073484c8ccc621e8a9a4f4f","funcName":"商城管理","parentId":"0","action":"/goods","permission":"mallOrders:man","isMenu":0,"seqNum":65}
+[0407 14:34:23,549 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.common.cache.MapperOnCache - cacheKey = functionMapper.f1ebf6db0073484c8ccc621e8a9a4f4f
+[0407 14:34:23,550 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"funcId":"f1ebf6db0073484c8ccc621e8a9a4f4f","funcName":"商城管理","parentId":"0","action":"/goods","permission":"mallOrders:man","isMenu":0,"seqNum":65}
+[0407 14:34:30,538 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/checkName', 需要权限: null
+[0407 14:34:30,594 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/save', 需要权限: null
+[0407 14:34:30,659 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.Function
+[0407 14:34:30,659 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : Function
+[0407 14:34:30,791 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.framework.system.service.FunctionProvider - ===>> Load data from database...
+[0407 14:34:30,898 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.ShiroCacheManager - isAuthenticationCachingEnabled = false
+[0407 14:34:30,899 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.ShiroCacheManager - isAuthorizationCachingEnabled = true
+[0407 14:34:30,899 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.ShiroCacheManager - AuthorizationCacheName = com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache
+[0407 14:34:31,853 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func', 需要权限: func
+[0407 14:34:32,117 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:32,164 DEBUG] [238808970@qtp-1117868538-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:32,794 DEBUG] [563891785@qtp-1117868538-13] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:32,797 DEBUG] [1163102142@qtp-1117868538-11] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:32,800 DEBUG] [307646057@qtp-1117868538-12] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:32,801 DEBUG] [408928257@qtp-1117868538-15] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:32,804 DEBUG] [1907088754@qtp-1117868538-14] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:32,807 DEBUG] [1703487143@qtp-1117868538-10] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:33,011 DEBUG] [1163102142@qtp-1117868538-11] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:33,013 DEBUG] [307646057@qtp-1117868538-12] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:34:36,525 DEBUG] [1163102142@qtp-1117868538-11] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/form', 需要权限: null
+[0407 14:34:49,728 DEBUG] [1163102142@qtp-1117868538-11] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/checkName', 需要权限: null
+[0407 14:35:12,828 DEBUG] [1163102142@qtp-1117868538-11] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/save', 需要权限: null
+[0407 14:35:12,950 DEBUG] [1163102142@qtp-1117868538-11] com.lc.zy.ball.boss.framework.system.service.FunctionProvider - ===>> Load data from database...
+[0407 14:35:13,478 DEBUG] [1163102142@qtp-1117868538-11] com.lc.zy.ball.boss.common.security.ShiroCacheManager - isAuthenticationCachingEnabled = false
+[0407 14:35:13,478 DEBUG] [1163102142@qtp-1117868538-11] com.lc.zy.ball.boss.common.security.ShiroCacheManager - isAuthorizationCachingEnabled = true
+[0407 14:35:13,478 DEBUG] [1163102142@qtp-1117868538-11] com.lc.zy.ball.boss.common.security.ShiroCacheManager - AuthorizationCacheName = com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache
+[0407 14:35:13,583 DEBUG] [1163102142@qtp-1117868538-11] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func', 需要权限: func
+[0407 14:35:13,882 DEBUG] [1163102142@qtp-1117868538-11] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:35:13,921 DEBUG] [1163102142@qtp-1117868538-11] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:35:15,335 DEBUG] [1163102142@qtp-1117868538-11] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:35:15,336 DEBUG] [563891785@qtp-1117868538-13] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:35:15,339 DEBUG] [1907088754@qtp-1117868538-14] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:35:15,341 DEBUG] [307646057@qtp-1117868538-12] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:35:15,346 DEBUG] [408928257@qtp-1117868538-15] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:35:15,347 DEBUG] [1703487143@qtp-1117868538-10] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:35:15,549 DEBUG] [307646057@qtp-1117868538-12] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:35:15,552 DEBUG] [408928257@qtp-1117868538-15] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:35:15,760 DEBUG] [307646057@qtp-1117868538-12] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:35:20,091 DEBUG] [408928257@qtp-1117868538-15] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/form', 需要权限: null
+[0407 14:35:28,893 DEBUG] [408928257@qtp-1117868538-15] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/checkName', 需要权限: null
+[0407 14:41:50,371 DEBUG] [408928257@qtp-1117868538-15] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/save', 需要权限: null
+[0407 14:41:50,758 DEBUG] [408928257@qtp-1117868538-15] com.lc.zy.ball.boss.framework.system.service.FunctionProvider - ===>> Load data from database...
+[0407 14:41:51,171 DEBUG] [408928257@qtp-1117868538-15] com.lc.zy.ball.boss.common.security.ShiroCacheManager - isAuthenticationCachingEnabled = false
+[0407 14:41:51,171 DEBUG] [408928257@qtp-1117868538-15] com.lc.zy.ball.boss.common.security.ShiroCacheManager - isAuthorizationCachingEnabled = true
+[0407 14:41:51,171 DEBUG] [408928257@qtp-1117868538-15] com.lc.zy.ball.boss.common.security.ShiroCacheManager - AuthorizationCacheName = com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache
+[0407 14:41:51,491 DEBUG] [408928257@qtp-1117868538-15] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func', 需要权限: func
+[0407 14:41:52,093 DEBUG] [1409164438@qtp-1117868538-18] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:41:52,167 DEBUG] [1409164438@qtp-1117868538-18] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:41:52,395 DEBUG] [1409164438@qtp-1117868538-18] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:41:52,397 DEBUG] [762380357@qtp-1117868538-16] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:41:52,400 DEBUG] [408928257@qtp-1117868538-15] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:41:52,400 DEBUG] [1897468118@qtp-1117868538-17] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:41:52,406 DEBUG] [2092455965@qtp-1117868538-20] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:41:52,407 DEBUG] [254480351@qtp-1117868538-21] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:41:52,608 DEBUG] [1409164438@qtp-1117868538-18] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:41:52,609 DEBUG] [1897468118@qtp-1117868538-17] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:41:52,609 DEBUG] [2092455965@qtp-1117868538-20] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:42:02,251 DEBUG] [1409164438@qtp-1117868538-18] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/form', 需要权限: null
+[0407 14:42:02,312 DEBUG] [1409164438@qtp-1117868538-18] com.lc.zy.common.cache.MapperOnCache - cacheKey = functionMapper.f1ebf6db0073484c8ccc621e8a9a4f4f
+[0407 14:42:02,364 DEBUG] [1409164438@qtp-1117868538-18] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : com.lc.zy.ball.domain.oa.po.Function@2edce172[
+  funcId=f1ebf6db0073484c8ccc621e8a9a4f4f
+  funcName=商城管理
+  parentId=0
+  action=/goods
+  permission=mallOrders:man
+  isMenu=0
+  seqNum=65
+]
+[0407 14:42:02,522 DEBUG] [1409164438@qtp-1117868538-18] com.lc.zy.common.cache.MapperOnCache - cacheKey = functionMapper.f1ebf6db0073484c8ccc621e8a9a4f4f
+[0407 14:42:02,522 DEBUG] [1409164438@qtp-1117868538-18] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"funcId":"f1ebf6db0073484c8ccc621e8a9a4f4f","funcName":"商城管理","parentId":"0","action":"/goods","permission":"mallOrders:man","isMenu":0,"seqNum":65}
+[0407 14:42:02,833 DEBUG] [1409164438@qtp-1117868538-18] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/form', 需要权限: null
+[0407 14:42:04,544 DEBUG] [1409164438@qtp-1117868538-18] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/form', 需要权限: null
+[0407 14:42:11,369 DEBUG] [1409164438@qtp-1117868538-18] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/checkName', 需要权限: null
+[0407 14:42:40,450 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'crmFunctionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.CrmFunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0407 14:42:40,450 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'dicItemMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.DicItemMapperEx' mapperInterface. Bean already defined with the same name!
+[0407 14:42:40,450 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'functionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.FunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0407 14:42:40,450 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'operatorMapper' and 'com.lc.zy.ball.domain.oa.mapper.ex.OperatorMapper' mapperInterface. Bean already defined with the same name!
+[0407 14:42:40,450 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'organizationMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.OrganizationMapperEx' mapperInterface. Bean already defined with the same name!
+[0407 14:42:40,451 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'statisticUserMobileMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.StatisticUserMobileMapperEx' mapperInterface. Bean already defined with the same name!
+[0407 14:42:40,451 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'userMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.UserMapperEx' mapperInterface. Bean already defined with the same name!
+[0407 14:42:41,014 INFO ] [main] com.mchange.v2.log.MLog - MLog clients using log4j logging.
+[0407 14:42:41,077 INFO ] [main] com.mchange.v2.c3p0.C3P0Registry - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+[0407 14:42:41,959 INFO ] [main] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 2880, acquireRetryDelay -> 30000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 10000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge14u9njqpc0j1rsbtdu|266d2a46, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge14u9njqpc0j1rsbtdu|266d2a46, idleConnectionTestPeriod -> 120, initialPoolSize -> 5, jdbcUrl -> jdbc:mysql://60.219.169.5:3306/tkd_oa?zeroDateTimeBehavior=convertToNull&useUnicode=true, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 120, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[0407 14:42:44,589 INFO ] [main] org.apache.shiro.realm.AuthorizingRealm - No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+[0407 14:42:44,732 INFO ] [main] org.apache.shiro.cache.ehcache.EhCacheManager - Cache with name 'com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache' does not yet exist.  Creating now.
+[0407 14:42:44,760 INFO ] [main] org.apache.shiro.cache.ehcache.EhCacheManager - Added EhCache named [com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache]
+[0407 14:42:44,955 INFO ] [main] com.lc.zy.common.cache.MapperOnCacheSupport - exclude_cache_mapper ==> {OrderSms=true, OrderItem=true, OrderBill=true, Order=true, OrderBillItem=true, OrderAlarm=true, OrderLog=true}
+[0407 14:42:44,981 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheEnable = true
+[0407 14:42:44,981 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheServer = 192.168.1.219:6379
+[0407 14:42:44,985 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cachePwd = null
+[0407 14:42:45,001 ERROR] [main] com.lc.zy.common.cache.RedisPool - cache 初始化成功
+[0407 14:42:45,158 DEBUG] [main] com.lc.zy.common.util.SpringUtils - set application context ===> Root WebApplicationContext: startup date [Fri Apr 07 14:42:39 CST 2017]; root of context hierarchy
+[0407 14:42:45,330 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+[0407 14:42:45,331 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:host.name=J8LZEKL1TNCFRZY
+[0407 14:42:45,331 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.version=1.7.0_51
+[0407 14:42:45,331 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.vendor=Oracle Corporation
+[0407 14:42:45,331 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.home=C:\Program Files\Java\jdk1.7.0_51\jre
+[0407 14:42:45,331 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.class.path=G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-util-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jsp-api-2.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\run-jetty-run-bootstrap.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jsp-2.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-management-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\core-3.1.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\servlet-api-2.5-20081211.jar
+[0407 14:42:45,331 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.library.path=C:\Program Files\Java\jdk1.7.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Java\jdk1.7.0_51\jre\bin;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/bin/server;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/bin;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/lib/amd64;.;C:\Program Files\Java\jdk1.7.0_51\bin;C:\Program Files (x86)\Common Files\NetSarang;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;G:\apache-maven-3.3.1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;G:\apache-maven-3.3.1\bin;G:\mysql\bin;C:\Program Files\TortoiseSVN\bin;G:\apache-maven-3.3.1\bin;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\lib;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\bin;C:\Program Files\VisualSVN Server\bin;G:\eclipse-jee-mars-2-win32-x86_64\eclipse;;.
+[0407 14:42:45,331 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.io.tmpdir=C:\Users\ADMINI~1\AppData\Local\Temp\
+[0407 14:42:45,331 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.compiler=<NA>
+[0407 14:42:45,332 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.name=Windows 7
+[0407 14:42:45,332 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.arch=amd64
+[0407 14:42:45,332 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.version=6.1
+[0407 14:42:45,332 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.name=Administrator
+[0407 14:42:45,332 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.home=C:\Users\Administrator
+[0407 14:42:45,332 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.dir=G:\qzlspace6\tkd-boss
+[0407 14:42:45,333 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@71f68411
+[0407 14:42:45,358 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@71f68411
+[0407 14:42:45,362 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0407 14:42:45,365 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0407 14:42:45,367 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0407 14:42:45,368 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0407 14:42:45,379 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b45e9029c003c, negotiated timeout = 5000
+[0407 14:42:45,381 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b45e9029c003d, negotiated timeout = 5000
+[0407 14:42:45,382 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@2379a196
+[0407 14:42:45,383 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@2379a196
+[0407 14:42:45,383 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0407 14:42:45,385 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0407 14:42:45,385 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0407 14:42:45,388 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0407 14:42:45,396 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b45e9029c003e, negotiated timeout = 5000
+[0407 14:42:45,399 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b45e9029c003f, negotiated timeout = 5000
+[0407 14:42:45,526 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - locCustomer was started ...
+[0407 14:42:45,526 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - brokerUrl=tcp://192.168.1.219:61616
+[0407 14:42:45,986 WARN ] [main] com.lc.zy.common.coreservice.FreeSpaceCounter - FreeSpaceCounter and coreServiceOrdersLicense not define
+[0407 14:42:45,988 WARN ] [main] com.lc.zy.common.coreservice.OrdersCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0407 14:42:45,992 WARN ] [main] com.lc.zy.common.coreservice.Scores - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0407 14:42:45,995 WARN ] [main] com.lc.zy.common.coreservice.UserStatiumCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0407 14:42:46,014 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - locCustomer was started ...
+[0407 14:42:46,014 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - brokerUrl=tcp://192.168.1.219:61616
+[0407 14:42:51,277 INFO ] [748309360@qtp-1829574210-0] org.apache.shiro.session.mgt.AbstractValidatingSessionManager - Enabling session validation scheduler...
+[0407 14:42:55,479 INFO ] [748309360@qtp-1829574210-0] com.lc.zy.ball.boss.common.security.CaptchaFormAuthenticationFilter - tkd1登录成功
+[0407 14:42:56,564 DEBUG] [748309360@qtp-1829574210-0] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.User
+[0407 14:42:56,565 DEBUG] [748309360@qtp-1829574210-0] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : User
+[0407 14:42:57,057 DEBUG] [748309360@qtp-1829574210-0] com.lc.zy.ball.boss.framework.system.service.FunctionProvider - ===>> Load data from database...
+[0407 14:42:58,627 DEBUG] [748309360@qtp-1829574210-0] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func', 需要权限: func
+[0407 14:42:59,525 DEBUG] [381973677@qtp-1829574210-3] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:42:59,639 DEBUG] [381973677@qtp-1829574210-3] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:42:59,895 DEBUG] [381973677@qtp-1829574210-3] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:42:59,897 DEBUG] [748309360@qtp-1829574210-0] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:42:59,899 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:42:59,908 DEBUG] [591844906@qtp-1829574210-6] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:42:59,908 DEBUG] [270348375@qtp-1829574210-5] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:42:59,914 DEBUG] [1844774651@qtp-1829574210-7] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:00,136 DEBUG] [748309360@qtp-1829574210-0] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:00,398 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:00,446 DEBUG] [270348375@qtp-1829574210-5] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:07,026 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/form', 需要权限: null
+[0407 14:43:18,566 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/checkName', 需要权限: null
+[0407 14:43:29,758 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/save', 需要权限: null
+[0407 14:43:30,001 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.ball.boss.framework.system.service.FunctionProvider - ===>> Load data from database...
+[0407 14:43:30,104 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.ball.boss.common.security.ShiroCacheManager - isAuthenticationCachingEnabled = false
+[0407 14:43:30,104 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.ball.boss.common.security.ShiroCacheManager - isAuthorizationCachingEnabled = true
+[0407 14:43:30,105 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.ball.boss.common.security.ShiroCacheManager - AuthorizationCacheName = com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache
+[0407 14:43:30,241 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func', 需要权限: func
+[0407 14:43:30,469 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:30,513 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:31,000 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:31,004 DEBUG] [381973677@qtp-1829574210-3] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:31,008 DEBUG] [748309360@qtp-1829574210-0] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:31,009 DEBUG] [591844906@qtp-1829574210-6] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:31,010 DEBUG] [270348375@qtp-1829574210-5] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:31,018 DEBUG] [1844774651@qtp-1829574210-7] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:31,206 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:31,225 DEBUG] [748309360@qtp-1829574210-0] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:31,227 DEBUG] [1844774651@qtp-1829574210-7] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:35,761 DEBUG] [1844774651@qtp-1829574210-7] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/role', 需要权限: role:list
+[0407 14:43:35,769 DEBUG] [1844774651@qtp-1829574210-7] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0407 14:43:35,770 DEBUG] [1844774651@qtp-1829574210-7] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0407 14:43:37,898 DEBUG] [1844774651@qtp-1829574210-7] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/role/perms/1001', 需要权限: role:perms
+[0407 14:43:38,302 DEBUG] [1844774651@qtp-1829574210-7] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/role/perms/1001/json', 需要权限: null
+[0407 14:43:38,551 DEBUG] [1844774651@qtp-1829574210-7] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:38,587 DEBUG] [1844774651@qtp-1829574210-7] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:39,145 DEBUG] [1844774651@qtp-1829574210-7] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:39,145 DEBUG] [270348375@qtp-1829574210-5] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:39,146 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:39,147 DEBUG] [381973677@qtp-1829574210-3] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:39,150 DEBUG] [748309360@qtp-1829574210-0] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:39,155 DEBUG] [591844906@qtp-1829574210-6] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:39,360 DEBUG] [1844774651@qtp-1829574210-7] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:39,363 DEBUG] [591844906@qtp-1829574210-6] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:39,363 DEBUG] [270348375@qtp-1829574210-5] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:39,567 DEBUG] [591844906@qtp-1829574210-6] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:39,574 DEBUG] [270348375@qtp-1829574210-5] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:39,683 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:39,773 DEBUG] [381973677@qtp-1829574210-3] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:39,852 DEBUG] [1844774651@qtp-1829574210-7] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:39,892 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:39,966 DEBUG] [381973677@qtp-1829574210-3] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:40,034 DEBUG] [270348375@qtp-1829574210-5] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:40,043 DEBUG] [1844774651@qtp-1829574210-7] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:40,044 DEBUG] [591844906@qtp-1829574210-6] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:40,081 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:40,157 DEBUG] [381973677@qtp-1829574210-3] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/func/tree', 需要权限: null
+[0407 14:43:45,713 DEBUG] [591844906@qtp-1829574210-6] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/role/perms/1001', 需要权限: role:perms
+[0407 14:43:58,017 DEBUG] [591844906@qtp-1829574210-6] com.lc.zy.ball.boss.common.security.ShiroCacheManager - isAuthenticationCachingEnabled = false
+[0407 14:43:58,018 DEBUG] [591844906@qtp-1829574210-6] com.lc.zy.ball.boss.common.security.ShiroCacheManager - isAuthorizationCachingEnabled = true
+[0407 14:43:58,018 DEBUG] [591844906@qtp-1829574210-6] com.lc.zy.ball.boss.common.security.ShiroCacheManager - AuthorizationCacheName = com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache
+[0407 14:43:58,129 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/role', 需要权限: role:list
+[0407 14:43:58,787 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0407 14:43:58,788 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0407 14:44:29,989 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0407 14:44:29,990 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0407 14:44:29,991 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.ball.boss.framework.mall.controller.MallController - mall_orderList_params={}
+[0407 14:44:31,585 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumInfosMapper.1674b5f8458649b69d9f133695e48030
+[0407 14:44:31,659 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0407 14:44:31,662 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumInfosMapper.9bfbc99eb37a40eda0612ba212ef07a5
+[0407 14:44:31,714 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0407 14:44:31,717 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumInfosMapper.9bfbc99eb37a40eda0612ba212ef07a5
+[0407 14:44:31,717 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0407 14:44:31,719 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumInfosMapper.9bfbc99eb37a40eda0612ba212ef07a5
+[0407 14:44:31,719 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0407 14:44:31,721 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumInfosMapper.9bfbc99eb37a40eda0612ba212ef07a5
+[0407 14:44:31,721 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0407 14:44:31,723 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumInfosMapper.9bfbc99eb37a40eda0612ba212ef07a5
+[0407 14:44:31,723 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0407 14:44:31,725 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumInfosMapper.1674b5f8458649b69d9f133695e48030
+[0407 14:44:31,725 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0407 14:44:31,727 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumInfosMapper.9bfbc99eb37a40eda0612ba212ef07a5
+[0407 14:44:31,728 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0407 14:44:31,731 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumInfosMapper.9bfbc99eb37a40eda0612ba212ef07a5
+[0407 14:44:31,732 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0407 14:44:31,734 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumInfosMapper.9bfbc99eb37a40eda0612ba212ef07a5
+[0407 14:44:31,734 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0407 14:44:33,506 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0407 14:44:33,507 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0407 14:44:33,507 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.ball.boss.framework.mall.controller.MallController - mall_activityList_params={}
+[0407 14:44:34,172 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = crmMallGoodsMapper.11fb1a82038a4aca8b8794e16912c55f
+[0407 14:44:34,177 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"11fb1a82038a4aca8b8794e16912c55f","name":"减法原味苏打汽水","photo":"http://fileserver.qiuyouzone.com/fileserver/get/04920a15de844d3f8bcb622d2c7d6902","bulk":"330ml","amount":24,"unit":"箱","price":6200,"status":0,"ct":"2016-09-30 13:01:53","cb":"1","et":"2016-10-08 14:57:12","eb":"1"}
+[0407 14:44:34,179 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = crmMallGoodsMapper.16ccbd7807e44217a955660e9edb3ff5
+[0407 14:44:34,179 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"16ccbd7807e44217a955660e9edb3ff5","name":"百事七喜","photo":"http://fileserver.qiuyouzone.com/fileserver/get/ec3e7e1333ed4c4eaf10ea621a54864b","bulk":"600ml","amount":24,"unit":"箱","price":5100,"status":0,"ct":"2016-09-30 12:42:03","cb":"1"}
+[0407 14:44:34,281 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - cacheKey = crmMallGoodsMapper.2ee9707f9e19413d8c2b120ceabc702b
+[0407 14:44:34,282 DEBUG] [1349514057@qtp-1829574210-4] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"2ee9707f9e19413d8c2b120ceabc702b","name":"花花的","photo":"http://fileserver.qiuyouzone.com/fileserver/get/26b426b21f5f4cb98fce03dc655fff8b","bulk":"100ml","amount":10,"unit":"个","price":88,"status":1,"ct":"2016-09-30 09:19:34","cb":"1","et":"2016-09-30 13:21:38","eb":"1"}
+[0407 15:19:25,915 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'crmFunctionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.CrmFunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0407 15:19:25,916 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'dicItemMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.DicItemMapperEx' mapperInterface. Bean already defined with the same name!
+[0407 15:19:25,916 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'functionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.FunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0407 15:19:25,916 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'operatorMapper' and 'com.lc.zy.ball.domain.oa.mapper.ex.OperatorMapper' mapperInterface. Bean already defined with the same name!
+[0407 15:19:25,916 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'organizationMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.OrganizationMapperEx' mapperInterface. Bean already defined with the same name!
+[0407 15:19:25,916 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'statisticUserMobileMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.StatisticUserMobileMapperEx' mapperInterface. Bean already defined with the same name!
+[0407 15:19:25,916 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'userMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.UserMapperEx' mapperInterface. Bean already defined with the same name!
+[0407 15:19:26,508 INFO ] [main] com.mchange.v2.log.MLog - MLog clients using log4j logging.
+[0407 15:19:26,566 INFO ] [main] com.mchange.v2.c3p0.C3P0Registry - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+[0407 15:19:27,499 INFO ] [main] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 2880, acquireRetryDelay -> 30000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 10000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge14u9njs0ls58mv2hq|63822ee0, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge14u9njs0ls58mv2hq|63822ee0, idleConnectionTestPeriod -> 120, initialPoolSize -> 5, jdbcUrl -> jdbc:mysql://60.219.169.5:3306/tkd_oa?zeroDateTimeBehavior=convertToNull&useUnicode=true, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 120, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[0407 15:19:29,733 INFO ] [main] org.apache.shiro.realm.AuthorizingRealm - No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+[0407 15:19:29,853 INFO ] [main] org.apache.shiro.cache.ehcache.EhCacheManager - Cache with name 'com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache' does not yet exist.  Creating now.
+[0407 15:19:29,883 INFO ] [main] org.apache.shiro.cache.ehcache.EhCacheManager - Added EhCache named [com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache]
+[0407 15:19:30,094 INFO ] [main] com.lc.zy.common.cache.MapperOnCacheSupport - exclude_cache_mapper ==> {OrderSms=true, OrderItem=true, OrderBill=true, Order=true, OrderBillItem=true, OrderAlarm=true, OrderLog=true}
+[0407 15:19:30,121 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheEnable = true
+[0407 15:19:30,121 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheServer = 192.168.1.219:6379
+[0407 15:19:30,126 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cachePwd = null
+[0407 15:19:30,140 ERROR] [main] com.lc.zy.common.cache.RedisPool - cache 初始化成功
+[0407 15:19:30,314 DEBUG] [main] com.lc.zy.common.util.SpringUtils - set application context ===> Root WebApplicationContext: startup date [Fri Apr 07 15:19:24 CST 2017]; root of context hierarchy
+[0407 15:19:30,482 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+[0407 15:19:30,482 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:host.name=J8LZEKL1TNCFRZY
+[0407 15:19:30,482 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.version=1.7.0_51
+[0407 15:19:30,482 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.vendor=Oracle Corporation
+[0407 15:19:30,482 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.home=C:\Program Files\Java\jdk1.7.0_51\jre
+[0407 15:19:30,483 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.class.path=G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-util-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jsp-api-2.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\run-jetty-run-bootstrap.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jsp-2.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-management-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\core-3.1.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\servlet-api-2.5-20081211.jar
+[0407 15:19:30,483 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.library.path=C:\Program Files\Java\jdk1.7.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Java\jdk1.7.0_51\jre\bin;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/bin/server;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/bin;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/lib/amd64;.;C:\Program Files\Java\jdk1.7.0_51\bin;C:\Program Files (x86)\Common Files\NetSarang;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;G:\apache-maven-3.3.1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;G:\apache-maven-3.3.1\bin;G:\mysql\bin;C:\Program Files\TortoiseSVN\bin;G:\apache-maven-3.3.1\bin;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\lib;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\bin;C:\Program Files\VisualSVN Server\bin;G:\eclipse-jee-mars-2-win32-x86_64\eclipse;;.
+[0407 15:19:30,483 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.io.tmpdir=C:\Users\ADMINI~1\AppData\Local\Temp\
+[0407 15:19:30,483 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.compiler=<NA>
+[0407 15:19:30,483 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.name=Windows 7
+[0407 15:19:30,483 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.arch=amd64
+[0407 15:19:30,483 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.version=6.1
+[0407 15:19:30,483 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.name=Administrator
+[0407 15:19:30,483 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.home=C:\Users\Administrator
+[0407 15:19:30,483 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.dir=G:\qzlspace6\tkd-boss
+[0407 15:19:30,484 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@500a6814
+[0407 15:19:30,507 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@500a6814
+[0407 15:19:30,514 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0407 15:19:30,514 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0407 15:19:30,517 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0407 15:19:30,528 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b45e9029c0040, negotiated timeout = 5000
+[0407 15:19:33,509 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0407 15:19:33,512 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b45e9029c0041, negotiated timeout = 5000
+[0407 15:19:33,514 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@839067
+[0407 15:19:33,515 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@839067
+[0407 15:19:33,515 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0407 15:19:33,518 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0407 15:19:33,520 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0407 15:19:33,520 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b45e9029c0042, negotiated timeout = 5000
+[0407 15:19:33,521 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0407 15:19:33,523 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b45e9029c0043, negotiated timeout = 5000
+[0407 15:19:33,657 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - locCustomer was started ...
+[0407 15:19:33,658 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - brokerUrl=tcp://192.168.1.219:61616
+[0407 15:19:34,142 WARN ] [main] com.lc.zy.common.coreservice.FreeSpaceCounter - FreeSpaceCounter and coreServiceOrdersLicense not define
+[0407 15:19:34,146 WARN ] [main] com.lc.zy.common.coreservice.OrdersCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0407 15:19:34,148 WARN ] [main] com.lc.zy.common.coreservice.Scores - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0407 15:19:34,151 WARN ] [main] com.lc.zy.common.coreservice.UserStatiumCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0407 15:19:34,168 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - locCustomer was started ...
+[0407 15:19:34,168 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - brokerUrl=tcp://192.168.1.219:61616
+[0407 15:20:15,977 INFO ] [1330474112@qtp-1982889724-3] org.apache.shiro.session.mgt.AbstractValidatingSessionManager - Enabling session validation scheduler...
+[0407 15:20:20,414 INFO ] [1330474112@qtp-1982889724-3] com.lc.zy.ball.boss.common.security.CaptchaFormAuthenticationFilter - tkd1登录成功
+[0407 15:20:20,656 DEBUG] [1330474112@qtp-1982889724-3] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.User
+[0407 15:20:20,656 DEBUG] [1330474112@qtp-1982889724-3] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : User
+[0407 15:20:20,831 DEBUG] [1330474112@qtp-1982889724-3] com.lc.zy.ball.boss.framework.system.service.FunctionProvider - ===>> Load data from database...
+[0407 15:20:20,937 DEBUG] [1330474112@qtp-1982889724-3] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/userinfo', 需要权限: null
+[0407 15:20:32,427 DEBUG] [1330474112@qtp-1982889724-3] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0407 15:20:32,428 DEBUG] [1330474112@qtp-1982889724-3] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0407 15:20:35,228 WARN ] [1330474112@qtp-1982889724-3] org.springframework.web.servlet.handler.SimpleMappingExceptionResolver - Handler execution resulted in exception
+org.mortbay.jetty.EofException
+	at org.mortbay.jetty.HttpGenerator.flush(HttpGenerator.java:791)
+	at org.mortbay.jetty.HttpGenerator.complete(HttpGenerator.java:678)
+	at org.mortbay.jetty.HttpConnection.commitResponse(HttpConnection.java:653)
+	at org.mortbay.jetty.HttpConnection$Output.sendContent(HttpConnection.java:1099)
+	at org.mortbay.jetty.servlet.DefaultServlet.sendData(DefaultServlet.java:715)
+	at org.mortbay.jetty.servlet.DefaultServlet.doGet(DefaultServlet.java:454)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:401)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:224)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler.handleRequest(DefaultServletHttpRequestHandler.java:120)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:49)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:65)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+Caused by: java.io.IOException: 您的主机中的软件中止了一个已建立的连接。
+	at sun.nio.ch.SocketDispatcher.write0(Native Method)
+	at sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:51)
+	at sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:93)
+	at sun.nio.ch.IOUtil.write(IOUtil.java:51)
+	at sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:487)
+	at org.mortbay.io.nio.ChannelEndPoint.flush(ChannelEndPoint.java:170)
+	at org.mortbay.io.nio.SelectChannelEndPoint.flush(SelectChannelEndPoint.java:221)
+	at org.mortbay.io.nio.ChannelEndPoint.flush(ChannelEndPoint.java:287)
+	at org.mortbay.io.nio.SelectChannelEndPoint.flush(SelectChannelEndPoint.java:211)
+	at org.mortbay.jetty.HttpGenerator.flush(HttpGenerator.java:717)
+	... 60 more
+[0407 15:48:20,652 INFO ] [565308459@qtp-1982889724-9] com.lc.zy.ball.boss.common.security.CaptchaFormAuthenticationFilter - tkd1登录成功
+[0407 15:48:20,871 DEBUG] [565308459@qtp-1982889724-9] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.User
+[0407 15:48:20,871 DEBUG] [565308459@qtp-1982889724-9] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : User
+[0407 15:48:20,992 DEBUG] [565308459@qtp-1982889724-9] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/userinfo', 需要权限: null
+[0407 15:48:26,898 DEBUG] [565308459@qtp-1982889724-9] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0407 15:48:26,899 DEBUG] [565308459@qtp-1982889724-9] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0407 16:03:36,951 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'crmFunctionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.CrmFunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0407 16:03:36,951 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'dicItemMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.DicItemMapperEx' mapperInterface. Bean already defined with the same name!
+[0407 16:03:36,951 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'functionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.FunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0407 16:03:36,952 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'operatorMapper' and 'com.lc.zy.ball.domain.oa.mapper.ex.OperatorMapper' mapperInterface. Bean already defined with the same name!
+[0407 16:03:36,952 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'organizationMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.OrganizationMapperEx' mapperInterface. Bean already defined with the same name!
+[0407 16:03:36,952 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'statisticUserMobileMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.StatisticUserMobileMapperEx' mapperInterface. Bean already defined with the same name!
+[0407 16:03:36,952 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'userMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.UserMapperEx' mapperInterface. Bean already defined with the same name!
+[0407 16:03:37,509 INFO ] [main] com.mchange.v2.log.MLog - MLog clients using log4j logging.
+[0407 16:03:37,568 INFO ] [main] com.mchange.v2.c3p0.C3P0Registry - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+[0407 16:03:38,572 INFO ] [main] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 2880, acquireRetryDelay -> 30000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 10000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge14u9njtlfb3x3e5y8|6d1a95c6, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge14u9njtlfb3x3e5y8|6d1a95c6, idleConnectionTestPeriod -> 120, initialPoolSize -> 5, jdbcUrl -> jdbc:mysql://60.219.169.5:3306/tkd_oa?zeroDateTimeBehavior=convertToNull&useUnicode=true, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 120, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[0407 16:03:40,775 INFO ] [main] org.apache.shiro.realm.AuthorizingRealm - No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+[0407 16:03:40,893 INFO ] [main] org.apache.shiro.cache.ehcache.EhCacheManager - Cache with name 'com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache' does not yet exist.  Creating now.
+[0407 16:03:40,920 INFO ] [main] org.apache.shiro.cache.ehcache.EhCacheManager - Added EhCache named [com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache]
+[0407 16:03:41,083 INFO ] [main] com.lc.zy.common.cache.MapperOnCacheSupport - exclude_cache_mapper ==> {OrderSms=true, OrderItem=true, OrderBill=true, Order=true, OrderBillItem=true, OrderAlarm=true, OrderLog=true}
+[0407 16:03:41,111 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheEnable = true
+[0407 16:03:41,112 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheServer = 192.168.1.219:6379
+[0407 16:03:41,117 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cachePwd = null
+[0407 16:03:41,130 ERROR] [main] com.lc.zy.common.cache.RedisPool - cache 初始化成功
+[0407 16:03:41,314 DEBUG] [main] com.lc.zy.common.util.SpringUtils - set application context ===> Root WebApplicationContext: startup date [Fri Apr 07 16:03:35 CST 2017]; root of context hierarchy
+[0407 16:03:41,486 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+[0407 16:03:41,486 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:host.name=J8LZEKL1TNCFRZY
+[0407 16:03:41,486 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.version=1.7.0_51
+[0407 16:03:41,486 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.vendor=Oracle Corporation
+[0407 16:03:41,486 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.home=C:\Program Files\Java\jdk1.7.0_51\jre
+[0407 16:03:41,486 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.class.path=G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-util-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jsp-api-2.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\run-jetty-run-bootstrap.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jsp-2.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-management-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\core-3.1.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\servlet-api-2.5-20081211.jar
+[0407 16:03:41,487 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.library.path=C:\Program Files\Java\jdk1.7.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Java\jdk1.7.0_51\jre\bin;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/bin/server;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/bin;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/lib/amd64;.;C:\Program Files\Java\jdk1.7.0_51\bin;C:\Program Files (x86)\Common Files\NetSarang;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;G:\apache-maven-3.3.1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;G:\apache-maven-3.3.1\bin;G:\mysql\bin;C:\Program Files\TortoiseSVN\bin;G:\apache-maven-3.3.1\bin;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\lib;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\bin;C:\Program Files\VisualSVN Server\bin;G:\eclipse-jee-mars-2-win32-x86_64\eclipse;;.
+[0407 16:03:41,487 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.io.tmpdir=C:\Users\ADMINI~1\AppData\Local\Temp\
+[0407 16:03:41,487 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.compiler=<NA>
+[0407 16:03:41,487 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.name=Windows 7
+[0407 16:03:41,487 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.arch=amd64
+[0407 16:03:41,487 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.version=6.1
+[0407 16:03:41,487 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.name=Administrator
+[0407 16:03:41,487 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.home=C:\Users\Administrator
+[0407 16:03:41,487 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.dir=G:\qzlspace6\tkd-boss
+[0407 16:03:41,488 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@471f8b7b
+[0407 16:03:41,513 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@471f8b7b
+[0407 16:03:41,522 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0407 16:03:41,523 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0407 16:03:41,526 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0407 16:03:41,536 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b45e9029c0054, negotiated timeout = 5000
+[0407 16:03:44,531 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0407 16:03:44,538 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b45e9029c0055, negotiated timeout = 5000
+[0407 16:03:44,539 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@a92bbf9
+[0407 16:03:44,543 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0407 16:03:44,543 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@a92bbf9
+[0407 16:03:44,546 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0407 16:03:44,547 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0407 16:03:44,551 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0407 16:03:44,554 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b45e9029c0056, negotiated timeout = 5000
+[0407 16:03:44,558 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b45e9029c0057, negotiated timeout = 5000
+[0407 16:03:44,708 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - locCustomer was started ...
+[0407 16:03:44,708 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - brokerUrl=tcp://192.168.1.219:61616
+[0407 16:03:45,211 WARN ] [main] com.lc.zy.common.coreservice.FreeSpaceCounter - FreeSpaceCounter and coreServiceOrdersLicense not define
+[0407 16:03:45,217 WARN ] [main] com.lc.zy.common.coreservice.OrdersCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0407 16:03:45,221 WARN ] [main] com.lc.zy.common.coreservice.Scores - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0407 16:03:45,225 WARN ] [main] com.lc.zy.common.coreservice.UserStatiumCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0407 16:03:45,254 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - locCustomer was started ...
+[0407 16:03:45,254 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - brokerUrl=tcp://192.168.1.219:61616
+[0407 16:03:59,718 INFO ] [413608323@qtp-1829574210-4] org.apache.shiro.session.mgt.AbstractValidatingSessionManager - Enabling session validation scheduler...
+[0407 16:04:11,406 INFO ] [1139820055@qtp-1829574210-7] com.lc.zy.ball.boss.common.security.CaptchaFormAuthenticationFilter - tkd1登录成功
+[0407 16:04:11,983 DEBUG] [1139820055@qtp-1829574210-7] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.User
+[0407 16:04:11,983 DEBUG] [1139820055@qtp-1829574210-7] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : User
+[0407 16:04:12,150 DEBUG] [1139820055@qtp-1829574210-7] com.lc.zy.ball.boss.framework.system.service.FunctionProvider - ===>> Load data from database...
+[0407 16:04:12,237 DEBUG] [1139820055@qtp-1829574210-7] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/userinfo', 需要权限: null
+[0407 16:04:24,103 DEBUG] [1139820055@qtp-1829574210-7] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0407 16:04:24,103 DEBUG] [1139820055@qtp-1829574210-7] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0407 16:04:30,529 WARN ] [413608323@qtp-1829574210-4] org.springframework.web.servlet.handler.SimpleMappingExceptionResolver - Handler execution resulted in exception
+org.mortbay.jetty.EofException
+	at org.mortbay.jetty.HttpGenerator.flush(HttpGenerator.java:791)
+	at org.mortbay.jetty.HttpGenerator.complete(HttpGenerator.java:678)
+	at org.mortbay.jetty.HttpConnection.commitResponse(HttpConnection.java:653)
+	at org.mortbay.jetty.HttpConnection$Output.sendContent(HttpConnection.java:1099)
+	at org.mortbay.jetty.servlet.DefaultServlet.sendData(DefaultServlet.java:715)
+	at org.mortbay.jetty.servlet.DefaultServlet.doGet(DefaultServlet.java:454)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:401)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:224)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler.handleRequest(DefaultServletHttpRequestHandler.java:120)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:49)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:65)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+Caused by: java.io.IOException: 您的主机中的软件中止了一个已建立的连接。
+	at sun.nio.ch.SocketDispatcher.write0(Native Method)
+	at sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:51)
+	at sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:93)
+	at sun.nio.ch.IOUtil.write(IOUtil.java:51)
+	at sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:487)
+	at org.mortbay.io.nio.ChannelEndPoint.flush(ChannelEndPoint.java:170)
+	at org.mortbay.io.nio.SelectChannelEndPoint.flush(SelectChannelEndPoint.java:221)
+	at org.mortbay.io.nio.ChannelEndPoint.flush(ChannelEndPoint.java:287)
+	at org.mortbay.io.nio.SelectChannelEndPoint.flush(SelectChannelEndPoint.java:211)
+	at org.mortbay.jetty.HttpGenerator.flush(HttpGenerator.java:717)
+	... 60 more
+[0407 16:05:36,353 WARN ] [1951174917@qtp-1829574210-5] org.springframework.web.servlet.handler.SimpleMappingExceptionResolver - Handler execution resulted in exception
+org.mortbay.jetty.EofException
+	at org.mortbay.jetty.HttpGenerator.flush(HttpGenerator.java:791)
+	at org.mortbay.jetty.HttpGenerator.complete(HttpGenerator.java:678)
+	at org.mortbay.jetty.HttpConnection.commitResponse(HttpConnection.java:653)
+	at org.mortbay.jetty.HttpConnection$Output.sendContent(HttpConnection.java:1099)
+	at org.mortbay.jetty.servlet.DefaultServlet.sendData(DefaultServlet.java:715)
+	at org.mortbay.jetty.servlet.DefaultServlet.doGet(DefaultServlet.java:454)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:401)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:224)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler.handleRequest(DefaultServletHttpRequestHandler.java:120)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:49)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:919)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:851)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:953)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:829)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:65)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:106)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+Caused by: java.io.IOException: 您的主机中的软件中止了一个已建立的连接。
+	at sun.nio.ch.SocketDispatcher.write0(Native Method)
+	at sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:51)
+	at sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:93)
+	at sun.nio.ch.IOUtil.write(IOUtil.java:51)
+	at sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:487)
+	at org.mortbay.io.nio.ChannelEndPoint.flush(ChannelEndPoint.java:170)
+	at org.mortbay.io.nio.SelectChannelEndPoint.flush(SelectChannelEndPoint.java:221)
+	at org.mortbay.io.nio.ChannelEndPoint.flush(ChannelEndPoint.java:287)
+	at org.mortbay.io.nio.SelectChannelEndPoint.flush(SelectChannelEndPoint.java:211)
+	at org.mortbay.jetty.HttpGenerator.flush(HttpGenerator.java:717)
+	... 60 more
+[0407 16:05:37,997 DEBUG] [1951174917@qtp-1829574210-5] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0407 16:05:37,998 DEBUG] [1951174917@qtp-1829574210-5] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0407 16:05:39,799 DEBUG] [1951174917@qtp-1829574210-5] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0407 16:05:39,799 DEBUG] [1951174917@qtp-1829574210-5] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0407 16:05:40,651 DEBUG] [1951174917@qtp-1829574210-5] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0407 16:05:40,652 DEBUG] [1951174917@qtp-1829574210-5] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0407 16:06:12,333 DEBUG] [1139820055@qtp-1829574210-7] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0407 16:06:12,333 DEBUG] [1139820055@qtp-1829574210-7] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0407 17:03:59,769 INFO ] [Thread-124] org.apache.shiro.session.mgt.AbstractValidatingSessionManager - Validating all active sessions...
+[0407 17:03:59,769 INFO ] [Thread-124] org.apache.shiro.session.mgt.AbstractValidatingSessionManager - Finished session validation.  No sessions were stopped.

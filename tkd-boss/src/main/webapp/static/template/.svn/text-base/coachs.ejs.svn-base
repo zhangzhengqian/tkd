@@ -1,0 +1,22 @@
+<% if (items.length) { %>
+	<% for(var i=0;i<items.length;i++){ %>
+	<%	
+		var item = items[i];
+	%>
+		<tr user_id="<%=item.id%>">
+			 <td><%=i+1%></td>
+			 <td><%=item.name%></td> 
+			 <td>
+				 <% if (item.type == '0') { %>
+				 	大课教练
+				 <% } %>
+				 <% if (item.type == '1') { %>
+				 	私人教练
+				 <% } %>
+			 </td>				
+			 <td><%=item.sex%></td>
+			 <td><%=item.phone%></td>
+			 <td><a href="javascript:selUser('<%=item.id%>','<%=item.name%>')">添加</a></td>
+		</tr>
+    <% } %>
+ <% } %>

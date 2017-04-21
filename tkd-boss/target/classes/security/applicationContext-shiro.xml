@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd"
+	default-lazy-init="default">
+
+	<description>Shiro安全配置</description>
+
+    <bean id="successUrl" class="java.lang.String" >
+    	<constructor-arg index="0" value="/admin/userinfo" />
+    </bean>
+  
+	<!-- Shiro Filter -->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+		<property name="loginUrl" value="/login" />
+		<property name="unauthorizedUrl" value="/error/403" />
+		<property name="filterChainDefinitions">
+			<value>
+				/favicon.ico = anon
+				/admin/user/checkLoginName = anon
+				/static/**   = anon
+				/images/**   = anon
+				/img/**   = anon
+				
+				/common/cert** = anon
+				
+				/logout/**   = anon
+				/login/**    = anon, authc
+
+				/admin/**    = user, perms
+				/security/** = user
+				/uploader = anon
+				/admin/userinfo/**   = anon
+				/cph/link  = anon
+				/cph/hangup  = anon
+				/**          = user 
+
+			</value>
+		</property>
+		<property name="filters">
+			<map>
+				<entry key="authc" value-ref="captchaFormFilter" />
+				<entry key="roles" value-ref="rolesOrFilter" />
+				<entry key="perms" value-ref="uriPermsFilter" />
+			</map>
+		</property>
+	</bean>
+
+	<!-- 用户授权信息Cache, 采用EhCache -->
+	<bean id="shiroEhcacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+		<property name="cacheManagerConfigFile" value="classpath:security/ehcache.xml" />
+	</bean>
+	
+	<bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+	   <!-- 全局会话超时设置，millisecond -->
+	   <property name="globalSessionTimeout" value="3600000" />
+	</bean>
+
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="shiroDbRealm" />
+		<property name="cacheManager" ref="shiroEhcacheManager" />
+		<property name="sessionManager" ref="sessionManager" />
+	</bean>
+
+	<!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+
+    <!-- 登录页面验证码设置 -->
+	<bean id="captchaProducer" class="com.google.code.kaptcha.impl.DefaultKaptcha">
+		<property name="config">
+			<bean class="com.google.code.kaptcha.util.Config">
+				<constructor-arg>
+					<props>
+						<prop key="kaptcha.border">no</prop>
+						<prop key="kaptcha.border.color">105,179,90</prop>
+						<prop key="kaptcha.border.thickness">1</prop>
+						<prop key="kaptcha.image.width">100</prop>
+						<prop key="kaptcha.image.height">34</prop>
+						<prop key="kaptcha.producer.impl">com.google.code.kaptcha.impl.DefaultKaptcha</prop>
+						<!-- 获取中文 org.cric.util.ChineseText -->
+						<prop key="kaptcha.textproducer.impl">com.google.code.kaptcha.text.impl.DefaultTextCreator</prop>
+						<!-- <prop key="kaptcha.textproducer.char.string">abcde2345678gfynmnpwx</prop> -->
+						<prop key="kaptcha.textproducer.font.names">Arial, Courier</prop>
+						<prop key="kaptcha.textproducer.font.size">25</prop>
+						<prop key="kaptcha.textproducer.font.color">black</prop>
+						<prop key="kaptcha.textproducer.char.length">4</prop>
+						<!-- 模糊效果 -->
+						<prop key="kaptcha.obscurificator.impl">com.google.code.kaptcha.impl.ShadowGimpy</prop>
+						<prop key="kaptcha.noise.impl">com.google.code.kaptcha.impl.NoNoise</prop>
+						<prop key="kaptcha.noise.color">gray</prop>
+						<!-- Starting background color. Legal values are r,g,b. -->
+						<prop key="kaptcha.background.clear.from">lightGray</prop>
+						<prop key="kaptcha.background.clear.to">white</prop>
+					</props>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+	
+</beans>

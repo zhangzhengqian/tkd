@@ -1,0 +1,276 @@
+[0414 12:13:56,466 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'crmFunctionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.CrmFunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0414 12:13:56,468 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'dicItemMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.DicItemMapperEx' mapperInterface. Bean already defined with the same name!
+[0414 12:13:56,468 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'functionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.FunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0414 12:13:56,468 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'operatorMapper' and 'com.lc.zy.ball.domain.oa.mapper.ex.OperatorMapper' mapperInterface. Bean already defined with the same name!
+[0414 12:13:56,468 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'organizationMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.OrganizationMapperEx' mapperInterface. Bean already defined with the same name!
+[0414 12:13:56,468 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'statisticUserMobileMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.StatisticUserMobileMapperEx' mapperInterface. Bean already defined with the same name!
+[0414 12:13:56,468 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'userMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.UserMapperEx' mapperInterface. Bean already defined with the same name!
+[0414 12:13:56,961 INFO ] [main] com.mchange.v2.log.MLog - MLog clients using log4j logging.
+[0414 12:13:57,017 INFO ] [main] com.mchange.v2.c3p0.C3P0Registry - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+[0414 12:13:57,853 INFO ] [main] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 2880, acquireRetryDelay -> 30000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 10000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge14u9ntlh0u1sqikmk|3be61638, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge14u9ntlh0u1sqikmk|3be61638, idleConnectionTestPeriod -> 120, initialPoolSize -> 5, jdbcUrl -> jdbc:mysql://60.219.169.5:3306/tkd_oa?zeroDateTimeBehavior=convertToNull&useUnicode=true, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 120, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[0414 12:13:59,764 INFO ] [main] org.apache.shiro.realm.AuthorizingRealm - No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+[0414 12:13:59,891 INFO ] [main] org.apache.shiro.cache.ehcache.EhCacheManager - Cache with name 'com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache' does not yet exist.  Creating now.
+[0414 12:13:59,916 INFO ] [main] org.apache.shiro.cache.ehcache.EhCacheManager - Added EhCache named [com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache]
+[0414 12:14:00,068 INFO ] [main] com.lc.zy.common.cache.MapperOnCacheSupport - exclude_cache_mapper ==> {OrderSms=true, OrderItem=true, OrderBill=true, Order=true, OrderBillItem=true, OrderAlarm=true, OrderLog=true}
+[0414 12:14:00,096 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheEnable = true
+[0414 12:14:00,096 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheServer = 192.168.1.219:6379
+[0414 12:14:00,100 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cachePwd = null
+[0414 12:14:00,113 ERROR] [main] com.lc.zy.common.cache.RedisPool - cache 初始化成功
+[0414 12:14:00,308 DEBUG] [main] com.lc.zy.common.util.SpringUtils - set application context ===> Root WebApplicationContext: startup date [Fri Apr 14 12:13:54 CST 2017]; root of context hierarchy
+[0414 12:14:00,510 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+[0414 12:14:00,510 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:host.name=J8LZEKL1TNCFRZY
+[0414 12:14:00,510 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.version=1.7.0_51
+[0414 12:14:00,510 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.vendor=Oracle Corporation
+[0414 12:14:00,510 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.home=C:\Program Files\Java\jdk1.7.0_51\jre
+[0414 12:14:00,510 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.class.path=G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-util-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jsp-api-2.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\run-jetty-run-bootstrap.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jsp-2.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-management-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\core-3.1.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\servlet-api-2.5-20081211.jar
+[0414 12:14:00,511 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.library.path=C:\Program Files\Java\jdk1.7.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Java\jdk1.7.0_51\jre\bin;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/bin/server;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/bin;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/lib/amd64;.;C:\Program Files\Java\jdk1.7.0_51\bin;C:\Program Files (x86)\Common Files\NetSarang;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;G:\apache-maven-3.3.1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;G:\apache-maven-3.3.1\bin;G:\mysql\bin;C:\Program Files\TortoiseSVN\bin;G:\apache-maven-3.3.1\bin;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\lib;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\bin;C:\Program Files\VisualSVN Server\bin;G:\eclipse-jee-mars-2-win32-x86_64\eclipse;;.
+[0414 12:14:00,511 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.io.tmpdir=C:\Users\ADMINI~1\AppData\Local\Temp\
+[0414 12:14:00,511 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.compiler=<NA>
+[0414 12:14:00,511 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.name=Windows 7
+[0414 12:14:00,511 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.arch=amd64
+[0414 12:14:00,511 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.version=6.1
+[0414 12:14:00,511 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.name=Administrator
+[0414 12:14:00,511 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.home=C:\Users\Administrator
+[0414 12:14:00,511 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.dir=G:\qzlspace6\tkd-boss
+[0414 12:14:00,512 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@1dbf039d
+[0414 12:14:00,535 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@1dbf039d
+[0414 12:14:00,539 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0414 12:14:00,544 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0414 12:14:00,541 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0414 12:14:00,548 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0414 12:14:00,553 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b69edd58c0048, negotiated timeout = 5000
+[0414 12:14:00,554 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b69edd58c0049, negotiated timeout = 5000
+[0414 12:14:00,555 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@37eec123
+[0414 12:14:00,557 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0414 12:14:00,557 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@37eec123
+[0414 12:14:00,558 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0414 12:14:00,559 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0414 12:14:00,560 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0414 12:14:00,561 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b69edd58c004a, negotiated timeout = 5000
+[0414 12:14:00,565 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b69edd58c004b, negotiated timeout = 5000
+[0414 12:14:00,690 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - locCustomer was started ...
+[0414 12:14:00,690 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - brokerUrl=tcp://192.168.1.219:61616
+[0414 12:14:01,166 WARN ] [main] com.lc.zy.common.coreservice.FreeSpaceCounter - FreeSpaceCounter and coreServiceOrdersLicense not define
+[0414 12:14:01,169 WARN ] [main] com.lc.zy.common.coreservice.OrdersCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0414 12:14:01,172 WARN ] [main] com.lc.zy.common.coreservice.Scores - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0414 12:14:01,175 WARN ] [main] com.lc.zy.common.coreservice.UserStatiumCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0414 12:14:01,191 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - locCustomer was started ...
+[0414 12:14:01,191 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - brokerUrl=tcp://192.168.1.219:61616
+[0414 12:14:07,182 INFO ] [2071989824@qtp-1982889724-3] org.apache.shiro.session.mgt.AbstractValidatingSessionManager - Enabling session validation scheduler...
+[0414 12:14:10,322 DEBUG] [2071989824@qtp-1982889724-3] com.lc.zy.ball.boss.common.security.CaptchaFormAuthenticationFilter - 用户：[qzl123]---------------登录失败---------------
+[0414 12:14:15,931 INFO ] [1027800102@qtp-1982889724-4] com.lc.zy.ball.boss.common.security.CaptchaFormAuthenticationFilter - tkd1登录成功
+[0414 12:14:16,250 DEBUG] [1027800102@qtp-1982889724-4] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.User
+[0414 12:14:16,251 DEBUG] [1027800102@qtp-1982889724-4] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : User
+[0414 12:14:16,394 DEBUG] [1027800102@qtp-1982889724-4] com.lc.zy.ball.boss.framework.system.service.FunctionProvider - ===>> Load data from database...
+[0414 12:14:16,498 DEBUG] [1027800102@qtp-1982889724-4] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/userinfo', 需要权限: null
+[0414 12:14:16,845 DEBUG] [2071989824@qtp-1982889724-3] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/userinfo', 需要权限: null
+[0414 12:14:20,843 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0414 12:14:20,844 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0414 12:14:21,562 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.6ef6b97600c44c9f91dcc4709cd8ca78
+[0414 12:14:21,590 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0414 12:14:21,629 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.45b8925c7b1d4c0392f16a751b658861
+[0414 12:14:21,663 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0414 12:14:21,702 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.f8fd38c203fb4094aa85502543c3a055
+[0414 12:14:21,731 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0414 12:14:21,762 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.1d0ac9c69900487185a29b427b9c814e
+[0414 12:14:21,794 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0414 12:14:21,796 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.0b74e460021542d5b9d402e0c8dd61c0
+[0414 12:14:21,828 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0414 12:14:21,829 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.dd2ab99e9ca842ac834fc871cb087925
+[0414 12:14:21,862 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0414 12:14:21,864 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.ef708c34e916489ebb8d628d78659813
+[0414 12:14:21,894 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0414 12:14:21,895 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.8d8e59130a3b4c1f8d63d531c0744083
+[0414 12:14:21,927 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0414 12:14:21,929 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.84c2f8305e6e4d8ea89ed43e7a65edb2
+[0414 12:14:21,963 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0414 12:14:21,964 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.f9d69e85ad914be28328a3c39854e6b3
+[0414 12:14:21,995 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0414 12:14:22,077 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=221
+[0414 12:14:22,451 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000016
+[0414 12:14:22,570 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000003
+[0414 12:14:22,685 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=232
+[0414 12:14:22,802 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000005
+[0414 12:14:22,917 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=240
+[0414 12:14:23,034 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=235
+[0414 12:14:23,160 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=465
+[0414 12:14:23,270 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=223
+[0414 12:14:23,380 DEBUG] [1907709867@qtp-1982889724-7] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=523
+[0414 16:22:55,832 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'crmFunctionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.CrmFunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0414 16:22:55,833 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'dicItemMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.DicItemMapperEx' mapperInterface. Bean already defined with the same name!
+[0414 16:22:55,833 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'functionMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.FunctionMapperEx' mapperInterface. Bean already defined with the same name!
+[0414 16:22:55,833 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'operatorMapper' and 'com.lc.zy.ball.domain.oa.mapper.ex.OperatorMapper' mapperInterface. Bean already defined with the same name!
+[0414 16:22:55,833 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'organizationMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.OrganizationMapperEx' mapperInterface. Bean already defined with the same name!
+[0414 16:22:55,833 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'statisticUserMobileMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.StatisticUserMobileMapperEx' mapperInterface. Bean already defined with the same name!
+[0414 16:22:55,833 WARN ] [main] org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner - Skipping MapperFactoryBean with name 'userMapperEx' and 'com.lc.zy.ball.domain.oa.mapper.ex.UserMapperEx' mapperInterface. Bean already defined with the same name!
+[0414 16:22:56,475 INFO ] [main] com.mchange.v2.log.MLog - MLog clients using log4j logging.
+[0414 16:22:56,539 INFO ] [main] com.mchange.v2.c3p0.C3P0Registry - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+[0414 16:22:57,380 INFO ] [main] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 2880, acquireRetryDelay -> 30000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 10000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge14u9ntud88n18oovfz|6c40f9f8, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge14u9ntud88n18oovfz|6c40f9f8, idleConnectionTestPeriod -> 120, initialPoolSize -> 5, jdbcUrl -> jdbc:mysql://60.219.169.5:3306/tkd_oa?zeroDateTimeBehavior=convertToNull&useUnicode=true, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 120, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[0414 16:22:59,389 INFO ] [main] org.apache.shiro.realm.AuthorizingRealm - No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+[0414 16:22:59,498 INFO ] [main] org.apache.shiro.cache.ehcache.EhCacheManager - Cache with name 'com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache' does not yet exist.  Creating now.
+[0414 16:22:59,526 INFO ] [main] org.apache.shiro.cache.ehcache.EhCacheManager - Added EhCache named [com.lc.zy.ball.boss.common.security.ShiroDbRealm.authorizationCache]
+[0414 16:22:59,706 INFO ] [main] com.lc.zy.common.cache.MapperOnCacheSupport - exclude_cache_mapper ==> {OrderSms=true, OrderItem=true, OrderBill=true, Order=true, OrderBillItem=true, OrderAlarm=true, OrderLog=true}
+[0414 16:22:59,734 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheEnable = true
+[0414 16:22:59,735 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cacheServer = 192.168.1.219:6379
+[0414 16:22:59,739 DEBUG] [main] com.lc.zy.common.cache.RedisPool - cachePwd = null
+[0414 16:22:59,755 ERROR] [main] com.lc.zy.common.cache.RedisPool - cache 初始化成功
+[0414 16:22:59,987 DEBUG] [main] com.lc.zy.common.util.SpringUtils - set application context ===> Root WebApplicationContext: startup date [Fri Apr 14 16:22:53 CST 2017]; root of context hierarchy
+[0414 16:23:00,217 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+[0414 16:23:00,217 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:host.name=J8LZEKL1TNCFRZY
+[0414 16:23:00,217 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.version=1.7.0_51
+[0414 16:23:00,217 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.vendor=Oracle Corporation
+[0414 16:23:00,218 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.home=C:\Program Files\Java\jdk1.7.0_51\jre
+[0414 16:23:00,218 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.class.path=G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-util-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jsp-api-2.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\run-jetty-run-bootstrap.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jsp-2.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-management-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\jetty-6.1.26.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\core-3.1.1.jar;G:\eclipse-jee-mars-2-win32-x86_64\eclipse\configuration\org.eclipse.osgi\939\0\.cp\lib\servlet-api-2.5-20081211.jar
+[0414 16:23:00,218 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.library.path=C:\Program Files\Java\jdk1.7.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Java\jdk1.7.0_51\jre\bin;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/bin/server;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/bin;C:/Program Files/Java/jdk1.7.0_51/bin/../jre/lib/amd64;.;C:\Program Files\Java\jdk1.7.0_51\bin;C:\Program Files (x86)\Common Files\NetSarang;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;G:\apache-maven-3.3.1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;G:\apache-maven-3.3.1\bin;G:\mysql\bin;C:\Program Files\TortoiseSVN\bin;G:\apache-maven-3.3.1\bin;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\lib;G:\jar包\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\bin;C:\Program Files\VisualSVN Server\bin;G:\eclipse-jee-mars-2-win32-x86_64\eclipse;;.
+[0414 16:23:00,218 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.io.tmpdir=C:\Users\ADMINI~1\AppData\Local\Temp\
+[0414 16:23:00,218 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:java.compiler=<NA>
+[0414 16:23:00,218 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.name=Windows 7
+[0414 16:23:00,218 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.arch=amd64
+[0414 16:23:00,218 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:os.version=6.1
+[0414 16:23:00,218 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.name=Administrator
+[0414 16:23:00,218 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.home=C:\Users\Administrator
+[0414 16:23:00,218 INFO ] [main] org.apache.zookeeper.ZooKeeper - Client environment:user.dir=G:\qzlspace6\tkd-boss
+[0414 16:23:00,219 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@27dcdbe
+[0414 16:23:00,242 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.ConnectionWatcher@27dcdbe
+[0414 16:23:00,248 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0414 16:23:00,249 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0414 16:23:00,252 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0414 16:23:00,252 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0414 16:23:00,264 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b69edd58c00a0, negotiated timeout = 5000
+[0414 16:23:00,264 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b69edd58c00a1, negotiated timeout = 5000
+[0414 16:23:00,266 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@a46c7f
+[0414 16:23:00,268 INFO ] [main] org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.1.219 sessionTimeout=5000 watcher=com.lc.zy.common.zoo.SEQGenerate@a46c7f
+[0414 16:23:00,268 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0414 16:23:00,269 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0414 16:23:00,271 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.1.219/192.168.1.219:2181. Will not attempt to authenticate using SASL (unknown error)
+[0414 16:23:00,273 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.1.219/192.168.1.219:2181, initiating session
+[0414 16:23:00,281 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b69edd58c00a2, negotiated timeout = 5000
+[0414 16:23:00,283 INFO ] [main-SendThread(192.168.1.219:2181)] org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.1.219/192.168.1.219:2181, sessionid = 0x15b69edd58c00a3, negotiated timeout = 5000
+[0414 16:23:00,411 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - locCustomer was started ...
+[0414 16:23:00,411 DEBUG] [main] com.lc.zy.common.mq.QueueProducer - brokerUrl=tcp://192.168.1.219:61616
+[0414 16:23:01,134 WARN ] [main] com.lc.zy.common.coreservice.FreeSpaceCounter - FreeSpaceCounter and coreServiceOrdersLicense not define
+[0414 16:23:01,137 WARN ] [main] com.lc.zy.common.coreservice.OrdersCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0414 16:23:01,140 WARN ] [main] com.lc.zy.common.coreservice.Scores - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0414 16:23:01,143 WARN ] [main] com.lc.zy.common.coreservice.UserStatiumCounter - coreServiceOrdersHost and coreServiceOrdersLicense not define
+[0414 16:23:01,158 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - locCustomer was started ...
+[0414 16:23:01,159 DEBUG] [main] com.lc.zy.common.mq.TopicPublisher - brokerUrl=tcp://192.168.1.219:61616
+[0414 16:23:04,016 INFO ] [198250236@qtp-1829574210-4] org.apache.shiro.session.mgt.AbstractValidatingSessionManager - Enabling session validation scheduler...
+[0414 16:23:12,556 INFO ] [723793625@qtp-1829574210-7] com.lc.zy.ball.boss.common.security.CaptchaFormAuthenticationFilter - tkd1登录成功
+[0414 16:23:12,851 DEBUG] [723793625@qtp-1829574210-7] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : com.lc.zy.ball.domain.oa.po.User
+[0414 16:23:12,852 DEBUG] [723793625@qtp-1829574210-7] com.lc.zy.common.cache.MapperOnCacheSupport - clazz : User
+[0414 16:23:12,984 DEBUG] [723793625@qtp-1829574210-7] com.lc.zy.ball.boss.framework.system.service.FunctionProvider - ===>> Load data from database...
+[0414 16:23:13,064 DEBUG] [723793625@qtp-1829574210-7] com.lc.zy.ball.boss.common.security.UriPermissionsAuthorizationFilter - 请求 '/admin/userinfo', 需要权限: null
+[0414 16:23:16,823 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.web.WebUtils - Parameter: page = [null], return defalut value 0.
+[0414 16:23:16,823 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.web.WebUtils - Parameter: size = [null], return defalut value 0.
+[0414 16:23:17,044 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.45b8925c7b1d4c0392f16a751b658861
+[0414 16:23:17,083 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0414 16:23:17,122 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.6ef6b97600c44c9f91dcc4709cd8ca78
+[0414 16:23:17,154 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0414 16:23:17,189 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.f8fd38c203fb4094aa85502543c3a055
+[0414 16:23:17,223 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0414 16:23:17,282 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.1d0ac9c69900487185a29b427b9c814e
+[0414 16:23:17,315 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0414 16:23:17,317 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.0b74e460021542d5b9d402e0c8dd61c0
+[0414 16:23:17,352 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0414 16:23:17,354 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.dd2ab99e9ca842ac834fc871cb087925
+[0414 16:23:17,388 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0414 16:23:17,391 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.ef708c34e916489ebb8d628d78659813
+[0414 16:23:17,427 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0414 16:23:17,429 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.8d8e59130a3b4c1f8d63d531c0744083
+[0414 16:23:17,463 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0414 16:23:17,465 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.84c2f8305e6e4d8ea89ed43e7a65edb2
+[0414 16:23:17,499 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0414 16:23:17,501 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - cacheKey = userMapper.f9d69e85ad914be28328a3c39854e6b3
+[0414 16:23:17,531 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : null
+[0414 16:23:17,625 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000016
+[0414 16:23:17,781 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=221
+[0414 16:23:17,904 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000003
+[0414 16:23:18,033 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=232
+[0414 16:23:18,151 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=1000005
+[0414 16:23:18,276 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=240
+[0414 16:23:18,400 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=235
+[0414 16:23:18,522 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=465
+[0414 16:23:18,651 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=223
+[0414 16:23:18,784 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.ball.boss.framework.statium.service.StatiumOaInfoService - statiumId=523
+[0414 16:23:21,439 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumInfosMapper.45b8925c7b1d4c0392f16a751b658861
+[0414 16:23:21,503 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : com.lc.zy.ball.domain.oa.po.StatiumInfos@14e0bb77[
+  id=45b8925c7b1d4c0392f16a751b658861
+  dgName=测试11
+  dgId=1000016
+  photos=http://7xt8bo.com2.z0.glb.qiniucdn.com/6c46f049a5674e209ac13683f161d1ef.png
+  remark=				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+  lng=116.393662
+  lat=39.912231
+  address=北京市北京市西城区西文昌胡同6号
+  contact=测试11
+  tel=13521831232
+  province=北京市
+  city=北京市
+  area=<null>
+  areacode=110100
+  salecount=0
+  starttime=<null>
+  endtime=<null>
+  logo=
+  ct=Mon Feb 06 13:33:35 CST 2017
+  cb=1
+  et=Fri Apr 14 16:06:15 CST 2017
+  eb=0369e6bc11e040ac997b140a41897ebd
+  recommend=<null>
+  serviceTel=
+  bankAccountName=
+  bankAccountNo=
+  bankAccountBranchName=
+  status=0
+  grade=<null>
+  qrCode=http://7xt8bo.com2.z0.glb.qiniucdn.com/83ccb1bb464141249c713923b68fcae5.png
+]
+[0414 16:23:21,594 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumInfosMapper.45b8925c7b1d4c0392f16a751b658861
+[0414 16:23:21,599 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"45b8925c7b1d4c0392f16a751b658861","dgName":"测试11","dgId":1000016,"photos":"http://7xt8bo.com2.z0.glb.qiniucdn.com/6c46f049a5674e209ac13683f161d1ef.png","remark":"\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t","lng":116.393662,"lat":39.912231,"address":"北京市北京市西城区西文昌胡同6号","contact":"测试11","tel":"13521831232","province":"北京市","city":"北京市","areacode":"110100","salecount":0,"logo":"","ct":"2017-02-06 13:33:35","cb":"1","et":"2017-04-14 16:06:15","eb":"0369e6bc11e040ac997b140a41897ebd","serviceTel":"","bankAccountName":"","bankAccountNo":"","bankAccountBranchName":"","status":0,"qrCode":"http://7xt8bo.com2.z0.glb.qiniucdn.com/83ccb1bb464141249c713923b68fcae5.png"}
+[0414 16:23:27,133 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumInfosMapper.f8fd38c203fb4094aa85502543c3a055
+[0414 16:23:27,181 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - 数据库取值 : com.lc.zy.ball.domain.oa.po.StatiumInfos@64c78d51[
+  id=f8fd38c203fb4094aa85502543c3a055
+  dgName=淄博正德跆拳道馆
+  dgId=1000003
+  photos=http://7xt8bo.com2.z0.glb.qiniucdn.com/a7448a0c785a448c8b768c451915c026.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/8dfad4d8f8f948a7adbcf2ab7cc12865.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/69c52b4762cb446e9805fb9326a46502.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/da55b5e442954254bd13049423e3a741.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/277ce4fd740941d484add88c41172e44.png
+  remark=淄博市正德跆拳道馆成立于2000年，是经体育局批准，民政局注册的正规道馆，教练师资稳定，训练场地宽敞明亮；道馆教学理念：明礼，健体，慧脑，做有用的教育。
+
+  lng=118.05057
+  lat=36.760946
+  address=山东省淄博市张店区西山路22号
+  contact=林波
+  tel=18519791193
+  province=山东省
+  city=淄博市
+  area=张店区
+  areacode=370303
+  salecount=0
+  starttime=<null>
+  endtime=<null>
+  logo=http://7xt8bo.com2.z0.glb.qiniucdn.com/981d7bb779814bbd9ca4cc547ed4f0a2.png
+  ct=Fri Jun 03 10:24:31 CST 2016
+  cb=df2be6fb166845f9a93179fc11a3c8e5
+  et=Tue Mar 21 16:25:53 CST 2017
+  eb=0369e6bc11e040ac997b140a41897ebd
+  recommend=<null>
+  serviceTel=
+  bankAccountName=
+  bankAccountNo=
+  bankAccountBranchName=122233
+  status=0
+  grade=<null>
+  qrCode=http://7xt8bo.com2.z0.glb.qiniucdn.com/12c16b94ffc04713b4b5fc078dbcb675.png
+]
+[0414 16:23:27,277 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - cacheKey = statiumInfosMapper.f8fd38c203fb4094aa85502543c3a055
+[0414 16:23:27,279 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.common.cache.MapperOnCache - 缓存取值 : {"id":"f8fd38c203fb4094aa85502543c3a055","dgName":"淄博正德跆拳道馆","dgId":1000003,"photos":"http://7xt8bo.com2.z0.glb.qiniucdn.com/a7448a0c785a448c8b768c451915c026.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/8dfad4d8f8f948a7adbcf2ab7cc12865.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/69c52b4762cb446e9805fb9326a46502.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/da55b5e442954254bd13049423e3a741.png__http://7xt8bo.com2.z0.glb.qiniucdn.com/277ce4fd740941d484add88c41172e44.png","remark":"淄博市正德跆拳道馆成立于2000年，是经体育局批准，民政局注册的正规道馆，教练师资稳定，训练场地宽敞明亮；道馆教学理念：明礼，健体，慧脑，做有用的教育。\r\n","lng":118.05057,"lat":36.760946,"address":"山东省淄博市张店区西山路22号","contact":"林波","tel":"18519791193","province":"山东省","city":"淄博市","area":"张店区","areacode":"370303","salecount":0,"logo":"http://7xt8bo.com2.z0.glb.qiniucdn.com/981d7bb779814bbd9ca4cc547ed4f0a2.png","ct":"2016-06-03 10:24:31","cb":"df2be6fb166845f9a93179fc11a3c8e5","et":"2017-03-21 16:25:53","eb":"0369e6bc11e040ac997b140a41897ebd","serviceTel":"","bankAccountName":"","bankAccountNo":"","bankAccountBranchName":"122233","status":0,"qrCode":"http://7xt8bo.com2.z0.glb.qiniucdn.com/12c16b94ffc04713b4b5fc078dbcb675.png"}
+[0414 16:23:28,119 DEBUG] [1702580455@qtp-1829574210-2] com.lc.zy.ball.boss.framework.statium.controller.StatiumController - 道馆编辑信息初始化:Index: 0, Size: 0

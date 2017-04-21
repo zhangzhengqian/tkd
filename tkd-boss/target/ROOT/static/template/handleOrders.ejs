@@ -1,0 +1,10 @@
+<% if (orders.length) { %>
+	<% orders.forEach(function(order){ %>
+		<tr style="cursor: pointer;" statium_id="<%=order.statiumId%>" class="selOrder" order_id="<%=order.id%>">
+			<td><%=order.id%></td>
+			<td><%=order.name%></td>
+			<td>待处理</td>
+			<td><a order_id="<%=order.id%>" class="discard_order" href="javascript:;">丢弃</a></td>
+		</tr>
+	<% }) %>
+<% } %>

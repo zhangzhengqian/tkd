@@ -1,0 +1,12 @@
+<% if (items.length) { %>
+	<% for(var i=0;i<items.length;i++){ %>
+	<%	
+		var item = items[i];
+	%>
+		<tr user_id="<%=item.id%>">
+			 <td><%=i+1%></td>
+			 <td><%=item.dgName%></td> 		
+			 <td><a href="javascript:selUser('<%=item.dgId%>','<%=item.dgName%>')">添加</a></td>
+		</tr>
+    <% } %>
+ <% } %>

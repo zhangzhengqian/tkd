@@ -1,0 +1,73 @@
+10
+
+dir
+2930
+svn://60.219.169.5/tkd-service/tkd-boss/src/main/java/com/lc/zy/ball/boss/framework
+svn://60.219.169.5
+
+
+
+2017-04-19T05:49:11.089939Z
+2930
+fanlq
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e17fb043-18cf-44bc-ac00-38d8c88cbd66
+
+account
+dir
+
+activity
+dir
+
+carousel
+dir
+
+coach
+dir
+
+goods
+dir
+
+mall
+dir
+
+news
+dir
+
+order
+dir
+
+sms
+dir
+
+ssouser
+dir
+
+statium
+dir
+
+statiumClass
+dir
+
+study
+dir
+
+system
+dir
+
+video
+dir
+

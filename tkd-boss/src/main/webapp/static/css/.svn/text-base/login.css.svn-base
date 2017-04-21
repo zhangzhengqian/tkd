@@ -1,0 +1,47 @@
+*{padding:0; margin:0;}
+input{outline:none}
+body,html{width:100vw; height:100vh;}
+a{text-decoration:none;}
+body{background:url(../img/loginbg.png) center no-repeat;background-size:100% 100%;}
+.loginCont{float:right; margin:120px 250px 0 0; width:600px; height:530px; background:url(../img/loginbg1.png) 0 0 no-repeat;background-size:100% 100%;}
+.loginCont dl{padding:40px 80px;}
+.loginCont dl dt{border-bottom:1px solid #ff6566; font-weight:normal;margin-top:30px; font-size:30px; color:#000; line-height:60px; text-align:center; font-family:"microsoft yahei";}
+.loginCont dl dd.ddName{overflow:hidden; margin-top:25px; height:58px; background:#fff; border-radius:10px;}
+.loginCont dl dd.ddName em{float:left; width:22px; height:24px; margin:18px 15px 0 25px; background:url(../img/yonghu.png) 0 0 no-repeat;background-size:contain}
+.loginCont dl dd.ddName input{float:left; border:none;  height:58px; padding:5px; width:345px; font-size:18px; color:#333;}
+
+.loginCont dl dd.ddPassword{overflow:hidden; margin-top:25px; height:58px; background:#fff; border-radius:10px;}
+.loginCont dl dd.ddPassword em{float:left; width:22px; height:24px; margin:18px 15px 0 25px; background:url(../img/mima.png) 0 0 no-repeat;background-size:contain}
+.loginCont dl dd.ddPassword input{float:left; border:none; color:#333; height:58px; padding:5px; width:345px; font-size:18px;}
+input{
+	background:none!important;
+}
+.loginCont dl dd.ddTip{overflow:hidden; line-height:36px;}
+.loginCont dl dd.ddTip span{float:left; color:red;}
+.loginCont dl dd.ddTip a{float:right; font-size:20px; color:#fff; font-family:"microsoft yahei";}
+
+.loginCont dl dd.ddLoginBtn{height:78px; margin-top:25px;}
+.loginCont dl dd.ddLoginBtn button{display:block; line-height:50px; width:100%; border:none; text-align:center; color:#fff; font-size:24px; background-color:#ff6566; border-radius:6px;}
+.loginCont dl dd.ddLoginBtn a:hover{text-decoration:none;}
+.loginCont dl dd.ddRdes{text-align:center; color:#fff; font-size:16px; font-family:"microsoft yahei"; line-height:50px; margin-top:20px;} 
+.loginCont dl dd.ddReg{}
+.loginCont dl dd.ddReg a{display:block; height:56px; border:1px solid #fff; border-radius:10px; line-height:56px; text-align:center; color:#fff; font-size:20px;}
+
+.loginCont dl dd.ddDes{text-align:center; color:#bfbfbf; font-size:18px; font-family:"microsoft yahei"; margin-top:0px;}
+.loginCont dl dd.ddDesTel{text-align:center; color:#bfbfbf; font-size:18px; font-family:"microsoft yahei"; margin-top:10px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

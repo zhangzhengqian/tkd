@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.lc.zy</groupId>
+		<artifactId>tkd-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>tkd-boss</artifactId>
+	<packaging>war</packaging>
+	<name>tkd-boss</name>
+	<properties>
+		<cxf.version>2.6.3</cxf.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.lc.zy</groupId>
+			<artifactId>tkd-parent-jar</artifactId>
+			<version>${project.parent.version}</version>
+			<type>pom</type>
+		</dependency>
+
+		<dependency>
+			<groupId>com.lc.zy</groupId>
+			<artifactId>tkd-domain</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.lc.zy</groupId>
+			<artifactId>tkd-commons</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- cxf -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>${cxf.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-ws-security</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
+			<version>${cxf.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-web</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>${cxf.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-web</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>core</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+	</dependencies>
+
+
+
+	<build>
+		<finalName>ROOT</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+			</plugin>
+
+			<!-- compiler -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+
+			<!-- test插件, 仅测试名称为*Test的类,使用支持分组测试的surefire-junit47 driver -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<!-- forkCount=1/reuseForks=false executes each test class in its own 
+						JVM process, one after another. 必须配置为reuseForks=false，否则测试会报错. -->
+					<!--
+					<forkCount>1C</forkCount>
+					<reuseForks>false</reuseForks>
+					-->
+					<argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
+					<excludes>
+						<exclude>**/Abstract*.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<!-- 7.6.8.v20121106 -->
+				<version>${jetty.version}</version>
+				<configuration>
+					<stopKey>exit</stopKey>
+					<stopPort>9090</stopPort>
+					<systemProperties>
+						<systemProperty>
+							<name>spring.profiles.active</name>
+							<value>development</value>
+						</systemProperty>
+					</systemProperties>
+					<useTestClasspath>true</useTestClasspath>
+					<reload>automatic</reload>
+					<webAppConfig>
+						<contextPath>/</contextPath>
+					</webAppConfig>
+				</configuration>
+			</plugin>
+
+			<plugin>  
+			    <groupId>com.google.code.maven-svn-revision-number-plugin</groupId>  
+			    <artifactId>maven-svn-revision-number-plugin</artifactId>  
+			</plugin>
+
+		</plugins>
+	</build>
+
+
+	<!-- 环境配置 -->
+	<profiles>
+		<profile>
+			<!-- 测试环境: mvn package -Dmaven.test.skip=true -Ptest -->
+			<id>test</id>
+			<properties>
+
+				<jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
+				<jdbc.url><![CDATA[jdbc:mysql://tkd.db:3306/tkd_oa?zeroDateTimeBehavior=convertToNull&useUnicode=true]]></jdbc.url>
+				<jdbc.username>root</jdbc.username>
+				<jdbc.password>tkd2016data</jdbc.password>
+
+				<!-- 文件服务器和solr配置 -->
+				<fileserver.baseurl><![CDATA[http://7xt8bo.com2.z0.glb.qiniucdn.com/]]></fileserver.baseurl>
+				<fileserver.access_key><![CDATA[sdRQI3U_JaW53KoGP65CW9rzYktXJaFWNfhNbg8O]]></fileserver.access_key>
+				<fileserver.secret_key><![CDATA[ItX6a4P93GgMtSlSdHPfd44AUrmYRoo7KX7fE338]]></fileserver.secret_key>
+				<fileserver.bucketname><![CDATA[tkdimage]]></fileserver.bucketname>
+				<!-- Redis、Zookeeper、ActiveMQ -->
+				<redis.server><![CDATA[192.168.0.11:6379]]></redis.server>
+				<zoo.server><![CDATA[192.168.0.11]]></zoo.server>
+				<brokerUrl><![CDATA[tcp://192.168.0.11:61616]]></brokerUrl>
+				<weixin_domain><![CDATA[http://weixin.qiuyouzone.com/]]></weixin_domain>
+				<!-- ball-log query service -->
+				<!-- <mlogHost><![CDATA[192.168.0.6:9028]]></mlogHost>
+				<mlogLicense><![CDATA[bb8abxx8cf1a460axx7c3c5a17c77fe0]]></mlogLicense>
+				<coreServiceOrdersHost>192.168.0.7:9027</coreServiceOrdersHost>
+				<coreServiceOrdersLicense>558ab798cf1a460axx7c3c57f7c77fe0</coreServiceOrdersLicense> -->
+				<appId><![CDATA[http://60.219.169.5/app/request]]></appId>
+				<!-- 微信/微信公众平台退款证书路径 -->
+				<certPath><![CDATA[/root/.ssh/]]></certPath>
+				<services.solr_server><![CDATA[http://192.168.0.11:8081/solr/]]></services.solr_server>
+			</properties>
+		</profile>
+
+		<profile>
+			<!-- 生产环境: mvn package -Dmaven.test.skip=true -Ppro -->
+			<id>pro</id>
+			<properties>
+				<jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
+				<jdbc.url><![CDATA[jdbc:mysql://tkd.db:3306/tkd_oa?zeroDateTimeBehavior=convertToNull&useUnicode=true]]></jdbc.url>
+				<jdbc.username>root</jdbc.username>
+				<jdbc.password>tkd2016data</jdbc.password>
+
+				<!-- 文件服务器和solr配置 -->
+				<fileserver.baseurl><![CDATA[http://7xt8bo.com2.z0.glb.qiniucdn.com/]]></fileserver.baseurl>
+				<fileserver.access_key><![CDATA[sdRQI3U_JaW53KoGP65CW9rzYktXJaFWNfhNbg8O]]></fileserver.access_key>
+				<fileserver.secret_key><![CDATA[ItX6a4P93GgMtSlSdHPfd44AUrmYRoo7KX7fE338]]></fileserver.secret_key>
+				<fileserver.bucketname><![CDATA[tkdimage]]></fileserver.bucketname>
+				<!-- Redis、Zookeeper、ActiveMQ -->
+				<redis.server><![CDATA[192.168.0.2:6379]]></redis.server>
+				<zoo.server><![CDATA[192.168.0.2]]></zoo.server>
+				<brokerUrl><![CDATA[tcp://192.168.0.2:61616]]></brokerUrl>
+				<weixin_domain><![CDATA[http://weixin.qiuyouzone.com/]]></weixin_domain>
+				<!-- ball-log query service -->
+				<!-- <mlogHost><![CDATA[192.168.0.6:9028]]></mlogHost>
+				<mlogLicense><![CDATA[bb8abxx8cf1a460axx7c3c5a17c77fe0]]></mlogLicense>
+				<coreServiceOrdersHost>192.168.0.7:9027</coreServiceOrdersHost>
+				<coreServiceOrdersLicense>558ab798cf1a460axx7c3c57f7c77fe0</coreServiceOrdersLicense> -->
+				<appId><![CDATA[http://tkd.qianzhenglong.cn/app/request]]></appId>
+				<!-- 微信/微信公众平台退款证书路径 -->
+				<certPath><![CDATA[/root/.ssh/]]></certPath>
+				<services.solr_server><![CDATA[http://192.168.0.2:8081/solr/]]></services.solr_server>
+			
+			</properties>
+		</profile>
+
+
+		<profile>
+			<!-- 开发环境:默认 -->
+			<id>dev</id>
+			<properties>
+				<!-- jdbc -->
+				<jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
+				<jdbc.url><![CDATA[jdbc:mysql://60.219.169.5:3306/tkd_oa?zeroDateTimeBehavior=convertToNull&useUnicode=true]]></jdbc.url>
+				<jdbc.username>root</jdbc.username>
+				<jdbc.password>tkd2016data</jdbc.password>
+				<weixin_domain><![CDATA[http://weixin.qiuyouzone.com/]]></weixin_domain>
+				<!-- 文件服务器和solr配置 -->
+				<fileserver.baseurl><![CDATA[http://7xt8bo.com2.z0.glb.qiniucdn.com/]]></fileserver.baseurl>
+				<fileserver.access_key><![CDATA[sdRQI3U_JaW53KoGP65CW9rzYktXJaFWNfhNbg8O]]></fileserver.access_key>
+				<fileserver.secret_key><![CDATA[ItX6a4P93GgMtSlSdHPfd44AUrmYRoo7KX7fE338]]></fileserver.secret_key>
+				<fileserver.bucketname><![CDATA[tkdimage]]></fileserver.bucketname>
+				<!-- Redis、Zookeeper、ActiveMQ -->
+				<redis.server><![CDATA[192.168.1.219:6379]]></redis.server>
+				<zoo.server><![CDATA[192.168.1.219]]></zoo.server>
+				<brokerUrl><![CDATA[tcp://192.168.1.219:61616]]></brokerUrl>
+				<!-- ball-log query service -->
+				<!-- <mlogHost><![CDATA[fileserver.qiuyouzone.com:9028]]></mlogHost>
+				<mlogLicense><![CDATA[bb8abxx8cf1a460axx7c3c5a17c77fe0]]></mlogLicense> -->
+				
+				<!-- <coreServiceOrdersHost>192.168.0.213:9027</coreServiceOrdersHost>
+				<coreServiceOrdersLicense>558ab798cf1a460axx7c3c57f7c77fe0</coreServiceOrdersLicense> -->
+				<appId><![CDATA[http://60.219.196.5/app/request]]></appId>
+				<!-- 微信/微信公众平台退款证书路径 -->
+				<certPath><![CDATA[http://60.219.196.5/root/.ssh/]]></certPath>
+				<services.solr_server><![CDATA[http://192.168.1.219:8081/solr/]]></services.solr_server>
+			</properties>
+			<!-- 默认激活本环境 -->
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+	</profiles>
+</project>

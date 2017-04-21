@@ -1,0 +1,14 @@
+<% if (items.length) { %>
+	<% for(var i=0;i<items.length;i++){ %>
+	<%	
+		var item = items[i];
+	%>
+		<tr>
+			 <td style="text-align: center;"><input type='checkbox' name='checklinkman' value='<%=item.username%>/<%=item.phone%>'/></td>
+			 <td><%=item.tkdNo%></td>
+			 <td><%=item.nickName%></td>
+			 <td><%=item.sex%></td>
+			 <td><%=item.phone%></td>
+		</tr>
+    <% } %>
+ <% } %>
