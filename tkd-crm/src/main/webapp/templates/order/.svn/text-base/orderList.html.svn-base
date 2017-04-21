@@ -1,0 +1,92 @@
+<div class="orderNav">
+	<ul>
+		<li id="BOOK_APP"
+			ng-class="{true: 'active', false: 'inactive'}[searcher.orderType=='BOOK_APP']"><a
+			ng-click="changeOrderType('BOOK_APP')" href="javascript:;">球友圈订单</a></li>
+		<li id="BOOK_LIVE"
+			ng-class="{true: 'active', false: 'inactive'}[searcher.orderType=='BOOK_LIVE']"><a
+			ng-click="changeOrderType('BOOK_LIVE')" href="javascript:;">场馆订单</a></li>
+		<li id="GOOD_ORDER"
+			ng-class="{true: 'active', false: 'inactive'}[searcher.orderType=='GOOD_ORDER']"><a
+			ng-click="changeOrderType('GOOD_ORDER')" href="javascript:;">商品订单</a></li>
+	</ul>
+</div>
+<div class="orderSearch">
+	<ul>
+		<li ng-if="searcher.orderType!='GOOD_ORDER'"><span>运动类型</span> <select ng-model='searcher.sportType'
+			ng-options="sportType as sportTypeMap[sportType] for sportType in searcher.sportTypes">
+				<option value="">请选择</option>
+		</select></li>
+		<li ng-if="searcher.orderType=='GOOD_ORDER'"><span>支付方式</span> <select ng-model='searcher.payType'>
+				<option value="">请选择</option>
+				<option value="0">现金</option>
+				<option value="1">支付宝</option>
+				<option value="2">微信</option>
+				<option value="3">余额</option>
+				<option value="3">刷卡</option>
+		</select></li>
+		<li class="timeLi"><span>查询时间</span> <input type="text"
+			id="startDate" ng-model="searcher.startDate" onchange=""
+			onClick="WdatePicker({dateFmt:'yyyy-MM-dd 00:00:00',maxDate:'#F{$dp.$D(\'endDate\')}'})">
+			<em>到</em> <input type="text" id="endDate"
+			ng-model="searcher.endDate" class="form-control" onchange=""
+			onClick="WdatePicker({dateFmt:'yyyy-MM-dd 23:59:59',minDate:'#F{$dp.$D(\'startDate\')}'})">
+		</li>
+		<li ng-if="searcher.orderType!='GOOD_ORDER'"><span>订单状态</span> <select ng-model='searcher.orderStatus'
+			ng-options="key as value for (key,value) in statusMap">
+				<option value="">所有状态</option>
+		</select></li>
+		<li ng-if="searcher.orderType!='GOOD_ORDER'"><span>订单号</span> <input type="text"
+			ng-model="searcher.orderId"></li>
+		<li ng-if="searcher.orderType!='GOOD_ORDER'"><span>联系电话</span> <input type="text"
+			ng-model="searcher.phone"></li>
+		<li class="subSearch">
+			<a class="reset"  href="javascript:;" ng-click="reset()">重置</a>
+			<a class="submit" href="javascript:;" ng-click="search()">查询</a>
+			<a class="exp" href="/admin/order/exp?type={{searcher.orderType}}&startDate={{searcher.startDate}}&endDate={{searcher.endDate}}&status={{searcher.orderStatus}}&sportType={{searcher.sportType}}">导出</a>
+		</li>
+	</ul>
+</div>
+<div class="orderResult">
+	<table>
+		<tr>
+			<th>订单号</th>
+			<th>下单日期</th>
+			<th ng-if="searcher.orderType=='BOOK_APP'">完成日期</th>
+			<th ng-if="searcher.orderType=='BOOK_APP'">用户手机号</th>
+			<th ng-if="searcher.orderType=='BOOK_LIVE'">用户</th>
+			<th ng-if="searcher.orderType=='GOOD_ORDER'">会员姓名</th>
+			<th ng-if="searcher.orderType!='GOOD_ORDER'">预约日期</th>
+			<th ng-if="searcher.orderType!='GOOD_ORDER'">预约时间</th>
+			<th ng-if="searcher.orderType=='GOOD_ORDER'">订单信息</th>
+			<th ng-if="searcher.orderType=='BOOK_APP'">订单金额</th>
+			<th ng-if="searcher.orderType=='BOOK_LIVE'">消费金额</th>
+			<th ng-if="searcher.orderType=='GOOD_ORDER'">消费金额</th>
+			<th ng-if="searcher.orderType=='BOOK_LIVE'">实付金额</th>
+			<th ng-if="searcher.orderType=='GOOD_ORDER'">支付方式</th>
+			<th ng-if="searcher.orderType!='GOOD_ORDER'">状态</th>
+			<th ng-if="searcher.orderType=='BOOK_LIVE'">关闭原因</th>
+			<th ng-if="searcher.orderType=='BOOK_LIVE'">操作员</th>
+			<th ng-if="searcher.orderType=='GOOD_ORDER'">操作</th>
+		</tr>
+		<tr ng-repeat="order in objs">
+			<td>{{order.id}}</td>
+			<td>{{order.ct}}</td>
+			<td ng-if="searcher.orderType=='BOOK_APP'">{{order.et}}</td>
+			<td ng-if="searcher.orderType=='BOOK_APP'">{{order.userPhone}}</td>
+			<td ng-if="searcher.orderType=='BOOK_LIVE'">{{order.username}}</td>
+			<td ng-if="searcher.orderType=='GOOD_ORDER'">{{order.memberName}}<span style="font-size:14px;" ng-if="order.memberPhone">({{order.memberPhone}})</span></td>
+			<td ng-if="searcher.orderType!='GOOD_ORDER'">{{order.orderDate}}</td>
+			<td ng-if="searcher.orderType!='GOOD_ORDER'" ng-bind-html="order.orderTime|to_trusted"></td>
+			<td ng-if="searcher.orderType=='GOOD_ORDER'" ng-bind-html="order.goodsName|to_trusted"></td>
+			<td>{{order.feeStr}}</td>
+			<td ng-if="searcher.orderType=='BOOK_LIVE'">{{order.finalFeeStr}}</td>
+			<td ng-if="searcher.orderType=='GOOD_ORDER'">{{order.payType | payTypeFilter}}</td>
+			<td ng-if="searcher.orderType!='GOOD_ORDER'">{{order.status|orderStatusFilter}}</td>
+			<td ng-if="searcher.orderType=='BOOK_LIVE'">{{order.reason}}</td>
+			<td ng-if="searcher.orderType=='BOOK_LIVE'">{{order.oper}}</td>
+			<td ng-if="searcher.orderType=='GOOD_ORDER'"><a class="submit" href="javascript:;" ng-click="deleteGoodOrder($index)">删除</a></td>
+		</tr>
+	</table>
+</div>
+<crm-pagination conf="paginationConf"></crm-pagination>

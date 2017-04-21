@@ -1,0 +1,71 @@
+<div class="orderNav">
+	<ul>
+		<li class="active"><a href="#members">会员列表</a></li>
+		<li><a href="#memberLevels">会员等级</a></li>
+	</ul>
+</div>
+<div class="orderSearch myVipOrderSearch">
+	<ul>
+		<li class="timeLi subSearchLi1">
+			<span>会员类型：</span>
+			<select id="levelName" ng-model="searcher.levelName" style="width: 100px">
+				<option value="">请选择</option>
+				<option ng-repeat="levelName in levelNames">{{levelName}}</option>
+			</select>
+		</li>
+		<li class="timeLi subSearchLi1">
+			<span style="width: 100px;">手机号/卡号：</span>
+			<input type="text" ng-model="searcher.cnumber" id="cnumber">
+		</li>
+		<li class="subSearch subSearchLi1">
+			<a class="submit" href="javascript:;" ng-click="search()">查询</a>
+		</li>
+		
+		<li class="subSearch subSearchLi">
+			<a class="submit" href="/admin/member/exportMembers">导出会员列表 </a>
+		</li>
+		<li class="subSearch subSearchLi">
+			<a class="submit" href="javascript:;" ng-click="importMembers()">批量导入会员 </a>
+		</li>
+		
+		
+		<li class="subSearch subSearchLi">
+			<a class="submit" href="#addMember">添加会员 </a>
+		</li>
+		
+	</ul>
+</div>
+<div class="orderResult">
+	<table>
+		<tr>
+			<th>卡号</th>
+			<th>姓名</th>
+			<th>性别</th>
+			<th>生日</th>
+			<th>手机号</th>
+			<th>等级</th>
+			<th>累计消费</th>
+			<th>余额</th>
+			<th>操作</th>
+		</tr>
+		<tr ng-repeat="member in objs">
+			<td>{{member.cardNo}}</td>
+			<td>{{member.name}}</td>
+			<td>{{member.gender}}</td>
+			<td>{{member.birthday | date:"yyyy-MM-dd"}}</td>
+			<td>{{member.phone}}</td>
+			<td>{{member.levelName}}</td>
+			<td>{{member.totalConsume/100 | currency:'￥'}}</td>
+			<td>{{member.balance/100 | currency:'￥'}}</td>
+			<td><a class="submit" href="#member/{{member.id}}">修改</a>
+				<small class="text-muted p-xxs">|</small> 
+				<a class="submit" href="javascript:;" ng-click="deleteMember($index)">删除</a>
+				<small class="text-muted p-xxs">|</small> 
+				<a class="submit" href="javascript:;" ng-click="open($index)">充值</a>
+				<small class="text-muted p-xxs">|</small>
+				<a class="submit" href="#memberAccount/{{member.id}}/{{member.cardNo}}">账户明细</a>
+			</td>
+		</tr>
+	</table>
+</div>
+<crm-pagination conf="paginationConf"></crm-pagination>

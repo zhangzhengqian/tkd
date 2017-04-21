@@ -1,0 +1,118 @@
+10
+
+dir
+2731
+svn://60.219.169.5/tkd-service/tkd-crm/src/main/webapp/static/css/plugins
+svn://60.219.169.5
+
+
+
+2016-11-21T10:31:14.428939Z
+1785
+songlei
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e17fb043-18cf-44bc-ac00-38d8c88cbd66
+
+awesome-bootstrap-checkbox
+dir
+
+blueimp
+dir
+
+bootstrap-rtl
+dir
+
+chartist
+dir
+
+chosen
+dir
+
+clockpicker
+dir
+
+codemirror
+dir
+
+colorpicker
+dir
+
+cropper
+dir
+
+dataTables
+dir
+
+datapicker
+dir
+
+daterangepicker
+dir
+
+dropzone
+dir
+
+footable
+dir
+
+fullcalendar
+dir
+
+iCheck
+dir
+
+images
+dir
+
+ionRangeSlider
+dir
+
+jQueryUI
+dir
+
+jasny
+dir
+
+jqGrid
+dir
+
+jsTree
+dir
+
+morris
+dir
+
+nouslider
+dir
+
+social-buttons
+dir
+
+steps
+dir
+
+summernote
+dir
+
+sweetalert
+dir
+
+switchery
+dir
+
+toastr
+dir
+

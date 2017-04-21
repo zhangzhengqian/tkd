@@ -1,0 +1,415 @@
+package com.lc.zy.ball.crm.framework.system.infoManage.controller;
+
+import com.lc.zy.ball.common.data.pageable.Page;
+import com.lc.zy.ball.common.data.pageable.PageRequest;
+import com.lc.zy.ball.crm.common.Constants;
+import com.lc.zy.ball.crm.common.SessionUtil;
+import com.lc.zy.ball.crm.common.Zonemap;
+import com.lc.zy.ball.crm.common.web.AbstractController;
+import com.lc.zy.ball.crm.framework.system.infoManage.service.InfoManageService;
+import com.lc.zy.ball.crm.framework.system.infoManage.vo.CrmUserVo;
+import com.lc.zy.ball.crm.framework.system.infoManage.vo.StatiumClassInfoVo;
+import com.lc.zy.ball.crm.framework.system.infoManage.vo.StatiumClassVo;
+import com.lc.zy.ball.crm.framework.system.infoManage.vo.StatiumInfosVo;
+import com.lc.zy.ball.domain.oa.po.Coach;
+import com.lc.zy.ball.domain.oa.po.CrmUser;
+import com.lc.zy.ball.domain.oa.po.StatiumClass;
+import com.lc.zy.ball.domain.oa.po.StatiumInfos;
+import com.lc.zy.common.util.CommonOAUtils;
+import com.lc.zy.common.util.MyGson;
+import com.lc.zy.common.web.WebUtils;
+import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springside.modules.web.Servlets;
+
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * 信息管理
+ */
+@Controller
+@RequestMapping(value = "/infoManage")
+public class InfoManageController extends AbstractController{
+
+	private static Logger logger = LoggerFactory.getLogger(InfoManageController.class);
+
+	@Autowired
+	private InfoManageService infoManageService;
+
+	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+	/**
+	 *
+	 * <根据登录用户id获取用户信息><功能具体实现>
+	 *
+	 * @create：2016/11/28 上午10:49
+	 * @author：sl
+	 * @param model
+	 * @param request
+	 * @return java.lang.String
+	 */
+	@RequestMapping(value="/statiumUser")
+	public String statiumUser(Model model, HttpServletRequest request) throws Exception {
+		// 获取道馆登录用户信息
+		CrmUser crmUser = infoManageService.getUserInfo(SessionUtil.currentUserId());
+		model.addAttribute("user", crmUser);
+		return "/infoManage/statiumUser";
+	}
+
+	/**
+	 *
+	 * <获取道馆信息><功能具体实现>
+	 *
+	 * @create：2016/11/25 下午7:54
+	 * @author：sl
+	 * @param model
+	 * @param request
+	 * @return java.lang.String
+	 */
+	@RequestMapping(value="/statiumInfo")
+	public String statiumInfo(Model model, HttpServletRequest request) throws Exception {
+		StatiumInfos statiumInfos = infoManageService
+				.getStatiumInfosByDgid(Integer.valueOf(SessionUtil.currentStatium()));
+		model.addAttribute("statium", statiumInfos);
+		return "/infoManage/statiumInfo";
+	}
+
+	/**
+	 *
+	 * <课程list><功能具体实现>
+	 *
+	 * @create：2016/11/28 下午4:18
+	 * @author：sl
+	 * @param model
+	 * @param request
+	 * @return java.lang.String
+	 */
+	@RequestMapping(value="/statiumClass")
+	public String statiumClass(Model model, HttpServletRequest request) throws Exception {
+		// 根据查询条件查
+		Map<String, Object> searchParams = Servlets.getParametersStartingWith(
+				request, "search_");
+		int page = WebUtils.getPage(request);
+		int size = WebUtils.getPageSize(request);
+		// 参数去空
+		CommonOAUtils.paramesTrim(searchParams);
+		Page<StatiumClassVo> pageData = null;
+		try {
+			searchParams.put("EQ_statiumId", SessionUtil.currentStatium());
+			// 获取订单list
+			pageData = infoManageService.findClass(new PageRequest(page, size), searchParams);
+			model.addAttribute("data", pageData);
+		} catch (Exception e) {
+			logger.error("{获取订单列表失败：}",e.getMessage());
+		}
+		return "/infoManage/statiumClass";
+	}
+
+	/**
+	 *
+	 * <更新道馆信息><功能具体实现>
+	 *
+	 * @create：2016/11/25 下午7:55
+	 * @author：sl
+	 * @param myForm
+	 * @param request
+	 * @return java.lang.String
+	 */
+	@RequestMapping(value = "save", method = RequestMethod.POST)
+	public String save(StatiumInfosVo myForm, HttpServletRequest request) {
+		try {
+			if (myForm.getLnglat() != null && !"".equals(myForm.getLnglat())) {
+				String[] lnglat = myForm.lnglat.split(",");
+				myForm.setLng(Double.valueOf(lnglat[0]));
+				myForm.setLat(Double.valueOf(lnglat[1]));
+			}
+			if (myForm.getPhoto() != null && myForm.getPhoto().length > 0) {
+				String photos = "";
+				for (String p : myForm.getPhoto()) {
+					if (StringUtils.isNotEmpty(p)) {
+						photos = photos + p + "__";
+					}
+				}
+				if (StringUtils.isNotEmpty(photos)) {
+					photos = photos.substring(0, photos.length() - 2);
+				}
+				myForm.setPhotos(photos);
+			}
+			if (StringUtils.isNotEmpty(myForm.getAreacode())) {
+				Map<String, String> areaMap = Zonemap.split(myForm
+						.getAreacode());
+				if ("市辖区".equals(areaMap.get("city"))
+						|| areaMap.get("city") == null) {
+					myForm.setCity(areaMap.get("province"));
+				} else {
+					myForm.setCity(areaMap.get("city"));
+				}
+				myForm.setProvince(areaMap.get("province"));
+				myForm.setArea(areaMap.get("area"));
+			}
+			
+			//保存道馆id
+			String dgId = SessionUtil.currentStatium();
+			myForm.setDgId(Integer.valueOf(dgId));
+			
+				infoManageService.save(myForm);
+		} catch (Exception e) {
+		    logger.debug("保存道馆信息 {}", e.getMessage());
+		}
+		return "redirect:/infoManage/statiumUser";
+	}
+
+	/**
+	 *
+	 * <保存用户><功能具体实现>
+	 *
+	 * @create：2016/11/28 上午10:45
+	 * @author：sl
+	 * @param crmUser
+	 * @param request
+	 * @return java.lang.String
+	 */
+	@RequestMapping(value = "saveUser", method = RequestMethod.POST)
+	@ResponseBody
+	public String saveUser(CrmUserVo crmUser, HttpServletRequest request) {
+		Map<String, String> result = new HashMap<String, String>();
+		try {
+			infoManageService.saveUser(crmUser);
+			result.put(Constants.RESULT, Constants.SUCCESS);
+		} catch (Exception e) {
+			logger.debug("更新密码失败 {}", e.getMessage());
+			result.put(Constants.RESULT, Constants.FAIL);
+			result.put(Constants.DATA, e.getMessage());
+		}
+		return MyGson.getInstance().toJson(result);
+	}
+
+	/**
+	 *
+	 * <获取课程详情><功能具体实现>
+	 *
+	 * @create：2016/11/28 下午4:23
+	 * @author：sl
+	 * @param model
+	 * @param request
+	 * @param id
+	 * @return java.lang.String
+	 */
+	@RequestMapping(value="/classForm")
+	public String classForm(Model model, HttpServletRequest request, String id) throws Exception {
+		try {
+			if (StringUtils.isNotBlank(id)) {
+				StatiumClass statiumClass = infoManageService.getStatiumClassById(id);
+				model.addAttribute("statiumClass", statiumClass);
+			}
+		} catch (Exception e) {
+			logger.debug("课程详情:{}", e.getMessage());
+		}
+		return "/infoManage/classForm";
+	}
+
+	/**
+	 *
+	 * <保存课程信息><功能具体实现>
+	 *
+	 * @create：2016/11/28 下午4:44
+	 * @author：sl
+	 * @param myForm
+	 * @param request
+	 * @return java.lang.String
+	 */
+	@RequestMapping(value="/savaClass")
+	public String savaClass(StatiumClass myForm, HttpServletRequest request) throws Exception {
+		infoManageService.saveClass(myForm);
+		return "redirect:/infoManage/statiumClass";
+	}
+
+    /**
+     *
+     * <删除课程><功能具体实现>
+     *
+     * @create：2016/11/28 下午5:50
+     * @author：sl
+     * @param classId
+     * @param request
+     * @return java.lang.String
+     */
+    @RequestMapping(value="/deleteClass")
+    @ResponseBody
+    public String deleteClass(String classId, HttpServletRequest request) {
+        Map<String,String> result = new HashMap<String, String>();
+        try {
+            infoManageService.deleteClass(classId);
+            result.put(Constants.RESULT, Constants.SUCCESS);
+        } catch (Exception e) {
+            logger.debug("删除课程失败 {}", e.getMessage());
+            result.put(Constants.RESULT, Constants.FAIL);
+            result.put(Constants.DATA, e.getMessage());
+        }
+        return MyGson.getInstance().toJson(result);
+    }
+
+    /**
+     *
+     * <课时list><功能具体实现>
+     *
+     * @create：2016/11/28 下午6:23
+     * @author：sl
+     * @param model
+     * @param request
+     * @param classId
+     * @return java.lang.String
+     */
+    @RequestMapping(value="/classInfo")
+    public String classInfo(Model model, HttpServletRequest request, String classId) throws Exception {
+        Map<String, Object> searchParams = Servlets.getParametersStartingWith(
+                request, "search_");
+        logger.debug(searchParams.toString());
+        int page = WebUtils.getPage(request);
+        int size = WebUtils.getPageSize(request);
+        Page<StatiumClassInfoVo> statiumClassInfoVoPage = null;
+        String statiumId = SessionUtil.currentStatium();
+        try {
+            // 将日期字符串转换成对象,这里注意，
+            // 页面上 name=search_GTE_startTime ,到了这里，需要去掉前缀
+            parseDate(searchParams, "GTE_classDate");
+            parseDate(searchParams, "LTE_classDate");
+            searchParams.put("EQ_classId", classId);
+            searchParams.put("EQ_statiumId", statiumId);
+            statiumClassInfoVoPage = infoManageService.classInfo(
+                    new PageRequest(page, size), searchParams);
+            model.addAttribute("position");
+            model.addAttribute("data", statiumClassInfoVoPage);
+            // 将搜索条件编码成字符串，用于排序，分页的URL
+            String searchParamsStr = Servlets.encodeParameterStringWithPrefix(
+                    searchParams, "search_");
+            model.addAttribute("searchParams", searchParamsStr + "&classId="
+                    + classId + "&statiumId=" + statiumId);
+        } catch (Exception e) {
+            logger.debug("课时list:{}", e.getMessage());
+            e.printStackTrace();
+        }
+        return "/infoManage/classInfo";
+    }
+
+    /**
+     *
+     * <删除课时><功能具体实现>
+     *
+     * @create：2016/11/28 下午6:32
+     * @author：sl
+     * @param classInfoId
+     * @param request
+     * @return java.lang.String
+     */
+    @RequestMapping(value="/deleteClassInfo")
+    @ResponseBody
+    public String deleteClassInfo(String classInfoId, HttpServletRequest request) {
+        Map<String,String> result = new HashMap<String, String>();
+        try {
+            infoManageService.deleteClassInfo(classInfoId);
+            result.put(Constants.RESULT, Constants.SUCCESS);
+        } catch (Exception e) {
+            logger.debug("删除课时失败 {}", e.getMessage());
+            result.put(Constants.RESULT, Constants.FAIL);
+            result.put(Constants.DATA, e.getMessage());
+        }
+        return MyGson.getInstance().toJson(result);
+    }
+
+    /**
+     *
+     * <课时详情><功能具体实现>
+     *
+     * @create：2016/11/28 下午6:52
+     * @author：sl
+     * @param model
+     * @param request
+     * @param id
+     * @return java.lang.String
+     */
+    @RequestMapping(value="/classInfoForm")
+    public String classInfoForm(Model model, HttpServletRequest request, String id) throws Exception {
+        try {
+            StatiumClassInfoVo infoVo = infoManageService.getClassInfoById(id, Integer.valueOf(SessionUtil.currentStatium()));
+            model.addAttribute("statiumClassInfo", infoVo);
+            model.addAttribute("classId", infoVo.getClassId());
+        } catch (Exception e) {
+            logger.debug("课时详情:{}", e.getMessage());
+        }
+        return "/infoManage/classInfoForm";
+    }
+
+    /**
+     *
+     * <课时初建form><功能具体实现>
+     *
+     * @create：2016/11/28 下午8:06
+     * @author：sl
+     * @param model
+     * @param request
+     * @param classId
+     * @return java.lang.String
+     */
+    @RequestMapping(value="/createInfoForm")
+    public String createInfoForm(Model model, HttpServletRequest request, String classId) throws Exception {
+        model.addAttribute("classId", classId);
+        return "/infoManage/classInfoForm";
+    }
+
+    /**
+     *
+     * <获取道馆教练><功能具体实现>
+     *
+     * @create：2016/11/28 下午7:06
+     * @author：sl
+     * @param request
+     * @return java.lang.String
+     */
+    @RequestMapping(value = "coach_query_dlg")
+    public String coachQueryDlg(Model model, ServletRequest request) throws Exception {
+        Map<String, Object> result = new HashMap<String, Object>();
+        try {
+            List<Coach> users = infoManageService.getCoach();
+            model.addAttribute("users", users);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("查看教练失败: {}", e);
+            result.put(Constants.Result.RESULT, false);
+            result.put(Constants.Result.REASON, "查看教练失败");
+        }
+        return "/infoManage/coach_query_dlg";
+    }
+
+    /**
+     *
+     * <保存课时><功能具体实现>
+     *
+     * @create：2016/11/28 下午7:26
+     * @author：sl
+     * @param myForm
+     * @param request
+     * @return java.lang.String
+     */
+    @RequestMapping(value="/savaClassInfo")
+    public String savaClassInfo(StatiumClassInfoVo myForm, HttpServletRequest request) {
+        try {
+            infoManageService.savaClassInfo(myForm);
+        } catch (Exception e) {
+            logger.debug("课程详情保存:{}", e.getMessage());
+        }
+        return "redirect:/infoManage/classInfo?classId=" + myForm.getClassId();
+    }
+}

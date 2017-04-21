@@ -1,0 +1,366 @@
+package com.lc.zy.ball.crm.framework.system.statiumManage.service;
+
+import com.lc.zy.ball.common.data.pageable.Page;
+import com.lc.zy.ball.common.data.pageable.PageImpl;
+import com.lc.zy.ball.common.data.pageable.PageRequest;
+import com.lc.zy.ball.crm.common.Constants;
+import com.lc.zy.ball.crm.common.SessionUtil;
+import com.lc.zy.ball.crm.common.service.AbstractCacheService;
+import com.lc.zy.ball.crm.framework.system.statiumManage.vo.CoachVo;
+import com.lc.zy.ball.crm.framework.system.statiumManage.vo.StudentVo;
+import com.lc.zy.ball.domain.oa.mapper.CoachMapper;
+import com.lc.zy.ball.domain.oa.mapper.CrmUserCardAccountMapper;
+import com.lc.zy.ball.domain.oa.mapper.OrderMapper;
+import com.lc.zy.ball.domain.oa.mapper.SsoUserMapper;
+import com.lc.zy.ball.domain.oa.mapper.StatiumInfosMapper;
+import com.lc.zy.ball.domain.oa.po.*;
+import com.lc.zy.common.data.Criterias;
+import com.lc.zy.common.util.DateUtils;
+import com.lc.zy.common.util.UUID;
+import com.lc.zy.common.zoo.SEQGenerate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springside.modules.persistence.SearchFilter;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+@Service
+@Transactional(readOnly = true)
+public class StatiumManageService extends AbstractCacheService {
+	private static final Logger logger = LoggerFactory.getLogger(StatiumManageService.class);
+
+	@Autowired
+	private SsoUserMapper ssoUserMapper = null;
+
+	@Autowired
+	private CrmUserCardAccountMapper crmUserCardAccountMapper = null;
+
+	@Autowired
+	private OrderMapper orderMapper = null;
+
+	@Autowired
+	private CoachMapper coachMapper = null;
+
+	@Autowired
+	private SEQGenerate seqGenerate = null;
+	
+	@Autowired
+	private StatiumInfosMapper statiumInfosMapper;
+
+	/**
+	 *
+	 * <学员list><功能具体实现>
+	 *
+	 * @create：2016/12/16 上午10:19
+	 * @author：sl
+	 * @param pageRequest
+	 * @param searchParams
+	 * @return com.lc.zy.ball.common.data.pageable.Page<com.lc.zy.ball.crm.framework.system.statiumManage.vo.StudentVo>
+	 */
+	public Page<StudentVo> findStudent(PageRequest pageRequest, Map<String, Object> searchParams) {
+		int total = 0;
+		List<StudentVo> list = new ArrayList<StudentVo>();
+		try {
+			Map<String, SearchFilter> filters = SearchFilter
+					.parse(searchParams);
+			SsoUserCriteria criteria = new SsoUserCriteria();
+			criteria.setMysqlLength(pageRequest.getPageSize());
+			criteria.setMysqlOffset(pageRequest.getOffset());
+			SsoUserCriteria.Criteria cri = criteria.createCriteria();
+			Criterias.bySearchFilter(cri, filters.values());
+			criteria.setOrderByClause("update_time desc");
+			total = ssoUserMapper.countByExample(criteria);
+			List<SsoUser> ls = ssoUserMapper.selectByExample(criteria);
+			for (SsoUser user : ls) {
+				StudentVo vo = new StudentVo();
+				BeanUtils.copyProperties(user, vo);
+				// 获取用户账户
+				CrmUserCardAccount account = getAccountByUserId(user.getId());
+				if (account != null) {
+					vo.setBalance(account.getBalance());
+				} else {
+					vo.setBalance(0);
+				}
+				// 获取用户期限卡
+				List<CrmUserCardAccount> cardAccounts = getDateAccountByUserId(user.getId());
+				if (!cardAccounts.isEmpty()) {
+					StringBuffer sb = new StringBuffer();
+					for (CrmUserCardAccount data : cardAccounts) {
+						String startDate = DateUtils.formatDate(data.getStartDate(), "yyyy/MM/dd");
+						String endDate = DateUtils.formatDate(data.getEndDate(), "yyyy/MM/dd");
+						sb.append(startDate).append(" ~ ").append(endDate).append(";");
+					}
+					vo.setDateTime(sb.substring(0, sb.lastIndexOf(";")));
+				}
+
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			logger.error("学员list {}", e.getMessage());
+		}
+		return new PageImpl<>(list, pageRequest, total);
+	}
+
+	/**
+	 *
+	 * <根据用户id获取用户账户信息><功能具体实现>
+	 *
+	 * @create：2016/12/16 上午9:49
+	 * @author：sl
+	 * @param userId
+	 * @return com.lc.zy.ball.domain.oa.po.CrmUserCardAccount
+	 */
+	public CrmUserCardAccount getAccountByUserId (String userId) {
+		CrmUserCardAccount account = null;
+		try {
+			CrmUserCardAccountCriteria criteria = new CrmUserCardAccountCriteria();
+			CrmUserCardAccountCriteria.Criteria cri = criteria.createCriteria();
+			cri.andUserIdEqualTo(userId);
+			cri.andCardTypeEqualTo(Constants.cardType.CARD);
+			cri.andStatusEqualTo(Constants.cardStatus.ACTIVE);
+			cri.andStatiumIdEqualTo(Integer.valueOf(SessionUtil.currentStatium()));
+			List<CrmUserCardAccount> list = crmUserCardAccountMapper.selectByExample(criteria);
+			if (!list.isEmpty()) {
+				account = list.get(0);
+			}
+		} catch (Exception e) {
+			logger.debug("根据用户id获取用户账户信息 {}", e.getMessage());
+		}
+		return account;
+	}
+
+	/**
+	 *
+	 * <根据用户ID获取用户期限卡信息><功能具体实现>
+	 *
+	 * @create：2016/12/16 上午10:11
+	 * @author：sl
+	 * @param userId
+	 * @return java.util.List<com.lc.zy.ball.domain.oa.po.CrmUserCardAccount>
+	 */
+	public List<CrmUserCardAccount> getDateAccountByUserId (String userId) {
+		List<CrmUserCardAccount> cardAccounts = null;
+		try {
+			CrmUserCardAccountCriteria criteria = new CrmUserCardAccountCriteria();
+			CrmUserCardAccountCriteria.Criteria cri = criteria.createCriteria();
+			cri.andUserIdEqualTo(userId);
+			cri.andCardTypeEqualTo(Constants.cardType.DATECARD);
+			cri.andStatusEqualTo(Constants.cardStatus.ACTIVE);
+			cri.andStatiumIdEqualTo(Integer.valueOf(SessionUtil.currentStatium()));
+			cardAccounts = crmUserCardAccountMapper.selectByExample(criteria);
+		} catch (Exception e) {
+			logger.debug("根据用户ID获取用户期限卡信息 {}", e.getMessage());
+		}
+		return cardAccounts;
+	}
+
+	/**
+	 *
+	 * <学员detail><功能具体实现>
+	 *
+	 * @create：2016/12/19 下午2:21
+	 * @author：sl
+	 * @param pageRequest
+	 * @param userId
+	 * @return com.lc.zy.ball.crm.framework.system.statiumManage.vo.StudentVo
+	 */
+	public StudentVo studentDetail(PageRequest pageRequest, String userId) {
+		StudentVo vo = new StudentVo();
+		int total = 0;
+		List<Order> list = null;
+		try {
+			// 获取用户信息
+			SsoUser user = this.selectByPrimaryKey(SsoUser.class, userId);
+			BeanUtils.copyProperties(user, vo);
+			// 获取用户订单数量(课程、活动)
+			OrderCriteria criteria = new OrderCriteria();
+			OrderCriteria.Criteria cri = criteria.createCriteria();
+			cri.andUserIdEqualTo(userId);
+			cri.andStatusEqualTo(Constants.OrderStatus.BILLED);
+			// 订单类型
+			List<Integer> orderType = new ArrayList<Integer>();
+			orderType.add(Constants.OrdersType.CLASS);
+			orderType.add(Constants.OrdersType.ACTIVITY);
+			cri.andOrdersTypeIn(orderType);
+			criteria.setOrderByClause("et desc");
+			criteria.setMysqlOffset(pageRequest.getOffset());
+			criteria.setMysqlLength(pageRequest.getPageSize());
+			total = orderMapper.countByExample(criteria);
+			list = orderMapper.selectByExample(criteria);
+			// 订单数量
+			vo.setOrderNum(total);
+			int amount = 0;
+			for (Order order : list) {
+				amount += order.getFinalFee();
+			}
+			// 订单金额
+			vo.setAmount(amount);
+			// orderPage
+			vo.setPageData(new PageImpl<>(list, pageRequest, total));
+			// 储值卡余额
+			CrmUserCardAccount account = getAccountByUserId(userId);
+			if (account != null) {
+				vo.setBalance(account.getBalance());
+			} else {
+				vo.setBalance(0);
+			}
+			// 期限卡
+			List<CrmUserCardAccount> cardAccounts = getDateAccountByUserId(user.getId());
+			if (!cardAccounts.isEmpty()) {
+				StringBuffer sb = new StringBuffer();
+				for (CrmUserCardAccount data : cardAccounts) {
+					String startDate = DateUtils.formatDate(data.getStartDate(), "yyyy/MM/dd");
+					String endDate = DateUtils.formatDate(data.getEndDate(), "yyyy/MM/dd");
+					sb.append(startDate).append(" ~ ").append(endDate).append(" | ");
+				}
+				vo.setDateTime(sb.substring(0, sb.lastIndexOf(" | ")));
+			}
+		} catch (Exception e) {
+			logger.debug("学员detail {}", e.getMessage());
+		}
+		return vo;
+	}
+
+	/**
+	 *
+	 * <获取教练list><功能具体实现>
+	 *
+	 * @create：2016/12/19 下午4:32
+	 * @author：sl
+	 * @param pageRequest
+	 * @param searchParams
+	 * @return com.lc.zy.ball.common.data.pageable.Page<com.lc.zy.ball.crm.framework.system.statiumManage.vo.CoachVo>
+	 */
+	public Page<CoachVo> coachList(PageRequest pageRequest, Map<String, Object> searchParams) {
+		List<CoachVo> voList = new ArrayList<CoachVo>();
+		int total = 0;
+		try {
+			Map<String, SearchFilter> filters = SearchFilter.parse(searchParams);
+			CoachCriteria coachCriteria = new CoachCriteria();
+			coachCriteria.setMysqlLength(pageRequest.getPageSize());
+			coachCriteria.setMysqlOffset(pageRequest.getOffset());
+			CoachCriteria.Criteria cri = coachCriteria.createCriteria();
+			Criterias.bySearchFilter(cri, filters.values());
+			cri.andDgIdEqualTo(Integer.valueOf(SessionUtil.currentStatium()));
+			coachCriteria.setOrderByClause("et desc");
+			total = coachMapper.countByExample(coachCriteria);
+			List<Coach> list = coachMapper.selectByExample(coachCriteria);
+			for (Coach info : list) {
+				CoachVo vo = new CoachVo();
+				BeanUtils.copyProperties(info, vo);
+				voList.add(vo);
+			}
+		} catch (Exception e) {
+			logger.debug("获取教练list:{}", e.getMessage());
+		}
+		return new PageImpl<>(voList, pageRequest, total);
+	}
+
+	/**
+	 *
+	 * <教练信息保存><功能具体实现>
+	 *
+	 * @create：2016/12/19 下午4:38
+	 * @author：sl
+	 * @param coach
+	 * @return void
+	 */
+	@SuppressWarnings("static-access")
+	@Transactional(readOnly = false)
+	public void saveCoach(CoachVo coach) {
+		try {
+			Thread.currentThread().sleep(300);
+			Coach myForm = new Coach();
+			BeanUtils.copyProperties(coach, myForm);
+			String uId = SessionUtil.currentUserId();
+			if (coach.getId() == null || coach.getId().equals("")) {
+				String id = UUID.get();
+				myForm.setId(id);
+				// 设置编辑时间和创建时间
+				myForm.setEt(new Date());
+				myForm.setCt(new Date());
+				myForm.setCb(uId);
+				myForm.setEb(uId);
+				// 教练号
+				myForm.setCoachNo(seqGenerate.genQiuyouNumber());
+				// 道馆id
+				myForm.setDgId(Integer.valueOf(SessionUtil.currentStatium()));
+				//道馆名称
+				StatiumInfosCriteria statiumInfosCriteria = new StatiumInfosCriteria();
+				statiumInfosCriteria.createCriteria().andDgIdEqualTo(Integer.valueOf(SessionUtil.currentStatium()));
+				List<StatiumInfos> list = statiumInfosMapper.selectByExample(statiumInfosCriteria);
+				if(list!=null){
+					myForm.setDgName(list.get(0).getDgName());
+				}
+				this.insertSelective(myForm, coach.getId());
+			} else {
+				// 设置编辑时间
+				myForm.setEt(new Date());
+				myForm.setEb(uId);
+				this.updateByPrimaryKeySelective(myForm, coach.getId());
+			}
+		} catch (Exception e) {
+			logger.debug("教练信息保存", e.getMessage());
+			throw new RuntimeException("教练信息保存失败");
+		}
+	}
+
+	/**
+	 *
+	 * <根据教练id获取教练信息><功能具体实现>
+	 *
+	 * @create：2016/12/19 下午4:42
+	 * @author：sl
+	 * @param coachId
+	 * @return com.lc.zy.ball.domain.oa.po.Coach
+	 */
+	public Coach getCoachById(String coachId) {
+		Coach coach = null;
+		try {
+			coach = this.selectByPrimaryKey(Coach.class, coachId);
+		} catch (Exception e) {
+			logger.debug("根据教练id获取教练信息:{}", e.getMessage());
+		}
+		return coach;
+	}
+
+	/**
+	 *
+	 * <删除教练><功能具体实现>
+	 *
+	 * @create：2016/12/19 下午4:46
+	 * @author：sl
+	 * @param coachId
+	 * @return void
+	 */
+	@Transactional(readOnly = false)
+	public void deleteCoachByid(String coachId)  throws Exception{
+		try {
+			this.deleteByPrimaryKey(Coach.class, coachId);
+		} catch (Exception e) {
+			logger.debug("删除教练:{}", e.getMessage());
+			throw new Exception("服务器异常！");
+		}
+	}
+	
+	/**
+	 * 
+	 * <查询用户><功能具体实现>
+	 *
+	 * @create：2017年4月20日 下午1:22:17
+	 * @author：zzq
+	 * @param userId
+	 * @return
+	 */
+	public SsoUser findUser(String userId) {
+		SsoUser user = ssoUserMapper.selectByPrimaryKey(userId);
+		return user;
+	}
+}

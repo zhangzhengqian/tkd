@@ -1,0 +1,50 @@
+<div class="orderNav">
+	<ul>
+		<li><a href="#/mall/goods">订货</a></li>
+		<li><a href="#/mall/orders">订单管理</a></li>
+		<li><a href="#/mall/storageSize">库存管理</a></li>
+		<li class="active"><a href="#/mall/storageLogs">出入库明细</a></li>
+	</ul>
+</div>
+<div class="orderSearch">
+	<ul>
+		<li><span>商品</span> <input type="text"
+			ng-model="searcher.goodName"></li>
+		<li><span>类型</span> <select ng-model='searcher.type'
+			ng-options="key as value for (key,value) in typeMap">
+				<option value="">请选择</option>
+		</select></li>
+		<li class="timeLi"><span>查询时间</span> <input type="text"
+			id="start" ng-model="searcher.start" onchange=""
+			onClick="WdatePicker({dateFmt:'yyyy-MM-dd',maxDate:'#F{$dp.$D(\'end\')}'})">
+			<em>到</em> <input type="text" id="end"
+			ng-model="searcher.end" class="form-control" onchange=""
+			onClick="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'#F{$dp.$D(\'start\')}'})">
+		</li>
+		<li class="subSearch">
+			<a class="submit" href="javascript:;" ng-click="search()">查询</a>
+			<a class="reset"  href="javascript:;" ng-click="reset()">重置</a>
+		</li>
+	</ul>
+</div>
+<div class="orderResult">
+	<table>
+		<tr>
+			<th>商品名称</th>
+			<th>类型</th>
+			<th>出入库数量</th>
+			<th>出入库时间</th>
+			<th>操作</th>
+		</tr>
+		<tr ng-repeat="log in objs">
+			<td ng-if="log.typeStr=='订货'">{{log.goodName}}<br>{{log.bulk}}*{{log.amount}} 整{{log.unit}}</td>
+			<td ng-if="log.typeStr!='订货'">{{log.goodName}}({{log.bulk}})</td>
+			<td>{{log.typeStr}}</td>
+			<td>{{log.changeValue}}</td>
+			<td>{{log.ct}}</td>
+			<td ng-if="log.orderId!=null"><a href="#/mall/orderInfo/{{log.orderId}}">详情</a></td>
+			<td ng-if="log.orderId==null"></td>
+		</tr>
+	</table>
+</div>
+<crm-pagination conf="paginationConf"></crm-pagination>

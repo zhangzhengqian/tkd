@@ -1,0 +1,38 @@
+<div class="orderNav">
+	<ul>
+		<li><a href="#userCenter">个人中心</a></li>
+		<li><a href="#statiumEdit">场馆信息</a></li>
+		<li><a href="#space">场地管理</a></li>
+		<li class="active"><a href="#user">员工管理</a></li>
+		<!-- <li><a href="#/prize/list">获奖列表</a></li> -->
+	</ul>
+</div>
+<div class="formTable">
+    <ul>
+    	<li>
+        	<span class="title">姓名：</span>
+         	<input type="text" ng-model="user.realname">
+        </li>
+        <li>
+        	<span class="title">昵称：</span>
+         <input type="text" ng-model="user.nickname">
+        </li>
+        <li>
+        	<span class="title">手机号(用户名)：</span>
+         	<input type="text" ng-disabled="disabled" maxlength=11 ng-model="user.loginName" placeholder="初始密码为用户名">
+        </li>
+        <li>
+        	<span class="title">员工号：</span>
+         	<input type="text" ng-model="user.custId">
+        </li>
+        <li class="licheckBox">
+	    	<span class="title">功能授权：</span>
+	      	<label class="labelCheck" ng-repeat="perm in user.checkFuncs"><input type="checkbox"  ng-model="perm.checked"><strong>{{perm.funcName}}</strong><i></i></label>
+        </li>
+      </ul>
+      <div class="formSubDiv">
+      	<a href="#user" class="saveBtnBot">返回</a>
+      	<a class="saveBtnBot" ng-click="saveUser()" href="javascript:;">保存</a>
+      </div>
+      
+</div>

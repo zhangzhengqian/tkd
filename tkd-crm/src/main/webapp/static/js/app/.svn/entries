@@ -1,0 +1,135 @@
+10
+
+dir
+2731
+svn://60.219.169.5/tkd-service/tkd-crm/src/main/webapp/static/js/app
+svn://60.219.169.5
+
+
+
+2016-11-21T10:31:14.428939Z
+1785
+songlei
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e17fb043-18cf-44bc-ac00-38d8c88cbd66
+
+401.js
+file
+
+
+
+
+2017-04-09T08:44:30.818000Z
+eca5e8b7a569174ae2cdbb15c940e650
+2016-11-21T10:31:14.428939Z
+1785
+songlei
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+250
+
+app.js
+file
+
+
+
+
+2017-04-09T08:44:31.059000Z
+1177806d496e4d1cdb3c0a17b5d7cc01
+2016-11-21T10:31:14.428939Z
+1785
+songlei
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+32373
+
+bill
+dir
+
+common
+dir
+
+game
+dir
+
+mall
+dir
+
+member
+dir
+
+notify
+dir
+
+order
+dir
+
+prize
+dir
+
+space
+dir
+
+spaceLock
+dir
+
+statium
+dir
+
+statiumuse
+dir
+
+user
+dir
+

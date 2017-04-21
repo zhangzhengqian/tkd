@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html ng-app="qiuyouZoneCrm">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<title>球友圈CRM</title>
+<link href="static/css/bootstrap.css" rel="stylesheet">
+<link href="static/css/reset.css" rel="stylesheet">
+<link href="static/css/common.css?ver=2598" rel="stylesheet">
+<link href="static/css/animate.css" rel="stylesheet">
+<link href="static/css/tree.css" rel="stylesheet">
+<link href="static/lib/plugins/uploadify/uploadify.css" rel="stylesheet">
+<link href="static/css/baiduMap.css" rel="stylesheet">
+<link href="static/css/price.css" rel="stylesheet">
+<!-- <link href="static/css/statiumUse.css" rel="stylesheet"> -->
+<link href="static/css/plugins/iCheck/custom.css" rel="stylesheet">
+<link href="static/css/plugins/sweetalert/sweetalert.css"
+	rel="stylesheet">
+<link href="static/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+<link href="/static/uploadify/jquery.uploadify.min.js"  rel="stylesheet">
+<style type="text/css">
+.myUploadBox #SWFUpload_0{
+	left: 0px;
+	}
+.loading{
+	display:none;  
+    width:160px;  
+    height:56px;  
+    position:fixed; 
+    top:50%;  
+    left:50%;  
+    line-height:56px;  
+    color:#fff;  
+    padding-left:60px;  
+    font-size:15px;  
+    background: #000 url(static/img/loader.gif) no-repeat 10px 50%;  
+    opacity: 0.7;  
+    z-index:9999;  
+    border-radius:20px;  
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=70);  
+} 
+</style>
+</head>
+
+<body>
+<ng-include src="'view/common/nav.html'"></ng-include>
+<div class="mainCont animated fadeInRight" ng-view>
+</div>
+	<div class="modal inmodal fade" id="orderModal" tabindex="-1"
+		role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+				</div>
+				<div id="modal-lgb" class="modal-body"></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--<div class="modal inmodal fade" id="createOrderModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content kuai-zong">
+				<div class="modal-header" style="border:none;">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+				</div>
+				<div id="creatOrderList" class="creatOrderList">
+					<dl>
+						<dt><strong>场地</strong><strong>开始时间</strong><strong>默认价格(元)</strong></dt>
+						<dd><span>羽毛球7号场</span><span>00:30</span><span>40.0</span></dd>
+					</dl>
+				</div>
+				<div class="col-sm-4 input-group input-hy">
+					<span class="input-group-btn">
+						会员查找
+					</span>
+		           <input type="text" class="form-control" id="member-search-value" placeholder="卡号、手机号查找">
+		           <span class="input-group-btn">
+		               <button class="btn btn-primary" id="member-search" type="button">查询</button>
+		           </span>
+		        </div>
+		        <div class="orderTotal">
+					<dl class="xinxi-z">
+						<dd><span></span><span></span><span></span><span></span><span></span><span></span><span style="display: none"></span></dd>
+					</dl>
+				</div>
+		        <div class="orderTotal xin-ding">
+					<dl>
+						<dd><span>订单金额</span><span></span><span>折后价格</span><span></span><span>支付方式：<select id="pay-type"><option value="0">现金</option><option value="3">余额</option><option value="1">支付宝</option><option value="2">微信</option><option value="4">刷卡</option></select></span><span style="display: none">0</span></dd>
+					</dl>
+				</div>
+				<div class="modal-footer" style="border:none;">
+					&lt;!&ndash; <button id="createOrderNoPay" type="button" class="btn btn-blue">立即下单稍后支付</button> &ndash;&gt;
+					<button id="subCreateOrder" type="button" class="btn btn-blue">立即支付</button>
+					<button  type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal inmodal fade" id="cancleOrderModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header" style="border:none;">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+				</div>
+				<div id="cancleOrderList" class="creatOrderList">
+					<dl>
+						<dt><strong>场地</strong><strong>开始时间</strong><strong>默认价格(元)</strong></dt>
+						<dd><span>羽毛球7号场</span><span>00:30</span><span>40.0</span></dd>
+					</dl>
+				</div>
+				<div class="orderTotal">
+					<dl class="xinxi-zf">
+						<dd><span></span><span></span><span></span><span></span><span></span><span></span></dd>
+					</dl>
+				</div>
+				<div class="orderTotal yi-ding">
+					<dl>
+						<dd><span>删除原因：</span><input type="text" id="delReason"></dd>
+					</dl>
+				</div>
+		        <div class="orderTotal yi-ding">
+					<dl>
+						<dd><span>订单金额</span><span></span><span>折后价格</span><span></span><span></span></dd>
+					</dl>
+				</div>
+				<div class="modal-footer" style="border:none;">
+					<button id="payOrder" type="button" class="btn btn-blue" style="display:none;">支付订单</button>
+					<button id="deleOrder" type="button" class="btn btn-blue">删除订单</button>
+					<button  type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal inmodal fade" id="appOrderModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header" style="border:none;">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+				</div>
+				<div id="orderInfo" class="orderInfo">
+					
+				</div>
+				<div id="appOrderList" class="creatOrderList">
+					<dl>
+						<dt><strong>场地</strong><strong>开始时间</strong><strong>默认价格(元)</strong></dt>
+						<dd><span>羽毛球7号场</span><span>00:30</span><span>40.0</span></dd>
+					</dl>
+					<div class="orderTotal">
+						<p><span id="orderPress"></span><strong>订单金额（元）：</strong></p>
+					</div>
+				</div>
+				<div class="modal-footer" style="border:none;">
+					<button  type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal inmodal fade" id="outScoreInput" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header" style="border:none;">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+				</div>
+				<div class="outScore">
+					<input type="hidden" id="nodeId">
+					<input type="hidden" id="lnodeId">
+					<input type="hidden" id="rnodeId">
+					<dl>
+						<dd id="outScore">
+							<span>11</span>
+							<span><input type="text" class="gameScore" onkeyup="this.value=this.value.replace(/\D/g,'')" placeholder="比分"></span>
+							<span>VS</span>
+							<span><input type="text" class="gameScore" onkeyup="this.value=this.value.replace(/\D/g,'')" placeholder="比分"></span>
+							<span>22</span>
+						</dd>
+					</dl>
+				</div>
+				<div class="modal-footer" style="border:none;">
+					<button  type="button" class="btn btn-white" id="enterScoreBtn" onclick="enterScore()">录入</button>
+					<button  type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	&lt;!&ndash; 充值模态框 &ndash;&gt;
+	<div class="modal inmodal fade" id="chargeModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content mt-kuang">
+				<div class="modal-header" style="border:none;">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+				</div>
+				<div class="outScore">
+					<input type="hidden" id="memberId">
+					<ul class="zi-xin">
+						<li><span>充值金额：</span>￥<input type="text" id="chargeMoney"></li>
+						<li><span>赠送金额：</span>￥<input type="text" id="giveMoney"></li>
+						<li><span>支付方式：</span>&nbsp;&nbsp;&nbsp;<select id="chargeType">
+							<option value="0">现金</option>
+							<option value="2">微信</option>
+							<option value="1">支付宝</option>
+							<option value="4">刷卡</option>
+						</select></li>
+					</ul>
+				</div>
+				<div class="modal-footer but-col" style="border:none;">
+					<button  type="button" class="btn btn-red" id="saveChargeBtn" onclick="saveCharge()">充值</button>
+					<button  type="button" class="btn btn-red" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	&lt;!&ndash; 批量导入模态框 &ndash;&gt;
+	<div class="modal inmodal fade" id="importMembersModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content mt-kuang">
+				<div class="modal-header" style="border:none;">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+				</div>
+				<div class="outScore">
+					<center><span>下载模板，填写模板，上传文件，一键批量导入会员</span></center>
+				</div>
+				<div class="form-group form-group-sm">
+  					<form id="fileForm" style="position: relative;" action="/admin/member/importMembers" method="post" class="form-horizontal"  enctype="multipart/form-data">
+  						
+						
+						<div class="modal-footer but-col myupload" id="myupload" style="border:none;">
+				         	<a  href="/static/file/tmp.xls" class="btn btn-red" id="downLoadA" style="background: #505050;color: #fff;margin-right: 257px;border-radius: 20px 20px 20px 20px;height: 30px;">下载模板</a>
+				         	<div class="myUploadBox" style="position: absolute;bottom: 2px;display: inline-block;left: 182px;"><input id="myfile" name="myfile" type="file" multiple="false"/></div>
+							<button  type="button" class="btn btn-red" data-dismiss="modal" style="margin-right: 10px;background: #505050;color: #fff;border-radius: 20px 20px 20px 20px;height: 30px;padding: 0 15px;">取消</button>
+						</div>
+		         	</form>
+	      		</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal inmodal fade" id="drawModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header" style="border:none;">
+				抽签
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+				</div>
+				<div class="drawPlayers">
+					<dl>
+						<dd>
+							<span class="group_name">A组(抽第二名)</span>
+							<span class="drawPlayer"><button class="btn">阿布</button></span>
+							<span class="drawPlayer"><button class="btn">ss</button></span>
+						</dd>
+						<dd>
+							<span class="group_name">B组(抽第二名)</span>
+							<span class="drawPlayer"><button class="btn active">阿布</button></span>
+							<span class="drawPlayer"><button class="btn">ss</button></span>
+						</dd>
+					</dl>
+				</div>
+				<div class="modal-footer" style="border:none;">
+					<button  type="button" class="btn btn-white" id="enterScoreBtn" onclick="drawPlayer()">确定</button>
+					<button  type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal inmodal fade" id="lotteryModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header" style="border:none;">
+				                <p style="color:red;font-size:36px;text-align:center;height:38px;margin-top:5%;">随机抽奖</p>
+				                 <p style="color:#333;font-size:20px;text-align:center;margin-top:5%;">大奖等你拿</p>
+				</div>
+				<div id="ptrs" style="text-align: center">
+				   
+				</div>
+				<div id="lottery">
+					<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td id='p1' pt="" index="0" class="lottery-unit lottery-unit-0">1</td>
+							<td id='p2' pt="" index="1" class="lottery-unit lottery-unit-1">2</td>
+							<td id='p3' pt="" index="2" class="lottery-unit lottery-unit-2">3</td>
+						</tr>
+						<tr>
+							<td id='p4' pt="" index="7" class="lottery-unit lottery-unit-7">4</td>
+							<td ><a href="javascript:;">开始</a></td>
+							<td id='p5' pt="" index="3" class="lottery-unit lottery-unit-3">5</td>
+						</tr>
+				        <tr>
+							<td id='p6' pt="" index="6" class="lottery-unit lottery-unit-6">6</td>
+							<td id='p7' pt="" index="5" class="lottery-unit lottery-unit-5">7</td>
+							<td id='p8' pt="" index="4" class="lottery-unit lottery-unit-4">8</td>
+						</tr>
+					</table>
+				</div>
+				<div class="modal-footer" style="border:none;">
+					<button  type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+		<div class="modal inmodal fade" id="goodsModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content zong-xin">
+					<div class="modal-header" style="border:none; font-size:16px;color:#333;">
+					商品消费
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
+					</div>
+					<div class="row zi-quan">
+					
+   					
+   					</div>
+   					<div class="xin-right">
+   							<div class="col-sm-4 input-group input-hy cha-input">
+								<span class="input-group-btn">
+									会员查找
+								</span>
+					           <input type="text" class="form-control" id="member-search-value1" placeholder="卡号、手机号查找">
+					           <span class="input-group-btn">
+					               <button class="btn btn-primary" id="member-search1" type="button">查询</button>
+					           </span>
+				            </div>
+   					       <p id="mem_kh"></p>
+   					       <p id="mem_name"></p>
+   					       <p id="mem_phone"></p>
+   					       <p id="mem_bal"></p>
+   					       <p style="display: none" id="mem_id"></p>
+   					       <p id='three'>已购商品</p>
+   					       <div id='hua-lun'>
+	   					       
+   					       </div>
+   					       <p style='position: absolute;right:61px;top:360px;;'>金额：<span id="totalPrice" totalPrice='0'>0.00元</span></p>  
+   					       <p style='position: absolute;right:8px;top:389px;'>支付方式：<select id="pay-type1"><option value="0">现金</option><option value="3">余额</option><option value="1">支付宝</option><option value="2">微信</option><option value="4">刷卡</option></select></p>					      
+   					</div>
+   					
+					<div class="modal-footer" style="border:none;">
+						<button  type="button" class="btn btn-white" id="enterScoreBtn" onclick="balanceGoods()">结账</button>
+						<button  type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	<div class="orderTip" id="orderTip">
+		<h3><span>提示:</span><a href="javascript:;" id="orderTipClose">×</a></h3>
+		<p>您有新的订单</p>
+		<div id="audioBox"></div>
+	</div>-->
+	<div id="loading" class="loading">加载中...</div>
+	<!-- Mainly scripts -->
+	<!-- <script src="static/lib/jquery-2.1.1.js"></script> -->
+	<script src="static/lib/jquery.min.js"></script>
+	<script src="static/lib/bootstrap.min.js"></script>
+	<script src="static/lib/html2canvas.min.js"></script>
+	<script src="static/lib/base64.min.js"></script>
+	<script src="static/lib/canvas2image.js"></script>
+	<script src="static/lib/iscroll-probe.js"></script>
+	<script src="static/lib/ejs_production.js"></script>
+	<script src="static/lib/gameTree.js"></script>
+	<script src="static/lib/gameTreeForCanvas.js?ver=1.2"></script>
+	<script src="static/lib/plugins/metisMenu/jquery.metisMenu.js"></script>
+	<script src="static/lib/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="static/lib/plugins/uploadify/jquery.uploadify.min.js"></script>
+	<script src="static/lib/plugins/My97DatePicker/WdatePicker.js"></script>
+	<script src="static/lib/plugins/sweetalert/sweetalert.min.js"></script>
+	<script src="static/lib/plugins/toastr/toastr.min.js"></script>
+	<script src="static/lib/plugins/ueditor/ueditor.config.js"></script>
+	<script src="static/lib/plugins/ueditor/ueditor.all.min.js"></script>
+	<!--<script src="static/lib/angular.min.js"></script>-->
+	<!--<script src="static/lib/angular-route.min.js"></script>-->
+	<!--<script src="static/lib/angular-cookies.min.js"></script>-->
+	<script src="static/lib/jquery-jtemplates.js"></script>
+	<script src="static/lib/jquery.dragsort-0.5.2.min.js"></script>
+	<!--<script src="static/js/app/app.js?ver=2601"></script>-->
+	<!--<script src="static/js/app/401.js?ver=2594"></script>-->
+	<!--<script src="static/js/app/common/crmuploadify.js"></script>-->
+	<!--<script src="static/js/app/common/crmue.js"></script>-->
+	<!--<script src="static/js/app/common/pagination.js"></script>-->
+	<!--<script src="static/js/app/common/crmdrag.js"></script>-->
+	<!--<script src="static/js/app/common/gameTree.js"></script>-->
+	<!--<script src="static/js/app/common/gameview.js"></script>-->
+	<!--<script src="static/js/app/user/userApp.js?ver=2594"></script>-->
+	<!--<script src="static/js/app/order/orderApp.js?ver=2594"></script>-->
+	<!--<script src="static/js/app/statium/statiumApp.js?ver=2598"></script>-->
+	<!--<script src="static/js/app/space/spaceApp.js?ver=2594"></script>-->
+	<!--<script src="static/js/app/bill/billApp.js?ver=2595"></script>-->
+	<!--<script src="static/js/app/member/memberApp.js?ver=2595"></script>-->
+	<!--<script src="static/js/app/statiumuse/statiumUseApp.js?ver=2594"></script>-->
+	<!--<script src="static/js/app/notify/notifyApp.js?ver=2594"></script>-->
+	<!--<script src="static/js/app/spaceLock/spaceLockApp.js?ver=2595"></script>-->
+	<!--<script src="static/js/app/game/gameApp.js?ver=2596"></script>-->
+	<!--<script src="static/js/app/mall/mallApp.js?ver=2596"></script>-->
+	<!--<script src="static/js/app/prize/prizeApp.js?ver=2596"></script>-->
+	<!--<script src="static/js/app/common/lottery.js"></script>-->
+	<!--<script type="text/javascript" src="http://api.map.baidu.com/api?ak=89jrTPxQwh49QGwzQe1g6azM&v=2.0"></script>-->
+</body>
+
+</html>

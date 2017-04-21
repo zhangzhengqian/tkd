@@ -1,0 +1,55 @@
+10
+
+dir
+2731
+svn://60.219.169.5/tkd-service/tkd-crm/src/main/webapp/static
+svn://60.219.169.5
+
+
+
+2017-04-05T10:33:11.547219Z
+2646
+ywl
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e17fb043-18cf-44bc-ac00-38d8c88cbd66
+
+css
+dir
+
+file
+dir
+
+font-awesome
+dir
+
+fonts
+dir
+
+img
+dir
+
+js
+dir
+
+lib
+dir
+
+song
+dir
+
+uploadify
+dir
+

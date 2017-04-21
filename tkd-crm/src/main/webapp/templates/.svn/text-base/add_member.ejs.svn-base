@@ -1,0 +1,95 @@
+<div class="row">
+	<div class="form-group form-group-sm">
+         <label for="logoFile" class="col-md-4 control-label"><span class="text-red">* </span>头像:</label>
+         <div class="col-md-6 has-feedback">
+			<!-- 上传控件 -->
+			<input id="member_logoFile" type="file" multiple="false" />
+			<!-- 保存图片 -->
+			<input id="member_logo" name="logo" type="hidden" value="" />
+			<!-- 显示图片 -->
+			<img alt="" src="" id="member_logo_img">
+         </div>
+     </div>
+  </div>
+  <div class="row">
+	 <div class="form-group form-group-sm">
+         <label for="member_name" class="col-md-4 control-label"><span class="text-red">* </span>姓名:</label>
+         <div class="col-md-5 has-feedback ">
+           <input type="text" class="form-control" id="member_name" name="member_name" value="" />
+         </div>
+     </div>
+     </div>
+  <div class="row">
+     <div class="form-group form-group-sm">
+         <label for="member_sex" class="col-md-4 control-label"><span class="text-red">* </span>性别:</label>
+         <div class="col-md-5 has-feedback ">
+           <select id="member_sex" class="form-control">
+           		<option value="男">男</option>
+           		<option value="女">女</option>
+           </select>
+         </div>
+     </div>
+     </div>
+  <div class="row">
+     <div class="form-group form-group-sm">
+         <label for="member_age" class="col-md-4 control-label"><span class="text-red">* </span>年龄:</label>
+         <div class="col-md-5 has-feedback ">
+           <input type="text" class="form-control" id="member_age" name="member_age" value="" />
+         </div>
+     </div>
+     </div>
+  <div class="row">
+     <div class="form-group form-group-sm">
+         <label for="member_phone" class="col-md-4 control-label"><span class="text-red">* </span>联系方式:</label>
+         <div class="col-md-5 has-feedback ">
+           <input type="text" class="form-control" id="member_phone" name="member_phone" value="" />
+         </div>
+     </div>
+ </div>
+ <hr>
+ <div class="row">
+	<div class="col-md-offset-4 col-md-2">
+	   <a class="btn btn-default btn-sm" href="javascript:;" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove"></span> 取消</a>
+	</div>         
+  	<div class="col-md-2">
+    	<button id="submit_member" type="button" class="btn btn-primary btn-sm" ><span class="glyphicon glyphicon-save"></span> 保存 </button>
+	</div>
+ </div>
+ <script>
+ 	$(function(){
+	 	upload({'id':'member_logoFile','icon_img':'member_logo_img','icon':'member_logo'});  // 球馆LOGO
+	 	$("#submit_member").on('click',function(){
+			var logo = $("#member_logo").val();
+			if(logo==''){
+				myAlert("请上传头像.","error");	
+				return;
+	 		}
+			var name = $("#member_name").val();
+			if(name==''){
+				myAlert("请填写姓名.","error");	
+				return;
+	 		}
+			var sex = $("#member_sex").val();
+			if(sex==''){
+				myAlert("请选择性别.","error");	
+				return;
+	 		}
+			var age = $("#member_age").val();
+			if(age==''){
+				myAlert("请填写年龄.","error");	
+				return;
+	 		}
+			var phone = $("#member_phone").val();
+			if(phone==''){
+				myAlert("请填写联系方式.","error");	
+				return;
+	 		}
+			var memberInfo = {logo:logo,name:name,sex:sex,age:age,phone:phone};
+			var temp = new EJS({url: '/static/template/member_list.ejs?ver='+Math.random()});
+			var html = temp.render({"item":memberInfo});
+			$('#member_table').append(html);
+			members.push(memberInfo);
+			$("#addMember").modal("hide");
+		})
+ 	});
+ </script>

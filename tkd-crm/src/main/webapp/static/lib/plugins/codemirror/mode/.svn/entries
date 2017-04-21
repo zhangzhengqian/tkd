@@ -1,0 +1,348 @@
+10
+
+dir
+2850
+svn://60.219.169.5/tkd-service/tkd-crm/src/main/webapp/static/lib/plugins/codemirror/mode
+svn://60.219.169.5
+
+
+
+2016-11-21T10:31:14.428939Z
+1785
+songlei
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e17fb043-18cf-44bc-ac00-38d8c88cbd66
+
+apl
+dir
+
+asterisk
+dir
+
+clike
+dir
+
+clojure
+dir
+
+cobol
+dir
+
+coffeescript
+dir
+
+commonlisp
+dir
+
+css
+dir
+
+cypher
+dir
+
+d
+dir
+
+diff
+dir
+
+django
+dir
+
+dtd
+dir
+
+dylan
+dir
+
+ecl
+dir
+
+eiffel
+dir
+
+erlang
+dir
+
+fortran
+dir
+
+gas
+dir
+
+gfm
+dir
+
+gherkin
+dir
+
+go
+dir
+
+groovy
+dir
+
+haml
+dir
+
+haskell
+dir
+
+haxe
+dir
+
+htmlembedded
+dir
+
+htmlmixed
+dir
+
+http
+dir
+
+index.html
+file
+
+
+
+
+2017-04-09T08:43:26.343000Z
+bad671feb71817b6b57b6c3bf9b00e2e
+2016-11-21T10:31:14.428939Z
+1785
+songlei
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5945
+
+jade
+dir
+
+javascript
+dir
+
+jinja2
+dir
+
+julia
+dir
+
+kotlin
+dir
+
+livescript
+dir
+
+lua
+dir
+
+markdown
+dir
+
+meta.js
+file
+
+
+
+
+2017-04-09T08:43:24.430000Z
+4598947ca5c90090a842e9c1a950ad5c
+2016-11-21T10:31:14.428939Z
+1785
+songlei
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9265
+
+mirc
+dir
+
+mllike
+dir
+
+modelica
+dir
+
+nginx
+dir
+
+ntriples
+dir
+
+octave
+dir
+
+pascal
+dir
+
+pegjs
+dir
+
+perl
+dir
+
+php
+dir
+
+pig
+dir
+
+properties
+dir
+
+puppet
+dir
+
+python
+dir
+
+q
+dir
+
+r
+dir
+
+rpm
+dir
+
+rst
+dir
+
+ruby
+dir
+
+rust
+dir
+
+sass
+dir
+
+scheme
+dir
+
+shell
+dir
+
+sieve
+dir
+
+slim
+dir
+
+smalltalk
+dir
+
+smarty
+dir
+
+smartymixed
+dir
+
+solr
+dir
+
+sparql
+dir
+
+sql
+dir
+
+stex
+dir
+
+tcl
+dir
+
+textile
+dir
+
+tiddlywiki
+dir
+
+tiki
+dir
+
+toml
+dir
+
+tornado
+dir
+
+turtle
+dir
+
+vb
+dir
+
+vbscript
+dir
+
+velocity
+dir
+
+verilog
+dir
+
+xml
+dir
+
+xquery
+dir
+
+yaml
+dir
+
+z80
+dir
+

@@ -1,0 +1,39 @@
+<%
+	if(schedule.gameFormat==1||schedule.gameFormat==3){
+%>
+	<%
+		schedule.groupScheduleList.forEach(function(groupSchedule){
+		var i=0;
+	%>
+		<div class="scheduleResult">
+			<table>
+				<%
+					groupSchedule.forEach(function(schedules){
+					var j=0;
+				%>
+					<tr>
+						<%
+							schedules.forEach(function(schedule){
+						%>
+							<%if(schedule=='null'){%>
+								<td><%=0%></td>
+							<%}else if(i==j&&i!=0&&j!=0){%>
+								<td class='line'><%=schedule%></td>
+							<%}else{%>
+								<td><%=schedule%></td>
+							<%}%>
+						<%
+							j++;})
+						%>
+					</tr>
+				<%
+					i++;})
+				%>
+			</table>
+		</div>
+	<%
+		})
+	%>
+<%
+	}
+%>

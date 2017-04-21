@@ -1,0 +1,37 @@
+10
+
+dir
+2707
+svn://60.219.169.5/tkd-service/tkd-crm/src/main/resources/template
+svn://60.219.169.5
+
+
+
+2016-12-28T02:08:34.810492Z
+2175
+zzq
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e17fb043-18cf-44bc-ac00-38d8c88cbd66
+
+cardPay
+dir
+
+message_dlg
+dir
+
+order
+dir
+

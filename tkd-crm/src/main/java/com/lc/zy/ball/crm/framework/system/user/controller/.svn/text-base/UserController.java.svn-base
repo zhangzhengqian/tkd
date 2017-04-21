@@ -1,0 +1,144 @@
+package com.lc.zy.ball.crm.framework.system.user.controller;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.lc.zy.ball.crm.common.Constants;
+import com.lc.zy.ball.crm.common.SessionUtil;
+import com.lc.zy.ball.crm.common.web.AbstractController;
+import com.lc.zy.ball.crm.framework.system.user.service.UserService;
+import com.lc.zy.ball.domain.oa.po.SsoUser;
+import com.lc.zy.common.util.MyGson;
+import com.lc.zy.common.zoo.SEQGenerate;
+
+@Controller
+@RequestMapping(value = "/user")
+public class UserController extends AbstractController{
+	
+	@Autowired
+	private UserService userService;
+	
+	@Autowired
+	private SEQGenerate seqGenerate;
+
+	private static Logger logger = LoggerFactory.getLogger(UserController.class);
+
+	@RequestMapping(value={"", "/"})
+	public String index(Model model, HttpServletRequest request) throws Exception {
+		return "";
+	}
+	
+	/**
+	 * 
+	 * <判断该用户是否注册过><功能具体实现>
+	 *
+	 * @create：2017年4月13日 上午11:13:56
+	 * @author：zzq
+	 * @param telPhone
+	 * @return
+	 */
+	@RequestMapping(value="/isRegister")
+	@ResponseBody
+	public String isRegisterUser(String telPhone){
+		Map<String,Object> result = new HashMap<String,Object>();
+		try {
+			SsoUser ssoUser = userService.getSsoUserByPhone(telPhone);
+			if(ssoUser==null){
+				result.put(Constants.Result.RESULT,Constants.FAIL);
+				result.put(Constants.Result.REASON, "该用户尚未注册，请先注册");
+				return MyGson.getInstance().toJson(result);
+			}else{
+				result.put(Constants.Result.RESULT, Constants.SUCCESS);
+				result.put(Constants.DATA, ssoUser);
+				return MyGson.getInstance().toJson(result);
+			}
+		} catch (Exception e) {
+			result.put(Constants.Result.RESULT, Constants.FAIL);
+			result.put(Constants.FAIL_REASON, e.getMessage());
+			return MyGson.getInstance().toJson(result);
+		}
+	}
+	
+	
+	 	/**
+	 	 * 
+	 	 * <学员添加><功能具体实现>
+	 	 *
+	 	 * @create：2017年4月20日 上午11:54:29
+	 	 * @author：zzq
+	 	 * @param myForm
+	 	 * @param model
+	 	 * @param request
+	 	 * @param response
+	 	 * @return
+	 	 */
+		@RequestMapping(value = "ssoUserForm")
+		public String ssoUserForm(SsoUser myForm, Model model,
+				HttpServletRequest request, HttpServletResponse response) {
+			try {
+				String id = myForm.getId();
+				
+				if(StringUtils.isNotEmpty(id)){
+					//update
+				}
+				SsoUser ssoUser = new SsoUser();
+				// 头像
+				String[] photos = myForm.getPhoto().split(",");
+				ssoUser.setPhoto(photos[0]);
+				//用户名
+				ssoUser.setUsername(myForm.getName());
+				// 昵称
+				ssoUser.setNickName(myForm.getNickName());
+				// 真实姓名
+				ssoUser.setName(myForm.getName());
+				// 性别
+				ssoUser.setSex(myForm.getSex());
+				// 所在地区
+				ssoUser.setCity(myForm.getCity());
+				// 家庭住址
+				ssoUser.setAddress(myForm.getAddress());
+				// 身份证号
+				ssoUser.setCardId(myForm.getCardId());
+				// 手机号
+				ssoUser.setPhone(myForm.getPhone());
+				// 电子邮箱
+				ssoUser.setEmail(myForm.getEmail());
+				// 激活状态
+				ssoUser.setActiveState(0);
+				// 球友号
+				ssoUser.setTkdNo(seqGenerate.genQiuyouNumber());
+				// 注册时间
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+				Date time = sdf.parse(sdf.format(new Date()));
+				ssoUser.setRegistTime(time);
+				
+				//绑定的道馆id
+				ssoUser.setStatiumId(Integer.valueOf(SessionUtil.currentStatium()));
+				
+				Date now = new Date();
+				ssoUser.setCreateTime(now);
+				ssoUser.setUpdateTime(now);
+				userService.ssoUserForm(ssoUser);
+			} catch (Exception e) {
+				e.printStackTrace();
+				logger.error("ssoUserForm error:" + e.getMessage());
+			}
+			return "redirect:/statiumManage/student";
+		}
+	
+}

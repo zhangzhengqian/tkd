@@ -1,0 +1,75 @@
+<p class="dingdanId">
+<span class="dingdanMessage">核对订单信息</span>
+  订单编号：{{orderId}} {{order.status|mallOrderFilter}}
+</p>
+
+<div class="orderNav">
+	<ul>
+		<li class="active"><a href="javascript:;">收货人信息</a></li>
+	</ul>
+</div>
+<div class="formTable formTablePerson">
+	<span>联系人：{{order.man}}<a href="javascript:;" ng-click="updateInfo(0)">修改</a></span>
+	<span>TEL：{{order.phone}} <a href="javascript:;" ng-click="updateInfo(1)">修改</a></span>
+	<span>联系地址：{{order.address}}</span>
+	
+</div>
+
+<div class="orderNav">
+	<ul>
+		<li class="active"><a href="javascript:;">支付方式</a></li>
+	</ul>
+</div>
+<div class="formTable formTableZhifu">
+	<input type="radio" name="payType" ng-model="payType" value='0'/> 支付宝
+</div>
+<div class="orderNav">
+	<ul>
+		<li class="active"><a href="javascript:;">货品信息</a></li>
+	</ul>
+</div>
+
+<div class="huopin">
+	<table class="hpTable">
+		<tr>
+			<th>商品详情</th>
+			<th>数量</th>
+			<th>总价</th>
+		</tr>
+		<tr ng-repeat="(id,cart) in order.carts">
+			<td class="hpTableTd hpTableTd1"><img display: inline-block; src="{{cart.photo}}bigPicture" style="width: 160px;height: 120px;font-size: 16px;" alt="通用的占位符缩略图"><p style="display: inline-block;font-size: 16px;"><span style="display:block;font-size: 16px;">{{cart.price|currency:'￥'}} {{cart.goodName}}</span><span style="display:block;font-size: 16px;"> {{cart.bulk}}*{{cart.amount}} 整{{cart.unit}}</span></p></td>
+			<td class="hpTableTd">{{cart.amounts}}{{cart.unit}}</td>
+			<td ng-if="$index==0" rowspan="{{order.goodNum}}">
+				共{{order.amounts}}件商品<br>
+				{{order.feeView|currency:'￥'}}
+			</td>
+		</tr>
+	</table>
+</div>
+<div ng-if="order.giveNum!=0" class="orderNav">
+	<ul>
+		<li class="active"><a href="javascript:;">赠品</a></li>
+	</ul>
+</div>
+<div ng-if="order.giveNum!=0" class="huopin">
+	<table class="hpTable">
+		<tr>
+			<th>商品名称</th>
+			<th>数量</th>
+			<th>总价</th>
+		</tr>
+		<tr ng-repeat="give in order.gives">
+			<td class="hpTableTd hpTableTd1" style="text-align: center">{{give.name}}</td>
+			<td class="hpTableTd">{{give.amount}}</td>
+			<td ng-if="$index==0" rowspan="{{order.giveNum}}">
+				￥0.00
+			</td>
+		</tr>
+	</table>
+</div>
+
+<div class="orderResult orderResultBox">
+	<p class="yfMoney">应付金额：{{order.feeView|currency:'￥'}}</p>	
+	
+	<input ng-if="order.status==0" type="button" value="确认订单" ng-click="pay()" class="qrddBtn">
+</div>

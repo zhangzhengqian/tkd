@@ -1,0 +1,56 @@
+Manifest-Version: 1.0
+Class-Path: commons-logging-1.1.1.jar ball-parent-war-1.0.0-SNAPSHOT.p
+ om ball-parent-jar-1.0.0-SNAPSHOT.pom pinyin4j-2.5.0.jar json-2014010
+ 7.jar spring-core-3.2.11.RELEASE.jar spring-beans-3.2.11.RELEASE.jar 
+ spring-context-3.2.11.RELEASE.jar spring-aop-3.2.11.RELEASE.jar aopal
+ liance-1.0.jar spring-expression-3.2.11.RELEASE.jar spring-tx-3.2.11.
+ RELEASE.jar spring-context-support-3.2.11.RELEASE.jar spring-jdbc-3.2
+ .11.RELEASE.jar slf4j-api-1.7.2.jar slf4j-log4j12-1.7.2.jar log4j-1.2
+ .16.jar commons-lang3-3.1.jar commons-io-2.4.jar commons-codec-1.8.ja
+ r commons-beanutils-1.8.3.jar guava-18.0.jar joda-time-2.1.jar joda-t
+ ime-jsptags-1.1.1.jar usertype.core-3.0.0.GA.jar hibernate-entitymana
+ ger-4.2.4.Final.jar jboss-logging-3.1.0.GA.jar dom4j-1.6.1.jar hibern
+ ate-core-4.2.4.Final.jar antlr-2.7.7.jar jboss-transaction-api_1.1_sp
+ ec-1.0.1.Final.jar hibernate-jpa-2.0-api-1.0.1.Final.jar hibernate-co
+ mmons-annotations-4.0.2.Final.jar javassist-3.15.0-GA.jar joda-money-
+ 0.6.jar usertype.spi-3.0.0.GA.jar jackson-datatype-joda-2.6.0-rc3.jar
+  jackson-annotations-2.6.0-rc3.jar jackson-core-2.6.0-rc3.jar jackson
+ -databind-2.1.2.jar jackson-module-jaxb-annotations-2.1.2.jar dozer-5
+ .3.2.jar commons-lang-2.5.jar httpclient-4.3.4.jar httpcore-4.3.2.jar
+  httpmime-4.3.4.jar freemarker-2.3.16.jar commons-fileupload-1.2.1.ja
+ r jackson-jaxrs-1.9.11.jar jackson-core-asl-1.9.11.jar jackson-mapper
+ -asl-1.9.11.jar bcprov-jdk15-1.43.jar json-path-0.8.1.jar json-smart-
+ 1.1.1.jar gson-2.2.4.jar jedis-2.2.0.jar commons-pool-1.6.jar spring-
+ webmvc-3.2.11.RELEASE.jar spring-web-3.2.11.RELEASE.jar jstl-1.2.jar 
+ shiro-core-1.2.3.jar shiro-spring-1.2.3.jar shiro-web-1.2.3.jar shiro
+ -ehcache-1.2.3.jar ehcache-core-2.6.2.jar kaptcha-2.3.2.jar solr-solr
+ j-4.9.0.jar zookeeper-3.4.6.jar wstx-asl-3.2.7.jar noggit-0.5.jar sol
+ r-core-1.4.1.jar lucene-analyzers-2.9.3.jar lucene-core-4.3.1.jar luc
+ ene-highlighter-2.9.3.jar lucene-memory-2.9.3.jar lucene-queries-2.9.
+ 3.jar lucene-snowball-2.9.3.jar lucene-misc-2.9.3.jar lucene-spellche
+ cker-2.9.3.jar commons-httpclient-3.1.jar solr-commons-csv-1.4.1.jar 
+ wstx-asl-3.2.7.jar geronimo-stax-api_1.0_spec-1.0.1.jar poi-3.9.jar p
+ oi-scratchpad-3.9.jar poi-ooxml-3.9.jar poi-ooxml-schemas-3.9.jar xml
+ beans-2.3.0.jar stax-api-1.0.1.jar xml-apis-1.4.01.jar springside-cor
+ e-4.0.1.GA.jar springside-extension-4.0.1.GA.jar commons-collections-
+ 3.2.1.jar ezmorph-1.0.6.jar jdom-1.1.jar json-lib-2.4-jdk15.jar sprin
+ g-data-redis-1.0.0.RELEASE.jar solr-core-4.3.1.jar lucene-codecs-4.3.
+ 1.jar lucene-analyzers-common-4.3.1.jar lucene-analyzers-kuromoji-4.3
+ .1.jar lucene-analyzers-phonetic-4.3.1.jar lucene-queryparser-4.3.1.j
+ ar lucene-spatial-4.3.1.jar spatial4j-0.3.jar lucene-suggest-4.3.1.ja
+ r lucene-grouping-4.3.1.jar commons-cli-1.2.jar org.restlet-2.1.1.jar
+  org.restlet.ext.servlet-2.1.1.jar ueditor-1.1.1.jar aspectjrt-1.7.1.
+ jar aspectjweaver-1.7.1.jar cglib-2.2.2.jar asm-3.3.1.jar sitemesh-2.
+ 4.2.jar ball-domain.jar mybatis-3.1.1.jar mybatis-spring-1.1.1.jar my
+ batis-ehcache-1.0.3.jar c3p0-0.9.1.jar mysql-connector-java-5.1.21.ja
+ r ball-commons-1.0.0-SNAPSHOT.jar cxf-rt-frontend-jaxws-2.6.3.jar xml
+ -resolver-1.2.jar cxf-api-2.6.3.jar woodstox-core-asl-4.1.4.jar stax2
+ -api-3.1.1.jar xmlschema-core-2.0.3.jar geronimo-javamail_1.4_spec-1.
+ 7.1.jar wsdl4j-1.6.2.jar cxf-rt-core-2.6.3.jar jaxb-impl-2.2.5.jar cx
+ f-rt-bindings-soap-2.6.3.jar cxf-rt-databinding-jaxb-2.6.3.jar cxf-rt
+ -bindings-xml-2.6.3.jar cxf-rt-frontend-simple-2.6.3.jar cxf-rt-trans
+ ports-http-2.6.3.jar cxf-rt-ws-addr-2.6.3.jar cxf-rt-ws-policy-2.6.3.
+ jar neethi-3.0.2.jar cxf-rt-ws-security-2.6.3.jar wss4j-1.6.7.jar xml
+ sec-1.5.2.jar opensaml-2.5.1-1.jar openws-1.4.2-1.jar xmltooling-1.3.
+ 2-1.jar cxf-rt-frontend-jaxrs-2.6.3.jar jsr311-api-1.1.1.jar
+

@@ -1,0 +1,17 @@
+<div class="orderTipMeg">
+	<a class="addLockBtn" href="#game">返回</a>
+</div>
+<div class="orderResult">
+<table>
+	<tr>
+		<th>排名</th>
+		<th>报名人</th>
+		<th ng-if="searcher.doubleFlag==1">双打搭档</th>
+	</tr>
+	<tr ng-repeat="member in members">
+	<td>{{member.rank}}</td>
+	<td>{{member.name}}</td>
+	<td ng-if="searcher.doubleFlag==1">{{member.team.name}}</td>
+	</tr>
+</table>
+</div>

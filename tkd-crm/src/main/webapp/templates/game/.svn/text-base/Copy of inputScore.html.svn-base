@@ -1,0 +1,80 @@
+<div class="orderTipMeg">
+	<a class="addLockBtn" href="#game">返回</a>
+	<a class="addLockBtn" ng-if="!schedule.end&&schedule.gameFormat==1&&schedule.gameState==1" href="javascript:;" ng-click="beginOutGame()">进入淘汰赛</a>
+	<a class="addLockBtn" ng-if="(!schedule.end&&schedule.gameFormat==1&&schedule.gameState==2&&schedule.isScoreNotice==0)||(!schedule.end&&schedule.gameFormat==2&&schedule.isScoreNotice==0)" href="javascript:;" ng-click="subGamePoint()">提交比分</a>
+</div>
+<div ng-if="schedule.gameFormat==1||schedule.gameFormat==3" class="orderNav">
+	<ul>
+		<li class="active"><a>循环赛赛程</a></li>
+	</ul>
+</div>
+<!-- <div ng-if="schedule.gameFormat==1||schedule.gameFormat==3" class="gameSchedule" ng-repeat="(group,players) in schedule.groupsView">
+<table>
+	<tr>
+		<th colspan="5">{{group}}组</th>
+	<tr>
+	<tr>
+		<th>报名人</th>
+		<th>胜</th>
+		<th>平</th>
+		<th>负</th>
+		<th>积分</th>
+	<tr>
+	<tr ng-repeat="player in players">
+		<td>{{player.name}}<span ng-if="player.titel!=null&&player.titel!=''">({{player.titel}})</span></td>
+		<td>{{player.win==null?"&nbsp;":player.win}}</td>
+		<td>{{player.draw==null?"&nbsp;":player.draw}}</td>
+		<td>{{player.loss==null?"&nbsp;":player.loss}}</td>
+		<td>{{player.integ==null?"&nbsp;":player.integ}}</td>
+	</tr>
+</table>
+</div> -->
+<div id="groupSchedule">
+
+</div>
+<div class="clear"></div>
+<div ng-if="schedule.gameFormat==1||schedule.gameFormat==3" class="orderNav">
+	<ul>
+		<li class="active" id="searchSch1"><a ng-click="getScheduleBy(1)" href="javascript:;">按场地录比分</a></li>
+		<li id="searchSch2"><a ng-click="getScheduleBy(2)" href="javascript:;">按分组录比分</a></li>
+	</ul>
+</div>
+<div ng-if="schedule.begin&&!schedule.end&&schedule.gameState!=2&&(schedule.gameFormat==1||schedule.gameFormat==3)" class="orderTipMeg">
+	<a class="addLockBtn" ng-click="batchSaveScore()" href="javascript:;">批量录入</a>
+</div>
+<div ng-class="{true: 'gameScheduleClear', false: ''}[$index!=1&&$index%2==0]" ng-if="schedule.gameFormat==1||schedule.gameFormat==3" class="gameSchedule" ng-repeat="(field,games) in schedule.fields">
+<table>
+	<tr>
+		<th ng-if="searchType==1" colspan="8">{{field}}号场地</th>
+		<th ng-if="searchType==2" colspan="8">{{field}}组</th>
+	<tr>
+	<tr ng-repeat="gamePoint in games">
+		<td>{{gamePoint.groupId}}组{{gamePoint.turn}}轮</td>
+		<td>{{gamePoint.p1}} </td>
+		<td>
+			<input type="text" ng-if="schedule.begin&&!schedule.end&&schedule.gameState!=2" id="{{gamePoint.clasli1}}{{gamePoint.turn}}" class="gameScore" ng-blur="checkScore(field,$index)" onkeyup="this.value=this.value.replace(/\D/g,'')" ng-model="gamePoint.score1" placeholder="比分">
+			<input type="text" ng-if="!(schedule.begin)||(schedule.end)||(!schedule.gameState!=2)" readonly id="{{gamePoint.clasli1}}{{gamePoint.turn}}" class="gameScore"   ng-model="gamePoint.score1" placeholder="比分">
+		</td>
+		<td>VS</td>
+		<td>
+			<input type="text" ng-if="schedule.begin&&!schedule.end&&schedule.gameState!=2" id="{{gamePoint.clasli2}}{{gamePoint.turn}}" class="gameScore" ng-blur="saveScore(field,$index)" onkeyup="this.value=this.value.replace(/\D/g,'')" ng-model="gamePoint.score2" placeholder="比分">
+			<input type="text" ng-if="!(schedule.begin)||(schedule.end)||(!schedule.gameState!=2)" readonly id="{{gamePoint.clasli2}}{{gamePoint.turn}}" class="gameScore"   ng-model="gamePoint.score2" placeholder="比分">
+		</td>
+		<td> {{gamePoint.p2}}<a style="margin-left:5px;color:red" ng-if="gamePoint.smallscore">({{gamePoint.smallscore}})</a></td>
+		<td> 
+			<a ng-if="schedule.begin&&!schedule.end&&schedule.gameState!=2" ng-click="saveScore(field,$index)" href="javascript:;">录入</a>
+		</td>
+	</tr>
+</table>
+</div>
+<div ng-if="schedule.gameFormat==2||(schedule.gameFormat==1&&schedule.gameState==2)" class="gameScheduleClear orderNav">
+	<ul>
+		<li class="active"><a>淘汰赛比分录入（点击？编辑比分）</a></li>
+	</ul>
+</div>
+<canvas id="gameTreeCanvas"></canvas>
+<div id="wrapper">
+	<div id="gameTree">
+	
+	</div>
+</div>

@@ -1,0 +1,14 @@
+@media (max-device-width: 780px){#golist{display: block !important;}}
+.img_close{
+    position: relative;
+    top: -110px;
+    right: -115px;
+    cursor: pointer;
+    font-size: 25px;
+    background-color: #FF6F00;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    line-height: 20px;
+}
+

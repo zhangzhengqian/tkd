@@ -1,0 +1,52 @@
+<div class="orderTipMeg">
+	<a class="addLockBtn" href="#game">返回</a>
+	<a ng-if="searcher.numable&&!searcher.end&&searcher.deleteFlag==0&&searcher.gameState!=null&&searcher.gameState==0&&searcher.isExpiry" class="addLockBtn" ng-click="setGameSchedule()" href="javascript:;">设置赛程</a>
+	<a ng-if="searcher.numable&&!searcher.end&&searcher.deleteFlag==0&&searcher.gameState!=null&&searcher.gameState==0&&searcher.isExpiry" class="addLockBtn" href="#orderSeeds/{{searcher.gameId}}">种子排位</a>
+	<p ng-if="!searcher.numable&&searcher.deleteFlag==0&&searcher.gameState!=null&&searcher.gameState==0&&searcher.isExpiry" class="numable-tip">有项目不足8人不能开赛</p>
+	<p>
+	通过：<span class="text-danger">{{searcher.memberStatic["subed"]}}</span>
+	拒绝：<span class="text-danger">{{searcher.memberStatic["rejected"]}}</span>
+	种子：<span class="text-danger">{{searcher.memberStatic["seed"]}}</span>
+	非种子：<span class="text-danger">{{searcher.memberStatic["unseed"]}}</span>
+	</p>
+</div>
+<div class="orderResult">
+<table>
+	<tr>
+		<th>报名人</th>
+		<th>报名时间</th>
+		<th>报名人性别</th>
+		<th>报名人身份证</th>
+		<th>报名人联系电话</th>
+		<th ng-if="searcher.doubleFlag==1">双打搭档</th>
+		<th ng-if="searcher.doubleFlag==1">搭档性别</th>
+		<th ng-if="searcher.doubleFlag==1">搭档身份证</th>
+		<th ng-if="searcher.doubleFlag==1">搭档联系电话</th>
+		<th>审核状态</th>
+		<th>是否为种子选手</th>
+		<th>种子排位</th>
+		<th ng-if="searcher.numable&&!searcher.end&&searcher.deleteFlag==0&&searcher.gameState!=null&&searcher.gameState==0">操作</th>
+	</tr>
+	<tr ng-repeat="member in objs">
+	<td>{{member.name}}</td>
+	<td>{{member.ctStr}}</td>
+	<td>{{member.sex}}</td>
+	<td>{{member.cardNo}}</td>
+	<td>{{member.phone}}</td>
+	<td ng-if="searcher.doubleFlag==1">{{member.team.name}}</td>
+	<td ng-if="searcher.doubleFlag==1">{{member.team.sex}}</td>
+	<td ng-if="searcher.doubleFlag==1">{{member.team.cardNo}}</td>
+	<td ng-if="searcher.doubleFlag==1">{{member.team.phone}}</td>
+	<td>{{member.state|memberStateFilter}}</td>
+	<td>{{member.isSeed|seedFilter}}</td>
+	<td>{{member.seedNum|seedNumFilter}}</td>
+	<td ng-if="searcher.numable&&!searcher.end&&searcher.deleteFlag==0&&searcher.gameState!=null&&searcher.gameState==0">
+		<a ng-if="member.state==1" ng-click="auditMember($index)" href="javascript:;" class="text-navy">拒绝</a>
+		<small ng-if="member.state==1&&searcher.gameState!=null&&searcher.gameState==0&&searcher.isExpiry" class="text-muted p-xxs">|</small>
+		<a ng-if="searcher.gameState!=null&&searcher.gameState==0&&searcher.isExpiry&&member.state==1&&(member.isSeed==null||member.isSeed==0)" ng-click="setSeed($index,1)" href="javascript:;" class="text-navy">设为种子选手</a>
+		<a ng-if="searcher.gameState!=null&&searcher.gameState==0&&searcher.isExpiry&&member.state==1&&member.isSeed==1" ng-click="setSeed($index,0)" href="javascript:;" class="text-navy">取消种子选手</a>
+	</td>
+	</tr>
+</table>
+</div>
+<crm-pagination conf="paginationConf"></crm-pagination>

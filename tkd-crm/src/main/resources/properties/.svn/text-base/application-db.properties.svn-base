@@ -1,0 +1,6 @@
+#data base
+jdbc.driver=${jdbc.driver}
+
+oa.jdbc.url=${jdbc.url}
+oa.jdbc.username=${jdbc.username}
+oa.jdbc.password=${jdbc.password}

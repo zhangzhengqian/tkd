@@ -1,0 +1,133 @@
+<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ include file="/WEB-INF/jspf/common.jsp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>课程列表</title>
+</head>
+<body>
+<!-- 导航 -->
+<%@include file="statiumNav.jsp"%>
+
+<form  id="coachForm" class="form-horizontal" action="${ctx }/statiumManage/coach" method="post" name="id">
+	<div class="orderSearch myVipOrderSearch">
+		<ul>
+			<li class="timeLi subSearchLi1">
+				<span>教练类型：</span>
+				<select id="search_EQ_type" name="search_EQ_type">
+					<option value="">请选择</option>
+					<option value="0">大课</option>
+					<option value="1">私教</option>
+				</select>
+			</li>
+			<li class="subSearch subSearchLi1">
+				<a class="submit" href="javascript:coachSubmit()" >查询</a>
+			</li>
+
+			<li class="subSearch subSearchLi">
+			</li>
+			<li class="subSearch subSearchLi">
+				<a class="submit" href="${ctx }/statiumManage/initCoachForm">添加教练 </a>
+			</li>
+
+		</ul>
+	</div>
+</form>
+
+<div class="orderResult">
+	<table>
+		<tr>
+			<th>No.</th>
+			<th>姓名</th>
+			<th>性别</th>
+			<th>类型</th>
+			<th>级段位</th>
+			<th>教龄</th>
+			<th>操作</th>
+		</tr>
+		<c:forEach items="${data.content }" var="coach" varStatus="stat">
+			<tr>
+				<td>${stat.count }</td>
+				<td>${coach.name }</td>
+				<td>${coach.sex }</td>
+				<td>
+					<c:choose>
+						<c:when test="${coach.type == 0 }">大课</c:when>
+						<c:when test="${coach.type == 1 }">私教</c:when>
+					</c:choose>
+				</td>
+				<td>${coach.danlevel }</td>
+				<td>${coach.teachyear }</td>
+				<td>
+					<a class="btn btn-default btn-sm" href="${ctx }/statiumManage/detailForm/${coach.id }"><i class="glyphicon glyphicon-edit"></i> 修改</a>
+					<a class="btn btn-default btn-sm" href="javascirpt:void(0);" onclick="deleteCoach('${coach.id }')"><i class="glyphicon glyphicon-edit"></i> 删除</a>
+				</td>
+			</tr>
+		</c:forEach>
+	</table>
+</div>
+<!-- 分页 -->
+<tags:pagination page="${data}" />
+<tags:errors />
+
+<script type="text/javascript">
+	$(function() {
+		// 样式
+		$('#statium-man').addClass("active");
+		$('#COACH').addClass("active");
+
+		// select状态
+		// 教练类型
+		var coachType = '${param.search_EQ_type }';
+		if(coachType){
+			$("#search_EQ_type option[value="+coachType+"]").attr("selected","selected");
+		}
+	});
+
+	// 查询
+	function coachSubmit() {
+		$('#coachForm').submit();
+	}
+
+	// 删除教练
+	function deleteCoach(v) {
+		swal({
+			title: "",
+			text: "您确定删除此教练",
+			type: "warning",
+			showCancelButton: "true",
+			showConfirmButton: "true",
+			confirmButtonText: "确定",
+			cancelButtonText: "取消",
+			animation: "slide-from-top"
+		}, function () {
+			$('#loading').show();
+			$.ajax({
+				url : "${ctx }/statiumManage/deleteCoach/" + v,
+				method : "POST",
+				dataType: 'json',
+				success: function(data){
+					$('#loading').hide();
+					if(data.result=='success'){
+						location.href = "${ctx }/statiumManage/coach";
+					} else {
+						swal({
+							title: "警告",
+							text: data.data
+						})
+					}
+				},
+				error:function(data){
+					swal({
+						title: "警告",
+						text: data.data
+					})
+				}
+			});
+		})
+	}
+
+</script>
+
+</body>
+</html>

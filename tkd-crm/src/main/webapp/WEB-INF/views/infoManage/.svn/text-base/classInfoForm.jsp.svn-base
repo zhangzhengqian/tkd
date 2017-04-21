@@ -1,0 +1,124 @@
+<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ include file="/WEB-INF/jspf/common.jsp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>课时列表</title>
+</head>
+<body>
+
+<!-- 导航 -->
+<%@include file="infoNav.jsp"%>
+
+<form  id="classInfoForm" class="form-horizontal" action="${ctx }/infoManage/savaClassInfo" method="post" name="id">
+    <div class="modulHead">
+        <p>课程管理 》课时管理 》 添加课时</p>
+    </div>
+    <div class="formTable">
+        <input type="hidden" id="coachId" name="coachId" value="${statiumClassInfo.coachId }" />
+        <input type="hidden" id="id" name="id" value="${statiumClassInfo.id }" />
+        <input type="hidden" name="classId" value="${classId }" />
+        <ul>
+            <li>
+                <span class="title">上课日期：</span>
+                <input type="text" class="form-control Wdate " id="cDate" name="cDate" value="${statiumClassInfo.cDate }"
+                       onfocus="WdatePicker({readOnly:true,doubleCalendar:true})">
+            </li>
+            
+            <li <c:if test="${statiumClassInfo.isWeek == 1 || statiumClassInfo.isWeek == 0}">style="display:none"</c:if>>
+        	 		<span class="title">是否按周添加: </span>
+        	 		<div class="btn-group"  data-toggle="buttons">
+                    <label class="btn btn-default" >
+                        <input type="radio" value="1"  autocomplete="off" name="isWeek">
+                        		是
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" value="0" autocomplete="off"  name="isWeek">
+                        		否	
+                    </label>
+                    </div><br> 
+					<span name="picSpan" style="color:red;line-height:30px;">温馨提示：如当前时段课程一段时期内每周都有，请选择“是"。那么从当前日期开始之后的一个月内，每周的这个时间这个课时将会自动被添加；如该时段课程若只添加这一次，请选择“否”。 </span>
+            </li>
+            <li>
+                <span class="title">上课教练：</span>
+                <span id="captainName"></span> <input readonly type="text" class="form-control" id="coachName" name="coachName"
+                                                      value="${statiumClassInfo.coachName }" placeholder="请选择上课教练" style="width: 200px" />
+                <a id="sel_captain" class="btn btn-default btn-primary">选择</a>
+            </li>
+            <li>
+                <span class="title">上课时间：</span>
+                <input type="text" id="classStartTime" name="classStartTime" value="${statiumClassInfo.classStartTime }"
+                       onClick="WdatePicker({readOnly:true,dateFmt:'HH:mm',maxDate:'#F{$dp.$D(\'classEndTime\')}'})">
+            </li>
+            <li>
+                <span class="title">下课时间：</span>
+                <input type="text" id="classEndTime" name="classEndTime" value="${statiumClassInfo.classEndTime }"
+                       onClick="WdatePicker({readOnly:true,dateFmt:'HH:mm',minDate:'#F{$dp.$D(\'classStartTime\')}'})">
+            </li>
+        </ul>
+        <div class="formSubDiv">
+            <a href="javascript:history.go(-1)" class="saveBtnBot">返回</a>
+            <a class="saveBtnBot" href="javascript:saveClassInfoForm()">保存</a>
+        </div>
+
+    </div>
+</form>
+
+<script type="text/javascript">
+    $(function() {
+        // 样式
+        $('#info-man').addClass("active");
+        $('#STATIUM_CLASS').addClass("active");
+    });
+
+    // 表单提交
+    function saveClassInfoForm() {
+    	// 判断教练名是否为空
+        if ($('#coachName').val() == undefined || $('#coachName').val() == ''){
+            swal({
+                title: "警告",
+                text: "教练不能为空！"
+            });
+            return;
+        }
+    	
+        if ($('#cDate').val() == undefined || $('#cDate').val() == ''){
+            swal({
+                title: "警告",
+                text: "上课日期不能为空！"
+            });
+            return;
+        }
+        if ($('#classEndTime').val() == undefined || $('#classEndTime').val() == ''){
+            swal({
+                title: "警告",
+                text: "下课时间不能为空！"
+            });
+            return;
+        }
+        if ($('#classStartTime').val() == undefined || $('#classStartTime').val() == ''){
+            swal({
+                title: "警告",
+                text: "上课时间不能为空！"
+            });
+            return;
+        }
+    	
+        $('#classInfoForm').submit();
+    }
+
+    // 选取教练
+    $('#sel_captain').on('click', function() {
+        $("#myDlgBody_lg").load("${ctx}/infoManage/coach_query_dlg", {
+        });
+        $("#myDlg_lg").modal();
+    })
+    function captainAddCallBack(userId, nickName) {
+        $("#coachId").val(userId);
+        $("#coachName").val(nickName);
+    }
+
+</script>
+
+</body>
+</html>

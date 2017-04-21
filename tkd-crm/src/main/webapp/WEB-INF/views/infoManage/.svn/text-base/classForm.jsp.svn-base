@@ -1,0 +1,186 @@
+<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ include file="/WEB-INF/jspf/common.jsp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>会员卡列表</title>
+</head>
+<body>
+
+<!-- 导航 -->
+<%@include file="infoNav.jsp"%>
+
+<form  id="classForm" class="form-horizontal" action="${ctx }/infoManage/savaClass" method="post" name="id">
+    <div class="modulHead">
+        <p>课程管理 》添加课程</p>
+    </div>
+    <div class="formTable">
+        <input type="hidden" id="id" name="id" value="${statiumClass.id }">
+        <ul>
+            <li>
+                <span class="title">课程名称： *</span>
+                <input type="text" id="classTitle" name="classTitle" value="${statiumClass.classTitle }" maxlength="10">
+            </li>
+            <li>
+                <span class="title">课程介绍：</span>
+                <textarea maxlength="1000" style="width: 400px" class="form-control" rows="4" id="classIntroduce" name="classIntroduce">${statiumClass.classIntroduce}
+                </textarea>
+            </li>
+            <li>
+                <span class="title">原价： *</span>
+                <input type="text" id="price" name="price" value="${statiumClass.price}" placeholder="请输入阿拉伯数字" maxlength="6">
+            </li>
+            <li>
+                <span class="title">签约价： *</span>
+                <input type="text" id="discountPrice" name="discountPrice" value="${statiumClass.discountPrice}" placeholder="请输入阿拉伯数字" maxlength="6">
+            </li>
+            <li>
+                <span class="title">执教类型：</span>
+                <div class="btn-group" id="teachDiv" data-toggle="buttons">
+                    <label class="btn btn-default<c:if test="${statiumClass.type == 0 || statiumClass.type == null}"> active</c:if>">
+                        <input type="radio" name="type" id="type" value="0"  autocomplete="off"
+                               <c:if test='${statiumClass.type == 0 || statiumClass.type == null}'>checked="checked"</c:if> >
+                        大课
+                    </label>
+                    <label class="btn btn-default<c:if test="${statiumClass.type == 1}"> active</c:if>">
+                        <input type="radio" name="type" id="type" value="1" autocomplete="off"
+                               <c:if test='${statiumClass.type == 1}'>checked="checked"</c:if> >
+                        私教
+                    </label>
+                </div>
+            </li>
+            <li>
+                
+                <div id="maxPeople" class="form-group form-group-sm">
+						<span class="title">大课人数： </span>
+						<div class="col-md-6 has-feedback ">
+							<input type="text" name="maxPeople" value="${statiumClass.maxPeople}" maxlength="10"/>
+						</div>
+				</div>
+            </li>
+            <li>
+            	<div id="teachArea" class="form-group form-group-sm">
+						<span class="title">  ： </span>
+						<div class="col-md-6 has-feedback ">
+							<input readonly type="text" class="form-control" value="一对一" />
+						</div>
+				</div>
+			</div>
+			</li>
+            
+            
+        </ul>
+        <div class="formSubDiv">
+            <a href="javascript:history.go(-1)" class="saveBtnBot">返回</a>
+            <a class="saveBtnBot" href="javascript:saveClassForm()">保存</a>
+        </div>
+
+    </div>
+</form>
+
+<script type="text/javascript">
+
+	
+	
+    $(function() {
+        // 样式
+        $('#info-man').addClass("active");
+        $('#STATIUM_CLASS').addClass("active");
+        var type = $("#type").val();
+        if(type==1){
+        	$("#maxPeople").hide();
+        	$("#teachArea").show();
+        }else if(type==0){
+        	$("#teachArea").hide();
+        	$("#maxPeople").show()
+        }
+    });
+
+    // 表单提交
+    function saveClassForm() {
+ 	   if ($('#classTitle').val() == undefined || $('#classTitle').val() == ''){
+           swal({
+               title: "警告",
+               text: "课程名称不能为空！"
+           });
+           return; 
+       }
+       if ($('#price').val() == undefined || $('#price').val() == ''){
+           swal({
+               title: "警告",
+               text: "原价不能为空！"
+           });
+           return; 
+       }
+       if ($('#discountPrice').val() == undefined || $('#discountPrice').val() == ''){
+           swal({
+               title: "警告",
+               text: "签约价不能为空！"
+           });
+           return; 
+       }
+ 	    
+		
+       
+    	 //人数数字校验
+  		 var reg = /^[0-9]\d*$/; 
+	     var obj = document.getElementById("price").value.trim();
+	     var dis = document.getElementById("discountPrice").value.trim();
+	     var maxPeople = $('input[name="maxPeople"]').val();
+ 	    if(!reg.test(obj)){
+ 	    	swal({
+                 title: "警告",
+                 text: "原价请输入阿拉伯数字！"
+             });
+             return; 
+ 	    }
+ 	    
+ 	   if(!reg.test(dis)){
+	    	swal({
+                title: "警告",
+                text: "签约价格请输入阿拉伯数字！"
+            });
+            return; 
+	    }
+ 	  if(!reg.test(maxPeople)){
+	    	swal({
+              title: "警告",
+              text: "最大人数请输入阿拉伯数字！"
+          });
+          return; 
+	    }
+    	
+        $('#classForm').submit();
+    }
+	console.log($("input[name=type]").val());
+    $("#teachDiv").on("click","label",function(){
+		 if($(this).find("input[name=type]").val() == 1){
+			$("#maxPeople").hide();
+			$("#teachArea").toggle();
+			$("input[name=maxPeople]").val(0);
+		} else {
+			$("#maxPeople").toggle();
+			$("#teachArea").hide();
+		} 
+		
+		/* var index = $(this).index();
+		if(index == 0){
+			console.log(index);
+			$("#maxPeople").toggle();
+			$("#teachArea").hide();
+			// $("#type").val('0');
+		}else{
+			console.log(index);
+			$("#maxPeople").hide();
+			$("#teachArea").toggle();
+			//$("#type").val('1');
+			$("#maxPeople").val('0');
+		} */
+	
+	});
+    
+    
+</script>
+
+</body>
+</html>

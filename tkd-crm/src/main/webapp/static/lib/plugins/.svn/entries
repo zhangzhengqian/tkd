@@ -1,0 +1,193 @@
+10
+
+dir
+2850
+svn://60.219.169.5/tkd-service/tkd-crm/src/main/webapp/static/lib/plugins
+svn://60.219.169.5
+
+
+
+2017-04-17T09:17:16.687978Z
+2850
+zzq
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e17fb043-18cf-44bc-ac00-38d8c88cbd66
+
+My97DatePicker
+dir
+
+blueimp
+dir
+
+bootstrap-validation
+dir
+
+chartJs
+dir
+
+chartist
+dir
+
+chosen
+dir
+
+clockpicker
+dir
+
+codemirror
+dir
+
+colorpicker
+dir
+
+cropper
+dir
+
+dataTables
+dir
+
+datapicker
+dir
+
+daterangepicker
+dir
+
+diff_match_patch
+dir
+
+dropzone
+dir
+
+easypiechart
+dir
+
+flot
+dir
+
+footable
+dir
+
+fullcalendar
+dir
+
+gritter
+dir
+
+iCheck
+dir
+
+idle-timer
+dir
+
+ionRangeSlider
+dir
+
+jasny
+dir
+
+jeditable
+dir
+
+jqGrid
+dir
+
+jquery-ui
+dir
+
+jquery-ztree
+dir
+
+jsKnob
+dir
+
+jsTree
+dir
+
+justified-gallery
+dir
+
+jvectormap
+dir
+
+metisMenu
+dir
+
+morris
+dir
+
+nestable
+dir
+
+nouslider
+dir
+
+pace
+dir
+
+peity
+dir
+
+preetyTextDiff
+dir
+
+rickshaw
+dir
+
+slimscroll
+dir
+
+sparkline
+dir
+
+staps
+dir
+
+summernote
+dir
+
+sweetalert
+dir
+
+swiper
+dir
+
+switchery
+dir
+
+tinycon
+dir
+
+toastr
+dir
+
+ueditor
+dir
+
+uploadify
+dir
+
+validate
+dir
+
+video
+dir
+
+webuploader
+dir
+
+wow
+dir
+

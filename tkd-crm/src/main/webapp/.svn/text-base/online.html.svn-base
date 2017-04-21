@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>球馆在线列表</title>
+<link href="static/css/bootstrap.min.css" rel="stylesheet">
+<link href="static/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+<link href="static/css/animate.css" rel="stylesheet">
+<link href="static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="wrapper wrapper-content animated fadeInRight">
+<div class="ibox float-e-margins">
+            <div class="ibox-title" >
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+            <div class="row">
+                    <div class="col-sm-7">
+                       <a class="btn btn-sm btn-primary pull-right" href="#" id="refresh">刷新</a>
+                    </div>
+                </div>
+<div class="row">
+	<div class="col-sm-7">
+		<div class="table-responsive" id="online-table">
+             
+         </div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+<textarea id="template" style="display:none">
+	        <table class="table table-bordered table-striped table-hover" >
+	            <thead>
+                 	<tr >
+                 	<th>序号</th>
+               		<th>在线场馆</th>
+               		<th>地区</th>
+               		<th>地址</th>
+               		<th>联系电话</th>
+               		<th>当日订单</th>
+               		<th>订单总数</th>
+               		<th>链接数</th>
+                 	</tr>
+                 </thead>
+					<tbody>
+						{#if $T.table.length==0}
+							<tr><td colspan="8" style="text-align: center;">没有在线场馆</td></tr>
+						{#/if}
+						{#foreach $T.table as record} 
+						<tr>
+							<td style="text-align: center;">{$T.record$index+1}</td>
+							<td style="text-align: center;">{$T.record.name}</td>
+							<td style="text-align: center;">{$T.record.area}</td>
+							<td style="text-align: center;">{$T.record.address}</td>
+							<td style="text-align: center;">{$T.record.phone}</td>
+							<td style="text-align: center;">{$T.record.todayCont}</td>
+							<td style="text-align: center;">{$T.record.totalCont}</td>
+							<td style="text-align: center;">{$T.record.conn}</td>
+						</tr>
+						{#/for}  
+					</tbody>
+	        </table>
+</textarea>
+	<!-- Mainly scripts -->
+	<!-- <script src="static/lib/jquery-2.1.1.js"></script> -->
+	<script src="static/lib/jquery.min.js"></script>
+	<script src="static/lib/bootstrap.min.js"></script>
+	<script src="static/lib/jquery-jtemplates.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			getOnlineData();
+			$("#refresh").click(function(){
+				getOnlineData();
+			})
+		})
+		
+		function getOnlineData(){
+			$.post('/admin/statium/onlineStatium',function(data){
+				if(data!=null){
+					if(data.result=='success'){
+						var tableDatas = {table:data.data};
+			        	$("#online-table").html();
+			        	
+		        		$("#online-table").setTemplateElement("template");
+		                // 给模板加载数据
+		                $("#online-table").processTemplate(tableDatas);					
+					}else{
+						
+					}
+	        	}
+			},"json")	
+		}
+	</script>
+</body>
+
+</html>
